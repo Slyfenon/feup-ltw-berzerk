@@ -1,7 +1,7 @@
 package com.ld04gr02.berzerk.view;
 
 public class Sprites {
-    public static final String[] STICKMAN_LEFT = {
+    public static final String[] STICKMAN_MOVING_LEFT = {
             "       #####",
             "       #####",
             "       #####",
@@ -19,9 +19,9 @@ public class Sprites {
             "  ###     ##########",
             "  ###            ###",
             "  ###",
-            "#####",
+            "#####"
     };
-    public static final String[] STICKMAN_RIGHT = {
+    public static final String[] STICKMAN_MOVING_RIGHT = {
             "       #####",
             "       #####",
             "       #####",
@@ -39,7 +39,48 @@ public class Sprites {
             "##########     ###",
             "###            ###",
             "               ###",
-            "               #####",
+            "               #####"
+    };
+
+    public static final String[] STICKMAN_RIGHT = {
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "  #",
+            "#############",
+            "#############",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#####",
+            "#######"
+    };
+    public static final String[] STICKMAN_LEFT = {
+            "       #####",
+            "       #####",
+            "       #####",
+            "       #####",
+            "         #",
+            "#############",
+            "#############",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "        #####",
+            "       #######"
     };
 }
 
