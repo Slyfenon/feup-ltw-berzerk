@@ -2,11 +2,15 @@ plugins {
     id 'java'
     id 'application'
     id 'info.solidsoft.pitest' version '1.6.0'
-    id "org.kordamp.gradle.errorprone" version "0.47.0"
+    //id "org.kordamp.gradle.errorprone' version '0.47.0'
 }
 
 group = 'org.l04gr02'
 version = '1.0'
+
+repositories {
+    mavenCentral()
+}
 
 pitest {
     junit5PluginVersion = '0.12'
