@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -59,4 +60,51 @@ public class LanternaGUI implements GUI {
     public void close() throws IOException {
         screen.close();
     }
+
+    enum KEYS {
+        ARROW_LEFT,
+        ARROW_RIGHT,
+        ARROW_UP,
+        ARROW_DOWN,
+        ENTER,
+        ESC,
+        SPACE,
+        NONE;
+    }
+
+    public KEYS getPressedKey() throws IOException {
+        KeyStroke key = screen.pollInput();
+
+        switch (key.getKeyType()){
+            case ArrowUp -> {
+                return KEYS.ARROW_UP;
+            }
+            case ArrowDown -> {
+                return KEYS.ARROW_DOWN;
+            }
+            case ArrowLeft -> {
+                return KEYS.ARROW_LEFT;
+            }
+            case ArrowRight -> {
+                return KEYS.ARROW_RIGHT;
+            }
+            case Enter -> {
+                return KEYS.ENTER;
+            }
+            case Escape -> {
+                return KEYS.ESC;
+            }
+            case Character ->{
+                return KEYS.SPACE;
+            }
+            default ->
+            {
+                return KEYS.NONE;
+            }
+        }
+
+
+    }
+
+
 }
