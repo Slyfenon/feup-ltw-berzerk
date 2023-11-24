@@ -9,7 +9,7 @@ public class WallTests extends Assertions {
     @Test
     public void WallTest() {
         Wall wall = new Wall(30, 40);
-        assertEquals(wall.getPosition(), new Position(10, 15));
+        assertEquals(wall.getPosition(), new Position(30, 40));
         assertEquals(wall.getPosition().getX(), 30);
         assertEquals(wall.getPosition().getY(), 40);
     }
