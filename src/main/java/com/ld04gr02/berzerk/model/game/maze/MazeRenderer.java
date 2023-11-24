@@ -62,7 +62,7 @@ public class MazeRenderer implements MazeBuilder {
         for (int y = 0; y < rows.size(); y++) {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'R'){
+                if (line.charAt(x) == '#'){
                     walls.add(new Wall(x,y));
                 }
         }
