@@ -16,4 +16,8 @@ public class StickMan extends Element {
     public void decreaseLives() {
         this.lives--;
     }
+
+    public int getLives() {
+        return lives;
+    }
 }
