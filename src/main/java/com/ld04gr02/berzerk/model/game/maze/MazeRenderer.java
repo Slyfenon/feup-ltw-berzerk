@@ -4,11 +4,11 @@ import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +19,8 @@ public class MazeRenderer implements MazeBuilder {
     @Override
     public Maze createMaze(String name) throws IOException {
         URL resource = MazeRenderer.class.getResource("mazes/"+ name + ".lvl");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(resource.getFile()));
+        Reader fr = Files.newBufferedReader(Paths.get(resource.getFile()), Charset.defaultCharset());
+        BufferedReader bufferedReader = new BufferedReader(fr);
         rows = renderRows(bufferedReader);
         Maze maze = new Maze(getWidth(), getHeight());
         maze.setStickMan(createStickMan());
