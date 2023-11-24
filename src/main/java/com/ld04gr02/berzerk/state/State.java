@@ -17,11 +17,13 @@ public abstract class State<T> {
         this.controller = getController();
     }
 
-    public T getModel() {
-        return model;
-    }
+    protected abstract T getModel();
 
     protected abstract Controller<T> getController();
+
+    public abstract State nextState();
+
+    public abstract void initState();
 
     public void update(Game game, GUI gui) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         //GUI.INPUT action = gui.getInput();
