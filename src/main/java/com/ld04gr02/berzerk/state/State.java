@@ -25,7 +25,12 @@ public abstract class State<T> {
         return model;
     }
     public abstract Viewer<T> getViewer();
+
     protected abstract Controller<T> getController();
+
+    public abstract State nextState();
+
+    public abstract void initState();
 
     public void update(Game game, GUI gui) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         GUI.KEY action = gui.getPressedKey();
