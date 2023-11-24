@@ -1,13 +1,23 @@
 package com.ld04gr02.berzerk.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.view.Sprites;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -16,8 +26,9 @@ public class LanternaGUI implements GUI {
         this.screen = screen;
     }
 
-    public LanternaGUI(int width, int height) throws IOException {
-        Terminal terminal = createTerminal(width, height);
+    public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
 
@@ -27,6 +38,10 @@ public class LanternaGUI implements GUI {
 
     public int getColumns() {
         return screen.getTerminalSize().getColumns();
+    }
+
+    public Screen getScreen() {
+        return screen;
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -39,11 +54,26 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-    private Terminal createTerminal(int width, int height) throws IOException {
+    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+        terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
+    }
+
+    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 1);
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        return fontConfig;
     }
 
     @Override
@@ -61,50 +91,51 @@ public class LanternaGUI implements GUI {
         screen.close();
     }
 
-    enum KEYS {
-        ARROW_LEFT,
-        ARROW_RIGHT,
-        ARROW_UP,
-        ARROW_DOWN,
-        ENTER,
-        ESC,
-        SPACE,
-        NONE;
-    }
-
-    public KEYS getPressedKey() throws IOException {
+    public KEY getPressedKey() throws IOException {
         KeyStroke key = screen.pollInput();
 
         switch (key.getKeyType()){
             case ArrowUp -> {
-                return KEYS.ARROW_UP;
+                return KEY.ARROW_UP;
             }
             case ArrowDown -> {
-                return KEYS.ARROW_DOWN;
+                return KEY.ARROW_DOWN;
             }
             case ArrowLeft -> {
-                return KEYS.ARROW_LEFT;
+                return KEY.ARROW_LEFT;
             }
             case ArrowRight -> {
-                return KEYS.ARROW_RIGHT;
+                return KEY.ARROW_RIGHT;
             }
             case Enter -> {
-                return KEYS.ENTER;
+                return KEY.ENTER;
             }
             case Escape -> {
-                return KEYS.ESC;
+                return KEY.ESC;
             }
             case Character ->{
-                return KEYS.SPACE;
+                return KEY.SPACE;
             }
             default ->
             {
-                return KEYS.NONE;
+                return KEY.NONE;
             }
         }
-
-
     }
 
+    public void drawStickMan(Position position) {
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
+        String[] sprite = Sprites.STICKMAN_MOVING_LEFT;
+
+        int y = 0;
+        for (String s : sprite){
+            for (int x = 0; x < s.length(); x++){
+                if (s.charAt(x) == '#')
+                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y * 2),  new TerminalSize(1, 2), ' ');
+            }
+            y++;
+        }
+    }
 
 }

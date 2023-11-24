@@ -1,5 +1,7 @@
 package com.ld04gr02.berzerk.gui;
 
+import com.ld04gr02.berzerk.model.Position;
+
 import java.io.IOException;
 
 public interface GUI {
@@ -9,4 +11,17 @@ public interface GUI {
 
     void close() throws IOException;
 
+    public void drawStickMan(Position position);
+    public KEY getPressedKey() throws IOException;
+
+    enum KEY {
+        ARROW_LEFT,
+        ARROW_RIGHT,
+        ARROW_UP,
+        ARROW_DOWN,
+        ENTER,
+        ESC,
+        SPACE,
+        NONE;
+    }
 }
