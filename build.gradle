@@ -5,6 +5,10 @@ plugins {
     id "org.kordamp.gradle.errorprone" version "0.50.0"
 }
 
+compileJava {
+    options.encoding = "UTF-8"
+}
+
 group = 'org.l04gr02'
 version = '1.0'
 

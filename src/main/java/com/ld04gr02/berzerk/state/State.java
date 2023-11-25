@@ -28,7 +28,7 @@ public abstract class State<T> {
 
     protected abstract Controller<T> getController();
 
-    public void update(Game game, GUI gui, long time) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    public void update(Game game, GUI gui, long time) throws IOException {
         GUI.KEY action = gui.getPressedKey();
         controller.update(game, action, time);
         viewer.display(gui);

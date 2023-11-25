@@ -5,10 +5,7 @@ import java.util.List;
 
 public class MainMenu implements Menu{
 
-
-
     public enum Options{
-
         PLAY("Play"),
         QUIT("Quit"),
         LEADERBOARD("Leaderboard"),
@@ -21,7 +18,6 @@ public class MainMenu implements Menu{
         String convertString(){
             return option;
         }
-
     };
 
 
