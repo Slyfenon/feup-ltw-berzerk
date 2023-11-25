@@ -11,6 +11,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.view.Sprites;
 
 import java.awt.*;
@@ -74,6 +75,14 @@ public class LanternaGUI implements GUI {
         Font loadedFont = font.deriveFont(Font.PLAIN, 1);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
+    }
+
+    private Terminal createMenuTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
+        TerminalSize terminalSize = new TerminalSize(width, height + 1);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+        terminalFactory.setForceAWTOverSwing(true);
+        Terminal terminal = terminalFactory.createTerminal();
+        return terminal;
     }
 
     @Override
@@ -159,4 +168,25 @@ public class LanternaGUI implements GUI {
         }
     }
 
+    public  void drawMainMenu(MainMenu model){
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.LOGO;
+
+        int y = 20;
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
+        for (String s : sprite){
+            graphics.putString(50, y, s);
+            y++;
+        }
+
+        y = 30;
+        for(int i = 0; i < model.getOptions().size(); i++){
+            graphics.setForegroundColor(TextColor.Factory.fromString("#00ffff"));
+            graphics.putString(80, y, model.getString(i));
+            y+=2;
+        }
+
+    }
 }
+
+

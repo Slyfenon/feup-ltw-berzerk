@@ -1,17 +1,31 @@
 package com.ld04gr02.berzerk.model.menu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainMenu implements Menu{
 
-    public enum Options{
-        PLAY,
-        QUIT,
-        LEADERBOARD,
-        INSTRUCTIONS;
-    }
 
-    private List<Options> options;
+
+    public enum Options{
+
+        PLAY("Play"),
+        QUIT("Quit"),
+        LEADERBOARD("Leaderboard"),
+        INSTRUCTIONS("Instructions");
+
+        private final String option;
+        Options(String option) {
+            this.option = option;
+        }
+        String convertString(){
+            return option;
+        }
+
+    };
+
+
+    private List<Options> options = new ArrayList<>();
     private int currentOption = 0;
 
     public MainMenu(){
@@ -33,7 +47,9 @@ public class MainMenu implements Menu{
             currentOption = options.size()-1;
         }
     }
-
+    public String getString(int i){
+        return options.get(i).convertString();
+    }
     @Override
     public Options getSelected() {
         return options.get(currentOption);

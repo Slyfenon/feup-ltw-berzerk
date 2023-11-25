@@ -1,7 +1,7 @@
 package com.ld04gr02.berzerk.gui;
 
-import com.googlecode.lanterna.screen.Screen;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.menu.MainMenu;
 
 import java.io.IOException;
 
@@ -15,6 +15,8 @@ public interface GUI {
     public void drawStickMan(Position position);
     public void drawWall(Position position);
     public void drawRobot(Position position);
+
+    public void drawMainMenu(MainMenu model);
     public KEY getPressedKey() throws IOException;
 
     enum KEY {
