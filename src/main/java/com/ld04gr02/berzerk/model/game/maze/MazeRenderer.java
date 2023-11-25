@@ -18,9 +18,9 @@ public class MazeRenderer implements MazeBuilder {
 
     @Override
     public Maze createMaze(String name) throws IOException {
-        URL resource = MazeRenderer.class.getResource("mazes/"+ name + ".lvl");
-        Reader fr = Files.newBufferedReader(Paths.get(resource.getFile()), Charset.defaultCharset());
-        BufferedReader bufferedReader = new BufferedReader(fr);
+        String rootPath = new File(System.getProperty("user.dir")).getPath();
+        String mapLocation = rootPath + "/src/main/resources/mazes/" + name;
+        BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(mapLocation), Charset.defaultCharset());
         rows = renderRows(bufferedReader);
         Maze maze = new Maze(getWidth(), getHeight());
         maze.setStickMan(createStickMan());
