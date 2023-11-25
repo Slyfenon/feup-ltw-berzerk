@@ -41,6 +41,7 @@ public class Game {
         }
     }
 
+
     private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         long startTime = System.currentTimeMillis();
         state.update(this, gui, startTime);
@@ -53,3 +54,4 @@ public class Game {
 
     }
 }
+
