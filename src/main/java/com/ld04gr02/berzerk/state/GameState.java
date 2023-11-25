@@ -1,6 +1,5 @@
 package com.ld04gr02.berzerk.state;
 
-import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.view.GameViewer;
@@ -30,5 +29,4 @@ public class GameState extends State<Maze> {
     public void initState() {
 
     }
-
 }

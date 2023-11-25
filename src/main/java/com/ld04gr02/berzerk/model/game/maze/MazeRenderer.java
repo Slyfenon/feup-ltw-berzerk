@@ -4,8 +4,9 @@ import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
 
-import java.io.*;
-import java.net.URL;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,7 +23,7 @@ public class MazeRenderer implements MazeBuilder {
         String mapLocation = rootPath + "/src/main/resources/mazes/" + name;
         BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(mapLocation), Charset.defaultCharset());
         rows = renderRows(bufferedReader);
-        Maze maze = new Maze(getWidth(), getHeight());
+        Maze maze = new Maze(getWidth()*15+15, getHeight()*30);
         maze.setStickMan(createStickMan());
         maze.setRobots(createRobots());
         maze.setWalls(createWalls());
@@ -41,7 +42,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'S')
-                    return new StickMan(x, y);
+                    return new StickMan(x*15, y*30);
         }
         return null;
     }
@@ -52,7 +53,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'R'){
-                    robots.add(new Robot(x,y));
+                    robots.add(new Robot(x*15,y*30));
                 }
         }
         return robots;
@@ -64,7 +65,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == '#'){
-                    walls.add(new Wall(x,y));
+                    walls.add(new Wall(x*15,y*30));
                 }
         }
         return walls;

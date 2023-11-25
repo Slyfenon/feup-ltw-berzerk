@@ -141,7 +141,7 @@ public class LanternaGUI implements GUI {
     public void drawWall(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
-        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(5, 5), ' ');
+        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(30, 30), ' ');
     }
 
     public void drawRobot(Position position) {

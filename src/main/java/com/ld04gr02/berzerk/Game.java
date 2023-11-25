@@ -1,27 +1,24 @@
 package com.ld04gr02.berzerk;
 
 import com.ld04gr02.berzerk.gui.LanternaGUI;
-import com.ld04gr02.berzerk.model.game.elements.StickMan;
-import com.ld04gr02.berzerk.model.game.elements.Wall;
-import com.ld04gr02.berzerk.model.game.elements.Robot;
-import com.ld04gr02.berzerk.model.game.maze.Maze;
+import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.state.GameState;
 import com.ld04gr02.berzerk.state.State;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Game {
     private final LanternaGUI gui;
     private State state;
     public Game() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(500,500);
-        this.state = new GameState(new Maze(20,20));
-        StickMan s = new StickMan(4,4);
+        MazeRenderer mazeRenderer = new MazeRenderer();
+        this.state = new GameState(mazeRenderer.createMaze("maze1.lvl"));
         GameState g = (GameState) state;
+        this.gui = new LanternaGUI(g.getModel().getWidth(),g.getModel().getHeight());
+
+        /*StickMan s = new StickMan(4,4);
         g.getModel().setStickMan(s);
         ArrayList<Wall> walls = new ArrayList<>(Arrays.asList(
                 new Wall(10, 15),
@@ -41,7 +38,7 @@ public class Game {
                 new Robot(100, 300),
                 new Robot(250, 300)
         ));
-        g.getModel().setRobots(robots);
+        g.getModel().setRobots(robots);*/
         g.getViewer().display(gui);
     }
 
