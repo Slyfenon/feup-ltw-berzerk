@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk;
 
+import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.gui.LanternaGUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
@@ -25,9 +26,18 @@ public class Game {
         this.state = state;
     }
 
+    public State getState() {
+        return state;
+    }
+
+    public LanternaGUI getGui() {
+        return gui;
+    }
+
     public Game() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(500,500);
+        this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
+        state.initScreen(gui);
     }
 
     public static void main(String[] args) throws IOException {
@@ -45,7 +55,7 @@ public class Game {
     }
 
 
-    private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
