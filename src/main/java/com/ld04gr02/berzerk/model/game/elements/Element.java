@@ -2,7 +2,7 @@ package com.ld04gr02.berzerk.model.game.elements;
 
 import com.ld04gr02.berzerk.model.Position;
 
-public class Element {
+public abstract class Element {
     private Position position;
     public Element(int x, int y) {
         this.position = new Position(x, y);

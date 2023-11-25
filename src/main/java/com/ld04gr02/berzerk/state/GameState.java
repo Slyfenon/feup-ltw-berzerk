@@ -1,7 +1,7 @@
 package com.ld04gr02.berzerk.state;
 
-import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.Controller;
+import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.view.GameViewer;
 import com.ld04gr02.berzerk.view.Viewer;
@@ -18,17 +18,6 @@ public class GameState extends State<Maze> {
 
     @Override
     protected Controller<Maze> getController() {
-        return null;
+        return new MazeController(getModel());
     }
-
-    @Override
-    public State nextState() {
-        return null;
-    }
-
-    @Override
-    public void initState() {
-
-    }
-
 }
