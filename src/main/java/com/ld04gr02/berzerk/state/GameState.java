@@ -21,4 +21,14 @@ public class GameState extends State<Maze> {
         return null;
     }
 
+    @Override
+    public State nextState() {
+        return null;
+    }
+
+    @Override
+    public void initState() {
+
+    }
+
 }

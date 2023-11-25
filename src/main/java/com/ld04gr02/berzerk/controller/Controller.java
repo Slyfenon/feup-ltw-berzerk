@@ -13,7 +13,5 @@ public abstract class Controller<T> {
     public T getModel() {
         return model;
     }
-    public abstract void update(Game game, GUI.KEY key, long time) throws IOException {
-
-    }
+    public abstract void update(Game game, GUI.KEY key, long time) throws IOException;
 }

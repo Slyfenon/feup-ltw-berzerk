@@ -32,9 +32,9 @@ public abstract class State<T> {
 
     public abstract void initState();
 
-    public void update(Game game, GUI gui) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    public void update(Game game, GUI gui, long time) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         GUI.KEY action = gui.getPressedKey();
-        //controller.step(game, action, time);
+        controller.update(game, action, time);
         viewer.display(gui);
     }
 }

@@ -3,8 +3,8 @@ package com.ld04gr02.berzerk.model;
 import java.util.Objects;
 
 public class Position {
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
 
     public Position(int x, int y) {
         this.x = x;
@@ -17,6 +17,30 @@ public class Position {
 
     public int getY() {
         return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Position getUP() {
+        return new Position(x, y - 1);
+    }
+
+    public Position getDown() {
+        return new Position(x, y + 1);
+    }
+
+    public Position getLeft() {
+        return new Position(x - 1, y);
+    }
+
+    public Position getRight() {
+        return new Position(x + 1, y);
     }
 
     @Override
