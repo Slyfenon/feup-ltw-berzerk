@@ -44,19 +44,11 @@ public class Game {
     private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         long startTime = System.currentTimeMillis();
         state.update(this, gui, startTime);
-        StickMan s = new StickMan(10,10);
-        GameState g = (GameState) state;
-        g.getModel().setStickMan(s);
 
-        int FPS = 120;
-        int frameTime = 1000 / FPS;
+
 
         while (true) {
-            startTime = System.currentTimeMillis();
-
             state.update(this, gui, startTime);
-
-
         }
 
     }

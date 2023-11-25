@@ -18,6 +18,7 @@ public abstract class State<T> {
         this.model = model;
         this.viewer = getViewer();
         this.controller = getController();
+
     }
 
     public T getModel() {
