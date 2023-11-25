@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.gui;
 
+import com.googlecode.lanterna.screen.Screen;
 import com.ld04gr02.berzerk.model.Position;
 
 import java.io.IOException;
