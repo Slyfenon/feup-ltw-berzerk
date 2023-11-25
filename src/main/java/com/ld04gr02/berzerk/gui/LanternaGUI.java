@@ -125,8 +125,29 @@ public class LanternaGUI implements GUI {
 
     public void drawStickMan(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
         String[] sprite = Sprites.STICKMAN_MOVING_LEFT;
+
+        int y = 0;
+        for (String s : sprite){
+            for (int x = 0; x < s.length(); x++){
+                if (s.charAt(x) == '#')
+                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y * 2),  new TerminalSize(1, 2), ' ');
+            }
+            y++;
+        }
+    }
+
+    public void drawWall(Position position) {
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
+        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(5, 5), ' ');
+    }
+
+    public void drawRobot(Position position) {
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
+        String[] sprite = Sprites.ROBOT;
 
         int y = 0;
         for (String s : sprite){
