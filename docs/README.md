@@ -5,28 +5,44 @@
 
 Projeto realizado por *Gonçalo Nunes* (*john.doe*@fe.up.pt), *Nuno Machado* (*jane.doe*@fe.up.pt) e *Vítor Pires* no âmbito da unidade curricular LDTS 2023⁄24.
 
-### FUNCIONALIDADES IMPLEMENTADAS
+### FUNCIONALIDADES
 
-
-
-### PLANNED FEATURES
+- **Gráficos e interface**: implementação gráfica dos diversos elementos do jogo (nomeadamente, representações visuais para o labirinto, personagens, tiros, pontuações e outros elementos); a Imagem do StickMan e dos Robôs reage ao próprio movimento;
+- **Main menu**: permite iniciar o jogo, consultar uma tabela de classificação com as melhores pontuações, consultar as instruções do jogo ou sair da aplicação;
+- **Labirinto**: leitura de mapas através de ficheiros de texto; progressão de níveis, com nível de dificuldade crescente
+- Jogador controla um stickman que deve sobreviver, eliminando inimigos e evitando ser atingido por eles, pelos disparos destes, ou pelos obstáculos presentes no cenário.
+- **Movimento do StickMan**: através de inputs do jogador;
+- **Inimigos**: os robôs perseguem o StickMan (alguns disparam na direção do jogador); EvilSmile: inimigo indestrutível que persegue o jogador se este demorar muito num nível, aumentando a dificuldade e incentivando a movimentação constante.
+- **Disparos e colisões**: desenvolvimento da mecânica de disparos e colisões do personagem principal e dos inimigos. Ser atingido por tiros ou colidir com inimigos resulta na perda de uma vida.
+- **Pontuação e níveis**: sistema de pontuação recompensa o jogador por destruir inimigos ou alcançar objetivos específicos.
+- **Ecrã de Game Over**: o jogo continua até que o jogador perca todas as suas vidas. Quando isso acontece, a partida acaba, e o jogador tem a opção de inserir os seus dados para registar a pontuação alcançada.
+- Diferentes Power Ups do StickMan
+- **Efeitos sonoros**: acompanham as ações do jogo, como disparos, colisões, conquistas, entre outros.
 
 ### MOCKUPS
 
 MainMenu
+
 ![](images/MainMenu.png)
 
 PauseMenu
+
 ![](images/PauseMenu.png)
 
-LeaderNorad
+Leaderboard
+
 ![](images/LeaderBoard.png)
 
 GamePlay
+
 ![](images/gameplay.png)
 
 
 ### DESIGN
+
+#### UML
+
+![](images/uml.png)
 
 #### Architectural Pattern - MVC (Model-View-Controller)
 
@@ -50,47 +66,14 @@ Singleton garante que uma classe tenha apenas uma instância e fornece um ponto 
 - Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, o jogo tem funções muito diferentes se em vez de estar a correr o jogo em si, estiver no menu inicial ou nas instruções do jogo.
 - Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
 
-------
+#### Game Loop
 
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
-
-**Problem in Context**
-
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
-
-**The Pattern**
-
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
-
-**Implementation**
-
-The following figure shows how the pattern’s roles were mapped to the application classes.
-
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
-
-These classes can be found in the following files:
-
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
-
-**Consequences**
-
-The use of the State Pattern in the current design allows the following benefits:
-
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
-
-#### KNOWN CODE SMELLS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+- Problema: Como a maioria dos jogos, o nosso Berzerk é suposto ser um jogo fluido, isto é, é suposto o jogo estar sempre a correr sem bloquear à espera de algum tipo de input do jogador.
+- Pattern: Para o jogo correr desta forma decidimos usar o Game Loop Pattern, desta forma os inimigos e as balas atualizam as suas posições regularmente sem ser preciso o StickMan mexer-se.
 
 
 ### SELF-EVALUATION
 
-- Gonçalo Nunes 1/3 
-- Nuno Machado: 1/3
-- Vítor Pires: 1/3
+- Gonçalo Nunes 33,3%
+- Nuno Machado: 33,3%
+- Vítor Pires: 33,3%
