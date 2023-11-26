@@ -8,4 +8,6 @@ public interface Menu<T> {
 
     public MainMenu.Options getSelected();
 
+    public boolean isSelected();
+
 }
