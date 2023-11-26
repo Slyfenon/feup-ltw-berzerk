@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.gui;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -21,15 +22,23 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI {
-    private final Screen screen;
+    private Screen screen;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
     }
 
-    public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+    public LanternaGUI() {}
+
+    public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(1);
         Terminal terminal = createTerminal(width, height, fontConfig);
+        this.screen = createScreen(terminal);
+    }
+
+    public void createMenuScreen(int width, int height) throws IOException, URISyntaxException, FontFormatException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(22);
+        Terminal terminal = createTerminal(width, height, null);
         this.screen = createScreen(terminal);
     }
 
@@ -64,7 +73,7 @@ public class LanternaGUI implements GUI {
         return terminal;
     }
 
-    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+    private AWTTerminalFontConfiguration loadSquareFont(int size) throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
@@ -72,18 +81,11 @@ public class LanternaGUI implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 1);
+        Font loadedFont = font.deriveFont(Font.PLAIN, size);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
 
-    private Terminal createMenuTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
-        TerminalSize terminalSize = new TerminalSize(width, height + 1);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-        terminalFactory.setForceAWTOverSwing(true);
-        Terminal terminal = terminalFactory.createTerminal();
-        return terminal;
-    }
 
     @Override
     public void clear() {
@@ -175,19 +177,28 @@ public class LanternaGUI implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         String[] sprite = Sprites.LOGO;
 
-        int y = 20;
+        int y = 5;
         graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
         for (String s : sprite){
-            graphics.putString(50, y, s);
+            graphics.putString(10, y, s);
             y++;
         }
 
-        y = 30;
-        for(int i = 0; i < model.getOptions().size(); i++){
-            graphics.setForegroundColor(TextColor.Factory.fromString("#00ffff"));
-            graphics.putString(80, y, model.getString(i));
+
+        y = 15;
+        if(model.getOptions().get(0) == model.getSelected()){
+            graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+            graphics.putString(40, y, model.getSelected().toString(), SGR.BLINK);
+            graphics.putString(40, y+=2, model.getString(1));
             y+=2;
         }
+        if(model.getOptions().get(1) == model.getSelected()){
+            graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+            graphics.putString(40, y, model.getString(0));
+            graphics.putString(40, y+=2, model.getSelected().toString(), SGR.BLINK);
+            y+=2;
+        }
+
 
     }
 }

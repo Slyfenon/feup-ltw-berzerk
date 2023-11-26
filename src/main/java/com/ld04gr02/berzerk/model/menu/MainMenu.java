@@ -51,6 +51,11 @@ public class MainMenu implements Menu{
         return options.get(currentOption);
     }
 
+    @Override
+    public boolean isSelected() {
+        return false;
+    }
+
     public int getCurrentOption() {
         return currentOption;
     }
