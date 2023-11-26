@@ -180,12 +180,21 @@ public class LanternaGUI implements GUI {
             y++;
         }
 
+
         y = 15;
-        for(int i = 0; i < model.getOptions().size(); i++){
+        if(model.getOptions().get(0) == model.getSelected()){
             graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-            graphics.putString(40, y, model.getString(i));
+            graphics.putString(40, y, model.getSelected().toString(), SGR.BLINK);
+            graphics.putString(40, y+=2, model.getString(1));
             y+=2;
         }
+        if(model.getOptions().get(1) == model.getSelected()){
+            graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+            graphics.putString(40, y, model.getString(0));
+            graphics.putString(40, y+=2, model.getSelected().toString(), SGR.BLINK);
+            y+=2;
+        }
+
 
     }
 }
