@@ -3,7 +3,7 @@
 **Berzerk** é um jogo de ação e tiros. O objetivo do jogo passa por percorrer labirintos com paredes eletrificadas com vários inimigos robôs espalhados pelo mapa. O jogador tem a possibilidade de usar tiros para destruir os robôs e ganhar pontos enquanto se desvia dos inimigos e dos tiros que estes também disparam. O jogador também tem de se desviar das paredes eletrificadas para não perder pontos de vida. O jogo continua até que o jogador perca todas as vidas ou atinja a pontuação máxima. A dificuldade tende a aumentar à medida que o jogador avança de nível.
 
 
-Projeto realizado por *Gonçalo Nunes* (*john.doe*@fe.up.pt), *Nuno Machado* (*jane.doe*@fe.up.pt) e *Vítor Pires* no âmbito da unidade curricular LDTS 2023⁄24.
+Projeto realizado por *Gonçalo Nunes* (up202205538@up.pt), *Nuno Machado* (up202206186@up.pt) e *Vítor Pires* (up202207301@up.pt) no âmbito da unidade curricular LDTS 2023⁄24.
 
 ### FUNCIONALIDADES
 
