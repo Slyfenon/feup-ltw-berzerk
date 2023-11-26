@@ -1,11 +1,7 @@
 package com.ld04gr02.berzerk;
 
-import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.gui.LanternaGUI;
-import com.ld04gr02.berzerk.model.game.elements.StickMan;
-import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
-import com.ld04gr02.berzerk.state.GameState;
 import com.ld04gr02.berzerk.state.MainMenuState;
 import com.ld04gr02.berzerk.state.State;
 
@@ -16,6 +12,17 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Game {
+    private static Game game;
+
+    static {
+        try {
+            game = new Game();
+        } catch (IOException | URISyntaxException | FontFormatException e) {
+            System.err.println("Erro ao iniciar o jogo: " + e.getMessage());
+            throw new RuntimeException("Erro ao inicializar o jogo", e);
+        }
+    }
+
     private final LanternaGUI gui;
     private State state;
 
@@ -34,24 +41,19 @@ public class Game {
         return gui;
     }
 
-    public Game() throws IOException, URISyntaxException, FontFormatException {
+    private Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
         state.initScreen(gui);
     }
 
-    public static void main(String[] args) throws IOException {
-        try {
-            new Game().run();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        } catch (FontFormatException e) {
-            throw new RuntimeException(e);
-        }
+    public static Game getGame() {
+        return game;
+    }
+
+    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
+        Game game = Game.getGame();
+        game.run();
     }
 
 
