@@ -24,7 +24,11 @@ import java.net.URL;
 public class LanternaGUI implements GUI {
     private Screen screen;
 
-    
+    public LanternaGUI(Screen screen) {
+        this.screen = screen;
+    }
+
+    public LanternaGUI() {}
 
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont(1);
