@@ -6,7 +6,7 @@ public interface Menu<T> {
 
     public void selectPrev();
 
-    public MainMenu.Options getSelected();
+    public MenuOptions getSelected();
 
     public boolean isSelected();
 

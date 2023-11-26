@@ -1,39 +1,55 @@
 ## LDTS_l04gr02 - Berzerk
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
+**Berzerk** é um jogo de ação e tiros. O objetivo do jogo passa por percorrer labirintos com paredes eletrificadas com vários inimigos robôs espalhados pelo mapa. O jogador tem a possibilidade de usar tiros para destruir os robôs e ganhar pontos enquanto se desvia dos inimigos e dos tiros que estes também disparam. O jogador também tem de se desviar das paredes eletrificadas para não perder pontos de vida. O jogo continua até que o jogador perca todas as vidas ou atinja a pontuação máxima. A dificuldade tende a aumentar à medida que o jogador avança de nível.
 
-**Example**:
 
-In this exciting platform game you can help KangarooBoy save the world, by collecting all the coins throughout ten different levels in which you will […].
+Projeto realizado por *Gonçalo Nunes* (*john.doe*@fe.up.pt), *Nuno Machado* (*jane.doe*@fe.up.pt) e *Vítor Pires* no âmbito da unidade curricular LDTS 2023⁄24.
 
-This project was developed by *John Doe* (*john.doe*@fe.up.pt) and *Jane Doe* (*jane.doe*@fe.up.pt) for LPOO 2018⁄19.
+### FUNCIONALIDADES IMPLEMENTADAS
 
-### IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+### MOCKUPS
+
+MainMenu
+![](images/MainMenu.png)
+
+PauseMenu
+![](images/PauseMenu.png)
+
+LeaderNorad
+![](images/LeaderBoard.png)
+
+GamePlay
+![](images/gameplay.png)
+
 
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
+#### Architectural Pattern - MVC (Model-View-Controller)
 
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+![](images/mvc.png)
 
-**Example of one of such subsections**:
+Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilidades separadas e para que o desenvolvimento futuro de mais features se torne mais simplificado (maior facilidade na manutenção e reutilização de código, flexibilidade e extensibilidade, desenvolvimento paralelo e realização de testes).
 
+- Model: É responsável por guardar toda a informação importante do jogo (sendo independente da interface do usuário e da representação visual). Guarda a informação do Maze, dos Menus e dos diferentes elementos do jogo.
+- View: É responsável por mostrar toda a informação relevante que está guardada no Model, além disto também é responsável por receber os inputs do user e de os enviar para o Controller. A View é a única destas componentes que comunica com a GUI.
+- Controller: É responsável por alterar a informação guardada no Model consoante os inputs do utilizador e aquilo que estiver a acontecer no jogo.
 
-![](image/mvc.png)
+#### Singleton
+
+Singleton garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso para essa instância.
+
+- Problema: Sempre que o jogo inicia, é necessário criar uma instância da classe Game e não faz sentido que seja criada outra instância desta classe.
+- Pattern: Usamos o padrão de Singleton para limitar a criação de mais instâncias de Game; a única instância é criada assim que o jogo começa a correr.
+
+#### State
+
+- Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, o jogo tem funções muito diferentes se em vez de estar a correr o jogo em si, estiver no menu inicial ou nas instruções do jogo.
+- Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
+
 ------
 
 #### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
@@ -72,16 +88,9 @@ The use of the State Pattern in the current design allows the following benefits
 
 > This section should describe 3 to 5 different code smells that you have identified in your current implementation.
 
-### TESTING
-
-- Screenshot of coverage report.
-- Link to mutation testing report.
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Gonçalo Nunes 1/3 
+- Nuno Machado: 1/3
+- Vítor Pires: 1/3

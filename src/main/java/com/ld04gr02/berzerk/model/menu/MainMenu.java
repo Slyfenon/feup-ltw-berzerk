@@ -4,29 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainMenu implements Menu{
-
-    public enum Options{
-        PLAY("Play"),
-        QUIT("Quit"),
-        LEADERBOARD("Leaderboard"),
-        INSTRUCTIONS("Instructions");
-
-        private final String option;
-        Options(String option) {
-            this.option = option;
-        }
-        String convertString(){
-            return option;
-        }
-    };
-
-
-    private List<Options> options = new ArrayList<>();
+    private final List<MenuOptions> options = new ArrayList<>();
     private int currentOption = 0;
 
     public MainMenu(){
-        options.add(Options.PLAY);
-        options.add(Options.QUIT);
+        options.add(MenuOptions.PLAY);
+        options.add(MenuOptions.LEADERBOARD);
+        options.add(MenuOptions.INSTRUCTIONS);
+        options.add(MenuOptions.QUIT);
     }
     @Override
     public void selectNext() {
@@ -47,7 +32,7 @@ public class MainMenu implements Menu{
         return options.get(i).convertString();
     }
     @Override
-    public Options getSelected() {
+    public MenuOptions getSelected() {
         return options.get(currentOption);
     }
 
@@ -56,11 +41,9 @@ public class MainMenu implements Menu{
         return false;
     }
 
-    public int getCurrentOption() {
-        return currentOption;
-    }
+    // public int getCurrentOption() {return currentOption;}
 
-    public List<Options> getOptions() {
+    public List<MenuOptions> getOptions() {
         return options;
     }
 }

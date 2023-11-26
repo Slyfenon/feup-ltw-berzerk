@@ -28,8 +28,8 @@ public class MainMenuState extends State<MainMenu> {
     }
 
     @Override
-    public void initScreen(GUI gui) throws IOException, URISyntaxException, FontFormatException {
-        gui.createMenuScreen(100,60);
+    public void initScreen(GUI gui, int width, int height) throws IOException, URISyntaxException, FontFormatException {
+        gui.createMenuScreen(width,height);
     }
 
 }

@@ -36,5 +36,5 @@ public abstract class State<T> {
         viewer.display(gui);
     }
 
-    public abstract void initScreen(GUI gui) throws IOException, URISyntaxException, FontFormatException;
+    public abstract void initScreen(GUI gui, int width, int height) throws IOException, URISyntaxException, FontFormatException;
 }

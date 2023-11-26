@@ -29,6 +29,8 @@ public class Game {
     // public static final int GAME_SCREEN_WIDTH = 50;
     // public static final int GAME_SCREEN_HEIGHT = 50;
 
+    public static final int MENU_SCREEN_WIDTH = 70;
+    public static final int MENU_SCREEN_HEIGHT = 30;
     public void setState(State state) {
         this.state = state;
     }
@@ -44,7 +46,7 @@ public class Game {
     private Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
-        state.initScreen(gui);
+        state.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
     }
 
     public static Game getGame() {
@@ -58,8 +60,8 @@ public class Game {
 
 
     private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
-        int FPS = 60;
-        int frameTime = 1000 / FPS;
+        int FPS = 1;
+        int frameTime = 10;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();

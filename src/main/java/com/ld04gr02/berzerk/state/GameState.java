@@ -27,7 +27,7 @@ public class GameState extends State<Maze> {
     }
 
     @Override
-    public void initScreen(GUI gui) throws IOException, URISyntaxException, FontFormatException {
-        gui.createGameScreen(500,500);
+    public void initScreen(GUI gui, int width, int height) throws IOException, URISyntaxException, FontFormatException {
+        gui.createGameScreen(width,height);
     }
 }
