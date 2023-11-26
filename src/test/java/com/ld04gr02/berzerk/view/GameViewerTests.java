@@ -33,5 +33,7 @@ public class GameViewerTests extends Assertions {
         verify(guiMock, times(1)).drawStickMan(any());
         verify(guiMock, times(82)).drawWall(any());
         verify(guiMock, times(3)).drawRobot(any());
+        verify(guiMock).clear();
+        verify(guiMock).refresh();
     }
 }
