@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
+
 public class LanternaGUI implements GUI {
     private Screen screen;
 
@@ -173,33 +175,27 @@ public class LanternaGUI implements GUI {
         }
     }
 
-    public  void drawMainMenu(MainMenu model){
+    public void drawMainMenu(MainMenu model){
         TextGraphics graphics = screen.newTextGraphics();
         String[] sprite = Sprites.LOGO;
 
-        int y = 5;
         graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
+        int y = 5;
         for (String s : sprite){
-            graphics.putString(10, y, s);
+            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length() / 2, y, s);
             y++;
         }
 
-
         y = 15;
-        if(model.getOptions().get(0) == model.getSelected()){
-            graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-            graphics.putString(40, y, model.getSelected().toString(), SGR.BLINK);
-            graphics.putString(40, y+=2, model.getString(1));
-            y+=2;
+        for(int i = 0; i < model.getOptions().size() ; i++) {
+            if(model.getOptions().get(i) == model.getSelected()) {
+                graphics.putString(MENU_SCREEN_WIDTH / 2 - (model.getString(i).length() + 4) / 2 , y, "> " + model.getString(i) + " <", SGR.BLINK);
+            }
+            else {
+                graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
+            }
+            y += 2;
         }
-        if(model.getOptions().get(1) == model.getSelected()){
-            graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-            graphics.putString(40, y, model.getString(0));
-            graphics.putString(40, y+=2, model.getSelected().toString(), SGR.BLINK);
-            y+=2;
-        }
-
-
     }
 }
 

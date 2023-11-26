@@ -1,11 +1,7 @@
 package com.ld04gr02.berzerk;
 
-import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.gui.LanternaGUI;
-import com.ld04gr02.berzerk.model.game.elements.StickMan;
-import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
-import com.ld04gr02.berzerk.state.GameState;
 import com.ld04gr02.berzerk.state.MainMenuState;
 import com.ld04gr02.berzerk.state.State;
 
@@ -16,12 +12,25 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Game {
+    private static Game game;
+
+    static {
+        try {
+            game = new Game();
+        } catch (IOException | URISyntaxException | FontFormatException e) {
+            System.err.println("Erro ao iniciar o jogo: " + e.getMessage());
+            throw new RuntimeException("Erro ao inicializar o jogo", e);
+        }
+    }
+
     private final LanternaGUI gui;
     private State state;
 
     // public static final int GAME_SCREEN_WIDTH = 50;
     // public static final int GAME_SCREEN_HEIGHT = 50;
 
+    public static final int MENU_SCREEN_WIDTH = 70;
+    public static final int MENU_SCREEN_HEIGHT = 30;
     public void setState(State state) {
         this.state = state;
     }
@@ -34,30 +43,25 @@ public class Game {
         return gui;
     }
 
-    public Game() throws IOException, URISyntaxException, FontFormatException {
+    private Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
-        state.initScreen(gui);
+        state.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
     }
 
-    public static void main(String[] args) throws IOException {
-        try {
-            new Game().run();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        } catch (FontFormatException e) {
-            throw new RuntimeException(e);
-        }
+    public static Game getGame() {
+        return game;
+    }
+
+    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
+        Game game = Game.getGame();
+        game.run();
     }
 
 
     private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
-        int FPS = 60;
-        int frameTime = 1000 / FPS;
+        int FPS = 1;
+        int frameTime = 10;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
