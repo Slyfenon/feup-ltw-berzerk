@@ -32,8 +32,9 @@ public abstract class State<T> {
 
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.KEY action = gui.getPressedKey();
-        controller.update(game, action, time);
-        viewer.display(gui);
+        if(controller.update(game, action, time)) {
+            viewer.display(gui);
+        }
     }
 
     public abstract void initScreen(GUI gui, int width, int height) throws IOException, URISyntaxException, FontFormatException;

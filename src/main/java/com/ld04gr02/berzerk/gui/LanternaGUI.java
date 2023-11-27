@@ -32,12 +32,14 @@ public class LanternaGUI implements GUI {
 
     public LanternaGUI() {}
 
+    @Override
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont(1);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
 
+    @Override
     public void createMenuScreen(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont(22);
         Terminal terminal = createTerminal(width, height, null);
@@ -175,6 +177,7 @@ public class LanternaGUI implements GUI {
         }
     }
 
+    @Override
     public void drawMainMenu(MainMenu model){
         TextGraphics graphics = screen.newTextGraphics();
         String[] sprite = Sprites.LOGO;

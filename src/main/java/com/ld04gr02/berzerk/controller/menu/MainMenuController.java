@@ -20,7 +20,7 @@ public class MainMenuController extends Controller<MainMenu> {
 
 
     @Override
-    public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+    public boolean update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         switch(key) {
             case ARROW_UP :
                 getModel().selectPrev();
@@ -32,16 +32,17 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
                 MazeRenderer mazeRenderer = new MazeRenderer();
                 if (getModel().getSelected() == MenuOptions.PLAY) {
-                    game.getGui().clear();
                     game.getGui().close();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
+                    return false;
                 }
                 break;
             }
             default:
                 break;
         }
+        return true;
     }
 }

@@ -34,7 +34,7 @@ public class StickManController extends GameController {
     }
 
     @Override
-    public void update(Game game, GUI.KEY key, long time) throws IOException {
+    public boolean update(Game game, GUI.KEY key, long time) throws IOException {
         switch (key) {
             case ARROW_UP : moveStickManUp();
                 break;
@@ -47,6 +47,7 @@ public class StickManController extends GameController {
             default:
                 break;
         }
+        return true;
     }
 
 }

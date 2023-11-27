@@ -16,7 +16,7 @@ public class MazeController extends GameController {
     }
 
     @Override
-    public void update(Game game, GUI.KEY key, long time) throws IOException {
-        stickManController.update(game, key, time);
+    public boolean update(Game game, GUI.KEY key, long time) throws IOException {
+        return stickManController.update(game, key, time);
     }
 }

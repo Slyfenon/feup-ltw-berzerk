@@ -1,7 +1,7 @@
 package com.ld04gr02.berzerk.view;
 
 public class Sprites {
-    public static final String[] STICKMAN_MOVING_LEFT = {
+    public String[] STICKMAN_MOVING_LEFT = {
             "       #####",
             "       #####",
             "       #####",
