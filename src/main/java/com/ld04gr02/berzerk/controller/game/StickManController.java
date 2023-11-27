@@ -36,10 +36,16 @@ public class StickManController extends GameController {
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException {
         switch (key) {
-            case ARROW_UP -> moveStickManUp();
-            case ARROW_DOWN -> moveStickManDown();
-            case ARROW_LEFT -> moveStickManLeft();
-            case ARROW_RIGHT -> moveStickManRight();
+            case ARROW_UP : moveStickManUp();
+                break;
+            case ARROW_DOWN : moveStickManDown();
+                break;
+            case ARROW_LEFT : moveStickManLeft();
+                break;
+            case ARROW_RIGHT : moveStickManRight();
+                break;
+            default:
+                break;
         }
     }
 

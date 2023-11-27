@@ -22,19 +22,26 @@ public class MainMenuController extends Controller<MainMenu> {
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         switch(key) {
-            case ARROW_UP -> getModel().selectPrev();
-            case ARROW_DOWN -> getModel().selectNext();
-            case ENTER -> {
+            case ARROW_UP :
+                getModel().selectPrev();
+                break;
+            case ARROW_DOWN :
+                getModel().selectNext();
+                break;
+            case ENTER : {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
-                MazeRenderer MazeRenderer = new MazeRenderer();
+                MazeRenderer mazeRenderer = new MazeRenderer();
                 if (getModel().getSelected() == MenuOptions.PLAY) {
                     game.getGui().clear();
                     game.getGui().close();
-                    Maze maze = MazeRenderer.createMaze("maze1.lvl");
+                    Maze maze = mazeRenderer.createMaze("maze1.lvl");
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
                 }
+                break;
             }
+            default:
+                break;
         }
     }
 }

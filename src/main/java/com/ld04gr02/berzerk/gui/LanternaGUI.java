@@ -108,28 +108,28 @@ public class LanternaGUI implements GUI {
         KeyStroke key = screen.pollInput();
         if (key == null) return KEY.NONE;
         switch (key.getKeyType()){
-            case ArrowUp -> {
+            case ArrowUp : {
                 return KEY.ARROW_UP;
             }
-            case ArrowDown -> {
+            case ArrowDown : {
                 return KEY.ARROW_DOWN;
             }
-            case ArrowLeft -> {
+            case ArrowLeft : {
                 return KEY.ARROW_LEFT;
             }
-            case ArrowRight -> {
+            case ArrowRight : {
                 return KEY.ARROW_RIGHT;
             }
-            case Enter -> {
+            case Enter : {
                 return KEY.ENTER;
             }
-            case Escape -> {
+            case Escape : {
                 return KEY.ESC;
             }
-            case Character ->{
+            case Character :{
                 return KEY.SPACE;
             }
-            default ->
+            default :
             {
                 return KEY.NONE;
             }
