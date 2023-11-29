@@ -34,7 +34,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont(1);
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(2);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -109,6 +109,9 @@ public class LanternaGUI implements GUI {
     public KEY getPressedKey() throws IOException {
         KeyStroke key = screen.pollInput();
         if (key == null) return KEY.NONE;
+        while(screen.pollInput() != null) {
+            // This loop discards all pending input events
+        }
         switch (key.getKeyType()){
             case ArrowUp : {
                 return KEY.ARROW_UP;
@@ -148,7 +151,7 @@ public class LanternaGUI implements GUI {
         for (String s : sprite){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y * 2),  new TerminalSize(1, 2), ' ');
+                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
             }
             y++;
         }
@@ -158,7 +161,7 @@ public class LanternaGUI implements GUI {
     public void drawWall(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
-        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(30, 30), ' ');
+        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(1, 1), ' ');
     }
 
     @Override
@@ -171,7 +174,7 @@ public class LanternaGUI implements GUI {
         for (String s : sprite){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == '#')
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y * 2),  new TerminalSize(1, 2), ' ');
+                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
             }
             y++;
         }
