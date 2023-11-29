@@ -19,4 +19,5 @@ public class MazeController extends GameController {
     public boolean update(Game game, GUI.KEY key, long time) throws IOException {
         return stickManController.update(game, key, time);
     }
+
 }

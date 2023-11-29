@@ -125,7 +125,7 @@ public class Sprites {
             "####"
 
     };
-    public static final String[] ROBOT = {
+    public static final String[] ROBOT_O = {
             "     ##########",
             "   ####      #####",
             "####################",
@@ -139,6 +139,22 @@ public class Sprites {
             "     ###    ###",
             "     ###    ###",
             "   ####      ####"
+    };
+
+    public static final String[] ROBOT = {
+            "   #######",
+            " ####   ####",
+            "####     ####",
+            "## ####### ##",
+            "## ####### ##",
+            "## ####### ##",
+            "## ####### ##",
+            "   ######",
+            "   ##  ##",
+            "   ##  ##",
+            "   ##  ##",
+            "   ##  ##",
+            "  ###  ###"
     };
 
     public static final String[] LOGO = {
