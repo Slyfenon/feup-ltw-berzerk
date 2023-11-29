@@ -40,7 +40,7 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().getSelected() == MenuOptions.PLAY) {
                     play(0);
                     game.getGui().close();
-                    Maze maze = mazeRenderer.createMaze("maze1.lvl");
+                    Maze maze = mazeRenderer.createMaze("maze3.lvl");
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
                     return false;
