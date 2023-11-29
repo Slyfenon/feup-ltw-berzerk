@@ -145,7 +145,7 @@ public class LanternaGUI implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
 
-        String[] sprite = Sprites.STICKMAN_RIGHT;
+        String[] sprite = Sprites.STICKMAN_DOWN;
 
         int y = 0;
         for (String s : sprite){
