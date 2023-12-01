@@ -17,9 +17,11 @@ import java.net.URISyntaxException;
 public class MainMenuController extends Controller<MainMenu> {
 
     Sound sound = new Sound();
+    Sound menuSong = new Sound();
+
     public MainMenuController(MainMenu model) {
         super(model);
-        loop(2, -20.0f);
+        playMenuSong(-20.0f);
     }
 
 
@@ -38,10 +40,10 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
                 MazeRenderer mazeRenderer = new MazeRenderer();
                 if (getModel().getSelected() == MenuOptions.PLAY) {
-                    sound.stopSound();
                     game.getGui().close();
                     play(0,0);
                     Maze maze = mazeRenderer.createMaze("maze3.lvl");
+                    stopMenuSong();
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
 
@@ -61,10 +63,15 @@ public class MainMenuController extends Controller<MainMenu> {
         sound.playSound(volume);
     }
 
-    void loop(int i, float volume){
-        sound.setFile(i);
-        sound.loopSound(volume);
+    public void playMenuSong(float volume){
+        menuSong.setFile(2);
+        menuSong.loopSound(volume);
     }
+
+    public void stopMenuSong(){
+        menuSong.stopSound();
+    }
+
 
 
 }
