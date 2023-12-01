@@ -226,6 +226,34 @@ public class LanternaGUI implements GUI {
             posx += 32;
         }
     }
+
+    @Override
+    public void drawScore() {
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.SCORE;
+
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        int y = 315;
+        for (String s : sprite){
+            graphics.putString(15, y, s);
+            y++;
+        }
+        TextGraphics graphicss = screen.newTextGraphics();
+        graphicss.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        y = 315;
+        int xpos = 95;
+        for(String[] s: Sprites.NUMBERS ){
+            for (String n : s){
+                graphicss.putString(xpos, y, n);
+                y++;
+            }
+            y = 315;
+            xpos += 14;
+        }
+
+
+    }
 }
 
 

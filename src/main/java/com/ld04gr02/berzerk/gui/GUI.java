@@ -19,6 +19,7 @@ public interface GUI {
     public void drawRobot(Position position);
 
     public void drawLives(int lives);
+    public void drawScore();
 
     public void drawMainMenu(MainMenu model);
     public KEY getPressedKey() throws IOException;

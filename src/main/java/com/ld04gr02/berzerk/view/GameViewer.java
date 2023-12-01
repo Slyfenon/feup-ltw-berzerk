@@ -17,6 +17,7 @@ public class GameViewer extends Viewer<Maze> {
         StickManViewer stickManViewer = new StickManViewer();
         stickManViewer.display(getModel().getStickMan(), gui);
         gui.drawLives(getModel().getStickMan().getLives());
+        gui.drawScore();
 
         List<Wall> walls = getModel().getWalls();
         WallViewer wallViewer = new WallViewer();
