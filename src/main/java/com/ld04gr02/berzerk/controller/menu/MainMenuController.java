@@ -16,36 +16,38 @@ import java.net.URISyntaxException;
 
 public class MainMenuController extends Controller<MainMenu> {
 
-    Sound sound1 = new Sound();
-    Sound sound2 = new Sound();
+    Sound sound = new Sound();
     public MainMenuController(MainMenu model) {
         super(model);
+        loop(2, -20.0f);
     }
 
 
     @Override
-    public boolean update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+    public boolean update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException, NullPointerException {
         switch(key) {
             case ARROW_UP :
                 getModel().selectPrev();
-                play(0);
+                play(0, 0);
                 break;
             case ARROW_DOWN :
                 getModel().selectNext();
-                play(0);
+                play(0,0);
                 break;
             case ENTER : {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
                 MazeRenderer mazeRenderer = new MazeRenderer();
                 if (getModel().getSelected() == MenuOptions.PLAY) {
-                    play(0);
+                    sound.stopSound();
                     game.getGui().close();
+                    play(0,0);
                     Maze maze = mazeRenderer.createMaze("maze3.lvl");
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
+
                     return false;
                 }
-                play(0);
+                play(0,0);
                 break;
             }
             default:
@@ -54,9 +56,14 @@ public class MainMenuController extends Controller<MainMenu> {
         return true;
     }
 
-    void play(int i){
-        sound1.setFile(i);
-        sound1.playSound();
+    void play(int i, float volume){
+        sound.setFile(i);
+        sound.playSound(volume);
+    }
+
+    void loop(int i, float volume){
+        sound.setFile(i);
+        sound.loopSound(volume);
     }
 
 
