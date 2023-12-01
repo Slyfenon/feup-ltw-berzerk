@@ -12,6 +12,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.view.Sprites;
 
@@ -201,6 +202,28 @@ public class LanternaGUI implements GUI {
                 graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
             }
             y += 2;
+        }
+    }
+
+    public void drawLives(int lives){
+        TextGraphics textGraphics = screen.newTextGraphics();
+        String[] sprite = Sprites.HEART;
+
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
+
+        int posx = 310;
+        int posy = 315;
+        int y = 0;
+        for(int i = 0; i < lives; i++) {
+            for (String s : sprite) {
+                for (int x = 0; x < s.length(); x++) {
+                    if (s.charAt(x) == '█')
+                        textGraphics.fillRectangle(new TerminalPosition(posx + x, posy + y), new TerminalSize(1, 1), ' ');
+                }
+                y++;
+            }
+            y = 0;
+            posx += 32;
         }
     }
 }
