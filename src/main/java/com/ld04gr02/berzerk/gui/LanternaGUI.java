@@ -21,6 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
@@ -239,20 +242,32 @@ public class LanternaGUI implements GUI {
             graphics.putString(15, y, s);
             y++;
         }
+
+    }
+
+    @Override
+    public void drawNumbers(int score) {
         TextGraphics graphicss = screen.newTextGraphics();
         graphicss.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        y = 315;
+
+        ArrayList<Integer> numbersIndex = new ArrayList<>();
+        while(score!=0){
+            int number = score % 10;
+            numbersIndex.add(number);
+            score /= 10;
+        }
+        Collections.reverse(numbersIndex);
+
+        int y = 315;
         int xpos = 95;
-        for(String[] s: Sprites.NUMBERS ){
-            for (String n : s){
+        for(int x : numbersIndex){
+            for (String n : Sprites.NUMBERS[x]){
                 graphicss.putString(xpos, y, n);
                 y++;
             }
             y = 315;
             xpos += 14;
         }
-
-
     }
 }
 
