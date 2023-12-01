@@ -5,8 +5,6 @@ import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.view.Viewer;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -32,9 +30,8 @@ public abstract class State<T> {
 
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.KEY action = gui.getPressedKey();
-        if(controller.update(game, action, time)) {
-            viewer.display(gui);
-        }
+        controller.update(game, action, time);
+        viewer.display(gui);
     }
 
     public abstract void initScreen(GUI gui, int width, int height) throws IOException, URISyntaxException, FontFormatException;

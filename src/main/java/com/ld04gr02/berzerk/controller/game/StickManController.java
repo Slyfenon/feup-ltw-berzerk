@@ -38,38 +38,41 @@ public class StickManController extends GameController {
 
     @Override
     public boolean update(Game game, GUI.KEY key, long time) throws IOException {
+        if (this.getModel().getStickMan().isCollided()) {
+            this.getModel().getStickMan().decreaseLives();
+            this.getModel().getStickMan().setPosition(new Position(30, 150));
+            this.getModel().getStickMan().setCollided(false);
+            return true;
+        }
+
         switch (key) {
             case ARROW_UP :
-                if (collideStickMan(this.getModel().getStickMan().getPosition().getUP())) {
-                    this.getModel().getStickMan().decreaseLives();
-                    this.getModel().getStickMan().setPosition(new Position(30, 150));
+                moveStickManUp();
+                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    this.getModel().getStickMan().setCollided(true);
                     return false;
                 }
-                moveStickManUp();
                 break;
             case ARROW_DOWN :
-                if (collideStickMan(this.getModel().getStickMan().getPosition().getDown())) {
-                    this.getModel().getStickMan().decreaseLives();
-                    this.getModel().getStickMan().setPosition(new Position(30, 150));
+                moveStickManDown();
+                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    this.getModel().getStickMan().setCollided(true);
                     return false;
                 }
-                moveStickManDown();
                 break;
             case ARROW_LEFT :
-                if (collideStickMan(this.getModel().getStickMan().getPosition().getLeft())) {
-                    this.getModel().getStickMan().decreaseLives();
-                    this.getModel().getStickMan().setPosition(new Position(30, 150));
+                moveStickManLeft();
+                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    this.getModel().getStickMan().setCollided(true);
                     return false;
                 }
-                moveStickManLeft();
                 break;
             case ARROW_RIGHT :
-                if (collideStickMan(this.getModel().getStickMan().getPosition().getRight())) {
-                    this.getModel().getStickMan().decreaseLives();
-                    this.getModel().getStickMan().setPosition(new Position(30, 150));
+                moveStickManRight();
+                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    this.getModel().getStickMan().setCollided(true);
                     return false;
                 }
-                moveStickManRight();
                 break;
             default:
                 break;

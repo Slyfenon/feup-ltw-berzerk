@@ -29,7 +29,7 @@ public class GUITests extends Assertions {
 
     @Test
     public void drawStickManTest() {
-        lanternaGUI.drawStickMan(new Position(10, 10));
+        lanternaGUI.drawStickMan(new Position(10, 10), false);
 
         verify(textGraphics).setBackgroundColor(any());
         verify(textGraphics, times(104)).fillRectangle(any(), any(), anyChar());

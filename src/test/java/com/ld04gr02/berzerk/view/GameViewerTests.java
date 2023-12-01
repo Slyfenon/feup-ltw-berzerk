@@ -30,7 +30,7 @@ public class GameViewerTests extends Assertions {
     public void displayTest() throws IOException {
         gameViewer.display(guiMock);
 
-        verify(guiMock, times(1)).drawStickMan(any());
+        verify(guiMock, times(1)).drawStickMan(any(), true);
         verify(guiMock, times(82)).drawWall(any());
         verify(guiMock, times(3)).drawRobot(any());
         verify(guiMock).clear();
