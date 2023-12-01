@@ -60,7 +60,7 @@ public class Game {
 
 
     private void run() throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
-        int FPS = 1000;
+        int FPS = 60;
         int frameTime = 1000/FPS;
 
         while (this.state != null) {
