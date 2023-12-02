@@ -20,6 +20,10 @@ public interface GUI {
     public void drawWall(Position position);
     public void drawRobot(Position position);
 
+    public void drawLives(int lives);
+    public void drawScore();
+    public void drawNumbers(int score);
+
     public void drawMainMenu(MainMenu model);
     public KEY getPressedKey() throws IOException;
 

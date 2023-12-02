@@ -12,6 +12,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.view.Sprites;
 
@@ -20,6 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
@@ -201,6 +205,68 @@ public class LanternaGUI implements GUI {
                 graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
             }
             y += 2;
+        }
+    }
+
+    public void drawLives(int lives){
+        TextGraphics textGraphics = screen.newTextGraphics();
+        String[] sprite = Sprites.HEART;
+
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
+
+        int posx = 310;
+        int posy = 315;
+        int y = 0;
+        for(int i = 0; i < lives; i++) {
+            for (String s : sprite) {
+                for (int x = 0; x < s.length(); x++) {
+                    if (s.charAt(x) == '█')
+                        textGraphics.fillRectangle(new TerminalPosition(posx + x, posy + y), new TerminalSize(1, 1), ' ');
+                }
+                y++;
+            }
+            y = 0;
+            posx += 32;
+        }
+    }
+
+    @Override
+    public void drawScore() {
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.SCORE;
+
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        int y = 315;
+        for (String s : sprite){
+            graphics.putString(15, y, s);
+            y++;
+        }
+
+    }
+
+    @Override
+    public void drawNumbers(int score) {
+        TextGraphics graphicss = screen.newTextGraphics();
+        graphicss.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+
+        ArrayList<Integer> numbersIndex = new ArrayList<>();
+        while(score!=0){
+            int number = score % 10;
+            numbersIndex.add(number);
+            score /= 10;
+        }
+        Collections.reverse(numbersIndex);
+
+        int y = 315;
+        int xpos = 95;
+        for(int x : numbersIndex){
+            for (String n : Sprites.NUMBERS[x]){
+                graphicss.putString(xpos, y, n);
+                y++;
+            }
+            y = 315;
+            xpos += 14;
         }
     }
 }
