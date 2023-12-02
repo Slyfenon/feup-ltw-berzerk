@@ -26,7 +26,6 @@ public class MainMenuController extends Controller<MainMenu> {
         }
         else {
             playMenuSong(-20.0f);
-            System.out.println("OI");
         }
     }
 

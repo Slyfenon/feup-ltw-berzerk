@@ -18,8 +18,8 @@ public class Game {
         try {
             game = new Game();
         } catch (IOException | URISyntaxException | FontFormatException e) {
-            System.err.println("Erro ao iniciar o jogo: " + e.getMessage());
-            throw new RuntimeException("Erro ao inicializar o jogo", e);
+            System.err.println("Error starting the game:  " + e.getMessage());
+            throw new RuntimeException("Error starting the game", e);
         }
     }
 
@@ -74,6 +74,7 @@ public class Game {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                throw new RuntimeException("InterruptedException", e);
             }
         }
 

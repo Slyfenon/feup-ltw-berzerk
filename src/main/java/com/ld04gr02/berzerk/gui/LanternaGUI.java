@@ -12,7 +12,6 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.view.Sprites;
 
@@ -22,7 +21,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
@@ -44,8 +42,7 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void createMenuScreen(int width, int height) throws IOException, URISyntaxException, FontFormatException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont(22);
+    public void createMenuScreen(int width, int height) throws IOException {
         Terminal terminal = createTerminal(width, height, null);
         this.screen = createScreen(terminal);
     }
@@ -139,6 +136,7 @@ public class LanternaGUI implements GUI {
                 if (key.getCharacter() == ' ') {
                     return KEY.SPACE;
                 }
+                return KEY.NONE;
             }
             default :
             {
@@ -172,7 +170,7 @@ public class LanternaGUI implements GUI {
     public void drawRobot(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
-        String[] sprite = Sprites.ROBOT;
+        String[] sprite = Sprites.getRobot();
 
         int y = 0;
         for (String s : sprite){
@@ -187,7 +185,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawMainMenu(MainMenu model){
         TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.LOGO;
+        String[] sprite = Sprites.getLogo();
 
         graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
         int y = 5;
@@ -207,10 +205,10 @@ public class LanternaGUI implements GUI {
             y += 2;
         }
     }
-
+    @Override
     public void drawLives(int lives){
         TextGraphics textGraphics = screen.newTextGraphics();
-        String[] sprite = Sprites.HEART;
+        String[] sprite = Sprites.getHeart();
 
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
 
@@ -233,7 +231,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawScore() {
         TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.SCORE;
+        String[] sprite = Sprites.getScore();
 
 
         graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));

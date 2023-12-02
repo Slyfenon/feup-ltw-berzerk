@@ -1,7 +1,9 @@
 package com.ld04gr02.berzerk;
 
-import javax.sound.sampled.*;
-import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.net.URL;
 
 public class Sound {
@@ -22,7 +24,9 @@ public class Sound {
             clip.open(audioInputStream);
             volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         }
-        catch(Exception e){}
+        catch(Exception e){
+            throw new RuntimeException("Exception", e);
+        }
 
     }
     public void playSound(float volume) {

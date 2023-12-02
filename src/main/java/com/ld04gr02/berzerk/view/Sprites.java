@@ -9,7 +9,7 @@ public class Sprites {
     public static int getStickManHeight() {
         return 16;
     }
-    public static final String[] STICKMAN_MOVING_LEFT = {
+    private static final String[] STICKMAN_MOVING_LEFT = {
             "   ##",
             "   ##",
             "",
@@ -27,7 +27,10 @@ public class Sprites {
             " #",
             "##"
     };
-    public static final String[] STICKMAN_MOVING_RIGHT = {
+    public static String[] getStickManMovingLeft() {
+        return STICKMAN_MOVING_LEFT;
+    }
+    private static final String[] STICKMAN_MOVING_RIGHT = {
             "   ##",
             "   ##",
             "",
@@ -45,8 +48,11 @@ public class Sprites {
             "      # ",
             "      ##"
     };
+    public static String[] getStickManMovingRight() {
+        return STICKMAN_MOVING_RIGHT;
+    }
 
-    public static final String[] STICKMAN_RIGHT = {
+    private static final String[] STICKMAN_RIGHT = {
             "   ##",
             "   ##",
             "",
@@ -64,7 +70,10 @@ public class Sprites {
             "   ###",
             "   #"
     };
-    public static final String[] STICKMAN_LEFT = {
+    public static String[] getStickManRight() {
+        return STICKMAN_RIGHT;
+    }
+    private static final String[] STICKMAN_LEFT = {
             "   ##",
             "   ##",
             "",
@@ -82,7 +91,9 @@ public class Sprites {
             "   ###",
             "   #"
     };
-
+    public static String[] getStickManLeft() {
+        return STICKMAN_LEFT;
+    }
 
     public static int getRobotWidth() {
         return 13;
@@ -92,7 +103,7 @@ public class Sprites {
         return 13;
     }
 
-    public static final String[] ROBOT = {
+    private static final String[] ROBOT = {
             "   #######",
             " ####   ####",
             "####     ####",
@@ -107,7 +118,10 @@ public class Sprites {
             "   ##  ##",
             "  ###  ###"
     };
-    public static final String[] LOGO = {
+    public static String[] getRobot() {
+        return ROBOT;
+    }
+    private static final String[] LOGO = {
             "██████╗ ███████╗██████╗ ███████╗███████╗██████╗ ██╗  ██╗",
             "██╔══██╗██╔════╝██╔══██╗╚══███╔╝██╔════╝██╔══██╗██║ ██╔╝",
             "██████╔╝█████╗  ██████╔╝  ███╔╝ █████╗  ██████╔╝█████╔╝ ",
@@ -115,8 +129,10 @@ public class Sprites {
             "██████╔╝███████╗██║  ██║███████╗███████╗██║  ██║██║  ██╗",
             "╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝"
     };
-
-    public static final String[] HEART = {
+    public static String[] getLogo() {
+        return LOGO;
+    }
+    private static final String[] HEART = {
             "    ██████      ██████",
             "  ██████████  ██████████",
             "██████████████████████████",
@@ -129,9 +145,11 @@ public class Sprites {
             "	       ██████",
             "	         ██"
     };
+    public static String[] getHeart() {
+        return HEART;
+    }
 
-
-    public static final String[] SCORE = {
+    private static final String[] SCORE = {
 
 
             "▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄ ",
@@ -148,9 +166,11 @@ public class Sprites {
 
 
     };
+    public static String[] getScore() {
+        return SCORE;
+    }
 
-
-    public static final String[][] NUMBERS = {
+    private static final String[][] NUMBERS = {
             {
 
                     "  ▄▄▄▄▄▄▄▄▄  ",
@@ -294,6 +314,9 @@ public class Sprites {
             },
 
     };
+    public static String[] getNumber(int number) {
+        return NUMBERS[number];
+    }
 
 
 }

@@ -12,16 +12,16 @@ public class StickManViewer implements ElementViewer<StickMan> {
         if(stickMan.isMoving()) {
             switch (stickMan.getCurrentDirection()) {
                 case Left:
-                    gui.drawStickMan(stickMan.getPosition(), Sprites.STICKMAN_MOVING_LEFT, stickMan.isCollided());
+                    gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingLeft(), stickMan.isCollided());
                     break;
                 case Up: case Down: case Right:
-                    gui.drawStickMan(stickMan.getPosition(), Sprites.STICKMAN_MOVING_RIGHT, stickMan.isCollided());
+                    gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingRight(), stickMan.isCollided());
                     break;
             }
         }
         else
         {
-            gui.drawStickMan(stickMan.getPosition(), Sprites.STICKMAN_RIGHT, stickMan.isCollided());
+            gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManRight(), stickMan.isCollided());
         }
     }
 }
