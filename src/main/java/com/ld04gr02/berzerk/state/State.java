@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public abstract class State<T> {
-    private final T model;
-    private final Viewer<T> viewer;
-    private final Controller<T> controller;
+    protected final T model;
+    protected final Viewer<T> viewer;
+    protected final Controller<T> controller;
 
     public State(T model) {
         this.model = model;

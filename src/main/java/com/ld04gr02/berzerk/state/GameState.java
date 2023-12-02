@@ -29,15 +29,15 @@ public class GameState extends State<Maze> {
 
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.KEY action = gui.getPressedKey();
-        getController().update(game, action, time);
+        this.controller.update(game, action, time);
         if(action != GUI.KEY.ESC) {
-            getViewer().display(gui);
+            this.viewer.display(gui);
             if(action == GUI.KEY.ARROW_UP
                     || action == GUI.KEY.ARROW_DOWN
                     || action == GUI.KEY.ARROW_LEFT
                     || action == GUI.KEY.ARROW_RIGHT) {
                 getModel().getStickMan().changeMoving();
-                getViewer().display(gui);
+                this.viewer.display(gui);
             }
         }
     }

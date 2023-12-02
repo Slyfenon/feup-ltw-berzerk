@@ -21,7 +21,13 @@ public class MainMenuController extends Controller<MainMenu> {
 
     public MainMenuController(MainMenu model) {
         super(model);
-        playMenuSong(-20.0f);
+        if(menuSong.getClip() != null){
+            stopMenuSong();
+        }
+        else {
+            playMenuSong(-20.0f);
+            System.out.println("OI");
+        }
     }
 
 

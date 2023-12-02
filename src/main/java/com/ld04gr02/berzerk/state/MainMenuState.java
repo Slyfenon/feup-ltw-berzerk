@@ -28,12 +28,15 @@ public class MainMenuState extends State<MainMenu> {
         return new MainMenuController(getModel());
     }
 
+
+
+
     @Override
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.KEY action = gui.getPressedKey();
-        getController().update(game, action, time);
+        this.controller.update(game, action, time);
         if(action != GUI.KEY.ENTER) {
-            getViewer().display(gui);
+            this.viewer.display(gui);
         }
     }
 
