@@ -1,5 +1,7 @@
 package com.ld04gr02.berzerk.model.game.maze;
 
+import com.ld04gr02.berzerk.model.Direction;
+import com.ld04gr02.berzerk.model.game.elements.MovingElement;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -42,7 +44,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'S')
-                    return new StickMan(x, y);
+                    return new StickMan(x, y, Direction.Right);
         }
         return null;
     }
@@ -53,7 +55,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'R'){
-                    robots.add(new Robot(x,y));
+                    robots.add(new Robot(x,y,Direction.Right));
                 }
         }
         return robots;

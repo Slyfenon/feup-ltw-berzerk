@@ -1,13 +1,22 @@
 package com.ld04gr02.berzerk.model.game.elements;
 
-public class StickMan extends Element {
+import com.ld04gr02.berzerk.model.Direction;
+
+public class StickMan extends MovingElement {
     static final int MAX_LIVES = 5;
     private int lives = 3;
 
+
     private int score = 0;
+  
+ 
+
+    private boolean collided = false;
+
 
     public StickMan(int x, int y) {
-        super(x, y);
+        super(x, y, Direction.Right);
+
     }
     public boolean increaseLives() {
         if(this.lives < MAX_LIVES) {
@@ -16,6 +25,7 @@ public class StickMan extends Element {
         }
         return false;
     }
+
     public void decreaseLives() {
         this.lives--;
     }
@@ -30,5 +40,11 @@ public class StickMan extends Element {
 
     public int getScore() {
         return score;
+    }
+    public boolean isCollided() {
+        return collided;
+    }
+    public void setCollided(boolean collided) {
+        this.collided = collided;
     }
 }

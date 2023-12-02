@@ -24,7 +24,7 @@ public class DisplayTests extends Assertions {
         StickMan stickMan = new StickMan(20, 50);
         StickManViewer stickManViewer = new StickManViewer();
         stickManViewer.display(stickMan, guiMock);
-        verify(guiMock).drawStickMan(stickMan.getPosition());
+        verify(guiMock).drawStickMan(stickMan.getPosition(), false);
     }
 
     @Test

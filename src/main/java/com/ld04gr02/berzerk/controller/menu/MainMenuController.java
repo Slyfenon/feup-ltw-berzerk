@@ -21,12 +21,18 @@ public class MainMenuController extends Controller<MainMenu> {
 
     public MainMenuController(MainMenu model) {
         super(model);
-        playMenuSong(-20.0f);
+        if(menuSong.getClip() != null){
+            stopMenuSong();
+        }
+        else {
+            playMenuSong(-20.0f);
+            System.out.println("OI");
+        }
     }
 
 
     @Override
-    public boolean update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException, NullPointerException {
+    public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException, NullPointerException {
         switch(key) {
             case ARROW_UP :
                 getModel().selectPrev();
@@ -46,8 +52,6 @@ public class MainMenuController extends Controller<MainMenu> {
                     stopMenuSong();
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
-
-                    return false;
                 }
                 play(0,0);
                 break;
@@ -55,7 +59,6 @@ public class MainMenuController extends Controller<MainMenu> {
             default:
                 break;
         }
-        return true;
     }
 
     void play(int i, float volume){
@@ -71,7 +74,4 @@ public class MainMenuController extends Controller<MainMenu> {
     public void stopMenuSong(){
         menuSong.stopSound();
     }
-
-
-
 }

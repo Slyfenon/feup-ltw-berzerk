@@ -27,20 +27,20 @@ public class Position {
         this.y = y;
     }
 
-    public Position getUP() {
-        return new Position(x, y - 10);
+    public Position getUp() {
+        return new Position(x, y - 5);
     }
 
     public Position getDown() {
-        return new Position(x, y + 10);
+        return new Position(x, y + 5);
     }
 
     public Position getLeft() {
-        return new Position(x - 10, y);
+        return new Position(x - 5, y);
     }
 
     public Position getRight() {
-        return new Position(x + 10, y);
+        return new Position(x + 5, y);
     }
 
     @Override
@@ -54,5 +54,19 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public Position getRandomNeighbour() {
+        int n = (int) (Math.random() * 4);
+        switch (n) {
+            case 0:
+                return getUp();
+            case 1:
+                return getRight();
+            case 2:
+                return getDown();
+            default:
+                return getLeft();
+        }
     }
 }

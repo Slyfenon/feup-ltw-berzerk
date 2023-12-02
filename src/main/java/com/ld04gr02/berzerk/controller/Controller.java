@@ -16,5 +16,5 @@ public abstract class Controller<T> {
     public T getModel() {
         return model;
     }
-    public abstract boolean update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException;
+    public abstract void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException;
 }
