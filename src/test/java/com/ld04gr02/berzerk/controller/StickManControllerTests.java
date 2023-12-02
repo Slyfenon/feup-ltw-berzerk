@@ -30,7 +30,7 @@ public class StickManControllerTests extends Assertions {
     public void moveStickManUpTest() throws IOException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_UP, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getUP());
+        assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getUp());
     }
 
     @Test

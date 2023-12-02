@@ -55,7 +55,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'R'){
-                    robots.add(new Robot(x,y));
+                    robots.add(new Robot(x,y,Direction.Right));
                 }
         }
         return robots;

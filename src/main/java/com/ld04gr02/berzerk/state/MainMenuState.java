@@ -31,7 +31,8 @@ public class MainMenuState extends State<MainMenu> {
     @Override
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.KEY action = gui.getPressedKey();
-        if(getController().update(game, action, time)) {
+        getController().update(game, action, time);
+        if(action != GUI.KEY.ENTER) {
             getViewer().display(gui);
         }
     }
