@@ -26,7 +26,7 @@ public class GameState extends State<Maze> {
     protected Controller<Maze> getController() {
         return new MazeController(getModel());
     }
-
+    @Override
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
         GUI.KEY action = gui.getPressedKey();
         this.controller.update(game, action, time);

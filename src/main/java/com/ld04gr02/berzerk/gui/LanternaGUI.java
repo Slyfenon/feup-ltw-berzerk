@@ -259,7 +259,7 @@ public class LanternaGUI implements GUI {
         int y = 315;
         int xpos = 95;
         for(int x : numbersIndex){
-            for (String n : Sprites.NUMBERS[x]){
+            for (String n : Sprites.getNumber(x)){
                 graphicss.putString(xpos, y, n);
                 y++;
             }

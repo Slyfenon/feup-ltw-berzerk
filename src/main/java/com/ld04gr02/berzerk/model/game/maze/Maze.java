@@ -61,7 +61,7 @@ public class Maze {
         for (Robot robot : getRobots()) {
             Position positionRobot = robot.getPosition();
             if ((position.getX() < (positionRobot.getX() + getRobotWidth()))
-                    && ((position.getX()) + elementWidth > positionRobot.getX())
+                    && (position.getX() + elementWidth > positionRobot.getX())
                     && (position.getY() < (positionRobot.getY() + getRobotHeight()))
                     && ((position.getY() + elementHeight) > positionRobot.getY()))
                 return true;
@@ -71,7 +71,7 @@ public class Maze {
 
     public boolean collideStickMan(Position position, int elementWidth, int elementHeight) {
         if ((position.getX() < (stickMan.getPosition().getX() + getStickManWidth()))
-                && ((position.getX()) + elementWidth > stickMan.getPosition().getX())
+                && (position.getX() + elementWidth > stickMan.getPosition().getX())
                 && (position.getY() < (stickMan.getPosition().getY() + getStickManHeight()))
                 && ((position.getY() + elementHeight) > stickMan.getPosition().getY()))
             return true;

@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
@@ -15,6 +16,8 @@ public class StickManController extends GameController {
     public StickManController(Maze maze) {
         super(maze);
     }
+
+    Sound shock = new Sound();
 
     private void moveStickManUp() {
         move(getModel().getStickMan().getPosition().getUp(), Direction.Up);
@@ -50,24 +53,28 @@ public class StickManController extends GameController {
             case ARROW_UP :
                 moveStickManUp();
                 if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    playShockSound();
                     this.getModel().getStickMan().setCollided(true);
                 }
                 break;
             case ARROW_DOWN :
                 moveStickManDown();
                 if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    playShockSound();
                     this.getModel().getStickMan().setCollided(true);
                 }
                 break;
             case ARROW_LEFT :
                 moveStickManLeft();
-                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                if (collideStickMan(this.getModel().getStickMan().getPosition())) {;
+                    playShockSound();
                     this.getModel().getStickMan().setCollided(true);
                 }
                 break;
             case ARROW_RIGHT :
                 moveStickManRight();
                 if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+                    playShockSound();
                     this.getModel().getStickMan().setCollided(true);
                 }
                 break;
@@ -81,6 +88,11 @@ public class StickManController extends GameController {
     public boolean collideStickMan(Position positionStickMan) {
         return getModel().collideWall(positionStickMan, getStickManWidth(), getStickManHeight())
                 || getModel().collideRobot(positionStickMan, getStickManWidth(), getStickManHeight());
+    }
+
+    private void playShockSound(){
+        shock.setFile(3);
+        shock.playSound(0);
     }
 
 }
