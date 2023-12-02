@@ -132,7 +132,9 @@ public class LanternaGUI implements GUI {
                 return KEY.ESC;
             }
             case Character :{
-                return KEY.SPACE;
+                if (key.getCharacter() == ' ') {
+                    return KEY.SPACE;
+                }
             }
             default :
             {

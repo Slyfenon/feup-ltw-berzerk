@@ -48,6 +48,8 @@ public class StickManController extends GameController {
                 break;
             case ARROW_RIGHT : moveStickManRight();
                 break;
+            case SPACE:
+                break;
             default:
                 break;
         }
