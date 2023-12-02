@@ -14,8 +14,8 @@ public class StickMan extends MovingElement {
     private boolean collided = false;
 
 
-    public StickMan(int x, int y) {
-        super(x, y, Direction.Right);
+    public StickMan(int x, int y, Direction direction) {
+        super(x, y, direction);
 
     }
     public boolean increaseLives() {
