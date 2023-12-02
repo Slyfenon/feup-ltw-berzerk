@@ -132,7 +132,9 @@ public class LanternaGUI implements GUI {
                 return KEY.ESC;
             }
             case Character :{
-                return KEY.SPACE;
+                if (key.getCharacter() == ' ') {
+                    return KEY.SPACE;
+                }
             }
             default :
             {
@@ -141,13 +143,10 @@ public class LanternaGUI implements GUI {
         }
     }
     @Override
-    public void drawStickMan(Position position, boolean collided) {
+    public void drawStickMan(Position position, String[] sprite, boolean collided) {
         TextGraphics graphics = screen.newTextGraphics();
         if (collided) graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
         else graphics.setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
-
-        String[] sprite = Sprites.STICKMAN_DOWN;
-
         int y = 0;
         for (String s : sprite){
             for (int x = 0; x < s.length(); x++){

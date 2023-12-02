@@ -14,7 +14,9 @@ public interface GUI {
 
     void close() throws IOException;
 
-    public void drawStickMan(Position position, boolean collided);
+
+    public void drawStickMan(Position position, String[] sprite, boolean collided);
+
     public void drawWall(Position position);
     public void drawRobot(Position position);
 

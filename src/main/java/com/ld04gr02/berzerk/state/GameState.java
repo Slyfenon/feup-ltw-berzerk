@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.state;
 
+import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.gui.GUI;
@@ -24,6 +25,18 @@ public class GameState extends State<Maze> {
     @Override
     protected Controller<Maze> getController() {
         return new MazeController(getModel());
+    }
+
+    public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
+        GUI.KEY action = gui.getPressedKey();
+
+        if(getController().update(game, action, time)) {
+            if(action != GUI.KEY.NONE && action != GUI.KEY.SPACE && action != GUI.KEY.ENTER && action != GUI.KEY.ESC) {
+                getViewer().display(gui);
+                getModel().getStickMan().changeMoving();
+            }
+            getViewer().display(gui);
+        }
     }
 
     @Override
