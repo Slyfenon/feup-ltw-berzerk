@@ -1,7 +1,5 @@
 package com.ld04gr02.berzerk.view;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
 import com.ld04gr02.berzerk.gui.GUI;
 
 import java.io.IOException;

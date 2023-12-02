@@ -5,8 +5,6 @@ import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.view.Viewer;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;

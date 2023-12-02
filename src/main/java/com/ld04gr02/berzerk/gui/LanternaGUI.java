@@ -143,10 +143,10 @@ public class LanternaGUI implements GUI {
         }
     }
     @Override
-    public void drawStickMan(Position position, String[] sprite) {
+    public void drawStickMan(Position position, String[] sprite, boolean collided) {
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
-
+        if (collided) graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
+        else graphics.setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
         int y = 0;
         for (String s : sprite){
             for (int x = 0; x < s.length(); x++){

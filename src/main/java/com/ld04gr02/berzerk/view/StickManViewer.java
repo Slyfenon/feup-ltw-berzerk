@@ -25,8 +25,11 @@ public class StickManViewer implements ElementViewer<StickMan> {
                     break;
             }
         }
-        else{
+        else
+        {
             gui.drawStickMan(stickMan.getPosition(), Sprites.STICKMAN_RIGHT);
         }
+
+        gui.drawStickMan(stickMan.getPosition(), stickMan.isCollided());
     }
 }
