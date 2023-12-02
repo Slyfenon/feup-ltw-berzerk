@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.model.maze;
 
+import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -27,7 +28,7 @@ public class MazeTests extends Assertions {
 
     @Test
     public void ElementsTest() {
-        StickMan stickMan = new StickMan(25, 25);
+        StickMan stickMan = new StickMan(25, 25, Direction.Up);
         maze.setStickMan(stickMan);
         assertEquals(maze.getStickMan().getPosition(), stickMan.getPosition());
         assertEquals(maze.getStickMan().getLives(), stickMan.getLives());
@@ -45,12 +46,12 @@ public class MazeTests extends Assertions {
         assertEquals(maze.getWalls().size(), walls.size());
 
         ArrayList<Robot> robots = new ArrayList<>(Arrays.asList(
-                new Robot(15, 10),
-                new Robot(12, 20),
-                new Robot(26, 35),
-                new Robot(15, 65),
-                new Robot(30, 70),
-                new Robot(40, 10)
+                new Robot(15, 10, Direction.Up),
+                new Robot(12, 20, Direction.Down),
+                new Robot(26, 35, Direction.Left),
+                new Robot(15, 65, Direction.Down),
+                new Robot(30, 70, Direction.Left),
+                new Robot(40, 10, Direction.Right)
         ));
         maze.setRobots(robots);
         assertEquals(maze.getRobots().size(), robots.size());

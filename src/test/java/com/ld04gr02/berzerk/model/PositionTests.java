@@ -22,10 +22,10 @@ public class PositionTests extends Assertions {
 
     @Test
     public void getNeighboursTest() {
-        assertEquals(position.getUp(), new Position(20, 15));
-        assertEquals(position.getDown(), new Position(20, 35));
-        assertEquals(position.getRight(), new Position(30, 25));
-        assertEquals(position.getLeft(), new Position(10, 25));
+        assertEquals(position.getUp(), new Position(20, 20));
+        assertEquals(position.getDown(), new Position(20, 30));
+        assertEquals(position.getRight(), new Position(25, 25));
+        assertEquals(position.getLeft(), new Position(15, 25));
     }
 
     @Test void hashTest() {

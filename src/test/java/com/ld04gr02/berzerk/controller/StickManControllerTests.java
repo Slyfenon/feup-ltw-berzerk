@@ -21,7 +21,7 @@ public class StickManControllerTests extends Assertions {
     @BeforeEach
     public void setUp() throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
-        Maze maze = mazeRenderer.createMaze("maze1.lvl");
+        Maze maze = mazeRenderer.createMaze("maze_test.lvl");
         stickManController = new StickManController(maze);
         game = mock(Game.class);
     }
