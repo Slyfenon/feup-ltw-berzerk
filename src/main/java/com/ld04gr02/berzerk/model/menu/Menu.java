@@ -7,7 +7,4 @@ public interface Menu<T> {
     public void selectPrev();
 
     public MenuOptions getSelected();
-
-    public boolean isSelected();
-
 }
