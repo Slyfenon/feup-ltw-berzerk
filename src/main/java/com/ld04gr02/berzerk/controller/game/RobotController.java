@@ -11,10 +11,11 @@ import java.net.URISyntaxException;
 
 import static com.ld04gr02.berzerk.view.Sprites.getRobotHeight;
 import static com.ld04gr02.berzerk.view.Sprites.getRobotWidth;
+import static java.lang.Math.abs;
 
 public class RobotController extends GameController {
     private long lastAction;
-    
+
     public RobotController(Maze maze) {
         super(maze);
         this.lastAction = 0;
@@ -23,8 +24,16 @@ public class RobotController extends GameController {
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         if (time - lastAction > 1000) {
-            for (Robot robot : getModel().getRobots())
-                moveRobot(robot, robot.getPosition().getRandomNeighbour());
+            Position stickManPosition = getModel().getStickMan().getPosition();
+            for (Robot robot : getModel().getRobots()) {
+                while (true) {
+                    Position newPosition = robot.getPosition().getRandomNeighbour();
+                    if (closer(stickManPosition, robot.getPosition(), newPosition)) {
+                        moveRobot(robot, newPosition);
+                        break;
+                    }
+                }
+            }
             this.lastAction = time;
         }
     }
@@ -35,5 +44,9 @@ public class RobotController extends GameController {
             if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight()))
                 getModel().getStickMan().decreaseLives();
         }
+    }
+
+    private boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {
+        return (abs(stickManPosition.getX()-newPosition.getX()) < abs(stickManPosition.getX()-currentPosition.getX()) || abs(stickManPosition.getY()-newPosition.getY()) < abs(stickManPosition.getY()-currentPosition.getY()));
     }
 }
