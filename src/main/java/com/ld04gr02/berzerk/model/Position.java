@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Position {
     private int x;
     private int y;
+    private RandomNumber randomNumber = new RandomNumber();
 
     public Position(int x, int y) {
         this.x = x;
@@ -56,8 +57,15 @@ public class Position {
         return Objects.hash(x, y);
     }
 
+    public void setRandomNumber(RandomNumber randomNumber) {
+        this.randomNumber = randomNumber;
+    }
+    public RandomNumber getRandomNumber() {
+        return randomNumber;
+    }
+
     public Position getRandomNeighbour() {
-        int n = (int) (Math.random() * 4);
+        int n = randomNumber.getNumber();
         switch (n) {
             case 0:
                 return getUp();

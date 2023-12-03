@@ -39,4 +39,10 @@ public class StickManTests extends Assertions {
         assertEquals(stickMan.getLives(), 2);
     }
 
+    @Test
+    public void scoreTest() {
+        stickMan.setScore(550);
+        assertEquals(stickMan.getScore(), 550);
+    }
+
 }

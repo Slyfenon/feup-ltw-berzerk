@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.model.maze;
 
 import com.ld04gr02.berzerk.model.Direction;
+import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -21,13 +22,13 @@ public class MazeTests extends Assertions {
     }
 
     @Test
-    public void MazeTest() {
+    public void mazeTest() {
         assertEquals(maze.getWidth(), 50);
         assertEquals(maze.getHeight(), 75);
     }
 
     @Test
-    public void ElementsTest() {
+    public void elementsTest() {
         StickMan stickMan = new StickMan(25, 25, Direction.Up);
         maze.setStickMan(stickMan);
         assertEquals(maze.getStickMan().getPosition(), stickMan.getPosition());
@@ -55,5 +56,38 @@ public class MazeTests extends Assertions {
         ));
         maze.setRobots(robots);
         assertEquals(maze.getRobots().size(), robots.size());
+    }
+
+    @Test
+    public void collideWallTest() {
+        ArrayList<Wall> walls = new ArrayList<>(Arrays.asList(
+                new Wall(10, 15),
+                new Wall(20, 50)
+        ));
+        maze.setWalls(walls);
+
+        assertTrue(maze.collideWall(new Position(5, 10), 10, 10));
+        assertFalse(maze.collideWall(new Position(50, 100), 10, 10));
+    }
+
+    @Test
+    public void collideRobotTest() {
+        ArrayList<Robot> robots = new ArrayList<>(Arrays.asList(
+                new Robot(15, 10, Direction.Up),
+                new Robot(12, 20, Direction.Down)
+        ));
+        maze.setRobots(robots);
+
+        assertTrue(maze.collideRobot(new Position(10, 10), 10, 10));
+        assertFalse(maze.collideRobot(new Position(50, 100), 10, 10));
+    }
+
+    @Test
+    public void collideStickManTest() {
+        StickMan stickMan = new StickMan(25, 25, Direction.Up);
+        maze.setStickMan(stickMan);
+
+        assertTrue(maze.collideStickMan(new Position(20, 20), 10, 10));
+        assertFalse(maze.collideStickMan(new Position(50, 100), 10, 10));
     }
 }

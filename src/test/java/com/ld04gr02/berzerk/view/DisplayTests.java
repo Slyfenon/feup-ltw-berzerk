@@ -29,6 +29,19 @@ public class DisplayTests extends Assertions {
     }
 
     @Test
+    public void stickManMovingDisplayTest() {
+        StickMan stickMan = new StickMan(20, 50, Direction.Right);
+        stickMan.setCollided(true);
+        stickMan.changeMoving();
+        StickManViewer stickManViewer = new StickManViewer();
+        stickManViewer.display(stickMan, guiMock);
+        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingRight(), true);
+        stickMan.setDirection(Direction.Left);
+        stickManViewer.display(stickMan, guiMock);
+        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingLeft(), true);
+    }
+
+    @Test
     public void wallDisplayTest() {
         Wall wall = new Wall(60, 100);
         WallViewer wallViewer = new WallViewer();
