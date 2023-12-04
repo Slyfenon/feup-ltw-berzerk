@@ -39,6 +39,10 @@ public class StickManController extends GameController {
         getModel().getStickMan().setPosition(position);
         getModel().getStickMan().setDirection(direction);
         getModel().getStickMan().changeMoving();
+        if (collideStickMan(this.getModel().getStickMan().getPosition())) {
+            playShockSound();
+            this.getModel().getStickMan().setCollided(true);
+        }
     }
 
     @Override
@@ -52,31 +56,15 @@ public class StickManController extends GameController {
         switch (key) {
             case ARROW_UP :
                 moveStickManUp();
-                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-                    playShockSound();
-                    this.getModel().getStickMan().setCollided(true);
-                }
                 break;
             case ARROW_DOWN :
                 moveStickManDown();
-                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-                    playShockSound();
-                    this.getModel().getStickMan().setCollided(true);
-                }
                 break;
             case ARROW_LEFT :
                 moveStickManLeft();
-                if (collideStickMan(this.getModel().getStickMan().getPosition())) {;
-                    playShockSound();
-                    this.getModel().getStickMan().setCollided(true);
-                }
                 break;
             case ARROW_RIGHT :
                 moveStickManRight();
-                if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-                    playShockSound();
-                    this.getModel().getStickMan().setCollided(true);
-                }
                 break;
             case SPACE:
                 break;

@@ -15,31 +15,21 @@ public class GameViewer extends Viewer<Maze> {
     }
     @Override
     protected void renderElements(GUI gui) {
-        if (!isPaused) {
-            StickManViewer stickManViewer = new StickManViewer();
-            stickManViewer.display(getModel().getStickMan(), gui);
-            gui.drawLives(getModel().getStickMan().getLives());
-            gui.drawScore();
-            gui.drawNumbers(getModel().getStickMan().getScore());
 
-            List<Wall> walls = getModel().getWalls();
-            WallViewer wallViewer = new WallViewer();
-            for (Wall wall : walls) wallViewer.display(wall, gui);
+        StickManViewer stickManViewer = new StickManViewer();
+        stickManViewer.display(getModel().getStickMan(), gui);
+        gui.drawLives(getModel().getStickMan().getLives());
+        gui.drawScore();
+        gui.drawNumbers(getModel().getStickMan().getScore());
 
-            List<Robot> robots = getModel().getRobots();
-            RobotViewer robotViewer = new RobotViewer();
-            for (Robot robot : robots) robotViewer.display(robot, gui);
+        List<Wall> walls = getModel().getWalls();
+        WallViewer wallViewer = new WallViewer();
+        for (Wall wall : walls) wallViewer.display(wall, gui);
 
-            if (getModel().getStickMan().isCollided()) isPaused = true;
-        }
+        List<Robot> robots = getModel().getRobots();
+        RobotViewer robotViewer = new RobotViewer();
+        for (Robot robot : robots) robotViewer.display(robot, gui);
 
-        else {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            isPaused = false;
-        }
+
     }
 }
