@@ -68,3 +68,4 @@ public class StickManControllerTests extends Assertions {
         assertEquals(stickManController.getModel().getStickMan().getPosition(), new Position(30, 150));
     }
 }
+
