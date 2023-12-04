@@ -52,7 +52,6 @@ public class StickManController extends GameController {
         switch (key) {
             case ARROW_UP :
                 moveStickManUp();
-                getModel().getStickMan().decreaseLives();
                 if (collideStickMan(this.getModel().getStickMan().getPosition())) {
                     playShockSound();
                     this.getModel().getStickMan().setCollided(true);
