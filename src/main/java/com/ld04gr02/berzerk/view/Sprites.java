@@ -121,6 +121,30 @@ public class Sprites {
     public static String[] getRobot() {
         return ROBOT;
     }
+
+    public static int getEvilSmileWidth() {
+        return 12;
+    }
+
+    public static int getEvilSmileHeight() {
+        return 10;
+    }
+    private static final String[] EVIL_SMILE = {
+            "   ######",
+            " ##########",
+            "###  ##  ###",
+            "############",
+            "############",
+            "############",
+            "############",
+            "##  ####  ##",
+            " ##      ##",
+            "  ########"
+    };
+    public static String[] getEvilSmile() {
+        return EVIL_SMILE;
+    }
+
     private static final String[] LOGO = {
             "██████╗ ███████╗██████╗ ███████╗███████╗██████╗ ██╗  ██╗",
             "██╔══██╗██╔════╝██╔══██╗╚══███╔╝██╔════╝██╔══██╗██║ ██╔╝",

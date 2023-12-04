@@ -19,6 +19,7 @@ public interface GUI {
 
     public void drawWall(Position position);
     public void drawRobot(Position position);
+    public void drawEvilSmile(Position position);
 
     public void drawLives(int lives);
     public void drawScore();

@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.model.game.maze;
 
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -15,6 +16,7 @@ public class Maze {
     private StickMan stickMan;
     private List<Robot> robots;
     private List<Wall> walls;
+    private EvilSmile evilSmile;
 
     public Maze(int width, int height) {
         this.width = width;
@@ -44,6 +46,8 @@ public class Maze {
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
+    public EvilSmile getEvilSmile() {return evilSmile;}
+    public void setEvilSmile(EvilSmile evilSmile) {this.evilSmile = evilSmile;}
 
     public boolean collideWall(Position position, int elementWidth, int elementHeight) {
         for (Wall wall : getWalls()) {
@@ -74,6 +78,15 @@ public class Maze {
                 && (position.getX() + elementWidth > stickMan.getPosition().getX())
                 && (position.getY() < (stickMan.getPosition().getY() + getStickManHeight()))
                 && ((position.getY() + elementHeight) > stickMan.getPosition().getY()))
+            return true;
+        return false;
+    }
+
+    public boolean collideEvilSmile(Position position, int elementWidth, int elementHeight) {
+        if ((position.getX() < (evilSmile.getPosition().getX() + getEvilSmileWidth()))
+                && (position.getX() + elementWidth > evilSmile.getPosition().getX())
+                && (position.getY() < (evilSmile.getPosition().getY() + getEvilSmileHeight()))
+                && ((position.getY() + elementHeight) > evilSmile.getPosition().getY()))
             return true;
         return false;
     }
