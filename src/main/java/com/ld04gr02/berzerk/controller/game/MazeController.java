@@ -13,12 +13,14 @@ import java.net.URISyntaxException;
 public class MazeController extends GameController {
     private final StickManController stickManController;
     private final RobotController robotController;
+    private final BulletController bulletController;
 
     public MazeController(Maze maze) {
         super(maze);
 
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
+        this.bulletController = new BulletController(maze);
     }
 
     @Override

@@ -45,7 +45,6 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
                 if (getModel().getSelected() == MenuOptions.PLAY) {
                     game.getGui().close();
-                    play(0,0);
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze3.lvl");
                     stopMenuSong();

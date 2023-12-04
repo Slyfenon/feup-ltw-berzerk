@@ -5,6 +5,8 @@ import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.game.elements.Bullet;
+import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.state.PauseMenuState;
@@ -19,8 +21,10 @@ import static com.ld04gr02.berzerk.view.Sprites.*;
 
 public class StickManController extends GameController {
 
+    private long lastAction;
     public StickManController(Maze maze) {
         super(maze);
+        this.lastAction = 0;
     }
 
     Sound shock = new Sound();
@@ -82,6 +86,21 @@ public class StickManController extends GameController {
                 break;
             default:
                 break;
+        }
+    }
+
+    public Position getNewBulletPosition() {
+        switch(getModel().getStickMan().getCurrentDirection()) {
+            case Up :
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() - 2);
+            case Down :
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() + 2);
+            case Left :
+                return new Position(getModel().getStickMan().getPosition().getX() - 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
+            case Right :
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() + 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
+            default:
+                return null;
         }
     }
 

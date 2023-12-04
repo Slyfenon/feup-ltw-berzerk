@@ -9,13 +9,14 @@ public class StickManViewer implements ElementViewer<StickMan> {
     TextGraphics textGraphics;
     @Override
     public void display(StickMan stickMan, GUI gui) {
+        String color = !stickMan.isCollided() ? "#00ff00" : "#0000ff";
         if(stickMan.isMoving()) {
             switch (stickMan.getCurrentDirection()) {
                 case Left:
-                    gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingLeft(), stickMan.isCollided());
+                    gui.drawSprite(stickMan.getPosition(), Sprites.getStickManMovingLeft(), '#', color);
                     break;
                 case Up: case Down: case Right:
-                    gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingRight(), stickMan.isCollided());
+                    gui.drawSprite(stickMan.getPosition(), Sprites.getStickManMovingRight(), '#', color);
                     break;
                 case None:
                     break;
@@ -23,7 +24,7 @@ public class StickManViewer implements ElementViewer<StickMan> {
         }
         else
         {
-            gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManRight(), stickMan.isCollided());
+            gui.drawSprite(stickMan.getPosition(), Sprites.getStickManRight(), '#', color);
         }
     }
 }
