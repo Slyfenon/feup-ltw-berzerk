@@ -225,6 +225,7 @@ public class LanternaGUI implements GUI {
         TextGraphics graphicsName = screen.newTextGraphics();
         String name = model.getName();
         graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 1 , 16, "Name:" + name, SGR.BLINK);
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 17, 20, "Press ESC to quit", SGR.BORDERED);
 
     }
     @Override

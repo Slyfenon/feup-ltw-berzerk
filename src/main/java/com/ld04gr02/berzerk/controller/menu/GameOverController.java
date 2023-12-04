@@ -22,14 +22,17 @@ public class GameOverController extends Controller<GameOverMenu> {
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
 
-        if(getModel().getName().length() <= 5) {
             switch (key) {
                 case CHAR:
-                    getModel().setName(getModel().getName());
+                    if(getModel().getName().length() <= 5) {
+                        getModel().setName(getModel().getName() + key);
+                    }
                     break;
+                case ESC:
+                    System.exit(0);
                 default:
                     break;
             }
         }
-    }
+
 }
