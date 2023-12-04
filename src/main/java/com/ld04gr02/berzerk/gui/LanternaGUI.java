@@ -237,17 +237,17 @@ public class LanternaGUI implements GUI {
         String[] sprite = Sprites.getGameOver();
 
         graphics.setForegroundColor(TextColor.Factory.fromString("#ff0000"));
-        int y = 5;
+        int y = 2;
         for (String s : sprite){
-            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length()/2 + 4, y, s);
+            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length()/2 , y, s);
             y++;
         }
 
-        graphics.putString(MENU_SCREEN_WIDTH / 2 ,14, "Score:" + model.getStickManScore());
+        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,16, "Score:" + model.getStickManScore());
         TextGraphics graphicsName = screen.newTextGraphics();
         String name = model.getName();
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 1 , 16, "Name:" + name, SGR.BLINK);
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 17, 20, "Press ESC to quit", SGR.BORDERED);
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 5 , 18, "Name: " + name, SGR.BLINK);
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 17, 22, "Press ESC to quit", SGR.BORDERED);
 
     }
     @Override
