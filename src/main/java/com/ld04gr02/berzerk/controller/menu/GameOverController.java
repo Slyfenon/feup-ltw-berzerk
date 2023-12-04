@@ -24,12 +24,12 @@ public class GameOverController extends Controller<GameOverMenu> {
 
             switch (key) {
                 case CHAR:
-                    if(getModel().getName().length() <= 5) {
-                        getModel().setName(getModel().getName() + key);
-                    }
                     break;
                 case ESC:
                     System.exit(0);
+                    break;
+                case ENTER:
+                    break;
                 default:
                     break;
             }

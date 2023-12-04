@@ -3,7 +3,7 @@ package com.ld04gr02.berzerk.model.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOverMenu implements Menu{
+public class GameOverMenu implements Menu {
     private final List<MenuOptions> options = new ArrayList<>();
     private int currentOption = 0;
 

@@ -6,6 +6,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -21,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -145,6 +147,26 @@ public class LanternaGUI implements GUI {
             {
                 return KEY.NONE;
             }
+        }
+    }
+
+    @Override
+    public String getCharPressedKey() throws IOException {
+
+        KeyStroke key = screen.pollInput();
+        if(key == null) return "";
+
+        if (key.getKeyType() == KeyType.Character){
+            return Character.toString(key.getCharacter());
+        }
+        if(key.getKeyType() == KeyType.Escape){
+            return KeyType.Escape.toString();
+        }
+        if(key.getKeyType() == KeyType.Enter){
+            return KeyType.Enter.toString();
+        }
+        else {
+            return "";
         }
     }
     @Override

@@ -28,6 +28,7 @@ public interface GUI {
     public void drawMainMenu(MainMenu model);
     public void drawGameOverMenu(GameOverMenu model);
     public KEY getPressedKey() throws IOException;
+    public String getCharPressedKey() throws IOException;
 
 
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException;

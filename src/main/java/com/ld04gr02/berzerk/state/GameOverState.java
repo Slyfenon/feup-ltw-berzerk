@@ -29,11 +29,18 @@ public class GameOverState extends State<GameOverMenu> {
 
     @Override
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
-        GUI.KEY action = gui.getPressedKey();
-        this.controller.update(game, action, time);
-        if(action != GUI.KEY.ENTER) {
+        String str = game.getGui().getCharPressedKey();
+        if("Escape".equals(str)) {
+            this.controller.update(game, GUI.KEY.ESC, time);
+        }
+        else if("Enter".equals(str)) {
+            this.controller.update(game, GUI.KEY.ENTER, time);
+        }
+        else {
+            getModel().setName(getModel().getName() + str);
             this.viewer.display(gui);
         }
+
     }
 
     @Override
