@@ -13,6 +13,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
+import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.view.Sprites;
 
 import java.awt.*;
@@ -205,6 +206,30 @@ public class LanternaGUI implements GUI {
             y += 2;
         }
     }
+
+    public void drawPauseMenu(PauseMenu model){
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.getLogo();
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
+        int y = 5;
+        for (String s : sprite){
+            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length() / 2, y, s);
+            y++;
+        }
+
+        y = 15;
+        for(int i = 0; i < model.getOptions().size() ; i++) {
+            if(model.getOptions().get(i) == model.getSelected()) {
+                graphics.putString(MENU_SCREEN_WIDTH / 2 - (model.getString(i).length() + 4) / 2 , y, "> " + model.getString(i) + " <", SGR.BLINK);
+            }
+            else {
+                graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
+            }
+            y += 2;
+        }
+    }
+
     @Override
     public void drawLives(int lives){
         TextGraphics textGraphics = screen.newTextGraphics();

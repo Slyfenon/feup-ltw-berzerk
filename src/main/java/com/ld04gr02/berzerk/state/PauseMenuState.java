@@ -2,30 +2,30 @@ package com.ld04gr02.berzerk.state;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.Controller;
-//import com.ld04gr02.berzerk.controller.MainMenuController;
-import com.ld04gr02.berzerk.controller.menu.MainMenuController;
+import com.ld04gr02.berzerk.controller.menu.PauseMenuController;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.menu.MainMenu;
+import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.view.Viewer;
 import com.ld04gr02.berzerk.view.menu.MainMenuViewer;
+import com.ld04gr02.berzerk.view.menu.PauseMenuViewer;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class MainMenuState extends State<MainMenu> {
-    public MainMenuState(MainMenu mainMenu) {
-        super(mainMenu);
+public class PauseMenuState extends State<PauseMenu>{
+    public PauseMenuState(PauseMenu pauseMenu) {
+        super(pauseMenu);
     }
 
     @Override
-    public Viewer<MainMenu> getViewer() {
-        return new MainMenuViewer(getModel());
+    public Viewer<PauseMenu> getViewer() {
+        return new PauseMenuViewer(getModel());
     }
 
     @Override
-    protected Controller<MainMenu> getController() {
-        return new MainMenuController(getModel());
+    protected Controller<PauseMenu> getController() {
+        return new PauseMenuController(getModel());
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.gui;
 
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
+import com.ld04gr02.berzerk.model.menu.PauseMenu;
 
 import java.awt.*;
 import java.io.IOException;
@@ -25,6 +26,7 @@ public interface GUI {
     public void drawNumbers(int score);
 
     public void drawMainMenu(MainMenu model);
+    public void drawPauseMenu(PauseMenu model);
     public KEY getPressedKey() throws IOException;
 
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException;
