@@ -240,7 +240,7 @@ public class LanternaGUI implements GUI {
         for(int i = 0; i < lives; i++) {
             for (String s : sprite) {
                 for (int x = 0; x < s.length(); x++) {
-                    if (s.charAt(x) == '█')
+                    if (s.charAt(x) == '#')
                         textGraphics.fillRectangle(new TerminalPosition(posx + x, posy + y), new TerminalSize(1, 1), ' ');
                 }
                 y++;
