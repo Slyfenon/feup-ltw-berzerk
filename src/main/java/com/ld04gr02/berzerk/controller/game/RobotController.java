@@ -28,6 +28,7 @@ public class RobotController extends GameController {
         if (time - lastAction > 1000) {
             Position stickManPosition = getModel().getStickMan().getPosition();
             ArrayList<Robot> newRobots = new ArrayList<Robot>(getModel().getRobots());
+
             for (Robot robot : getModel().getRobots()) {
                 if (robot.isCollided()) {
                     newRobots.remove(robot);
@@ -43,6 +44,9 @@ public class RobotController extends GameController {
                 }
                 collisionTest(robot, newRobots);
             }
+
+            for (Robot robot : getModel().getRobots()) collisionTest(robot, newRobots);
+
             getModel().setRobots(newRobots);
             this.lastAction = time;
         }
@@ -61,6 +65,7 @@ public class RobotController extends GameController {
     }
 
     private void collisionTest(Robot robot, ArrayList<Robot> robots) {
+        if (robot.isCollided()) return;
         robots.remove(robot);
 
         if (getModel().collideWall(robot.getPosition(), getRobotWidth(), getRobotHeight()) || getModel().collideRobot(robot.getPosition(), getRobotWidth(), getRobotHeight()))
