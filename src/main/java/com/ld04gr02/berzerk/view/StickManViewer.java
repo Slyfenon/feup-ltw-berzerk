@@ -17,6 +17,8 @@ public class StickManViewer implements ElementViewer<StickMan> {
                 case Up: case Down: case Right:
                     gui.drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingRight(), stickMan.isCollided());
                     break;
+                case None:
+                    break;
             }
         }
         else

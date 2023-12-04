@@ -5,6 +5,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.view.Sprites;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,10 +30,10 @@ public class GUITests extends Assertions {
 
     @Test
     public void drawStickManTest() {
-        lanternaGUI.drawStickMan(new Position(10, 10), false);
+        lanternaGUI.drawStickMan(new Position(10, 10), Sprites.getStickManRight(), true);
 
         verify(textGraphics).setBackgroundColor(any());
-        verify(textGraphics, times(104)).fillRectangle(any(), any(), anyChar());
+        verify(textGraphics, times(40)).fillRectangle(any(), any(), anyChar());
     }
 
     @Test
@@ -40,7 +41,7 @@ public class GUITests extends Assertions {
         lanternaGUI.drawRobot(new Position(10, 10));
 
         verify(textGraphics).setBackgroundColor(any());
-        verify(textGraphics, times(145)).fillRectangle(any(), any(), anyChar());
+        verify(textGraphics, times(95)).fillRectangle(any(), any(), anyChar());
     }
 
     @Test
@@ -71,43 +72,43 @@ public class GUITests extends Assertions {
 
     @Test
     public void getPressedKeyUpTest() throws IOException {
-        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowUp));
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowUp)).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_UP);
     }
 
     @Test
     public void getPressedKeyDownTest() throws IOException {
-        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowDown));
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowDown)).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_DOWN);
     }
 
     @Test
     public void getPressedKeyRightTest() throws IOException {
-        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowRight));
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowRight)).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_RIGHT);
     }
 
     @Test
     public void getPressedKeyLeftTest() throws IOException {
-        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowLeft));
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowLeft)).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_LEFT);
     }
 
     @Test
     public void getPressedKeyEnterTest() throws IOException {
-        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter));
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter)).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ENTER);
     }
 
     @Test
     public void getPressedKeyEscapeTest() throws IOException {
-        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Escape));
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Escape)).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ESC);
     }
 
     @Test
     public void getPressedKeyCharacterTest() throws IOException {
-        when(screen.pollInput()).thenReturn(KeyStroke.fromString(" "));
+        when(screen.pollInput()).thenReturn(KeyStroke.fromString(" ")).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.SPACE);
     }
 
@@ -120,6 +121,7 @@ public class GUITests extends Assertions {
     @Test
     public void getPressedKeyDefaultTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.F1));
+        when(screen.pollInput()).thenReturn(null);
         assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.NONE);
     }
 }

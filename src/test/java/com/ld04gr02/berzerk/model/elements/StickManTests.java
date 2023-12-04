@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.model.elements;
 
+import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,7 @@ public class StickManTests extends Assertions {
 
     @BeforeEach
     public void setUp() {
-        stickMan = new StickMan(10, 15);
+        stickMan = new StickMan(10, 15, Direction.Right);
     }
 
     @Test
@@ -36,6 +37,12 @@ public class StickManTests extends Assertions {
         assertEquals(stickMan.getLives(), 3);
         stickMan.decreaseLives();
         assertEquals(stickMan.getLives(), 2);
+    }
+
+    @Test
+    public void scoreTest() {
+        stickMan.setScore(550);
+        assertEquals(stickMan.getScore(), 550);
     }
 
 }

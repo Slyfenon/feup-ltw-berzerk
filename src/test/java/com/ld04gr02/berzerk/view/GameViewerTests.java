@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -21,7 +22,7 @@ public class GameViewerTests extends Assertions {
     @BeforeEach
     public void setUp() throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
-        Maze maze = mazeRenderer.createMaze("maze1.lvl");
+        Maze maze = mazeRenderer.createMaze("maze_test.lvl");
         gameViewer = new GameViewer(maze);
         guiMock = mock(GUI.class);
     }
@@ -30,7 +31,7 @@ public class GameViewerTests extends Assertions {
     public void displayTest() throws IOException {
         gameViewer.display(guiMock);
 
-        verify(guiMock, times(1)).drawStickMan(any(), true);
+        verify(guiMock, times(1)).drawStickMan(any(), any(), anyBoolean());
         verify(guiMock, times(82)).drawWall(any());
         verify(guiMock, times(3)).drawRobot(any());
         verify(guiMock).clear();

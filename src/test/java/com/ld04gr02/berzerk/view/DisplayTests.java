@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.view;
 
 import com.ld04gr02.berzerk.gui.GUI;
+import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -21,10 +22,23 @@ public class DisplayTests extends Assertions {
 
     @Test
     public void stickManDisplayTest() {
-        StickMan stickMan = new StickMan(20, 50);
+        StickMan stickMan = new StickMan(20, 50, Direction.Right);
         StickManViewer stickManViewer = new StickManViewer();
         stickManViewer.display(stickMan, guiMock);
-        verify(guiMock).drawStickMan(stickMan.getPosition(), false);
+        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManRight(), false);
+    }
+
+    @Test
+    public void stickManMovingDisplayTest() {
+        StickMan stickMan = new StickMan(20, 50, Direction.Right);
+        stickMan.setCollided(true);
+        stickMan.changeMoving();
+        StickManViewer stickManViewer = new StickManViewer();
+        stickManViewer.display(stickMan, guiMock);
+        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingRight(), true);
+        stickMan.setDirection(Direction.Left);
+        stickManViewer.display(stickMan, guiMock);
+        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingLeft(), true);
     }
 
     @Test
@@ -37,7 +51,7 @@ public class DisplayTests extends Assertions {
 
     @Test
     public void robotDisplayTest() {
-        Robot robot = new Robot(100, 150);
+        Robot robot = new Robot(100, 150, Direction.Right);
         RobotViewer robotViewer = new RobotViewer();
         robotViewer.display(robot, guiMock);
         verify(guiMock).drawRobot(robot.getPosition());
