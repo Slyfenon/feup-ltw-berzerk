@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.gui;
 
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 
 import java.awt.*;
@@ -25,7 +26,9 @@ public interface GUI {
     public void drawNumbers(int score);
 
     public void drawMainMenu(MainMenu model);
+    public void drawGameOverMenu(GameOverMenu model);
     public KEY getPressedKey() throws IOException;
+
 
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException;
     public void createMenuScreen(int width, int height) throws IOException, URISyntaxException, FontFormatException;
@@ -38,6 +41,7 @@ public interface GUI {
         ENTER,
         ESC,
         SPACE,
+        CHAR,
         NONE;
     }
 }

@@ -5,6 +5,7 @@ import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
+import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.view.GameViewer;
 import com.ld04gr02.berzerk.view.Viewer;
 
@@ -39,6 +40,15 @@ public class GameState extends State<Maze> {
                 getModel().getStickMan().changeMoving();
                 this.viewer.display(gui);
             }
+        }
+        if(getModel().getStickMan().getLives() == 0){
+            gui.close();
+            GameOverMenu gameOverMenu = new GameOverMenu();
+            GameOverState gameOverState= new GameOverState(gameOverMenu);
+            gameOverMenu.setStickManScore(getModel().getStickMan().getScore());
+            game.setState(gameOverState);
+            gameOverState.initScreen(gui, 80,22);
+
         }
     }
 
