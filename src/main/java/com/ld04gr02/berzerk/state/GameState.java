@@ -18,6 +18,7 @@ import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
 public class GameState extends State<Maze> {
     public GameState(Maze maze) {
+
         super(maze);
     }
 
@@ -40,17 +41,9 @@ public class GameState extends State<Maze> {
                     || action == GUI.KEY.ARROW_DOWN
                     || action == GUI.KEY.ARROW_LEFT
                     || action == GUI.KEY.ARROW_RIGHT) {
-                getModel().getStickMan().changeMoving();
+                this.model.getStickMan().changeMoving();
                 this.viewer.display(gui);
             }
-        }
-        if(getModel().getStickMan().getLives() == 0){
-            gui.close();
-            GameOverMenu gameOverMenu = new GameOverMenu();
-            gameOverMenu.setStickManScore(getModel().getStickMan().getScore());
-            GameOverState gameOverState= new GameOverState(gameOverMenu);
-            game.setState(gameOverState);
-            gameOverState.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
         }
     }
 
@@ -58,4 +51,5 @@ public class GameState extends State<Maze> {
     public void initScreen(GUI gui, int width, int height) throws IOException, URISyntaxException, FontFormatException {
         gui.createGameScreen(width,height);
     }
+
 }
