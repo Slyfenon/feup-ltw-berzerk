@@ -214,7 +214,7 @@ public class LanternaGUI implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         String[] sprite = Sprites.getGameOver();
 
-        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#ff0000"));
         int y = 5;
         for (String s : sprite){
             graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length()/2 + 4, y, s);
