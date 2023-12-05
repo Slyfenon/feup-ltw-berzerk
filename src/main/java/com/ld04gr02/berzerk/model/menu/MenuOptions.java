@@ -4,6 +4,7 @@ public enum MenuOptions{
     PLAY("Play"),
     LEADERBOARD("Leaderboard"),
     INSTRUCTIONS("Instructions"),
+    RESUME("Resume"),
     QUIT("Quit");
     private final String option;
     MenuOptions(String option) {

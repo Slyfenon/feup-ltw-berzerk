@@ -1,9 +1,7 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
-import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.state.GameOverState;
@@ -18,17 +16,22 @@ import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 public class MazeController extends GameController {
     private final StickManController stickManController;
     private final RobotController robotController;
+    private final EvilSmileController evilSmileController;
+    private final BulletController bulletController;
 
     public MazeController(Maze maze) {
         super(maze);
         System.out.println("oi");
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
+        this.evilSmileController = new EvilSmileController(maze);
+        this.bulletController = new BulletController(maze);
         playSong(-20.0f);
     }
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+        bulletController.update(game, key, time);
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
         if(getModel().getStickMan().getLives() == 0){
@@ -46,8 +49,10 @@ public class MazeController extends GameController {
         gameMusic.setFile(5);
         gameMusic.loopSound(volume);
     }
+  
     public void stopSong(float volume){
         gameMusic.stopSound();
+        evilSmileController.update(game, key, time);
     }
 
 }

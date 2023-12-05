@@ -1,7 +1,9 @@
 package com.ld04gr02.berzerk.model.game.elements;
 
-public class Bullet extends Element {
-    public Bullet(int x, int y) {
-        super(x, y);
+import com.ld04gr02.berzerk.model.Direction;
+
+public class Bullet extends MovingElement {
+    public Bullet(int x, int y, Direction direction) {
+        super(x, y, direction);
     }
 }

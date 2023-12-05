@@ -44,6 +44,9 @@ public class GameState extends State<Maze> {
                 this.model.getStickMan().changeMoving();
                 this.viewer.display(gui);
             }
+            else if(action == GUI.KEY.SPACE) {
+                getModel().getStickMan().setShooting(false);
+            }
         }
     }
 
