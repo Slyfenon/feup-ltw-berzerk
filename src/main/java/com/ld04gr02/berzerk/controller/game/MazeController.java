@@ -25,6 +25,7 @@ public class MazeController extends GameController {
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+        bulletController.update(game, key, time);
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
     }

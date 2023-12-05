@@ -14,6 +14,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static com.ld04gr02.berzerk.Game.INFO_SECTIONS_HEIGHT;
+
 public class MainMenuController extends Controller<MainMenu> {
 
     Sound sound = new Sound();
@@ -49,7 +51,7 @@ public class MainMenuController extends Controller<MainMenu> {
                     Maze maze = mazeRenderer.createMaze("maze3.lvl");
                     stopMenuSong();
                     game.setState(new GameState(maze));
-                    game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
+                    game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
                 }
                 play(0,0);
                 break;

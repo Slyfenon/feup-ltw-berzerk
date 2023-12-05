@@ -77,6 +77,13 @@ public class StickManController extends GameController {
                 moveStickManRight();
                 break;
             case SPACE:
+                if (time - lastAction > 350) {
+                    getModel().getStickMan().setShooting(true);
+                    System.out.println(getModel().getBullets().size());
+                    Position tempPosition = getNewBulletPosition();
+                    getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), getModel().getStickMan().getCurrentDirection()));
+                    lastAction = time;
+                }
                 break;
             case ESC:
                 game.getGui().close();
@@ -92,13 +99,13 @@ public class StickManController extends GameController {
     public Position getNewBulletPosition() {
         switch(getModel().getStickMan().getCurrentDirection()) {
             case Up :
-                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() - 2);
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() - getBulletWidth() - 1);
             case Down :
-                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() + 2);
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() + 1);
             case Left :
-                return new Position(getModel().getStickMan().getPosition().getX() - 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
+                return new Position(getModel().getStickMan().getPosition().getX() - getBulletWidth() - 1, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
             case Right :
-                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() + 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() + 1, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
             default:
                 return null;
         }

@@ -28,30 +28,34 @@ public class BulletController extends GameController{
     }
 
     public void moveBullet(Bullet bullet) {
-        Position nextPosition = bullet.getPosition();
+        Position nextPosition = new Position(bullet.getPosition().getX(), bullet.getPosition().getY());
         switch (bullet.getCurrentDirection()) {
             case Up:
                 nextPosition.setY(nextPosition.getY() - 10);
                 if (getModel().collideWall(nextPosition, getBulletWidth(), 10)) {
                     getModel().getBullets().remove(bullet);
+                    return;
                 }
                 break;
             case Down:
                 nextPosition.setY(nextPosition.getY() + 10);
-                if (getModel().collideWall(new Position(bullet.getPosition().getX(), bullet.getPosition().getY()+getBulletHeight()), getBulletWidth(), 10)) {
+                if (getModel().collideWall(new Position(bullet.getPosition().getX(), bullet.getPosition().getY()), 10 + getBulletWidth(), 10)) {
                     getModel().getBullets().remove(bullet);
+                    return;
                 }
                 break;
             case Left:
                 nextPosition.setX(nextPosition.getX() - 10);
-                if (getModel().collideWall(nextPosition, getBulletWidth(), getBulletHeight())) {
+                if (getModel().collideWall(nextPosition, 10, getBulletHeight())) {
                     getModel().getBullets().remove(bullet);
+                    return;
                 }
                 break;
             case Right:
                 nextPosition.setX(nextPosition.getX() + 10);
-                if (getModel().collideWall(nextPosition, getBulletWidth(), getBulletHeight())) {
+                if (getModel().collideWall(new Position(bullet.getPosition().getX(), bullet.getPosition().getY()), 10 + getBulletWidth(), getBulletHeight())) {
                     getModel().getBullets().remove(bullet);
+                    return;
                 }
                 break;
             default:
