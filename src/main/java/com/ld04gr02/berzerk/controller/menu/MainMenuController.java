@@ -14,6 +14,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static com.ld04gr02.berzerk.Game.INFO_SECTIONS_HEIGHT;
+
 public class MainMenuController extends Controller<MainMenu> {
 
     Sound sound = new Sound();
@@ -21,56 +23,41 @@ public class MainMenuController extends Controller<MainMenu> {
 
     public MainMenuController(MainMenu model) {
         super(model);
-        if(menuSong.getClip() != null){
-            stopMenuSong();
-        }
-        else {
-            playMenuSong(-20.0f);
+        if (menuSong.getClip() != null) {
+            menuSong.stopSound();
+        } else {
+            menuSong.playMenuSong(-30.0f);
         }
     }
 
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException, NullPointerException {
-        switch(key) {
-            case ARROW_UP :
+        switch (key) {
+            case ARROW_UP:
                 getModel().selectPrev();
-                play(0, 0);
+                sound.playClickSound();
                 break;
-            case ARROW_DOWN :
+            case ARROW_DOWN:
                 getModel().selectNext();
-                play(0,0);
+                sound.playClickSound();
                 break;
-            case ENTER : {
+            case ENTER: {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
-                MazeRenderer mazeRenderer = new MazeRenderer();
                 if (getModel().getSelected() == MenuOptions.PLAY) {
                     game.getGui().close();
-                    play(0,0);
+                    MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze3.lvl");
-                    stopMenuSong();
+                    menuSong.stopSound();
                     game.setState(new GameState(maze));
-                    game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
+                    game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
                 }
-                play(0,0);
+                sound.playClickSound();
                 break;
             }
             default:
                 break;
         }
     }
-
-    void play(int i, float volume){
-        sound.setFile(i);
-        sound.playSound(volume);
-    }
-
-    public void playMenuSong(float volume){
-        menuSong.setFile(2);
-        menuSong.loopSound(volume);
-    }
-
-    public void stopMenuSong(){
-        menuSong.stopSound();
-    }
 }
+

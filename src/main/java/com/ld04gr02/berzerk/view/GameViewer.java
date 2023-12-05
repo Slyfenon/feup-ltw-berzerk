@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.view;
 
 import com.ld04gr02.berzerk.gui.GUI;
+import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
@@ -15,31 +16,21 @@ public class GameViewer extends Viewer<Maze> {
     }
     @Override
     protected void renderElements(GUI gui) {
-        if (!isPaused) {
-            StickManViewer stickManViewer = new StickManViewer();
-            stickManViewer.display(getModel().getStickMan(), gui);
-            gui.drawLives(getModel().getStickMan().getLives());
-            gui.drawScore();
-            gui.drawNumbers(getModel().getStickMan().getScore());
+        gui.drawFrame(getModel().getWidth(), getModel().getHeight());
 
-            List<Wall> walls = getModel().getWalls();
-            WallViewer wallViewer = new WallViewer();
-            for (Wall wall : walls) wallViewer.display(wall, gui);
+        BulletViewer bulletViewer = new BulletViewer();
+        for(Bullet bullet: getModel().getBullets()) bulletViewer.display(bullet, gui);
 
-            List<Robot> robots = getModel().getRobots();
-            RobotViewer robotViewer = new RobotViewer();
-            for (Robot robot : robots) robotViewer.display(robot, gui);
+        StickManViewer stickManViewer = new StickManViewer();
+        stickManViewer.display(getModel().getStickMan(), gui);
+        gui.drawLives(getModel().getStickMan().getLives());
+        gui.drawScore();
+        gui.drawNumbers(getModel().getStickMan().getScore());
 
-            if (getModel().getStickMan().isCollided()) isPaused = true;
-        }
+        WallViewer wallViewer = new WallViewer();
+        for (Wall wall : getModel().getWalls()) wallViewer.display(wall, gui);
 
-        else {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            isPaused = false;
-        }
+        RobotViewer robotViewer = new RobotViewer();
+        for (Robot robot : getModel().getRobots()) robotViewer.display(robot, gui);
     }
 }

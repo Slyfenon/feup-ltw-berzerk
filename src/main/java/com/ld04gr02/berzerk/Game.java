@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk;
 
+import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.gui.LanternaGUI;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.state.MainMenuState;
@@ -23,23 +24,28 @@ public class Game {
         }
     }
 
-    private final LanternaGUI gui;
-    private State state;
+    private final GUI gui;
 
-    // public static final int GAME_SCREEN_WIDTH = 50;
-    // public static final int GAME_SCREEN_HEIGHT = 50;
+    private State previousState;
+    private State state;
 
     public static final int MENU_SCREEN_WIDTH = 70;
     public static final int MENU_SCREEN_HEIGHT = 30;
-    public void setState(State state) {
-        this.state = state;
-    }
-
+    public static final int INFO_SECTIONS_HEIGHT = 30;
     public State getState() {
         return state;
     }
+    public void setState(State state) {
+        this.state = state;
+    }
+    public State getPreviousState() {
+        return previousState;
+    }
+    public void setPreviousState(State previousState) {
+        this.previousState = previousState;
+    }
 
-    public LanternaGUI getGui() {
+    public GUI getGui() {
         return gui;
     }
 
