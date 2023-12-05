@@ -29,7 +29,9 @@ public class GameOverState extends State<GameOverMenu> {
 
     @Override
     public void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException {
+
         String str = game.getGui().getCharPressedKey();
+
         if("Escape".equals(str)) {
             this.controller.update(game, GUI.KEY.ESC, time);
         }
@@ -37,7 +39,7 @@ public class GameOverState extends State<GameOverMenu> {
             this.controller.update(game, GUI.KEY.ENTER, time);
         }
         else {
-            getModel().setName(getModel().getName() + str);
+            if(getModel().getName().length() <= 10) getModel().setName(getModel().getName() + str);
             this.viewer.display(gui);
         }
 

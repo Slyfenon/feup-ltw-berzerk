@@ -26,6 +26,7 @@ import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
 public class LanternaGUI implements GUI {
@@ -237,17 +238,17 @@ public class LanternaGUI implements GUI {
         String[] sprite = Sprites.getGameOver();
 
         graphics.setForegroundColor(TextColor.Factory.fromString("#ff0000"));
-        int y = 2;
+        int y = 5;
         for (String s : sprite){
             graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length()/2 , y, s);
             y++;
         }
 
-        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,16, "Score:" + model.getStickManScore());
+        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,19, "Score:" + model.getStickManScore());
         TextGraphics graphicsName = screen.newTextGraphics();
         String name = model.getName();
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 5 , 18, "Name: " + name, SGR.BLINK);
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 17, 22, "Press ESC to quit", SGR.BORDERED);
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 10 , 23, "Name: " + name, SGR.BLINK);
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 14, MENU_SCREEN_HEIGHT - 1, "ESC -> Back to Menu", SGR.BORDERED);
 
     }
     @Override

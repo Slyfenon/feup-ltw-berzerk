@@ -22,7 +22,6 @@ public class GameOverMenu implements Menu {
 
     @Override
     public void selectPrev() {
-
     }
 
     @Override
