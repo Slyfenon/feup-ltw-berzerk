@@ -23,6 +23,11 @@ public class EvilSmileController extends GameController{
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+        if (getModel().getEvilSmile().isCollided()) {
+            getModel().getEvilSmile().setCollided(false);
+            getModel().getEvilSmile().setPosition(new Position(0, 0));
+            timePause = 5000;
+        }
         if (time - lastAction > timePause) {
             Position stickManPosition = getModel().getStickMan().getPosition();
             while (true) {
@@ -32,6 +37,10 @@ public class EvilSmileController extends GameController{
                     break;
                 }
             }
+
+            if (getModel().collideStickMan(getModel().getEvilSmile().getPosition(), getEvilSmileWidth(), getEvilSmileHeight())) getModel().getEvilSmile().setCollided(true);
+            getModel().collideRobot(getModel().getEvilSmile().getPosition(), getEvilSmileWidth(), getEvilSmileHeight());
+
             this.lastAction = time;
             if (timePause > 1000) timePause -= 250;
         }

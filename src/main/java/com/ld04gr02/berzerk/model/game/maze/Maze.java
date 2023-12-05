@@ -77,8 +77,10 @@ public class Maze {
                     && (position.getX() + elementWidth > positionRobot.getX())
                     && (position.getY() < (positionRobot.getY() + getRobotHeight()))
                     && ((position.getY() + elementHeight) > positionRobot.getY())
-                    && !position.equals(positionRobot))
+                    && !position.equals(positionRobot)) {
+                robot.setCollided(true);
                 return true;
+            }
         }
         return false;
     }
@@ -87,8 +89,10 @@ public class Maze {
         if ((position.getX() < (stickMan.getPosition().getX() + getStickManWidth()))
                 && (position.getX() + elementWidth > stickMan.getPosition().getX())
                 && (position.getY() < (stickMan.getPosition().getY() + getStickManHeight()))
-                && ((position.getY() + elementHeight) > stickMan.getPosition().getY()))
+                && ((position.getY() + elementHeight) > stickMan.getPosition().getY())) {
+            stickMan.setCollided(true);
             return true;
+        }
         return false;
     }
 
@@ -96,8 +100,10 @@ public class Maze {
         if ((position.getX() < (evilSmile.getPosition().getX() + getEvilSmileWidth()))
                 && (position.getX() + elementWidth > evilSmile.getPosition().getX())
                 && (position.getY() < (evilSmile.getPosition().getY() + getEvilSmileHeight()))
-                && ((position.getY() + elementHeight) > evilSmile.getPosition().getY()))
+                && ((position.getY() + elementHeight) > evilSmile.getPosition().getY())) {
+            evilSmile.setCollided(true);
             return true;
+        }
         return false;
     }
 }

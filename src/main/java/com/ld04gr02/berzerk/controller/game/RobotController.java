@@ -25,16 +25,18 @@ public class RobotController extends GameController {
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+        ArrayList<Robot> auxRobots = new ArrayList<Robot>(getModel().getRobots());
+        for (Robot robot : auxRobots) {
+            if (robot.isCollided()) {
+                getModel().getRobots().remove(robot);
+            }
+        }
+
+
         if (time - lastAction > 1000) {
             Position stickManPosition = getModel().getStickMan().getPosition();
-            ArrayList<Robot> newRobots = new ArrayList<Robot>(getModel().getRobots());
 
-            for (Robot robot : getModel().getRobots()) {
-                if (robot.isCollided()) {
-                    newRobots.remove(robot);
-                    continue;
-                }
-
+            for(Robot robot: getModel().getRobots()) {
                 while (true) {
                     Position newPosition = robot.getPosition().getRandomNeighbour();
                     if (closer(stickManPosition, robot.getPosition(), newPosition)) {
@@ -42,12 +44,9 @@ public class RobotController extends GameController {
                         break;
                     }
                 }
-                collisionTest(robot, newRobots);
+
+                collisionTest(robot, auxRobots);
             }
-
-            for (Robot robot : getModel().getRobots()) collisionTest(robot, newRobots);
-
-            getModel().setRobots(newRobots);
             this.lastAction = time;
         }
     }
@@ -69,8 +68,18 @@ public class RobotController extends GameController {
         if (robot.isCollided()) return;
         robots.remove(robot);
 
-        if (getModel().collideWall(robot.getPosition(), getRobotWidth(), getRobotHeight()) || getModel().collideRobot(robot.getPosition(), getRobotWidth(), getRobotHeight()))
+        if (getModel().collideStickMan(robot.getPosition(), getRobotWidth(), getRobotHeight())) {
             robot.setCollided(true);
+        }
+
+        else if (getModel().collideRobot(robot.getPosition(), getRobotWidth(), getRobotHeight())) {
+            robot.setCollided(true);
+        }
+
+        else if (getModel().collideEvilSmile(robot.getPosition(), getRobotWidth(), getRobotHeight())) {
+            robot.setCollided(true);
+            getModel().getEvilSmile().setCollided(false);
+        }
 
         robots.add(robot);
     }
