@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import static com.ld04gr02.berzerk.view.Sprites.*;
+import static java.lang.Math.abs;
 
 public class EvilSmileController extends GameController{
     private long lastAction;
@@ -23,17 +24,27 @@ public class EvilSmileController extends GameController{
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         if (time - lastAction > timePause) {
-            moveEvilSmile(getModel().getEvilSmile(), getModel().getEvilSmile().getPosition().getRandomNeighbour());
+            Position stickManPosition = getModel().getStickMan().getPosition();
+            while (true) {
+                Position newPosition = getModel().getEvilSmile().getPosition().getRandomNeighbour();
+                if (closer(stickManPosition, getModel().getEvilSmile().getPosition(), newPosition)) {
+                    moveEvilSmile(getModel().getEvilSmile(), newPosition);
+                    break;
+                }
+            }
             this.lastAction = time;
-            if (timePause > 0) timePause -= 250;
+            if (timePause > 1000) timePause -= 250;
         }
     }
 
     private void moveEvilSmile(EvilSmile evilSmile, Position position) {
-        if (!getModel().collideWall(position, getEvilSmileWidth(), getEvilSmileHeight())) {
-            evilSmile.setPosition(position);
-            if (getModel().collideStickMan(position, getEvilSmileWidth(), getEvilSmileHeight()))
-                getModel().getStickMan().decreaseLives();
+        evilSmile.setPosition(position);
+        if (getModel().collideStickMan(position, getEvilSmileWidth(), getEvilSmileHeight())) {
+            getModel().getStickMan().setCollided(true);
         }
+    }
+
+    private boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {
+        return (abs(stickManPosition.getX()-newPosition.getX()) < abs(stickManPosition.getX()-currentPosition.getX()) || abs(stickManPosition.getY()-newPosition.getY()) < abs(stickManPosition.getY()-currentPosition.getY()));
     }
 }

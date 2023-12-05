@@ -55,8 +55,9 @@ public class RobotController extends GameController {
     private void moveRobot(Robot robot, Position position) {
         if (!getModel().collideWall(position, getRobotWidth(), getRobotHeight())) {
             robot.setPosition(position);
-            if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight()))
-                getModel().getStickMan().decreaseLives();
+            if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight())) {
+                getModel().getStickMan().setCollided(true);
+            }
         }
     }
 
