@@ -250,11 +250,11 @@ public class Sprites {
         return VERTICAL_BULLET;
     }
 
-    public static int getBulletWidth() {
+    public static int getBulletLong() {
         return 3;
     }
 
-    public static int getBulletHeight() {
+    public static int getBulletShort() {
         return 1;
 
     }
