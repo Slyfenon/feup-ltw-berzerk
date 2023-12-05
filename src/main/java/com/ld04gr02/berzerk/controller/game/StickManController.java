@@ -65,7 +65,6 @@ public class StickManController extends GameController {
 
         switch (key) {
             case ARROW_UP :
-                getModel().getStickMan().decreaseLives();
                 moveStickManUp();
                 break;
             case ARROW_DOWN :

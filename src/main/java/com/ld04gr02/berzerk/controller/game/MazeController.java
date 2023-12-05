@@ -21,7 +21,6 @@ public class MazeController extends GameController {
 
     public MazeController(Maze maze) {
         super(maze);
-        System.out.println("oi");
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
         this.evilSmileController = new EvilSmileController(maze);
@@ -34,6 +33,7 @@ public class MazeController extends GameController {
         bulletController.update(game, key, time);
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
+        evilSmileController.update(game, key, time);
         if(getModel().getStickMan().getLives() == 0){
             game.getGui().close();
             stopSong(0);
@@ -52,7 +52,6 @@ public class MazeController extends GameController {
   
     public void stopSong(float volume){
         gameMusic.stopSound();
-        evilSmileController.update(game, key, time);
     }
 
 }
