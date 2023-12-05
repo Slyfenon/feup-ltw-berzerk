@@ -6,7 +6,6 @@ import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.Bullet;
-import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.state.PauseMenuState;
@@ -99,11 +98,11 @@ public class StickManController extends GameController {
     public Position getNewBulletPosition() {
         switch(getModel().getStickMan().getCurrentDirection()) {
             case Up :
-                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() - getBulletWidth() - 1);
+                return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() - getBulletLong() - 1);
             case Down :
                 return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() / 2, getModel().getStickMan().getPosition().getY() + getStickManHeight() + 1);
             case Left :
-                return new Position(getModel().getStickMan().getPosition().getX() - getBulletWidth() - 1, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
+                return new Position(getModel().getStickMan().getPosition().getX() - getBulletLong() - 1, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
             case Right :
                 return new Position(getModel().getStickMan().getPosition().getX() + getStickManWidth() + 1, getModel().getStickMan().getPosition().getY() + getStickManHeight() / 2);
             default:
@@ -114,7 +113,8 @@ public class StickManController extends GameController {
     public boolean collideStickMan(Position positionStickMan) {
         return getModel().collideWall(positionStickMan, getStickManWidth(), getStickManHeight())
                 || getModel().collideRobot(positionStickMan, getStickManWidth(), getStickManHeight())
-                || getModel().collideEvilSmile(positionStickMan, getStickManWidth(), getStickManHeight());
+                || getModel().collideEvilSmile(positionStickMan, getStickManWidth(), getStickManHeight(), true)
+                || getModel().collideBullet(positionStickMan, getStickManWidth(), getStickManHeight());
     }
 
     private void playShockSound(){

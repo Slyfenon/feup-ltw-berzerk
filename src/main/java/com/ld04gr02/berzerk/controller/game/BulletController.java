@@ -4,7 +4,6 @@ import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.Bullet;
-import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 
 import java.awt.*;
@@ -32,28 +31,28 @@ public class BulletController extends GameController{
         switch (bullet.getCurrentDirection()) {
             case Up:
                 nextPosition.setY(nextPosition.getY() - 10);
-                if (getModel().collideWall(nextPosition, getBulletWidth(), 10)) {
+                if (collideBullet(nextPosition, getBulletShort(), getBulletLong() + 10)) {
                     getModel().getBullets().remove(bullet);
                     return;
                 }
                 break;
             case Down:
                 nextPosition.setY(nextPosition.getY() + 10);
-                if (getModel().collideWall(new Position(bullet.getPosition().getX(), bullet.getPosition().getY()), 10 + getBulletWidth(), 10)) {
+                if (collideBullet(bullet.getPosition(), getBulletShort(), getBulletLong() + 10)) {
                     getModel().getBullets().remove(bullet);
                     return;
                 }
                 break;
             case Left:
                 nextPosition.setX(nextPosition.getX() - 10);
-                if (getModel().collideWall(nextPosition, 10, getBulletHeight())) {
+                if (collideBullet(nextPosition, 10 + getBulletLong(), getBulletShort())) {
                     getModel().getBullets().remove(bullet);
                     return;
                 }
                 break;
             case Right:
                 nextPosition.setX(nextPosition.getX() + 10);
-                if (getModel().collideWall(new Position(bullet.getPosition().getX(), bullet.getPosition().getY()), 10 + getBulletWidth(), getBulletHeight())) {
+                if (collideBullet(bullet.getPosition(), 10 + getBulletLong(), getBulletShort())) {
                     getModel().getBullets().remove(bullet);
                     return;
                 }
@@ -62,5 +61,11 @@ public class BulletController extends GameController{
                 break;
         }
         bullet.setPosition(nextPosition);
+    }
+
+    private boolean collideBullet(Position positionBullet, int width, int height) {
+        return getModel().collideStickMan(positionBullet, width, height)
+                || getModel().collideRobot(positionBullet, width, height)
+                || getModel().collideEvilSmile(positionBullet, width, height, false);
     }
 }

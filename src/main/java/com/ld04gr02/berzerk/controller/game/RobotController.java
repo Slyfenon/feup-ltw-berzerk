@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import static com.ld04gr02.berzerk.view.Sprites.getRobotHeight;
-import static com.ld04gr02.berzerk.view.Sprites.getRobotWidth;
+import static com.ld04gr02.berzerk.view.Sprites.*;
+import static com.ld04gr02.berzerk.view.Sprites.getStickManHeight;
 import static java.lang.Math.abs;
 
 public class RobotController extends GameController {
@@ -45,7 +45,9 @@ public class RobotController extends GameController {
                     }
                 }
 
-                collisionTest(robot, auxRobots);
+                if (collideRobot(robot.getPosition())) {
+                    robot.setCollided(true);
+                }
             }
             this.lastAction = time;
         }
@@ -64,23 +66,10 @@ public class RobotController extends GameController {
         return (abs(stickManPosition.getX()-newPosition.getX()) < abs(stickManPosition.getX()-currentPosition.getX()) || abs(stickManPosition.getY()-newPosition.getY()) < abs(stickManPosition.getY()-currentPosition.getY()));
     }
 
-    private void collisionTest(Robot robot, ArrayList<Robot> robots) {
-        if (robot.isCollided()) return;
-        robots.remove(robot);
-
-        if (getModel().collideStickMan(robot.getPosition(), getRobotWidth(), getRobotHeight())) {
-            robot.setCollided(true);
-        }
-
-        else if (getModel().collideRobot(robot.getPosition(), getRobotWidth(), getRobotHeight())) {
-            robot.setCollided(true);
-        }
-
-        else if (getModel().collideEvilSmile(robot.getPosition(), getRobotWidth(), getRobotHeight())) {
-            robot.setCollided(true);
-            getModel().getEvilSmile().setCollided(false);
-        }
-
-        robots.add(robot);
+    private boolean collideRobot(Position positionRobot) {
+        return getModel().collideStickMan(positionRobot, getRobotWidth(), getRobotHeight())
+                || getModel().collideRobot(positionRobot, getRobotWidth(), getRobotHeight())
+                || getModel().collideEvilSmile(positionRobot, getRobotWidth(), getRobotHeight(), false)
+                || getModel().collideBullet(positionRobot, getStickManWidth(), getStickManHeight());
     }
 }
