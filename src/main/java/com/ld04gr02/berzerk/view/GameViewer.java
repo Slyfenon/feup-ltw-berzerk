@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.view;
 
 import com.ld04gr02.berzerk.gui.GUI;
+import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -31,6 +32,9 @@ public class GameViewer extends Viewer<Maze> {
         for (Wall wall : getModel().getWalls()) wallViewer.display(wall, gui);
 
         RobotViewer robotViewer = new RobotViewer();
-        for (Robot robot : getModel().getRobots()) robotViewer.display(robot, gui);
+        for (Robot robot : robots) robotViewer.display(robot, gui);
+
+        EvilSmileViewer evilSmileViewer = new EvilSmileViewer();
+        evilSmileViewer.display(getModel().getEvilSmile(), gui);
     }
 }

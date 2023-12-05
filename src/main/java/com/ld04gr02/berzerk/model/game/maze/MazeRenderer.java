@@ -1,7 +1,7 @@
 package com.ld04gr02.berzerk.model.game.maze;
 
 import com.ld04gr02.berzerk.model.Direction;
-import com.ld04gr02.berzerk.model.game.elements.MovingElement;
+import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -29,6 +29,7 @@ public class MazeRenderer implements MazeBuilder {
         maze.setStickMan(createStickMan());
         maze.setRobots(createRobots());
         maze.setWalls(createWalls());
+        maze.setEvilSmile(createEvilSmile());
         return maze;
     }
     private List<String> renderRows(BufferedReader bufferedReader) throws IOException {
@@ -71,6 +72,16 @@ public class MazeRenderer implements MazeBuilder {
                 }
         }
         return walls;
+    }
+
+    private EvilSmile createEvilSmile() {
+        for (int y = 0; y < rows.size(); y++) {
+            String line = rows.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'E')
+                    return new EvilSmile(x, y, Direction.Right);
+        }
+        return null;
     }
 
     private int getWidth() {

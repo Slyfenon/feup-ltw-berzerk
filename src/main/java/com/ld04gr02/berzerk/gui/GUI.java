@@ -17,6 +17,7 @@ public interface GUI {
 
     public void drawFrame(int width, int height);
     public void drawWall(Position position);
+    public void drawEvilSmile(Position position);
 
     public void drawSprite(Position position, String[] sprite, char symbol, String color);
 

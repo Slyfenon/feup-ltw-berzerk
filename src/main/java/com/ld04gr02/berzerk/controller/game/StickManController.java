@@ -113,7 +113,8 @@ public class StickManController extends GameController {
 
     public boolean collideStickMan(Position positionStickMan) {
         return getModel().collideWall(positionStickMan, getStickManWidth(), getStickManHeight())
-                || getModel().collideRobot(positionStickMan, getStickManWidth(), getStickManHeight());
+                || getModel().collideRobot(positionStickMan, getStickManWidth(), getStickManHeight())
+                || getModel().collideEvilSmile(positionStickMan, getStickManWidth(), getStickManHeight());
     }
 
     private void playShockSound(){

@@ -209,6 +209,29 @@ public class Sprites {
         return ROBOT;
     }
 
+
+    public static int getEvilSmileWidth() {
+        return 12;
+    }
+
+    public static int getEvilSmileHeight() {
+        return 10;
+    }
+    private static final String[] EVIL_SMILE = {
+            "   ######",
+            " ##########",
+            "###  ##  ###",
+            "############",
+            "############",
+            "############",
+            "############",
+            "##  ####  ##",
+            " ##      ##",
+            "  ########"
+    };
+    public static String[] getEvilSmile() {
+        return EVIL_SMILE;
+
     private static final String[] HORIZONTAL_BULLET = {
             "###",
     };
@@ -232,6 +255,7 @@ public class Sprites {
 
     public static int getBulletHeight() {
         return 1;
+
     }
 
     private static final String[] LOGO = {
