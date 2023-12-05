@@ -32,7 +32,7 @@ public class GameViewer extends Viewer<Maze> {
         for (Wall wall : getModel().getWalls()) wallViewer.display(wall, gui);
 
         RobotViewer robotViewer = new RobotViewer();
-        for (Robot robot : robots) robotViewer.display(robot, gui);
+        for (Robot robot : getModel().getRobots()) robotViewer.display(robot, gui);
 
         EvilSmileViewer evilSmileViewer = new EvilSmileViewer();
         evilSmileViewer.display(getModel().getEvilSmile(), gui);

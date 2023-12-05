@@ -231,6 +231,7 @@ public class Sprites {
     };
     public static String[] getEvilSmile() {
         return EVIL_SMILE;
+    }
 
     private static final String[] HORIZONTAL_BULLET = {
             "###",
