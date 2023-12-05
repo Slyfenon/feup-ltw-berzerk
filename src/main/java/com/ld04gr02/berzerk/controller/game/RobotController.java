@@ -29,6 +29,7 @@ public class RobotController extends GameController {
         for (Robot robot : auxRobots) {
             if (robot.isCollided()) {
                 getModel().getRobots().remove(robot);
+                getModel().getStickMan().increaseScore();
             }
         }
 

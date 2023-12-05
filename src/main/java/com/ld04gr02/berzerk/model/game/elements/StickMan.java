@@ -37,8 +37,10 @@ public class StickMan extends MovingElement {
     }
 
     public int getScore() {
-        return score;
+        return StickMan.score;
     }
+
+    public void increaseScore() {StickMan.score += 50;}
 
     public boolean isCollided() {
         return collided;
