@@ -6,12 +6,14 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.view.Sprites;
@@ -21,9 +23,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
 public class LanternaGUI implements GUI {
@@ -137,12 +141,40 @@ public class LanternaGUI implements GUI {
                 if (key.getCharacter() == ' ') {
                     return KEY.SPACE;
                 }
-                return KEY.NONE;
+                else{
+                    return KEY.CHAR;
+                }
             }
             default :
             {
                 return KEY.NONE;
             }
+        }
+    }
+
+
+    @Override
+    public String getCharPressedKey() throws IOException {
+
+        KeyStroke key = screen.pollInput();
+        if(key == null) return "";
+        while(screen.pollInput() != null) {
+        }
+
+        if (key.getKeyType() == KeyType.Character){
+            return Character.toString(key.getCharacter());
+        }
+        else if(key.getKeyType() == KeyType.Escape){
+            return KeyType.Escape.toString();
+        }
+        else if(key.getKeyType() == KeyType.Enter){
+            return KeyType.Enter.toString();
+        }
+        else if(key.getKeyType() == KeyType.Backspace){
+            return KeyType.Backspace.toString();
+        }
+        else {
+            return "";
         }
     }
 
@@ -207,6 +239,27 @@ public class LanternaGUI implements GUI {
             }
             y += 2;
         }
+    }
+
+
+    @Override
+    public void drawGameOverMenu(GameOverMenu model){
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.getGameOver();
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#ff0000"));
+        int y = 5;
+        for (String s : sprite){
+            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length()/2 , y, s);
+            y++;
+        }
+
+        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,19, "Score:" + model.getStickManScore(), SGR.BLINK);
+        TextGraphics graphicsName = screen.newTextGraphics();
+        String name = String.valueOf(model.getName());
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 8 , 23, "Name: " + name);
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 14, MENU_SCREEN_HEIGHT - 1, "ESC -> Back to Menu", SGR.BORDERED);
+
     }
 
     public void drawPauseMenu(PauseMenu model){
