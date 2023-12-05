@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.model.game.maze;
 
+import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 import com.ld04gr02.berzerk.model.game.elements.Bullet;
@@ -96,13 +97,38 @@ public class Maze {
         return false;
     }
 
-    public boolean collideEvilSmile(Position position, int elementWidth, int elementHeight) {
+    public boolean collideEvilSmile(Position position, int elementWidth, int elementHeight, boolean isStickman) {
         if ((position.getX() < (evilSmile.getPosition().getX() + getEvilSmileWidth()))
                 && (position.getX() + elementWidth > evilSmile.getPosition().getX())
                 && (position.getY() < (evilSmile.getPosition().getY() + getEvilSmileHeight()))
                 && ((position.getY() + elementHeight) > evilSmile.getPosition().getY())) {
-            evilSmile.setCollided(true);
+            if(isStickman) {
+                evilSmile.setCollided(true);
+            }
             return true;
+        }
+        return false;
+    }
+
+    public boolean collideBullet(Position position, int elementWidth, int elementHeight) {
+        int width, height;
+        for (Bullet bullet : getBullets()) {
+            Position positionBullet = bullet.getPosition();
+            if(bullet.getCurrentDirection() == Direction.Down || bullet.getCurrentDirection() == Direction.Up) {
+                width = getBulletShort();
+                height = getBulletLong();
+            }
+            else {
+                width = getBulletLong();
+                height = getBulletShort();
+            }
+            if ((position.getX() < (positionBullet.getX() + width))
+                    && (position.getX() + elementWidth > positionBullet.getX())
+                    && (position.getY() < (positionBullet.getY() + height))
+                    && ((position.getY() + elementHeight) > positionBullet.getY())) {
+                bullet.setCollided(true);
+                return true;
+            }
         }
         return false;
     }
