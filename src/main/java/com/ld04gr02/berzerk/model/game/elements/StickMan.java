@@ -9,7 +9,6 @@ public class StickMan extends MovingElement {
     private boolean collided = false;
     private boolean isShooting = false;
 
-
     public StickMan(int x, int y, Direction direction) {
         super(x, y, direction);
 
@@ -37,6 +36,7 @@ public class StickMan extends MovingElement {
     public int getScore() {
         return score;
     }
+
     public boolean isCollided() {
         return collided;
     }

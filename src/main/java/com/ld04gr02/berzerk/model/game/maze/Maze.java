@@ -72,7 +72,8 @@ public class Maze {
             if ((position.getX() < (positionRobot.getX() + getRobotWidth()))
                     && (position.getX() + elementWidth > positionRobot.getX())
                     && (position.getY() < (positionRobot.getY() + getRobotHeight()))
-                    && ((position.getY() + elementHeight) > positionRobot.getY()))
+                    && ((position.getY() + elementHeight) > positionRobot.getY())
+                    && !position.equals(positionRobot))
                 return true;
         }
         return false;

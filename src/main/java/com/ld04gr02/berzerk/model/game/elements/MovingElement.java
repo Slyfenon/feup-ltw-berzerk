@@ -5,6 +5,7 @@ import com.ld04gr02.berzerk.model.Direction;
 public abstract class MovingElement extends Element{
     boolean isMoving = false;
     private Direction currentDirection = Direction.None;
+    private boolean collided = false;
     public MovingElement(int x, int y, Direction direction) {
         super(x, y);
         this.currentDirection = direction;
@@ -22,5 +23,12 @@ public abstract class MovingElement extends Element{
 
     public void setDirection(Direction direction) {
         currentDirection = direction;
+    }
+
+    public boolean isCollided() {
+        return collided;
+    }
+    public void setCollided(boolean collided) {
+        this.collided = collided;
     }
 }
