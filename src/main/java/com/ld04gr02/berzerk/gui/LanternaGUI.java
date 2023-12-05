@@ -13,6 +13,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
+import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.view.Sprites;
 
 import java.awt.*;
@@ -144,18 +145,19 @@ public class LanternaGUI implements GUI {
             }
         }
     }
+
     @Override
-    public void drawStickMan(Position position, String[] sprite, boolean collided) {
+    public void drawFrame(int width, int height) {
         TextGraphics graphics = screen.newTextGraphics();
-        if (collided) graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
-        else graphics.setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
-        int y = 0;
-        for (String s : sprite){
-            for (int x = 0; x < s.length(); x++){
-                if (s.charAt(x) == '#')
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffc000"));
+        for(int i = 0; i < height; i++) {
+            if(i == 0 || i == height - 1) {
+                graphics.fillRectangle(new TerminalPosition(0, i),  new TerminalSize(width, 1), ' ');
             }
-            y++;
+            else {
+                graphics.fillRectangle(new TerminalPosition(0, i),  new TerminalSize(1, 1), ' ');
+                graphics.fillRectangle(new TerminalPosition(width - 1, i),  new TerminalSize(1, 1), ' ');
+            }
         }
     }
 
@@ -166,21 +168,6 @@ public class LanternaGUI implements GUI {
         graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(1, 1), ' ');
     }
 
-    @Override
-    public void drawRobot(Position position) {
-        TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
-        String[] sprite = Sprites.getRobot();
-
-        int y = 0;
-        for (String s : sprite){
-            for (int x = 0; x < s.length(); x++){
-                if (s.charAt(x) == '#')
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
-            }
-            y++;
-        }
-    }
 
     @Override
     public void drawEvilSmile(Position position) {
@@ -221,6 +208,30 @@ public class LanternaGUI implements GUI {
             y += 2;
         }
     }
+
+    public void drawPauseMenu(PauseMenu model){
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.getLogo();
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
+        int y = 5;
+        for (String s : sprite){
+            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length() / 2, y, s);
+            y++;
+        }
+
+        y = 15;
+        for(int i = 0; i < model.getOptions().size() ; i++) {
+            if(model.getOptions().get(i) == model.getSelected()) {
+                graphics.putString(MENU_SCREEN_WIDTH / 2 - (model.getString(i).length() + 4) / 2 , y, "> " + model.getString(i) + " <", SGR.BLINK);
+            }
+            else {
+                graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
+            }
+            y += 2;
+        }
+    }
+
     @Override
     public void drawLives(int lives){
         TextGraphics textGraphics = screen.newTextGraphics();
@@ -281,6 +292,20 @@ public class LanternaGUI implements GUI {
             }
             y = 315;
             xpos += 14;
+        }
+    }
+
+    public void drawSprite(Position position, String[] sprite, char symbol, String color) {
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString(color));
+
+        int y = 0;
+        for (String s : sprite){
+            for (int x = 0; x < s.length(); x++){
+                if (s.charAt(x) == symbol)
+                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
+            }
+            y++;
         }
     }
 }

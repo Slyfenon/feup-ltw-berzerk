@@ -25,7 +25,7 @@ public class MazeRenderer implements MazeBuilder {
         String mapLocation = rootPath + "/src/main/resources/mazes/" + name;
         BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(mapLocation), Charset.defaultCharset());
         rows = renderRows(bufferedReader);
-        Maze maze = new Maze(getWidth()+1, getHeight());
+        Maze maze = new Maze(getWidth(), getHeight());
         maze.setStickMan(createStickMan());
         maze.setRobots(createRobots());
         maze.setWalls(createWalls());

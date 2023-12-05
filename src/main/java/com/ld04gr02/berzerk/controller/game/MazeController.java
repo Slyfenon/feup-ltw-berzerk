@@ -12,6 +12,7 @@ public class MazeController extends GameController {
     private final StickManController stickManController;
     private final RobotController robotController;
     private final EvilSmileController evilSmileController;
+    private final BulletController bulletController;
 
     public MazeController(Maze maze) {
         super(maze);
@@ -19,10 +20,12 @@ public class MazeController extends GameController {
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
         this.evilSmileController = new EvilSmileController(maze);
+        this.bulletController = new BulletController(maze);
     }
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+        bulletController.update(game, key, time);
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
         evilSmileController.update(game, key, time);
