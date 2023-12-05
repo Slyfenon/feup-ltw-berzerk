@@ -3,14 +3,12 @@ package com.ld04gr02.berzerk.model.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainMenu implements Menu {
+public class PauseMenu implements Menu {
     private final List<MenuOptions> options = new ArrayList<>();
     private int currentOption = 0;
 
-    public MainMenu(){
-        options.add(MenuOptions.PLAY);
-        options.add(MenuOptions.LEADERBOARD);
-        options.add(MenuOptions.INSTRUCTIONS);
+    public PauseMenu(){
+        options.add(MenuOptions.RESUME);
         options.add(MenuOptions.QUIT);
     }
     @Override

@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.model.game.maze;
 
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
@@ -15,6 +16,7 @@ public class Maze {
     private StickMan stickMan;
     private List<Robot> robots;
     private List<Wall> walls;
+    private List<Bullet> bullets;
 
     public Maze(int width, int height) {
         this.width = width;
@@ -43,6 +45,12 @@ public class Maze {
     }
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
+    }
+    public List<Bullet> getBullets() {
+        return bullets;
+    }
+    public void setBullets(List<Bullet> bullets) {
+        this.bullets = bullets;
     }
 
     public boolean collideWall(Position position, int elementWidth, int elementHeight) {

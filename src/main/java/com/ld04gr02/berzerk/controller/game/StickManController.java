@@ -6,9 +6,15 @@ import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
+import com.ld04gr02.berzerk.model.menu.PauseMenu;
+import com.ld04gr02.berzerk.state.PauseMenuState;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
+import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
+import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 import static com.ld04gr02.berzerk.view.Sprites.*;
 
 public class StickManController extends GameController {
@@ -46,7 +52,7 @@ public class StickManController extends GameController {
     }
 
     @Override
-    public void update(Game game, GUI.KEY key, long time) throws IOException {
+    public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         if (this.getModel().getStickMan().isCollided()) {
             this.getModel().getStickMan().decreaseLives();
             this.getModel().getStickMan().setPosition(new Position(30, 150));
@@ -67,6 +73,12 @@ public class StickManController extends GameController {
                 moveStickManRight();
                 break;
             case SPACE:
+                break;
+            case ESC:
+                game.getGui().close();
+                game.setPreviousState(game.getState());
+                game.setState(new PauseMenuState(new PauseMenu()));
+                game.getState().initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
                 break;
             default:
                 break;
