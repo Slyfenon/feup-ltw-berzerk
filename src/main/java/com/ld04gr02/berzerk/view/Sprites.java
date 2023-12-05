@@ -95,6 +95,93 @@ public class Sprites {
         return STICKMAN_LEFT;
     }
 
+    private static final String[] STICKMAN_SHOOTING_RIGHT = {
+            "   ##",
+            "   ##",
+            "",
+            "   ####",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ###",
+    };
+
+    public static String[] getStickManShootingRight() {
+        return STICKMAN_SHOOTING_RIGHT;
+    }
+    private static final String[] STICKMAN_SHOOTING_LEFT = {
+            "   ##",
+            "   ##",
+            "",
+            " ####",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "  ###",
+    };
+
+    public static String[] getStickManShootingLeft() {
+        return STICKMAN_SHOOTING_LEFT;
+    }
+
+    private static final String[] STICKMAN_SHOOTING_UP = {
+            "   ##",
+            "   ##",
+            "",
+            "   ### #",
+            "   ## ##",
+            "   ##  #",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "  ###"
+    };
+
+    public static String[] getStickManShootingUp() {
+        return STICKMAN_SHOOTING_UP;
+    }
+
+    private static final String[] STICKMAN_SHOOTING_DOWN = {
+            "   ##",
+            "   ##",
+            "",
+            "  ####",
+            "  ####",
+            "  ### #",
+            "  ### #",
+            "  ### #",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ##",
+            "   ###",
+    };
+
+    public static String[] getStickManShootingDown() {
+        return STICKMAN_SHOOTING_DOWN;
+    }
+
     public static int getRobotWidth() {
         return 13;
     }
@@ -122,16 +209,25 @@ public class Sprites {
         return ROBOT;
     }
 
-    private static final String[] BULLET = {
-            "####",
+    private static final String[] HORIZONTAL_BULLET = {
+            "###",
     };
 
-    public static String[] getBullet() {
-        return BULLET;
+    private static final String[] VERTICAL_BULLET = {
+            "#",
+            "#",
+            "#",
+    };
+    public static String[] getHorizontalBullet() {
+        return HORIZONTAL_BULLET;
+    }
+
+    public static String[] getVerticalBullet() {
+        return VERTICAL_BULLET;
     }
 
     public static int getBulletWidth() {
-        return 5;
+        return 3;
     }
 
     public static int getBulletHeight() {
