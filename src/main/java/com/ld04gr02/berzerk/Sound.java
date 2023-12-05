@@ -57,4 +57,14 @@ public class Sound {
     public Clip getClip() {
         return clip;
     }
+
+    public void playClickSound(){
+        setFile(0);
+        playSound(0);
+    }
+
+    public void playMenuSong(float volume){
+        setFile(2);
+        loopSound(volume);
+    }
 }
