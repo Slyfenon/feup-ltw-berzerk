@@ -61,10 +61,10 @@ public class Maze {
     public boolean collideWall(Position position, int elementWidth, int elementHeight) {
         for (Wall wall : getWalls()) {
             Position positionWall = wall.getPosition();
-            if ((positionWall.getX() >= position.getX())
-                    && (positionWall.getX() < position.getX() + elementWidth)
-                    && (positionWall.getY() >= position.getY())
-                    && (positionWall.getY() < position.getY() + elementHeight))
+            if ((position.getX() < (positionWall.getX() + 5))
+                    && (position.getX() + elementWidth > positionWall.getX())
+                    && (position.getY() < (positionWall.getY() + 5))
+                    && ((position.getY() + elementHeight) > positionWall.getY()))
                 return true;
         }
         return false;

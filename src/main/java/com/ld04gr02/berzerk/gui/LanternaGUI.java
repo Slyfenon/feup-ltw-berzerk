@@ -23,7 +23,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -197,7 +196,7 @@ public class LanternaGUI implements GUI {
     public void drawWall(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
-        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(1, 1), ' ');
+        graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(5, 5), ' ');
     }
 
 
