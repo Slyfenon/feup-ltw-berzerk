@@ -29,12 +29,9 @@ public class Game {
     private State previousState;
     private State state;
 
-    // public static final int GAME_SCREEN_WIDTH = 50;
-    // public static final int GAME_SCREEN_HEIGHT = 50;
-
     public static final int MENU_SCREEN_WIDTH = 70;
     public static final int MENU_SCREEN_HEIGHT = 30;
-
+    public static final int INFO_SECTIONS_HEIGHT = 30;
     public State getState() {
         return state;
     }

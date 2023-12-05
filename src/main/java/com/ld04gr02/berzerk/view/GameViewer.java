@@ -16,6 +16,10 @@ public class GameViewer extends Viewer<Maze> {
     }
     @Override
     protected void renderElements(GUI gui) {
+        gui.drawFrame(getModel().getWidth(), getModel().getHeight());
+
+        BulletViewer bulletViewer = new BulletViewer();
+        for(Bullet bullet: getModel().getBullets()) bulletViewer.display(bullet, gui);
 
         StickManViewer stickManViewer = new StickManViewer();
         stickManViewer.display(getModel().getStickMan(), gui);
@@ -28,8 +32,5 @@ public class GameViewer extends Viewer<Maze> {
 
         RobotViewer robotViewer = new RobotViewer();
         for (Robot robot : getModel().getRobots()) robotViewer.display(robot, gui);
-
-        BulletViewer bulletViewer = new BulletViewer();
-        for(Bullet bullet: getModel().getBullets()) bulletViewer.display(bullet, gui);
     }
 }

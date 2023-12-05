@@ -22,6 +22,24 @@ public class StickManViewer implements ElementViewer<StickMan> {
                     break;
             }
         }
+        else if(stickMan.isShooting()) {
+            switch(stickMan.getCurrentDirection()) {
+                case Up:
+                    gui.drawSprite(stickMan.getPosition(), Sprites.getStickManShootingUp(), '#', color);
+                    break;
+                case Down:
+                    gui.drawSprite(stickMan.getPosition(), Sprites.getStickManShootingDown(), '#', color);
+                    break;
+                case Left:
+                    gui.drawSprite(stickMan.getPosition(), Sprites.getStickManShootingLeft(), '#', color);
+                    break;
+                case Right:
+                    gui.drawSprite(stickMan.getPosition(), Sprites.getStickManShootingRight(), '#', color);
+                    break;
+                case None:
+                    break;
+            }
+        }
         else
         {
             gui.drawSprite(stickMan.getPosition(), Sprites.getStickManRight(), '#', color);
