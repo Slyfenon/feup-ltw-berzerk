@@ -284,28 +284,20 @@ public class LanternaGUI implements GUI {
         }
     }
 
-    @Override
-    public void drawLives(int lives){
-        TextGraphics textGraphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getHeart();
+    public void drawLives(int lives, int totalLives) {
+        String[] heartSprite = Sprites.getHeart();
+        Position pos = new Position(310, 315);
 
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
+        for (int i = 0; i < totalLives; i++) {
+            String color = i < lives ? "#ff0000" : "#221111";
 
-        int posx = 310;
-        int posy = 315;
-        int y = 0;
-        for(int i = 0; i < lives; i++) {
-            for (String s : sprite) {
-                for (int x = 0; x < s.length(); x++) {
-                    if (s.charAt(x) == '#')
-                        textGraphics.fillRectangle(new TerminalPosition(posx + x, posy + y), new TerminalSize(1, 1), ' ');
-                }
-                y++;
-            }
-            y = 0;
-            posx += 32;
+            drawSprite(pos , heartSprite, '#', color);
+
+            pos.setX(pos.getX() + 32);
         }
     }
+
+
 
     @Override
     public void drawScore() {
