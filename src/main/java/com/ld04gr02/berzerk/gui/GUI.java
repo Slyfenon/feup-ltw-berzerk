@@ -15,11 +15,10 @@ public interface GUI {
 
     void close() throws IOException;
 
-
-    public void drawStickMan(Position position, String[] sprite, boolean collided);
-
+    public void drawFrame(int width, int height);
     public void drawWall(Position position);
-    public void drawRobot(Position position);
+
+    public void drawSprite(Position position, String[] sprite, char symbol, String color);
 
     public void drawLives(int lives);
     public void drawScore();

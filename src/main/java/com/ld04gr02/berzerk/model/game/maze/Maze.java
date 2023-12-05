@@ -6,6 +6,7 @@ import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.ld04gr02.berzerk.view.Sprites.*;
@@ -16,7 +17,7 @@ public class Maze {
     private StickMan stickMan;
     private List<Robot> robots;
     private List<Wall> walls;
-    private List<Bullet> bullets;
+    private List<Bullet> bullets = new ArrayList<Bullet>();
 
     public Maze(int width, int height) {
         this.width = width;
