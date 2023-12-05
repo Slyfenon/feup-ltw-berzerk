@@ -15,6 +15,7 @@ public interface GUI {
 
     void close() throws IOException;
 
+    public void drawFrame(int width, int height);
     public void drawWall(Position position);
 
     public void drawSprite(Position position, String[] sprite, char symbol, String color);

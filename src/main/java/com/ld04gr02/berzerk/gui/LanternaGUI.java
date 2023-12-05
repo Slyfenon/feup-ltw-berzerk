@@ -147,6 +147,21 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawFrame(int width, int height) {
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffc000"));
+        for(int i = 0; i < height; i++) {
+            if(i == 0 || i == height - 1) {
+                graphics.fillRectangle(new TerminalPosition(0, i),  new TerminalSize(width, 1), ' ');
+            }
+            else {
+                graphics.fillRectangle(new TerminalPosition(0, i),  new TerminalSize(1, 1), ' ');
+                graphics.fillRectangle(new TerminalPosition(width - 1, i),  new TerminalSize(1, 1), ' ');
+            }
+        }
+    }
+
+    @Override
     public void drawWall(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
