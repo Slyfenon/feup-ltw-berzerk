@@ -27,6 +27,7 @@ public class StickManController extends GameController {
     }
 
     Sound shock = new Sound();
+    Sound laser = new Sound();
 
     private void moveStickManUp() {
         move(getModel().getStickMan().getPosition().getUp(), Direction.Up);
@@ -82,6 +83,7 @@ public class StickManController extends GameController {
                     getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), getModel().getStickMan().getCurrentDirection()));
                     lastAction = time;
                 }
+                laser.playBulletSound(0);
                 break;
             case ESC:
                 game.getGui().close();

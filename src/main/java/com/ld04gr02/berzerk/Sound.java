@@ -69,4 +69,9 @@ public class Sound {
         setFile(2);
         loopSound(volume);
     }
+
+    public void playBulletSound(float volume){
+        setFile(1);
+        playSound(volume);
+    }
 }
