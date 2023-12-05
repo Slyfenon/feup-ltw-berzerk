@@ -284,7 +284,7 @@ public class LanternaGUI implements GUI {
             y += 2;
         }
     }
-
+    @Override
     public void drawInstructionsMenu(InstructionsMenu model){
         TextGraphics graphics = screen.newTextGraphics();
         String[] sprite = Sprites.getLogo();
@@ -299,8 +299,6 @@ public class LanternaGUI implements GUI {
         TextGraphics instructions = screen.newTextGraphics();
 
         instructions.putString(7,18, "GAME OBJECTIVE: AVOID ENEMIES, DESTROY ROBOTS, ");
-
-
 
 
 
@@ -369,7 +367,7 @@ public class LanternaGUI implements GUI {
             xpos += 14;
         }
     }
-
+    @Override
     public void drawSprite(Position position, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));
