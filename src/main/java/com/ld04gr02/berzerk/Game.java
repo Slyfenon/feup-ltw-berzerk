@@ -25,10 +25,8 @@ public class Game {
     }
 
     private final GUI gui;
-
     private State previousState;
     private State state;
-
     public static final int MENU_SCREEN_WIDTH = 70;
     public static final int MENU_SCREEN_HEIGHT = 30;
     public static final int INFO_SECTIONS_HEIGHT = 30;

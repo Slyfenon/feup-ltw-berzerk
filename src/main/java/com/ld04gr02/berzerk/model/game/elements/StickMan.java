@@ -4,8 +4,8 @@ import com.ld04gr02.berzerk.model.Direction;
 
 public class StickMan extends MovingElement {
     static final int MAX_LIVES = 5;
-    private int lives = 3;
-    private int score = 0;
+    private static int lives = 3;
+    private static int score = 0;
     private boolean collided = false;
     private boolean isShooting = false;
 
@@ -21,8 +21,7 @@ public class StickMan extends MovingElement {
         return false;
     }
 
-    public void decreaseLives() {
-        this.lives--;
+    public void decreaseLives() {StickMan.lives--;
     }
 
     public int getLives() {
@@ -34,7 +33,7 @@ public class StickMan extends MovingElement {
     }
 
     public void setScore(int score) {
-        this.score = score;
+        StickMan.score = score;
     }
 
     public int getScore() {
