@@ -156,15 +156,20 @@ public class LanternaGUI implements GUI {
 
         KeyStroke key = screen.pollInput();
         if(key == null) return "";
+        while(screen.pollInput() != null) {
+        }
 
         if (key.getKeyType() == KeyType.Character){
             return Character.toString(key.getCharacter());
         }
-        if(key.getKeyType() == KeyType.Escape){
+        else if(key.getKeyType() == KeyType.Escape){
             return KeyType.Escape.toString();
         }
-        if(key.getKeyType() == KeyType.Enter){
+        else if(key.getKeyType() == KeyType.Enter){
             return KeyType.Enter.toString();
+        }
+        else if(key.getKeyType() == KeyType.Backspace){
+            return KeyType.Backspace.toString();
         }
         else {
             return "";
@@ -244,10 +249,10 @@ public class LanternaGUI implements GUI {
             y++;
         }
 
-        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,19, "Score:" + model.getStickManScore());
+        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,19, "Score:" + model.getStickManScore(), SGR.BLINK);
         TextGraphics graphicsName = screen.newTextGraphics();
-        String name = model.getName();
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 10 , 23, "Name: " + name, SGR.BLINK);
+        String name = String.valueOf(model.getName());
+        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 8 , 23, "Name: " + name);
         graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 14, MENU_SCREEN_HEIGHT - 1, "ESC -> Back to Menu", SGR.BORDERED);
 
     }

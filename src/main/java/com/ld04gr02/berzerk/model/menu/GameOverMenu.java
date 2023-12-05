@@ -9,7 +9,7 @@ public class GameOverMenu implements Menu {
 
     private int stickManScore;
 
-    private String name = "";
+    private StringBuilder name = new StringBuilder();
 
     public GameOverMenu(){
         options.add(MenuOptions.QUIT);
@@ -42,11 +42,11 @@ public class GameOverMenu implements Menu {
         this.stickManScore = stickManScore;
     }
 
-    public String getName() {
+    public StringBuilder getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = new StringBuilder(name);
     }
 }

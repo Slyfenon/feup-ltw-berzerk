@@ -38,8 +38,12 @@ public class GameOverState extends State<GameOverMenu> {
         else if("Enter".equals(str)) {
             this.controller.update(game, GUI.KEY.ENTER, time);
         }
+        else if("Backspace".equals(str)){
+            if(!getModel().getName().isEmpty()) getModel().getName().deleteCharAt(getModel().getName().length()-1);
+            this.viewer.display(gui);
+        }
         else {
-            if(getModel().getName().length() <= 10) getModel().setName(getModel().getName() + str);
+            if(getModel().getName().length() <= 10) getModel().getName().append(str);
             this.viewer.display(gui);
         }
 
