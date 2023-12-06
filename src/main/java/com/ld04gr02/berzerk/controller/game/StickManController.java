@@ -78,12 +78,14 @@ public class StickManController extends GameController {
                 break;
             case SPACE:
                 if (time - lastAction > 350) {
+                    laser.playBulletSound(0);
                     getModel().getStickMan().setShooting(true);
                     Position tempPosition = getNewBulletPosition();
                     getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), getModel().getStickMan().getCurrentDirection()));
                     lastAction = time;
-                    laser.playBulletSound(0);
+
                 }
+
 
                 break;
             case ESC:

@@ -43,7 +43,10 @@ public class Sound {
     }
 
     public void stopSound(){
-        clip.stop();
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+            clip.setFramePosition(0);
+        }
     }
 
     public void loopSound(float volume){
@@ -71,14 +74,22 @@ public class Sound {
     }
 
     public void playBulletSound(float volume){
-        setFile(1);
+        if (clip == null || !clip.isActive()) {
+            setFile(1);
+        }
+        System.out.println(clip.isActive());
+        stopSound();
         playSound(volume);
     }
 
-    public void playShockSound(){
-        setFile(3);
-        playSound(0);
+    public void playShockSound() {
+        if (clip == null || !clip.isActive()) {
+            setFile(3);
+            playSound(0);
+        }
     }
+
+
 
     public void playGameMusic(float volume){
         setFile(5);
