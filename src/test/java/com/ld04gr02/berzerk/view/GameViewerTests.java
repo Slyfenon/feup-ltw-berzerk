@@ -3,6 +3,7 @@ package com.ld04gr02.berzerk.view;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
+import com.ld04gr02.berzerk.view.game.GameViewer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

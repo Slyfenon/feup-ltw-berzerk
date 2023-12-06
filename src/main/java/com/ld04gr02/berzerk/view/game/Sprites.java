@@ -1,4 +1,4 @@
-package com.ld04gr02.berzerk.view;
+package com.ld04gr02.berzerk.view.game;
 
 public class Sprites {
 

@@ -5,8 +5,7 @@ import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.menu.PauseMenuController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
-import com.ld04gr02.berzerk.view.Viewer;
-import com.ld04gr02.berzerk.view.menu.MainMenuViewer;
+import com.ld04gr02.berzerk.view.game.Viewer;
 import com.ld04gr02.berzerk.view.menu.PauseMenuViewer;
 
 import java.awt.*;

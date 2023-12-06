@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import static com.ld04gr02.berzerk.view.Sprites.*;
-import static com.ld04gr02.berzerk.view.Sprites.getStickManHeight;
+import static com.ld04gr02.berzerk.view.game.Sprites.*;
+import static com.ld04gr02.berzerk.view.game.Sprites.getStickManHeight;
 import static java.lang.Math.abs;
 
 public class RobotController extends GameController {

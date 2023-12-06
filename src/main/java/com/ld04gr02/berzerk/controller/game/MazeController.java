@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.state.GameOverState;
@@ -35,11 +36,10 @@ public class MazeController extends GameController {
         robotController.update(game, key, time);
         evilSmileController.update(game, key, time);
         if (getModel().getRobots().isEmpty()) getModel().getGates().clear();
-        if(getModel().getStickMan().getLives() == 0){
+        if(StickMan.getLives() == 0){
             game.getGui().close();
             stopSong(0);
             GameOverMenu gameOverMenu = new GameOverMenu();
-            gameOverMenu.setStickManScore(getModel().getStickMan().getScore());
             GameOverState gameOverState= new GameOverState(gameOverMenu);
             game.setState(gameOverState);
             gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);

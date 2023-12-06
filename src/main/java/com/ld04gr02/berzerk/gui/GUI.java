@@ -22,7 +22,6 @@ public interface GUI {
 
     public void drawSprite(Position position, String[] sprite, char symbol, String color);
 
-    public void drawLives(int lives, int maxLives);
     public void drawScore();
     public void drawNumbers(int score);
 

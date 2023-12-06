@@ -16,7 +16,7 @@ import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
-import com.ld04gr02.berzerk.view.Sprites;
+import com.ld04gr02.berzerk.view.game.Sprites;
 
 import java.awt.*;
 import java.io.File;
@@ -284,40 +284,16 @@ public class LanternaGUI implements GUI {
         }
     }
 
-    public void drawLives(int lives, int totalLives) {
-        String[] heartSprite = Sprites.getHeart();
-        Position pos = new Position(310, 315);
-
-        for (int i = 0; i < totalLives; i++) {
-            String color = i < lives ? "#ff0000" : "#221111";
-
-            drawSprite(pos , heartSprite, '#', color);
-
-            pos.setX(pos.getX() + 32);
-        }
-    }
-
-
 
     @Override
     public void drawScore() {
-        TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getScore();
-
-
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        int y = 315;
-        for (String s : sprite){
-            graphics.putString(15, y, s);
-            y++;
-        }
-
+        drawSprite(new Position(15,315), Sprites.getScore(), '#', "#ffffff");
     }
 
     @Override
     public void drawNumbers(int score) {
-        TextGraphics graphicss = screen.newTextGraphics();
-        graphicss.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffffff"));
 
         ArrayList<Integer> numbersIndex = new ArrayList<>();
         while(score!=0){
@@ -331,14 +307,14 @@ public class LanternaGUI implements GUI {
         int xpos = 95;
         for(int x : numbersIndex){
             for (String n : Sprites.getNumber(x)){
-                graphicss.putString(xpos, y, n);
+                graphics.putString(xpos, y, n);
                 y++;
             }
             y = 315;
             xpos += 14;
         }
     }
-
+    @Override
     public void drawSprite(Position position, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));

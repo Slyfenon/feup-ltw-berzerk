@@ -16,7 +16,7 @@ import java.net.URISyntaxException;
 
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
-import static com.ld04gr02.berzerk.view.Sprites.*;
+import static com.ld04gr02.berzerk.view.game.Sprites.*;
 
 public class StickManController extends GameController {
 

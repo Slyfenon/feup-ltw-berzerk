@@ -5,7 +5,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.view.Sprites;
+import com.ld04gr02.berzerk.view.game.Sprites;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

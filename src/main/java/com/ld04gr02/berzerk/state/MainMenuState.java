@@ -6,7 +6,7 @@ import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.menu.MainMenuController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
-import com.ld04gr02.berzerk.view.Viewer;
+import com.ld04gr02.berzerk.view.game.Viewer;
 import com.ld04gr02.berzerk.view.menu.MainMenuViewer;
 
 import java.awt.*;

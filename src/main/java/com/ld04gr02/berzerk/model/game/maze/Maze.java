@@ -11,7 +11,7 @@ import com.ld04gr02.berzerk.model.game.elements.Wall;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ld04gr02.berzerk.view.Sprites.*;
+import static com.ld04gr02.berzerk.view.game.Sprites.*;
 
 public class Maze {
     private final int width;

@@ -5,16 +5,12 @@ import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
-import com.ld04gr02.berzerk.model.menu.GameOverMenu;
-import com.ld04gr02.berzerk.view.GameViewer;
-import com.ld04gr02.berzerk.view.Viewer;
+import com.ld04gr02.berzerk.view.game.GameViewer;
+import com.ld04gr02.berzerk.view.game.Viewer;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
 public class GameState extends State<Maze> {
     public GameState(Maze maze) {

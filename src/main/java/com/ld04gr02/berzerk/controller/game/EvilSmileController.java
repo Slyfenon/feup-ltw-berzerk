@@ -11,7 +11,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static com.ld04gr02.berzerk.view.Sprites.*;
+import static com.ld04gr02.berzerk.view.game.Sprites.*;
 import static java.lang.Math.abs;
 
 public class EvilSmileController extends GameController{

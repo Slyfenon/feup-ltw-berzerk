@@ -1,4 +1,4 @@
-package com.ld04gr02.berzerk.view;
+package com.ld04gr02.berzerk.view.game;
 
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.Wall;

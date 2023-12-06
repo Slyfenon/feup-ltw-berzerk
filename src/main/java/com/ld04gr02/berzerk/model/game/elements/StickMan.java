@@ -24,7 +24,7 @@ public class StickMan extends MovingElement {
     public void decreaseLives() {StickMan.lives--;
     }
 
-    public int getLives() {
+    public static int getLives() {
         return lives;
     }
 
@@ -32,26 +32,19 @@ public class StickMan extends MovingElement {
         StickMan.lives = lives;
     }
 
-    public  int getMaxLives() {
+    public static int getMaxLives() {
         return MAX_LIVES;
     }
 
-    public void setScore(int score) {
+    public static void setScore(int score) {
         StickMan.score = score;
     }
 
-    public int getScore() {
+    public static int getScore() {
         return StickMan.score;
     }
 
     public void increaseScore() {StickMan.score += 50;}
-
-    public boolean isCollided() {
-        return collided;
-    }
-    public void setCollided(boolean collided) {
-        this.collided = collided;
-    }
 
     public boolean isShooting() {
         return isShooting;
