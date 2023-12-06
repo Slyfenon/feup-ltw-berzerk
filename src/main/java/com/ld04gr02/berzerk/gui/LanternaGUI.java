@@ -284,36 +284,6 @@ public class LanternaGUI implements GUI {
         }
     }
 
-
-    @Override
-    public void drawScore() {
-        drawSprite(new Position(15,315), Sprites.getScore(), '#', "#ffffff");
-    }
-
-    @Override
-    public void drawNumbers(int score) {
-        TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffffff"));
-
-        ArrayList<Integer> numbersIndex = new ArrayList<>();
-        while(score!=0){
-            int number = score % 10;
-            numbersIndex.add(number);
-            score /= 10;
-        }
-        Collections.reverse(numbersIndex);
-
-        int y = 315;
-        int xpos = 95;
-        for(int x : numbersIndex){
-            for (String n : Sprites.getNumber(x)){
-                graphics.putString(xpos, y, n);
-                y++;
-            }
-            y = 315;
-            xpos += 14;
-        }
-    }
     @Override
     public void drawSprite(Position position, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();

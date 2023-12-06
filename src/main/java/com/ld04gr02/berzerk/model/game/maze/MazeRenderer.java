@@ -76,13 +76,7 @@ public class MazeRenderer implements MazeBuilder {
     }
 
     private EvilSmile createEvilSmile() {
-        for (int y = 0; y < rows.size(); y++) {
-            String line = rows.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'E')
-                    return new EvilSmile(x, y, Direction.Right);
-        }
-        return null;
+        return new EvilSmile(-20, rows.size() / 2, Direction.Right);
     }
 
     private List<Wall> createGates() {

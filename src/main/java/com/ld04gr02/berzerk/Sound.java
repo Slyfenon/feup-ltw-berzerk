@@ -79,4 +79,13 @@ public class Sound {
         setFile(3);
         playSound(0);
     }
+
+    public void playGameMusic(float volume){
+        setFile(5);
+        loopSound(volume);
+    }
+    public void playGameOverMusic(float volume){
+        setFile(4);
+        playSound(volume);
+    }
 }

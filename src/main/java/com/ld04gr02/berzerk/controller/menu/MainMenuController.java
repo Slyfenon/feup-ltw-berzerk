@@ -27,7 +27,7 @@ public class MainMenuController extends Controller<MainMenu> {
         if (menuSong.getClip() != null) {
             menuSong.stopSound();
         } else {
-            menuSong.playMenuSong(-30.0f);
+            menuSong.playMenuSong(-15.0f);
         }
     }
 

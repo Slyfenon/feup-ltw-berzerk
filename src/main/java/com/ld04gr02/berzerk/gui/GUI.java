@@ -22,9 +22,6 @@ public interface GUI {
 
     public void drawSprite(Position position, String[] sprite, char symbol, String color);
 
-    public void drawScore();
-    public void drawNumbers(int score);
-
     public void drawMainMenu(MainMenu model);
 
     public void drawGameOverMenu(GameOverMenu model);

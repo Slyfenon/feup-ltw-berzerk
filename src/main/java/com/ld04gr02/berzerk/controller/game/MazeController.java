@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
@@ -20,14 +21,14 @@ public class MazeController extends GameController {
     private final RobotController robotController;
     private final EvilSmileController evilSmileController;
     private final BulletController bulletController;
-
+    private final Sound gameMusic = new Sound();
     public MazeController(Maze maze) {
         super(maze);
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
         this.evilSmileController = new EvilSmileController(maze);
         this.bulletController = new BulletController(maze);
-        playSong(-20.0f);
+        gameMusic.playGameMusic(-20.0f);
     }
 
     @Override
@@ -39,11 +40,13 @@ public class MazeController extends GameController {
         bulletController.update(game, key, time);
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
-        evilSmileController.update(game, key, time);
+        if(getModel().getEvilSmile() != null) {
+            evilSmileController.update(game, key, time);
+        }
         if (getModel().getRobots().isEmpty()) getModel().getGates().clear();
         if(StickMan.getLives() == 0){
+            gameMusic.stopSound();
             game.getGui().close();
-            stopSong(0);
             GameOverMenu gameOverMenu = new GameOverMenu();
             GameOverState gameOverState= new GameOverState(gameOverMenu);
             game.setState(gameOverState);
@@ -52,22 +55,13 @@ public class MazeController extends GameController {
         }
     }
 
-    public void playSong(float volume){
-        gameMusic.setFile(5);
-        gameMusic.loopSound(volume);
-    }
-  
-    public void stopSong(float volume){
-        gameMusic.stopSound();
-    }
 
     public void nextLevel(Game game) throws IOException, URISyntaxException, FontFormatException {
-        game.getGui().close();
+        gameMusic.stopSound();
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
-        String level = "maze" + (game.getLevel()) + ".lvl";
+        String level = "maze" + game.getLevel() + ".lvl";
         Maze maze = mazeRenderer.createMaze(level);
         game.setState(new GameState(maze));
-        game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
     }
 }

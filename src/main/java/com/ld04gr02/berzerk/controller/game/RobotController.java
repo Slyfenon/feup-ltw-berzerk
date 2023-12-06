@@ -35,7 +35,7 @@ public class RobotController extends GameController {
         }
 
 
-        if (time - lastAction > 1000) {
+        if (time - lastAction > 250) {
             Position stickManPosition = getModel().getStickMan().getPosition();
 
             for(Robot robot: getModel().getRobots()) {

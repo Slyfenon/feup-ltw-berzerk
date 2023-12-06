@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.state;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.gui.GUI;
@@ -14,7 +15,6 @@ import java.net.URISyntaxException;
 
 public class GameState extends State<Maze> {
     public GameState(Maze maze) {
-
         super(maze);
     }
 
@@ -33,15 +33,6 @@ public class GameState extends State<Maze> {
         this.controller.update(game, action, time);
         if(action != GUI.KEY.ESC) {
             this.viewer.display(gui);
-            if(action == GUI.KEY.ARROW_UP
-                    || action == GUI.KEY.ARROW_DOWN
-                    || action == GUI.KEY.ARROW_LEFT
-                    || action == GUI.KEY.ARROW_RIGHT) {
-                this.model.getStickMan().changeMoving();
-            }
-            else if(action == GUI.KEY.SPACE) {
-                this.model.getStickMan().setShooting(false);
-            }
             this.viewer.display(gui);
         }
     }
