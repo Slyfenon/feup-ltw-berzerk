@@ -74,4 +74,9 @@ public class Sound {
         setFile(1);
         playSound(volume);
     }
+
+    public void playShockSound(){
+        setFile(3);
+        playSound(0);
+    }
 }

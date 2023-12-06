@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
@@ -16,6 +17,8 @@ import static java.lang.Math.abs;
 public class EvilSmileController extends GameController{
     private long lastAction;
     private long timePause = 1600;
+
+    Sound shock = new Sound();
 
     public EvilSmileController(Maze maze) {
         super(maze);
@@ -50,6 +53,7 @@ public class EvilSmileController extends GameController{
     private void moveEvilSmile(EvilSmile evilSmile, Position position) {
         evilSmile.setPosition(position);
         if (getModel().collideStickMan(position, getEvilSmileWidth(), getEvilSmileHeight())) {
+            shock.playShockSound();
             getModel().getStickMan().setCollided(true);
         }
     }

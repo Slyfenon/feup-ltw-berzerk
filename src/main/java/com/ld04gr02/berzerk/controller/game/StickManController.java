@@ -50,7 +50,7 @@ public class StickManController extends GameController {
         getModel().getStickMan().setDirection(direction);
         getModel().getStickMan().changeMoving();
         if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-            playShockSound();
+            shock.playShockSound();
             this.getModel().getStickMan().setCollided(true);
         }
     }
@@ -118,9 +118,5 @@ public class StickManController extends GameController {
                 || getModel().collideBullet(positionStickMan, getStickManWidth(), getStickManHeight());
     }
 
-    private void playShockSound(){
-        shock.setFile(3);
-        shock.playSound(0);
-    }
 
 }
