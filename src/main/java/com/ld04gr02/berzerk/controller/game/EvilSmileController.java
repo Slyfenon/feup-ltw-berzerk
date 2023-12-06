@@ -16,7 +16,7 @@ import static java.lang.Math.abs;
 
 public class EvilSmileController extends GameController{
     private long lastAction;
-    private long timePause = 1600;
+    private long timePause = 5000;
 
     Sound shock = new Sound();
 
@@ -30,7 +30,7 @@ public class EvilSmileController extends GameController{
         if (getModel().getEvilSmile().isCollided()) {
             getModel().getEvilSmile().setCollided(false);
             getModel().getEvilSmile().setPosition(new Position(0, 0));
-            timePause = 1600;
+            timePause = 5000;
         }
         if (time - lastAction > timePause) {
             Position stickManPosition = getModel().getStickMan().getPosition();
@@ -46,7 +46,7 @@ public class EvilSmileController extends GameController{
             getModel().collideRobot(getModel().getEvilSmile().getPosition(), getEvilSmileWidth(), getEvilSmileHeight());
 
             this.lastAction = time;
-            if (timePause > 160) timePause -= 160;
+            if (timePause > 1000) timePause -= 160;
         }
     }
 

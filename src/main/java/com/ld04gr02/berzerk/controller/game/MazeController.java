@@ -3,15 +3,16 @@ package com.ld04gr02.berzerk.controller.game;
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
+import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.state.GameOverState;
+import com.ld04gr02.berzerk.state.GameState;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
+import static com.ld04gr02.berzerk.Game.*;
 
 public class MazeController extends GameController {
     private final StickManController stickManController;
@@ -30,6 +31,10 @@ public class MazeController extends GameController {
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+        if (getModel().getStickMan().getPosition().getX() > GAME_SCREEN_WIDTH) {
+            nextLevel(game);
+            return;
+        }
         bulletController.update(game, key, time);
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
@@ -56,4 +61,13 @@ public class MazeController extends GameController {
         gameMusic.stopSound();
     }
 
+    public void nextLevel(Game game) throws IOException, URISyntaxException, FontFormatException {
+        game.getGui().close();
+        MazeRenderer mazeRenderer = new MazeRenderer();
+        game.levelUp();
+        String level = "maze" + (game.getLevel()) + ".lvl";
+        Maze maze = mazeRenderer.createMaze(level);
+        game.setState(new GameState(maze));
+        game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
+    }
 }

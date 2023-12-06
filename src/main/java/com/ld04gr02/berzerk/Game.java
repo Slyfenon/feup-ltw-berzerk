@@ -30,6 +30,8 @@ public class Game {
     public static final int MENU_SCREEN_WIDTH = 70;
     public static final int MENU_SCREEN_HEIGHT = 30;
     public static final int INFO_SECTIONS_HEIGHT = 30;
+    public static final int GAME_SCREEN_WIDTH = 502;
+    public int level = 1;
     public State getState() {
         return state;
     }
@@ -56,6 +58,11 @@ public class Game {
     public static Game getGame() {
         return game;
     }
+
+    public int getLevel() {
+        return level;
+    }
+    public void levelUp() {level++;}
 
     public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
         Game game = Game.getGame();
