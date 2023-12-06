@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -32,7 +31,7 @@ public class GameViewerTests extends Assertions {
         gameViewer.display(guiMock);
 
         verify(guiMock, times(1)).drawStickMan(any(), any(), anyBoolean());
-        verify(guiMock, times(82)).drawWall(any());
+        verify(guiMock, times(82)).drawWall(any(), anyString());
         verify(guiMock, times(3)).drawRobot(any());
         verify(guiMock).clear();
         verify(guiMock).refresh();

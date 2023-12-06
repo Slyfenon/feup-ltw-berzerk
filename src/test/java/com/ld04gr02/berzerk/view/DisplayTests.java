@@ -43,10 +43,10 @@ public class DisplayTests extends Assertions {
 
     @Test
     public void wallDisplayTest() {
-        Wall wall = new Wall(60, 100);
+        Wall wall = new Wall(60, 100, true);
         WallViewer wallViewer = new WallViewer();
         wallViewer.display(wall, guiMock);
-        verify(guiMock).drawWall(wall.getPosition());
+        verify(guiMock).drawWall(wall.getPosition(), "#0000ff");
     }
 
     @Test

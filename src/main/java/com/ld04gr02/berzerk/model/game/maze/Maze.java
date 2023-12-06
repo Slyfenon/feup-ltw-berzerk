@@ -21,6 +21,7 @@ public class Maze {
     private List<Wall> walls;
     private EvilSmile evilSmile;
     private List<Bullet> bullets = new ArrayList<Bullet>();
+    private List<Wall> gates;
 
     public Maze(int width, int height) {
         this.width = width;
@@ -58,10 +59,24 @@ public class Maze {
     public void setBullets(List<Bullet> bullets) {
         this.bullets = bullets;
     }
+    public List<Wall> getGates() {
+        return gates;
+    }
+    public void setGates(List<Wall> gates) {
+        this.gates = gates;
+    }
 
     public boolean collideWall(Position position, int elementWidth, int elementHeight) {
         for (Wall wall : getWalls()) {
             Position positionWall = wall.getPosition();
+            if ((position.getX() < (positionWall.getX() + 5))
+                    && (position.getX() + elementWidth > positionWall.getX())
+                    && (position.getY() < (positionWall.getY() + 5))
+                    && ((position.getY() + elementHeight) > positionWall.getY()))
+                return true;
+        }
+        for (Wall gate : getGates()) {
+            Position positionWall = gate.getPosition();
             if ((position.getX() < (positionWall.getX() + 5))
                     && (position.getX() + elementWidth > positionWall.getX())
                     && (position.getY() < (positionWall.getY() + 5))

@@ -46,7 +46,7 @@ public class GUITests extends Assertions {
 
     @Test
     public void drawWallTest() {
-        lanternaGUI.drawWall(new Position(10, 10));
+        lanternaGUI.drawWall(new Position(10, 10), "#0000ff");
 
         verify(textGraphics).setBackgroundColor(any());
         verify(textGraphics, times(1)).fillRectangle(any(), any(), anyChar());

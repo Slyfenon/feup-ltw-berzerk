@@ -35,13 +35,13 @@ public class MazeTests extends Assertions {
         assertEquals(maze.getStickMan().getLives(), stickMan.getLives());
 
         ArrayList<Wall> walls = new ArrayList<>(Arrays.asList(
-                new Wall(10, 15),
-                new Wall(20, 50),
-                new Wall(40, 10),
-                new Wall(15, 65),
-                new Wall(0, 5),
-                new Wall(46, 20),
-                new Wall(20, 10)
+                new Wall(10, 15, true),
+                new Wall(20, 50, true),
+                new Wall(40, 10, true),
+                new Wall(15, 65, true),
+                new Wall(0, 5, true),
+                new Wall(46, 20, true),
+                new Wall(20, 10, false)
         ));
         maze.setWalls(walls);
         assertEquals(maze.getWalls().size(), walls.size());
@@ -61,8 +61,8 @@ public class MazeTests extends Assertions {
     @Test
     public void collideWallTest() {
         ArrayList<Wall> walls = new ArrayList<>(Arrays.asList(
-                new Wall(10, 15),
-                new Wall(20, 50)
+                new Wall(10, 15, true),
+                new Wall(20, 50, true)
         ));
         maze.setWalls(walls);
 

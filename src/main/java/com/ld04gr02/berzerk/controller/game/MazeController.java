@@ -34,6 +34,7 @@ public class MazeController extends GameController {
         stickManController.update(game, key, time);
         robotController.update(game, key, time);
         evilSmileController.update(game, key, time);
+        if (getModel().getRobots().isEmpty()) getModel().getGates().clear();
         if(getModel().getStickMan().getLives() == 0){
             game.getGui().close();
             stopSong(0);

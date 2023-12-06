@@ -30,6 +30,7 @@ public class MazeRenderer implements MazeBuilder {
         maze.setRobots(createRobots());
         maze.setWalls(createWalls());
         maze.setEvilSmile(createEvilSmile());
+        maze.setGates(createGates());
         return maze;
     }
     private List<String> renderRows(BufferedReader bufferedReader) throws IOException {
@@ -68,7 +69,7 @@ public class MazeRenderer implements MazeBuilder {
             String line = rows.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == '#'){
-                    walls.add(new Wall(x,y));
+                    walls.add(new Wall(x,y, true));
                 }
         }
         return walls;
@@ -82,6 +83,18 @@ public class MazeRenderer implements MazeBuilder {
                     return new EvilSmile(x, y, Direction.Right);
         }
         return null;
+    }
+
+    private List<Wall> createGates() {
+        List<Wall> gates = new ArrayList<Wall>();
+        for (int y = 0; y < rows.size(); y++) {
+            String line = rows.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == '*'){
+                    gates.add(new Wall(x,y, false));
+                }
+        }
+        return gates;
     }
 
     private int getWidth() {

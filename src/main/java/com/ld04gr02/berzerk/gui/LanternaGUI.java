@@ -193,9 +193,9 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawWall(Position position) {
+    public void drawWall(Position position, String color) {
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString(color));
         graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(5, 5), ' ');
     }
 
