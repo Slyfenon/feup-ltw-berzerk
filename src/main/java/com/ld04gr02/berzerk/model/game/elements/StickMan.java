@@ -28,6 +28,10 @@ public class StickMan extends MovingElement {
         return lives;
     }
 
+    public void setLives(int lives) {
+        StickMan.lives = lives;
+    }
+
     public  int getMaxLives() {
         return MAX_LIVES;
     }

@@ -43,6 +43,7 @@ public class MazeController extends GameController {
             GameOverState gameOverState= new GameOverState(gameOverMenu);
             game.setState(gameOverState);
             gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
+            getModel().getStickMan().setLives(3);
         }
     }
 
