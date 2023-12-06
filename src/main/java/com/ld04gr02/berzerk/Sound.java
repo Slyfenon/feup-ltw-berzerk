@@ -77,7 +77,6 @@ public class Sound {
         if (clip == null || !clip.isActive()) {
             setFile(1);
         }
-        System.out.println(clip.isActive());
         stopSound();
         playSound(volume);
     }
