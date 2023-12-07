@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
@@ -20,12 +21,10 @@ import static java.lang.Math.abs;
 public class RobotController extends GameController {
     private long lastAction;
     private long lastShot;
-    Sound shock = new Sound();
     public RobotController(Maze maze) {
         super(maze);
         this.lastAction = 0;
         this.lastShot = System.currentTimeMillis();;
-        shock.setupShockSound();
     }
 
     @Override
@@ -35,6 +34,7 @@ public class RobotController extends GameController {
             if (robot.isCollided()) {
                 getModel().getRobots().remove(robot);
                 getModel().getStickMan().increaseScore();
+                Soundboard.getInstance().getShock().playSound(0);
             }
         }
 
@@ -84,7 +84,6 @@ public class RobotController extends GameController {
         if (!getModel().collideWall(position, getRobotWidth(), getRobotHeight())) {
             robot.setPosition(position);
             if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight())) {
-                shock.playShockSound(0);
                 getModel().getStickMan().setCollided(true);
             }
         }

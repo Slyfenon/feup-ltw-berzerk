@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
@@ -25,12 +26,7 @@ public class StickManController extends GameController {
     public StickManController(Maze maze) {
         super(maze);
         this.lastAction = 0;
-        laser.setupBulletSound();
-        shock.setupShockSound();
     }
-
-    Sound shock = new Sound();
-    Sound laser = new Sound();
 
     private void moveStickManUp() {
         move(getModel().getStickMan().getPosition().getUp(), Direction.Up);
@@ -53,7 +49,6 @@ public class StickManController extends GameController {
         getModel().getStickMan().setDirection(direction);
         getModel().getStickMan().changeMoving();
         if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-            shock.playShockSound(0);
             this.getModel().getStickMan().setCollided(true);
         }
     }
@@ -65,6 +60,7 @@ public class StickManController extends GameController {
             this.getModel().getStickMan().decreaseLives();
             this.getModel().getStickMan().setPosition(new Position(10, getModel().getHeight() / 2 - Sprites.getStickManHeight() / 2));
             this.getModel().getStickMan().setCollided(false);
+            Soundboard.getInstance().getShock().playSound(0);
         }
 
         switch (key) {
@@ -82,11 +78,11 @@ public class StickManController extends GameController {
                 break;
             case SPACE:
                 if (time - lastAction > 350) {
-                    laser.playBulletSound(0);
                     getModel().getStickMan().setShooting(true);
                     Position tempPosition = getNewBulletPosition();
                     getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), getModel().getStickMan().getCurrentDirection()));
                     lastAction = time;
+                    Soundboard.getInstance().getBullet().playSound(0);
                 }
                 break;
             case ESC:

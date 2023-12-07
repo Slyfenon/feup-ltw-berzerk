@@ -4,101 +4,57 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+import java.io.File;
 import java.net.URL;
 
 public class Sound {
     Clip clip;
-    URL[] soundURL = new URL[15];
     FloatControl volumeControl;
 
-    public Sound(){
-        soundURL[0] = getClass().getResource("/sounds/zipclick.wav");
-        soundURL[1] = getClass().getResource("/sounds/bullet.wav");
-        soundURL[2] = getClass().getResource("/sounds/menu.wav");
-        soundURL[3] = getClass().getResource("/sounds/shock.wav");
-        soundURL[4] = getClass().getResource("/sounds/GameOver.wav");
-        soundURL[5] = getClass().getResource("/sounds/playsong.wav");
+    public Sound(String path) {
+        this.clip =setFile(path);
     }
 
-    public void setFile(int i) {
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundURL[i]);
-            clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        }
-        catch(Exception e){
-            throw new RuntimeException("Exception", e);
-        }
+    public Clip getClip() {
+        return clip;
+    }
 
+    private Clip setFile(String path) {
+        try {
+            String rootPath = new File(System.getProperty("user.dir")).getPath();
+            File musicFile = new File(rootPath + path);
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
+            Clip musicClip = AudioSystem.getClip();
+            musicClip.open(audioInput);
+            FloatControl gainControl = (FloatControl) musicClip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-25.0f);
+            return musicClip;
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
     public void playSound(float volume) {
-        if (clip != null) {
+        if(clip != null) {
             FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-
             volumeControl.setValue(volume);
-
+            clip.setMicrosecondPosition(0);
             clip.start();
         }
     }
 
     public void stopSound(){
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-            clip.setFramePosition(0);
-        }
+        clip.stop();
     }
 
     public void loopSound(float volume){
-        if (clip != null) {
-            FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        clip.setMicrosecondPosition(0);
+        FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        volumeControl.setValue(volume);
+        clip.start();
+        clip.loop(Clip.LOOP_CONTINUOUSLY);
 
-            volumeControl.setValue(volume);
-
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-        }
-
-    }
-    public Clip getClip() {
-        return clip;
     }
 
 
-    public void setupClickSound(){
-        setFile(0);
-    }
-    public void setupBulletSound(){
-        setFile(1);
-    }
-    public void setupShockSound(){
-        setFile(3);
-    }
-    public void playClickSound(float volume){
-        clip.setFramePosition(0);
-        playSound(volume);
-    }
 
-    public void playMenuSong(float volume){
-        setFile(2);
-        loopSound(volume);
-    }
-
-    public void playBulletSound(float volume){
-        clip.setFramePosition(0);
-        playSound(volume);
-    }
-
-    public void playShockSound(float volume) {
-        clip.setFramePosition(0);
-        playSound(volume);
-    }
-
-    public void playGameMusic(float volume){
-        setFile(5);
-        loopSound(volume);
-    }
-    public void playGameOverMusic(float volume){
-        setFile(4);
-        playSound(volume);
-    }
 }

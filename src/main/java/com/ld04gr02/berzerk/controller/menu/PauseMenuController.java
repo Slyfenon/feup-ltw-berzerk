@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.menu;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
@@ -16,10 +17,10 @@ import static com.ld04gr02.berzerk.Game.INFO_SECTIONS_HEIGHT;
 
 public class PauseMenuController extends Controller<PauseMenu> {
 
-    Sound sound = new Sound();
+
     public PauseMenuController(PauseMenu model) {
         super(model);
-        sound.setupClickSound();
+
     }
 
     @Override
@@ -27,11 +28,11 @@ public class PauseMenuController extends Controller<PauseMenu> {
         switch(key) {
             case ARROW_UP :
                 getModel().selectPrev();
-                sound.playClickSound(0);
+                Soundboard.getInstance().getClick().playSound(0);
                 break;
             case ARROW_DOWN :
                 getModel().selectNext();
-                sound.playClickSound(0);
+                Soundboard.getInstance().getClick().playSound(0);
                 break;
             case ENTER : {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
@@ -43,7 +44,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                         game.getState().initScreen(game.getGui(), maze.getWidth() , maze.getHeight() + INFO_SECTIONS_HEIGHT);
                     }
                 }
-                sound.playClickSound(0);
+                Soundboard.getInstance().getClick().playSound(0);
                 break;
             }
             default:

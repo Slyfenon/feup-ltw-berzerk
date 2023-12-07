@@ -16,14 +16,13 @@ import static java.lang.Math.abs;
 
 public class EvilSmileController extends GameController{
     private long lastAction;
-    private long timePause = 1500;
+    private long timePause = 90000;
 
-    Sound shock = new Sound();
+
 
     public EvilSmileController(Maze maze) {
         super(maze);
         this.lastAction = 0;
-        shock.setupShockSound();
     }
 
     @Override
@@ -54,7 +53,6 @@ public class EvilSmileController extends GameController{
     private void moveEvilSmile(EvilSmile evilSmile, Position position) {
         evilSmile.setPosition(position);
         if (getModel().collideStickMan(position, getEvilSmileWidth(), getEvilSmileHeight())) {
-            shock.playShockSound(0);
             getModel().getStickMan().setCollided(true);
         }
     }
