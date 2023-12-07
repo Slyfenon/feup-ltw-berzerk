@@ -19,7 +19,7 @@ import static com.ld04gr02.berzerk.Game.INFO_SECTIONS_HEIGHT;
 
 public class MainMenuController extends Controller<MainMenu> {
 
-    Sound sound = new Sound();
+    Sound click = new Sound();
     Sound menuSong = new Sound();
 
     public MainMenuController(MainMenu model) {
@@ -29,6 +29,8 @@ public class MainMenuController extends Controller<MainMenu> {
         } else {
             menuSong.playMenuSong(-15.0f);
         }
+        click.setupClickSound();
+
     }
 
 
@@ -37,24 +39,25 @@ public class MainMenuController extends Controller<MainMenu> {
         switch (key) {
             case ARROW_UP:
                 getModel().selectPrev();
-                sound.playClickSound();
+                click.playClickSound(0);
                 break;
             case ARROW_DOWN:
                 getModel().selectNext();
-                sound.playClickSound();
+                click.playClickSound(0);
                 break;
             case ENTER: {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
                 if (getModel().getSelected() == MenuOptions.PLAY) {
                     game.getGui().close();
+                    game.setLevel(0);
+                    StickMan.setScore(0);
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
-                    StickMan.setScore(0);
                     menuSong.stopSound();
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
                 }
-                sound.playClickSound();
+                click.playClickSound(0);
                 break;
             }
             default:

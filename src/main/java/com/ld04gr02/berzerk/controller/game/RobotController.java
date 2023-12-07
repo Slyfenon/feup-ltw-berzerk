@@ -25,6 +25,7 @@ public class RobotController extends GameController {
         super(maze);
         this.lastAction = 0;
         this.lastShot = System.currentTimeMillis();;
+        shock.setupShockSound();
     }
 
     @Override
@@ -83,7 +84,7 @@ public class RobotController extends GameController {
         if (!getModel().collideWall(position, getRobotWidth(), getRobotHeight())) {
             robot.setPosition(position);
             if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight())) {
-                shock.playShockSound();
+                shock.playShockSound(0);
                 getModel().getStickMan().setCollided(true);
             }
         }

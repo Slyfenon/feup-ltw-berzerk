@@ -25,6 +25,8 @@ public class StickManController extends GameController {
     public StickManController(Maze maze) {
         super(maze);
         this.lastAction = 0;
+        laser.setupBulletSound();
+        shock.setupShockSound();
     }
 
     Sound shock = new Sound();
@@ -51,7 +53,7 @@ public class StickManController extends GameController {
         getModel().getStickMan().setDirection(direction);
         getModel().getStickMan().changeMoving();
         if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-            shock.playShockSound();
+            shock.playShockSound(0);
             this.getModel().getStickMan().setCollided(true);
         }
     }

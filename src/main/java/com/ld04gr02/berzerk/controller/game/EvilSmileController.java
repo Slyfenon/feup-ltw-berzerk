@@ -23,6 +23,7 @@ public class EvilSmileController extends GameController{
     public EvilSmileController(Maze maze) {
         super(maze);
         this.lastAction = 0;
+        shock.setupShockSound();
     }
 
     @Override
@@ -53,7 +54,7 @@ public class EvilSmileController extends GameController{
     private void moveEvilSmile(EvilSmile evilSmile, Position position) {
         evilSmile.setPosition(position);
         if (getModel().collideStickMan(position, getEvilSmileWidth(), getEvilSmileHeight())) {
-            shock.playShockSound();
+            shock.playShockSound(0);
             getModel().getStickMan().setCollided(true);
         }
     }

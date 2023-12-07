@@ -60,6 +60,10 @@ public class Game {
     public int getLevel() {
         return level;
     }
+
+    public void setLevel(int level){
+        this.level = level;
+    }
     public void levelUp() {level++;}
 
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {

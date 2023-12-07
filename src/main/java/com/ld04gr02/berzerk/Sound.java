@@ -63,9 +63,19 @@ public class Sound {
         return clip;
     }
 
-    public void playClickSound(){
+
+    public void setupClickSound(){
         setFile(0);
-        playSound(0);
+    }
+    public void setupBulletSound(){
+        setFile(1);
+    }
+    public void setupShockSound(){
+        setFile(3);
+    }
+    public void playClickSound(float volume){
+        clip.setFramePosition(0);
+        playSound(volume);
     }
 
     public void playMenuSong(float volume){
@@ -74,21 +84,14 @@ public class Sound {
     }
 
     public void playBulletSound(float volume){
-        if (clip == null || !clip.isActive()) {
-            setFile(1);
-        }
-        stopSound();
+        clip.setFramePosition(0);
         playSound(volume);
     }
 
-    public void playShockSound() {
-        if (clip == null || !clip.isActive()) {
-            setFile(3);
-            playSound(0);
-        }
+    public void playShockSound(float volume) {
+        clip.setFramePosition(0);
+        playSound(volume);
     }
-
-
 
     public void playGameMusic(float volume){
         setFile(5);

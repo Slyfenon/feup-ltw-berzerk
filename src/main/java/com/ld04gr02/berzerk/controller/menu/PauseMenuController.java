@@ -26,11 +26,11 @@ public class PauseMenuController extends Controller<PauseMenu> {
         switch(key) {
             case ARROW_UP :
                 getModel().selectPrev();
-                sound.playClickSound();
+                sound.playClickSound(0);
                 break;
             case ARROW_DOWN :
                 getModel().selectNext();
-                sound.playClickSound();
+                sound.playClickSound(0);
                 break;
             case ENTER : {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
@@ -42,7 +42,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                         game.getState().initScreen(game.getGui(), maze.getWidth() , maze.getHeight() + INFO_SECTIONS_HEIGHT);
                     }
                 }
-                sound.playClickSound();
+                sound.playClickSound(0);
                 break;
             }
             default:
