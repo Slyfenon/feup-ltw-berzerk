@@ -5,6 +5,10 @@ import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
+import com.ld04gr02.berzerk.view.game.RobotViewer;
+import com.ld04gr02.berzerk.view.game.Sprites;
+import com.ld04gr02.berzerk.view.game.StickManViewer;
+import com.ld04gr02.berzerk.view.game.WallViewer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,10 +47,10 @@ public class DisplayTests extends Assertions {
 
     @Test
     public void wallDisplayTest() {
-        Wall wall = new Wall(60, 100);
+        Wall wall = new Wall(60, 100, true);
         WallViewer wallViewer = new WallViewer();
         wallViewer.display(wall, guiMock);
-        verify(guiMock).drawWall(wall.getPosition());
+        verify(guiMock).drawWall(wall.getPosition(), "#0000ff");
     }
 
     @Test

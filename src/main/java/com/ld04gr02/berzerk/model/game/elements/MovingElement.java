@@ -4,8 +4,8 @@ import com.ld04gr02.berzerk.model.Direction;
 
 public abstract class MovingElement extends Element{
     boolean isMoving = false;
+    private boolean isCollided = false;
     private Direction currentDirection = Direction.None;
-    private boolean collided = false;
     public MovingElement(int x, int y, Direction direction) {
         super(x, y);
         this.currentDirection = direction;
@@ -14,6 +14,11 @@ public abstract class MovingElement extends Element{
     public boolean isMoving() {
         return this.isMoving;
     }
+
+    public void setMoving(boolean moving) {
+        isMoving = moving;
+    }
+
     public void changeMoving() {
         this.isMoving = !this.isMoving;
     }
@@ -26,9 +31,9 @@ public abstract class MovingElement extends Element{
     }
 
     public boolean isCollided() {
-        return collided;
+        return isCollided;
     }
     public void setCollided(boolean collided) {
-        this.collided = collided;
+        this.isCollided = collided;
     }
 }

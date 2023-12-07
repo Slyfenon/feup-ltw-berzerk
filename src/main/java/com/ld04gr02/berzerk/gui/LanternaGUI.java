@@ -17,7 +17,7 @@ import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
-import com.ld04gr02.berzerk.view.Sprites;
+import com.ld04gr02.berzerk.view.game.Sprites;
 
 import java.awt.*;
 import java.io.File;
@@ -194,9 +194,9 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawWall(Position position) {
+    public void drawWall(Position position, String color) {
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString(color));
         graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(5, 5), ' ');
     }
 
@@ -304,70 +304,6 @@ public class LanternaGUI implements GUI {
 
     }
 
-
-    @Override
-    public void drawLives(int lives){
-        TextGraphics textGraphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getHeart();
-
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
-
-        int posx = 310;
-        int posy = 315;
-        int y = 0;
-        for(int i = 0; i < lives; i++) {
-            for (String s : sprite) {
-                for (int x = 0; x < s.length(); x++) {
-                    if (s.charAt(x) == '#')
-                        textGraphics.fillRectangle(new TerminalPosition(posx + x, posy + y), new TerminalSize(1, 1), ' ');
-                }
-                y++;
-            }
-            y = 0;
-            posx += 32;
-        }
-    }
-
-    @Override
-    public void drawScore() {
-        TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getScore();
-
-
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        int y = 315;
-        for (String s : sprite){
-            graphics.putString(15, y, s);
-            y++;
-        }
-
-    }
-
-    @Override
-    public void drawNumbers(int score) {
-        TextGraphics graphicss = screen.newTextGraphics();
-        graphicss.setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-
-        ArrayList<Integer> numbersIndex = new ArrayList<>();
-        while(score!=0){
-            int number = score % 10;
-            numbersIndex.add(number);
-            score /= 10;
-        }
-        Collections.reverse(numbersIndex);
-
-        int y = 315;
-        int xpos = 95;
-        for(int x : numbersIndex){
-            for (String n : Sprites.getNumber(x)){
-                graphicss.putString(xpos, y, n);
-                y++;
-            }
-            y = 315;
-            xpos += 14;
-        }
-    }
-    @Override
     public void drawSprite(Position position, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));

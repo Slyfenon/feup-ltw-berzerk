@@ -12,6 +12,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static com.ld04gr02.berzerk.Game.INFO_SECTIONS_HEIGHT;
+
 public class PauseMenuController extends Controller<PauseMenu> {
 
     Sound sound = new Sound();
@@ -37,7 +39,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                         game.getGui().close();
                         game.setState(game.getPreviousState());
                         Maze maze = (Maze) game.getPreviousState().getModel();
-                        game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight());
+                        game.getState().initScreen(game.getGui(), maze.getWidth() , maze.getHeight() + INFO_SECTIONS_HEIGHT);
                     }
                 }
                 sound.playClickSound();

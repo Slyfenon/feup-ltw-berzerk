@@ -25,13 +25,13 @@ public class Game {
     }
 
     private final GUI gui;
-
     private State previousState;
     private State state;
-
     public static final int MENU_SCREEN_WIDTH = 70;
     public static final int MENU_SCREEN_HEIGHT = 30;
     public static final int INFO_SECTIONS_HEIGHT = 30;
+    public static final int GAME_SCREEN_WIDTH = 502;
+    public int level = 1;
     public State getState() {
         return state;
     }
@@ -59,14 +59,19 @@ public class Game {
         return game;
     }
 
-    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
+    public int getLevel() {
+        return level;
+    }
+    public void levelUp() {level++;}
+
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
         Game game = Game.getGame();
         game.run();
     }
 
 
     private void run() throws IOException, URISyntaxException, FontFormatException {
-        int FPS = 10;
+        int FPS = 60;
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {

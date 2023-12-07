@@ -4,9 +4,8 @@ import com.ld04gr02.berzerk.model.Direction;
 
 public class StickMan extends MovingElement {
     static final int MAX_LIVES = 5;
-    private int lives = 3;
-    private int score = 0;
-    private boolean collided = false;
+    private static int lives = 3;
+    private static int score = 0;
     private boolean isShooting = false;
 
     public StickMan(int x, int y, Direction direction) {
@@ -21,28 +20,30 @@ public class StickMan extends MovingElement {
         return false;
     }
 
-    public void decreaseLives() {
-        this.lives--;
+    public void decreaseLives() {StickMan.lives--;
     }
 
-    public int getLives() {
+    public static int getLives() {
         return lives;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setLives(int lives) {
+        StickMan.lives = lives;
     }
 
-    public int getScore() {
-        return score;
+    public static int getMaxLives() {
+        return MAX_LIVES;
     }
 
-    public boolean isCollided() {
-        return collided;
+    public static void setScore(int score) {
+        StickMan.score = score;
     }
-    public void setCollided(boolean collided) {
-        this.collided = collided;
+
+    public static int getScore() {
+        return StickMan.score;
     }
+
+    public void increaseScore() {StickMan.score += 50;}
 
     public boolean isShooting() {
         return isShooting;

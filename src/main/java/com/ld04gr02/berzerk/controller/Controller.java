@@ -2,7 +2,6 @@ package com.ld04gr02.berzerk.controller;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.view.*;
 
 import java.awt.*;
 import java.io.IOException;

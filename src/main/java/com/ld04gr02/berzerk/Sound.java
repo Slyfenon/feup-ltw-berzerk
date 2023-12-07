@@ -43,7 +43,10 @@ public class Sound {
     }
 
     public void stopSound(){
-        clip.stop();
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+            clip.setFramePosition(0);
+        }
     }
 
     public void loopSound(float volume){
@@ -68,5 +71,31 @@ public class Sound {
     public void playMenuSong(float volume){
         setFile(2);
         loopSound(volume);
+    }
+
+    public void playBulletSound(float volume){
+        if (clip == null || !clip.isActive()) {
+            setFile(1);
+        }
+        stopSound();
+        playSound(volume);
+    }
+
+    public void playShockSound() {
+        if (clip == null || !clip.isActive()) {
+            setFile(3);
+            playSound(0);
+        }
+    }
+
+
+
+    public void playGameMusic(float volume){
+        setFile(5);
+        loopSound(volume);
+    }
+    public void playGameOverMusic(float volume){
+        setFile(4);
+        playSound(volume);
     }
 }

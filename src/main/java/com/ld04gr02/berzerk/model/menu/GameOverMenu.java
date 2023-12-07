@@ -1,13 +1,13 @@
 package com.ld04gr02.berzerk.model.menu;
 
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameOverMenu implements Menu {
     private final List<MenuOptions> options = new ArrayList<>();
-    private int currentOption = 0;
 
-    private int stickManScore;
 
     private StringBuilder name = new StringBuilder();
 
@@ -34,12 +34,9 @@ public class GameOverMenu implements Menu {
     }
 
     public String getStickManScore() {
-        return Integer.toString(stickManScore);
+        return Integer.toString(StickMan.getScore());
     }
 
-    public void setStickManScore(int stickManScore) {
-        this.stickManScore = stickManScore;
-    }
 
     public StringBuilder getName() {
         return name;

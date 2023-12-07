@@ -3,14 +3,14 @@ package com.ld04gr02.berzerk.view;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
+import com.ld04gr02.berzerk.view.game.GameViewer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -32,7 +32,7 @@ public class GameViewerTests extends Assertions {
         gameViewer.display(guiMock);
 
         verify(guiMock, times(1)).drawStickMan(any(), any(), anyBoolean());
-        verify(guiMock, times(82)).drawWall(any());
+        verify(guiMock, times(82)).drawWall(any(), anyString());
         verify(guiMock, times(3)).drawRobot(any());
         verify(guiMock).clear();
         verify(guiMock).refresh();

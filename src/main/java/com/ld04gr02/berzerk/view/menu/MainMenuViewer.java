@@ -2,7 +2,7 @@ package com.ld04gr02.berzerk.view.menu;
 
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
-import com.ld04gr02.berzerk.view.Viewer;
+import com.ld04gr02.berzerk.view.game.Viewer;
 
 public class MainMenuViewer extends Viewer<MainMenu> {
 

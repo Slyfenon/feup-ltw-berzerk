@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.model.game.maze;
 
+import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 import com.ld04gr02.berzerk.model.game.elements.Bullet;
@@ -10,7 +11,7 @@ import com.ld04gr02.berzerk.model.game.elements.Wall;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ld04gr02.berzerk.view.Sprites.*;
+import static com.ld04gr02.berzerk.view.game.Sprites.*;
 
 public class Maze {
     private final int width;
@@ -20,6 +21,7 @@ public class Maze {
     private List<Wall> walls;
     private EvilSmile evilSmile;
     private List<Bullet> bullets = new ArrayList<Bullet>();
+    private List<Wall> gates;
 
     public Maze(int width, int height) {
         this.width = width;
@@ -57,10 +59,24 @@ public class Maze {
     public void setBullets(List<Bullet> bullets) {
         this.bullets = bullets;
     }
+    public List<Wall> getGates() {
+        return gates;
+    }
+    public void setGates(List<Wall> gates) {
+        this.gates = gates;
+    }
 
     public boolean collideWall(Position position, int elementWidth, int elementHeight) {
         for (Wall wall : getWalls()) {
             Position positionWall = wall.getPosition();
+            if ((position.getX() < (positionWall.getX() + 5))
+                    && (position.getX() + elementWidth > positionWall.getX())
+                    && (position.getY() < (positionWall.getY() + 5))
+                    && ((position.getY() + elementHeight) > positionWall.getY()))
+                return true;
+        }
+        for (Wall gate : getGates()) {
+            Position positionWall = gate.getPosition();
             if ((position.getX() < (positionWall.getX() + 5))
                     && (position.getX() + elementWidth > positionWall.getX())
                     && (position.getY() < (positionWall.getY() + 5))
@@ -77,8 +93,10 @@ public class Maze {
                     && (position.getX() + elementWidth > positionRobot.getX())
                     && (position.getY() < (positionRobot.getY() + getRobotHeight()))
                     && ((position.getY() + elementHeight) > positionRobot.getY())
-                    && !position.equals(positionRobot))
+                    && !position.equals(positionRobot)) {
+                robot.setCollided(true);
                 return true;
+            }
         }
         return false;
     }
@@ -87,17 +105,46 @@ public class Maze {
         if ((position.getX() < (stickMan.getPosition().getX() + getStickManWidth()))
                 && (position.getX() + elementWidth > stickMan.getPosition().getX())
                 && (position.getY() < (stickMan.getPosition().getY() + getStickManHeight()))
-                && ((position.getY() + elementHeight) > stickMan.getPosition().getY()))
+                && ((position.getY() + elementHeight) > stickMan.getPosition().getY())) {
+            stickMan.setCollided(true);
             return true;
+        }
         return false;
     }
 
-    public boolean collideEvilSmile(Position position, int elementWidth, int elementHeight) {
+    public boolean collideEvilSmile(Position position, int elementWidth, int elementHeight, boolean isStickman) {
         if ((position.getX() < (evilSmile.getPosition().getX() + getEvilSmileWidth()))
                 && (position.getX() + elementWidth > evilSmile.getPosition().getX())
                 && (position.getY() < (evilSmile.getPosition().getY() + getEvilSmileHeight()))
-                && ((position.getY() + elementHeight) > evilSmile.getPosition().getY()))
+                && ((position.getY() + elementHeight) > evilSmile.getPosition().getY())) {
+            if(isStickman) {
+                evilSmile.setCollided(true);
+            }
             return true;
+        }
+        return false;
+    }
+
+    public boolean collideBullet(Position position, int elementWidth, int elementHeight) {
+        int width, height;
+        for (Bullet bullet : getBullets()) {
+            Position positionBullet = bullet.getPosition();
+            if(bullet.getCurrentDirection() == Direction.Down || bullet.getCurrentDirection() == Direction.Up) {
+                width = getBulletShort();
+                height = getBulletLong();
+            }
+            else {
+                width = getBulletLong();
+                height = getBulletShort();
+            }
+            if ((position.getX() < (positionBullet.getX() + width))
+                    && (position.getX() + elementWidth > positionBullet.getX())
+                    && (position.getY() < (positionBullet.getY() + height))
+                    && ((position.getY() + elementHeight) > positionBullet.getY())) {
+                bullet.setCollided(true);
+                return true;
+            }
+        }
         return false;
     }
 }

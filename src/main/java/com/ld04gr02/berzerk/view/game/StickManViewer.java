@@ -1,4 +1,4 @@
-package com.ld04gr02.berzerk.view;
+package com.ld04gr02.berzerk.view.game;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ld04gr02.berzerk.gui.GUI;
@@ -23,6 +23,7 @@ public class StickManViewer implements ElementViewer<StickMan> {
             }
         }
         else if(stickMan.isShooting()) {
+            stickMan.setShooting(false);
             switch(stickMan.getCurrentDirection()) {
                 case Up:
                     gui.drawSprite(stickMan.getPosition(), Sprites.getStickManShootingUp(), '#', color);
