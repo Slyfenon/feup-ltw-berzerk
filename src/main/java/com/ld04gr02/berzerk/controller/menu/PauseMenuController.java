@@ -19,6 +19,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
     Sound sound = new Sound();
     public PauseMenuController(PauseMenu model) {
         super(model);
+        sound.setupClickSound();
     }
 
     @Override
