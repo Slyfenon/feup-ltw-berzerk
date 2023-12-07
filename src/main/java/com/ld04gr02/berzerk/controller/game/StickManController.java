@@ -57,6 +57,7 @@ public class StickManController extends GameController {
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
+
         if (this.getModel().getStickMan().isCollided()) {
             this.getModel().getStickMan().decreaseLives();
             this.getModel().getStickMan().setPosition(new Position(30, 150));
@@ -83,10 +84,7 @@ public class StickManController extends GameController {
                     Position tempPosition = getNewBulletPosition();
                     getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), getModel().getStickMan().getCurrentDirection()));
                     lastAction = time;
-
                 }
-
-
                 break;
             case ESC:
                 game.getGui().close();
@@ -95,6 +93,7 @@ public class StickManController extends GameController {
                 game.getState().initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
                 break;
             default:
+                this.getModel().getStickMan().setMoving(false);
                 break;
         }
     }

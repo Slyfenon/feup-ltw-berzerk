@@ -6,7 +6,6 @@ public class StickMan extends MovingElement {
     static final int MAX_LIVES = 5;
     private static int lives = 3;
     private static int score = 0;
-    private boolean collided = false;
     private boolean isShooting = false;
 
     public StickMan(int x, int y, Direction direction) {

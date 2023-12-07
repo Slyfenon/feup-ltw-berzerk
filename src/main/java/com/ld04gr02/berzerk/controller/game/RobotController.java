@@ -37,7 +37,7 @@ public class RobotController extends GameController {
             }
         }
 
-        if (time - lastAction > 250) {
+        if (time - lastAction > 500) {
             Position stickManPosition = getModel().getStickMan().getPosition();
             boolean canShoot = time - lastShot > 2000;
 

@@ -33,7 +33,6 @@ public class GameState extends State<Maze> {
         this.controller.update(game, action, time);
         if(action != GUI.KEY.ESC) {
             this.viewer.display(gui);
-            this.viewer.display(gui);
         }
     }
 

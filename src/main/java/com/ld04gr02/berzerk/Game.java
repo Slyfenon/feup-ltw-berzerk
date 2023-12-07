@@ -64,7 +64,7 @@ public class Game {
     }
     public void levelUp() {level++;}
 
-    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException, FontFormatException {
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
         Game game = Game.getGame();
         game.run();
     }

@@ -14,6 +14,11 @@ public abstract class MovingElement extends Element{
     public boolean isMoving() {
         return this.isMoving;
     }
+
+    public void setMoving(boolean moving) {
+        isMoving = moving;
+    }
+
     public void changeMoving() {
         this.isMoving = !this.isMoving;
     }

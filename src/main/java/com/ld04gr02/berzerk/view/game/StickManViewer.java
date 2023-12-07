@@ -11,7 +11,6 @@ public class StickManViewer implements ElementViewer<StickMan> {
     public void display(StickMan stickMan, GUI gui) {
         String color = !stickMan.isCollided() ? "#00ff00" : "#0000ff";
         if(stickMan.isMoving()) {
-            stickMan.changeMoving();
             switch (stickMan.getCurrentDirection()) {
                 case Left:
                     gui.drawSprite(stickMan.getPosition(), Sprites.getStickManMovingLeft(), '#', color);
