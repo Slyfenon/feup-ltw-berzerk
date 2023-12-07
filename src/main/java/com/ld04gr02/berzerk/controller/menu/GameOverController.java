@@ -3,6 +3,7 @@ package com.ld04gr02.berzerk.controller.menu;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
@@ -21,10 +22,8 @@ import java.net.URISyntaxException;
 import static com.ld04gr02.berzerk.Game.*;
 
 public class GameOverController extends Controller<GameOverMenu> {
-    private final Sound gameOverSound = new Sound();
     public GameOverController(GameOverMenu model) {
         super(model);
-        gameOverSound.playGameOverMusic(-10.0f);
     }
 
     @Override
@@ -41,7 +40,7 @@ public class GameOverController extends Controller<GameOverMenu> {
                     }
                     break;
                 case ESC:
-                    gameOverSound.stopSound();
+                    Soundboard.getInstance().getClick().playSound(0);
                     MainMenu mainMenu = new MainMenu();
                     MainMenuState mainMenuState= new MainMenuState(mainMenu);
                     game.getGui().close();

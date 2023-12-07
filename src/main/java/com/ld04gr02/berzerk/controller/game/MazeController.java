@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
@@ -21,14 +22,13 @@ public class MazeController extends GameController {
     private final RobotController robotController;
     private final EvilSmileController evilSmileController;
     private final BulletController bulletController;
-    private final Sound gameMusic = new Sound();
     public MazeController(Maze maze) {
         super(maze);
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
         this.evilSmileController = new EvilSmileController(maze);
         this.bulletController = new BulletController(maze);
-        gameMusic.playGameMusic(-20.0f);
+        Soundboard.getInstance().getPlaySong().loopSound(-15.0f);
     }
 
     @Override
@@ -45,19 +45,19 @@ public class MazeController extends GameController {
         }
         if (getModel().getRobots().isEmpty()) getModel().getGates().clear();
         if(StickMan.getLives() == 0){
-            gameMusic.stopSound();
+            Soundboard.getInstance().getPlaySong().stopSound();
             game.getGui().close();
             GameOverMenu gameOverMenu = new GameOverMenu();
             GameOverState gameOverState= new GameOverState(gameOverMenu);
             game.setState(gameOverState);
             gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
             getModel().getStickMan().setLives(3);
+            Soundboard.getInstance().getGameOverSound().playSound(-10.0f);
         }
     }
 
 
     public void nextLevel(Game game) throws IOException, URISyntaxException, FontFormatException {
-        gameMusic.stopSound();
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
         String level = "maze" + game.getLevel() + ".lvl";

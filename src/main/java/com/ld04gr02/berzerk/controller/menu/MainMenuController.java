@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.menu;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
@@ -19,18 +20,10 @@ import static com.ld04gr02.berzerk.Game.INFO_SECTIONS_HEIGHT;
 
 public class MainMenuController extends Controller<MainMenu> {
 
-    Sound click = new Sound();
-    Sound menuSong = new Sound();
 
     public MainMenuController(MainMenu model) {
         super(model);
-        if (menuSong.getClip() != null) {
-            menuSong.stopSound();
-        } else {
-            menuSong.playMenuSong(-15.0f);
-        }
-        click.setupClickSound();
-
+        Soundboard.getInstance().getMenuSong().loopSound(-15.0f);
     }
 
 
@@ -39,25 +32,26 @@ public class MainMenuController extends Controller<MainMenu> {
         switch (key) {
             case ARROW_UP:
                 getModel().selectPrev();
-                click.playClickSound(0);
+                Soundboard.getInstance().getClick().playSound(0);
                 break;
             case ARROW_DOWN:
                 getModel().selectNext();
-                click.playClickSound(0);
+                Soundboard.getInstance().getClick().playSound(0);
                 break;
             case ENTER: {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
                 if (getModel().getSelected() == MenuOptions.PLAY) {
+                    Soundboard.getInstance().getMenuSong().stopSound();
                     game.getGui().close();
                     game.setLevel(0);
                     StickMan.setScore(0);
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
-                    menuSong.stopSound();
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
+                    Soundboard.getInstance().getClick().playSound(0);
                 }
-                click.playClickSound(0);
+                Soundboard.getInstance().getClick().playSound(0);
                 break;
             }
             default:
