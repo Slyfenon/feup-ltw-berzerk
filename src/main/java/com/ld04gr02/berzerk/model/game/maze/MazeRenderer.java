@@ -5,6 +5,7 @@ import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
+import com.ld04gr02.berzerk.view.game.Sprites;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,13 +43,7 @@ public class MazeRenderer implements MazeBuilder {
     }
 
     private StickMan createStickMan() {
-        for (int y = 0; y < rows.size(); y++) {
-            String line = rows.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'S')
-                    return new StickMan(x, y, Direction.Right);
-        }
-        return null;
+        return new StickMan(10, rows.size() / 2 - Sprites.getStickManHeight() / 2, Direction.Right);
     }
 
     private List<Robot> createRobots() {

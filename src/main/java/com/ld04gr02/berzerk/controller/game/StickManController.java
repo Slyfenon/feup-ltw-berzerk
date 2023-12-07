@@ -9,6 +9,7 @@ import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.state.PauseMenuState;
+import com.ld04gr02.berzerk.view.game.Sprites;
 
 import java.awt.*;
 import java.io.IOException;
@@ -60,7 +61,7 @@ public class StickManController extends GameController {
 
         if (this.getModel().getStickMan().isCollided()) {
             this.getModel().getStickMan().decreaseLives();
-            this.getModel().getStickMan().setPosition(new Position(30, 150));
+            this.getModel().getStickMan().setPosition(new Position(10, getModel().getHeight() / 2 - Sprites.getStickManHeight() / 2));
             this.getModel().getStickMan().setCollided(false);
         }
 
