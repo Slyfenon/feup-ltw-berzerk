@@ -71,7 +71,7 @@ public class Game {
 
 
     private void run() throws IOException, URISyntaxException, FontFormatException {
-        int FPS = 10;
+        int FPS = 60;
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {
