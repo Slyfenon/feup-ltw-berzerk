@@ -39,14 +39,14 @@ public class RobotController extends GameController {
 
         if (time - lastAction > 500) {
             Position stickManPosition = getModel().getStickMan().getPosition();
-            boolean canShoot = time - lastShot > 2000;
+            boolean canShoot = time - lastShot > 1000;
 
             for(Robot robot: getModel().getRobots()) {
                 int side =  (int) (Math.random() * 2);
                 Position nextPosition = getNextPosition(robot, side, stickManPosition);
                 if (closer(stickManPosition, robot.getPosition(), nextPosition)) {
                     moveRobot(robot, nextPosition);
-                    if (canShoot) {
+                    if (canShoot && hasView(robot)) {
                         Position tempPosition = getNewBulletPosition(robot);
                         getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), robot.getCurrentDirection()));
                     }
@@ -113,5 +113,10 @@ public class RobotController extends GameController {
             default:
                 return null;
         }
+    }
+
+    public boolean hasView(Robot robot) {
+        if (robot.getCurrentDirection() == Direction.Down || robot.getCurrentDirection() == Direction.Up) return abs(robot.getPosition().getX() - getModel().getStickMan().getPosition().getX()) < getRobotWidth();
+        else return abs(robot.getPosition().getY() - getModel().getStickMan().getPosition().getY()) < getStickManHeight();
     }
 }

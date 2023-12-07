@@ -6,8 +6,6 @@ import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.state.MainMenuState;
 import com.ld04gr02.berzerk.state.State;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
