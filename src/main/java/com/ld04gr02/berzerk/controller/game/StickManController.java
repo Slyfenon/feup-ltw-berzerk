@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
@@ -9,6 +10,7 @@ import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.state.PauseMenuState;
+import com.ld04gr02.berzerk.view.game.Sprites;
 
 import java.awt.*;
 import java.io.IOException;
@@ -25,9 +27,6 @@ public class StickManController extends GameController {
         super(maze);
         this.lastAction = 0;
     }
-
-    Sound shock = new Sound();
-    Sound laser = new Sound();
 
     private void moveStickManUp() {
         move(getModel().getStickMan().getPosition().getUp(), Direction.Up);
@@ -50,7 +49,6 @@ public class StickManController extends GameController {
         getModel().getStickMan().setDirection(direction);
         getModel().getStickMan().changeMoving();
         if (collideStickMan(this.getModel().getStickMan().getPosition())) {
-            shock.playShockSound();
             this.getModel().getStickMan().setCollided(true);
         }
     }
@@ -60,8 +58,9 @@ public class StickManController extends GameController {
 
         if (this.getModel().getStickMan().isCollided()) {
             this.getModel().getStickMan().decreaseLives();
-            this.getModel().getStickMan().setPosition(new Position(30, 150));
+            this.getModel().getStickMan().setPosition(new Position(10, getModel().getHeight() / 2 - Sprites.getStickManHeight() / 2));
             this.getModel().getStickMan().setCollided(false);
+            Soundboard.getInstance().getShock().playSound(0);
         }
 
         switch (key) {
@@ -79,11 +78,11 @@ public class StickManController extends GameController {
                 break;
             case SPACE:
                 if (time - lastAction > 350) {
-                    laser.playBulletSound(0);
                     getModel().getStickMan().setShooting(true);
                     Position tempPosition = getNewBulletPosition();
                     getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), getModel().getStickMan().getCurrentDirection()));
                     lastAction = time;
+                    Soundboard.getInstance().getBullet().playSound(0);
                 }
                 break;
             case ESC:

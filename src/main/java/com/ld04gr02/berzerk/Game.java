@@ -6,8 +6,6 @@ import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.state.MainMenuState;
 import com.ld04gr02.berzerk.state.State;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -61,6 +59,10 @@ public class Game {
 
     public int getLevel() {
         return level;
+    }
+
+    public void setLevel(int level){
+        this.level = level;
     }
     public void levelUp() {level++;}
 

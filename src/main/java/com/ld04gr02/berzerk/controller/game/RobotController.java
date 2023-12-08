@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.Sound;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
@@ -20,7 +21,6 @@ import static java.lang.Math.abs;
 public class RobotController extends GameController {
     private long lastAction;
     private long lastShot;
-    Sound shock = new Sound();
     public RobotController(Maze maze) {
         super(maze);
         this.lastAction = 0;
@@ -34,19 +34,20 @@ public class RobotController extends GameController {
             if (robot.isCollided()) {
                 getModel().getRobots().remove(robot);
                 getModel().getStickMan().increaseScore();
+                Soundboard.getInstance().getShock().playSound(0);
             }
         }
 
         if (time - lastAction > 500) {
             Position stickManPosition = getModel().getStickMan().getPosition();
-            boolean canShoot = time - lastShot > 2000;
+            boolean canShoot = time - lastShot > 1000;
 
             for(Robot robot: getModel().getRobots()) {
                 int side =  (int) (Math.random() * 2);
                 Position nextPosition = getNextPosition(robot, side, stickManPosition);
                 if (closer(stickManPosition, robot.getPosition(), nextPosition)) {
                     moveRobot(robot, nextPosition);
-                    if (canShoot) {
+                    if (canShoot && hasView(robot)) {
                         Position tempPosition = getNewBulletPosition(robot);
                         getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), robot.getCurrentDirection()));
                     }
@@ -83,7 +84,6 @@ public class RobotController extends GameController {
         if (!getModel().collideWall(position, getRobotWidth(), getRobotHeight())) {
             robot.setPosition(position);
             if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight())) {
-                shock.playShockSound();
                 getModel().getStickMan().setCollided(true);
             }
         }
@@ -113,5 +113,10 @@ public class RobotController extends GameController {
             default:
                 return null;
         }
+    }
+
+    public boolean hasView(Robot robot) {
+        if (robot.getCurrentDirection() == Direction.Down || robot.getCurrentDirection() == Direction.Up) return abs(robot.getPosition().getX() - getModel().getStickMan().getPosition().getX()) < getRobotWidth();
+        else return abs(robot.getPosition().getY() - getModel().getStickMan().getPosition().getY()) < getStickManHeight();
     }
 }
