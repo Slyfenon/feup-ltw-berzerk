@@ -1,18 +1,16 @@
 package com.ld04gr02.berzerk.model.menu;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class LeaderBoard {
+public class Leaderboard {
     private ArrayList<String> names;
     private ArrayList<Integer> scores;
 
-    public LeaderBoard() {
+    public Leaderboard() throws IOException {
         names = new ArrayList<>();
         scores = new ArrayList<>();
+        readFromFile("/src/main/resources/Leaderboard.brd");
     }
 
     public ArrayList<String> getNames() {
@@ -23,38 +21,45 @@ public class LeaderBoard {
         return scores;
     }
 
-    public void readFromFile(String filePath) throws IOException {
+    public void readFromFile(String filePath) {
+        try {
+            String rootPath = new File(System.getProperty("user.dir")).getPath();
+            String mapLocation = rootPath + filePath;
 
-        String rootPath = new File(System.getProperty("user.dir")).getPath();
-        String mapLocation = rootPath + filePath;
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(mapLocation));
+            String line;
 
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(mapLocation));
-        String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] values = line.split(",");
 
-        while ((line = bufferedReader.readLine()) != null) {
-            String[] values = line.split(",");
+                if (values.length == 2) {
+                    String name = values[0].trim();
+                    int score = Integer.parseInt(values[1].trim());
 
-            if (values.length == 2) {
-                String name = values[0].trim();
-                int score = Integer.parseInt(values[1].trim());
-
-                names.add(name);
-                scores.add(score);
+                    names.add(name);
+                    scores.add(score);
+                }
             }
-        }
 
             bufferedReader.close();
         }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public void addToLeaderboard(String name, int score) {
+    public boolean addToLeaderboard(String name, int score) {
+        System.out.println(name);
         for (int i = 0; i < 10; i++) {
             if(score >= scores.get(i)) {
                 scores.add(i, score);
                 names.add(i, name);
                 scores.remove(scores.size() - 1);
-                names.remove(scores.size() - 1);
+                names.remove(names.size() - 1);
+                return true;
             }
         }
+        return false;
     }
 
     public void writeToFile(String filePath) {
