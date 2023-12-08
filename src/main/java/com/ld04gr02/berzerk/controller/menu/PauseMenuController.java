@@ -27,10 +27,12 @@ public class PauseMenuController extends Controller<PauseMenu> {
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException, NullPointerException {
         switch(key) {
             case ARROW_UP :
+                Soundboard.getInstance().getClick().stopSound();
                 getModel().selectPrev();
                 Soundboard.getInstance().getClick().playSound(0);
                 break;
             case ARROW_DOWN :
+                Soundboard.getInstance().getClick().stopSound();
                 getModel().selectNext();
                 Soundboard.getInstance().getClick().playSound(0);
                 break;
