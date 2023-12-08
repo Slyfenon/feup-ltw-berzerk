@@ -28,7 +28,6 @@ public class GameOverController extends Controller<GameOverMenu> {
 
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
-
             switch (key) {
                 case CHAR:
                     if(getModel().getName().length() == 10){

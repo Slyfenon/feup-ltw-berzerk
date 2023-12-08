@@ -199,23 +199,6 @@ public class LanternaGUI implements GUI {
         graphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()),  new TerminalSize(5, 5), ' ');
     }
 
-
-    @Override
-    public void drawEvilSmile(Position position) {
-        TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
-        String[] sprite = Sprites.getEvilSmile();
-
-        int y = 0;
-        for (String s : sprite){
-            for (int x = 0; x < s.length(); x++){
-                if (s.charAt(x) == '#')
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
-            }
-            y++;
-        }
-    }
-
     @Override
     public void drawMainMenu(MainMenu model){
         TextGraphics graphics = screen.newTextGraphics();

@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk;
 
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.gui.LanternaGUI;
+import com.ld04gr02.berzerk.model.menu.LeaderBoard;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.state.MainMenuState;
 import com.ld04gr02.berzerk.state.State;

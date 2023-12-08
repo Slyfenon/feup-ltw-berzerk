@@ -43,7 +43,7 @@ public class MainMenuController extends Controller<MainMenu> {
                 if (getModel().getSelected() == MenuOptions.PLAY) {
                     Soundboard.getInstance().getMenuSong().stopSound();
                     game.getGui().close();
-                    game.setLevel(0);
+                    game.setLevel(1);
                     StickMan.setScore(0);
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
