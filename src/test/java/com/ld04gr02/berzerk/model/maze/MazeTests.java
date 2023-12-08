@@ -65,9 +65,14 @@ public class MazeTests extends Assertions {
                 new Wall(20, 50, true)
         ));
         maze.setWalls(walls);
+        ArrayList<Wall> gates = new ArrayList<>(Arrays.asList(
+                new Wall(20, 40, true),
+                new Wall(25, 60, true)
+        ));
+        maze.setGates(gates);
 
         assertTrue(maze.collideWall(new Position(5, 10), 10, 10));
-        assertFalse(maze.collideWall(new Position(50, 100), 10, 10));
+        assertFalse(maze.collideWall(new Position(50, 100), 100, 200));
     }
 
     @Test

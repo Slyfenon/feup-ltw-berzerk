@@ -27,7 +27,7 @@ public class StickMan extends MovingElement {
         return lives;
     }
 
-    public void setLives(int lives) {
+    public static void setLives(int lives) {
         StickMan.lives = lives;
     }
 

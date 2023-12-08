@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static com.ld04gr02.berzerk.gui.GUI.KEY.*;
 import static org.mockito.Mockito.mock;
@@ -27,28 +29,28 @@ public class StickManControllerTests extends Assertions {
     }
 
     @Test
-    public void moveStickManUpTest() throws IOException {
+    public void moveStickManUpTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_UP, 0);
         assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getUp());
     }
 
     @Test
-    public void moveStickManDownTest() throws IOException {
+    public void moveStickManDownTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_DOWN, 0);
         assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getDown());
     }
 
     @Test
-    public void moveStickManRightTest() throws IOException {
+    public void moveStickManRightTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_RIGHT, 0);
         assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getRight());
     }
 
     @Test
-    public void moveStickManLeftTest() throws IOException {
+    public void moveStickManLeftTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_LEFT, 0);
         assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getLeft());

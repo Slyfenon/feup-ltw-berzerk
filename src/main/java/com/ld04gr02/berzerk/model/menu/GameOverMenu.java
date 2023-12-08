@@ -28,10 +28,6 @@ public class GameOverMenu implements Menu {
         return null;
     }
 
-    @Override
-    public boolean isSelected() {
-        return false;
-    }
 
     public String getStickManScore() {
         return Integer.toString(StickMan.getScore());
