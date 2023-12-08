@@ -1,4 +1,3 @@
-
 package com.ld04gr02.berzerk.gui;
 
 import com.googlecode.lanterna.TerminalSize;
@@ -154,4 +153,3 @@ public class GUITests extends Assertions {
         assertEquals(new TerminalSize(100, 200), lanternaGUI.getScreen().getTerminalSize());
     }
 }
-

@@ -36,4 +36,3 @@ public class GameViewerTests extends Assertions {
         verify(guiMock).refresh();
     }
 }
-
