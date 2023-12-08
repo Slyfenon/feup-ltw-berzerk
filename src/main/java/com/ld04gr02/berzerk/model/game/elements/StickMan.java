@@ -13,8 +13,8 @@ public class StickMan extends MovingElement {
 
     }
     public boolean increaseLives() {
-        if(this.lives < MAX_LIVES) {
-            this.lives++;
+        if(lives < MAX_LIVES) {
+            lives++;
             return true;
         }
         return false;
@@ -43,7 +43,10 @@ public class StickMan extends MovingElement {
         return StickMan.score;
     }
 
-    public void increaseScore() {StickMan.score += 50;}
+    public void increaseScore() {
+        if (StickMan.score < 9950) StickMan.score += 50;
+        if (score % 500 == 0) increaseLives();
+    }
 
     public boolean isShooting() {
         return isShooting;
