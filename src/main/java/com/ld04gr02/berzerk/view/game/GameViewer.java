@@ -6,6 +6,7 @@ import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.view.game.info.InfoViewer;
+import com.ld04gr02.berzerk.view.game.info.LevelInfoViewer;
 import com.ld04gr02.berzerk.view.game.info.LivesInfoViewer;
 import com.ld04gr02.berzerk.view.game.info.ScoreInfoViewer;
 
@@ -19,6 +20,8 @@ public class GameViewer extends Viewer<Maze> {
     private final ScoreInfoViewer scoreInfoViewer;
     private final LivesInfoViewer livesInfoViewer;
 
+    private final LevelInfoViewer levelInfoViewer;
+
 
     public GameViewer(Maze maze) {
         super(maze);
@@ -29,6 +32,7 @@ public class GameViewer extends Viewer<Maze> {
         evilSmileViewer = new EvilSmileViewer();
         scoreInfoViewer = new ScoreInfoViewer();
         livesInfoViewer = new LivesInfoViewer();
+        levelInfoViewer = new LevelInfoViewer();
     }
     @Override
     protected void renderElements(GUI gui) {
@@ -52,5 +56,6 @@ public class GameViewer extends Viewer<Maze> {
         evilSmileViewer.display(getModel().getEvilSmile(), gui);
         scoreInfoViewer.display(gui);
         livesInfoViewer.display(gui);
+        levelInfoViewer.display(gui);
     }
 }
