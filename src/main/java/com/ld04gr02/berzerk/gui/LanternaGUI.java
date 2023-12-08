@@ -14,6 +14,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
+import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.view.game.Sprites;
@@ -283,8 +284,44 @@ public class LanternaGUI implements GUI {
             y += 2;
         }
     }
-
     @Override
+    public void drawInstructionsMenu(InstructionsMenu model){
+        TextGraphics graphics = screen.newTextGraphics();
+        String[] sprite = Sprites.getLogo();
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
+        int y = 5;
+        for (String s : sprite){
+            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length() / 2, y, s);
+            y++;
+        }
+
+        TextGraphics instructions = screen.newTextGraphics();
+        instructions.putString(MENU_SCREEN_WIDTH / 2 - 8,14, "GAME OBJECTIVE");
+        instructions.putString(3,16, "SHOOT THE ROBOTS, SCORE POINTS AND RUN FROM EVIL SMILE");
+        instructions.putString(3,17, "DESTROY ALL ROBOTS TO OPEN THE GATE AND ADVANCE TO THE NEXT LEVEL");
+        instructions.putString(3,18, "PLAYER STARTS WITH 3 LIVES WITH 5 MAX, EACH ROBOT SHOT = 50 POINTS");
+
+        int posxK = 19;
+        for(String s : Sprites.getKeyBoard()){
+            instructions.putString(3,posxK, s);
+            posxK++;
+        }
+        int posyS = 22;
+        for(String s : Sprites.getSPACE()){
+            instructions.putString(37,posyS, s);
+            posyS++;
+        }
+        posxK++;
+        instructions.putString(3, posxK++, "Use ARROWS to move");
+        instructions.putString(37, posxK-1, "Use SPACE to shoot");
+
+
+
+
+
+    }
+
     public void drawSprite(Position position, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));
