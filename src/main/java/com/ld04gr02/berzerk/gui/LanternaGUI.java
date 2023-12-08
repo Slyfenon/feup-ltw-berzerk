@@ -297,8 +297,26 @@ public class LanternaGUI implements GUI {
         }
 
         TextGraphics instructions = screen.newTextGraphics();
+        instructions.putString(MENU_SCREEN_WIDTH / 2 - 8,14, "GAME OBJECTIVE");
+        instructions.putString(3,16, "SHOOT THE ROBOTS, SCORE POINTS AND RUN FROM EVIL SMILE");
+        instructions.putString(3,17, "DESTROY ALL ROBOTS TO OPEN THE GATE AND ADVANCE TO THE NEXT LEVEL");
+        instructions.putString(3,18, "PLAYER STARTS WITH 3 LIVES WITH 5 MAX, EACH ROBOT SHOT = 50 POINTS");
 
-        instructions.putString(7,18, "GAME OBJECTIVE: AVOID ENEMIES, DESTROY ROBOTS, ");
+        int posxK = 19;
+        for(String s : Sprites.getKeyBoard()){
+            instructions.putString(3,posxK, s);
+            posxK++;
+        }
+        int posyS = 22;
+        for(String s : Sprites.getSPACE()){
+            instructions.putString(37,posyS, s);
+            posyS++;
+        }
+        posxK++;
+        instructions.putString(3, posxK++, "Use ARROWS to move");
+        instructions.putString(37, posxK-1, "Use SPACE to shoot");
+
+
 
 
 
