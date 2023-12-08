@@ -1,4 +1,3 @@
-/*
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
@@ -25,4 +24,4 @@ public class RobotControllerTests extends Assertions {
 
 
 }
-*/
+

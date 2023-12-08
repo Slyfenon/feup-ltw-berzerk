@@ -31,43 +31,43 @@ public class StickManControllerTests extends Assertions {
     public void moveStickManUpTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_UP, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getUp());
+        assertEquals(position.getUp(), stickManController.getModel().getStickMan().getPosition());
     }
 
     @Test
     public void moveStickManDownTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_DOWN, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getDown());
+        assertEquals(position.getDown(), stickManController.getModel().getStickMan().getPosition());
     }
 
     @Test
     public void moveStickManRightTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_RIGHT, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getRight());
+        assertEquals(position.getRight(), stickManController.getModel().getStickMan().getPosition());
     }
 
     @Test
     public void moveStickManLeftTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, ARROW_LEFT, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), position.getLeft());
+        assertEquals(position.getLeft(), stickManController.getModel().getStickMan().getPosition());
     }
 
     @Test
-    public void moveStickManSpaceTest() throws IOException {
+    public void moveStickManSpaceTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, SPACE, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), position);
+        assertEquals(position, stickManController.getModel().getStickMan().getPosition());
     }
 
     @Test
-    public void moveStickManCollidedTest() throws IOException {
+    public void moveStickManCollidedTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.getModel().getStickMan().setCollided(true);
         stickManController.update(game, SPACE, 0);
-        assertEquals(stickManController.getModel().getStickMan().getPosition(), new Position(30, 150));
+        assertEquals(new Position(10, 111), stickManController.getModel().getStickMan().getPosition());
     }
 }
 

@@ -18,32 +18,35 @@ public class StickManTests extends Assertions {
 
     @Test
     public void StickManTest() {
-        assertEquals(stickMan.getPosition(), new Position(10, 15));
-        assertEquals(StickMan.getLives(), 3);
+        assertEquals(new Position(10, 15), stickMan.getPosition());
+        assertEquals(3, StickMan.getLives());
+        assertEquals(5, StickMan.getMaxLives());
     }
 
     @Test
     public void increaseLivesTest() {
-        assertEquals(StickMan.getLives(), 3);
+        assertEquals(3, StickMan.getLives());
         stickMan.increaseLives();
-        assertEquals(StickMan.getLives(), 4);
+        assertEquals(4, StickMan.getLives());
         stickMan.increaseLives();
-        assertEquals(StickMan.getLives(), 5);
+        assertEquals(5, StickMan.getLives());
         assertFalse(stickMan.increaseLives());
-        assertEquals(StickMan.getLives(), 5);
+        assertEquals(5, StickMan.getLives());
     }
 
     @Test
     public void decreaseLivesTest() {
-        assertEquals(StickMan.getLives(), 3);
+        assertEquals(3, StickMan.getLives());
         stickMan.decreaseLives();
-        assertEquals(StickMan.getLives(), 2);
+        assertEquals(2, StickMan.getLives());
     }
 
     @Test
     public void scoreTest() {
         StickMan.setScore(550);
-        assertEquals(StickMan.getScore(), 550);
+        assertEquals(550, StickMan.getScore());
+        stickMan.increaseScore();
+        assertEquals(600, StickMan.getScore());
     }
 
 }

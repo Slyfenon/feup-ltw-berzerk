@@ -10,8 +10,8 @@ public class RobotTests extends Assertions {
     @Test
     public void RobotTest() {
         Robot robot = new Robot(10, 15, Direction.Right);
-        assertEquals(robot.getPosition(), new Position(10, 15));
-        assertEquals(robot.getPosition().getX(), 10);
-        assertEquals(robot.getPosition().getY(), 15);
+        assertEquals(new Position(10, 15), robot.getPosition());
+        assertEquals(10, robot.getPosition().getX());
+        assertEquals(15, robot.getPosition().getY());
     }
 }

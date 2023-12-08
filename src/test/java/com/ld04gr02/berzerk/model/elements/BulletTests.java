@@ -10,8 +10,8 @@ public class BulletTests extends Assertions {
     @Test
     public void BulletTest() {
         Bullet bullet = new Bullet(5, 10, Direction.Right);
-        assertEquals(bullet.getPosition(), new Position(5, 10));
-        assertEquals(bullet.getPosition().getX(), 5);
-        assertEquals(bullet.getPosition().getY(), 10);
+        assertEquals(new Position(5, 10), bullet.getPosition());
+        assertEquals(5, bullet.getPosition().getX());
+        assertEquals(10, bullet.getPosition().getY());
     }
 }

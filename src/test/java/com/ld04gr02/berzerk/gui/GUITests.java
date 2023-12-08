@@ -1,4 +1,4 @@
-/*
+
 package com.ld04gr02.berzerk.gui;
 
 import com.googlecode.lanterna.TerminalSize;
@@ -8,7 +8,6 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.view.game.Sprites;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.view.game.Sprites;
 import org.junit.jupiter.api.Assertions;
@@ -82,61 +81,61 @@ public class GUITests extends Assertions {
     @Test
     public void getPressedKeyUpTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowUp)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_UP);
+        assertEquals(GUI.KEY.ARROW_UP, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyDownTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowDown)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_DOWN);
+        assertEquals(GUI.KEY.ARROW_DOWN, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyRightTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowRight)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_RIGHT);
+        assertEquals(GUI.KEY.ARROW_RIGHT, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyLeftTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowLeft)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ARROW_LEFT);
+        assertEquals(GUI.KEY.ARROW_LEFT, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyEnterTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ENTER);
+        assertEquals(GUI.KEY.ENTER, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyEscapeTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Escape)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.ESC);
+        assertEquals(GUI.KEY.ESC, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeySpaceTest() throws IOException {
         when(screen.pollInput()).thenReturn(KeyStroke.fromString(" ")).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.SPACE);
+        assertEquals(GUI.KEY.SPACE, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyCharacterTest() throws IOException {
         when(screen.pollInput()).thenReturn(KeyStroke.fromString("a")).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.CHAR);
+        assertEquals(GUI.KEY.CHAR, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyNullTest() throws IOException {
         when(screen.pollInput()).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.NONE);
+        assertEquals(GUI.KEY.NONE, lanternaGUI.getPressedKey());
     }
 
     @Test
     public void getPressedKeyDefaultTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.F1)).thenReturn(null);
-        assertEquals(lanternaGUI.getPressedKey(), GUI.KEY.NONE);
+        assertEquals(GUI.KEY.NONE, lanternaGUI.getPressedKey());
     }
 
     @Test
@@ -147,33 +146,12 @@ public class GUITests extends Assertions {
         verify(textGraphics, times(9)).putString(anyInt(), anyInt(), anyString());
     }
 
-    /*@Test
-    public void drawLivesTest() {
-        lanternaGUI.drawLives(3);
-        verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#ff0000"));
-        verify(textGraphics, times(546)).fillRectangle(any(), any(), anyChar());
-    }*/
-
-    /*@Test
-    public void drawScoreTest() {
-        lanternaGUI.drawScore();
-        verify(textGraphics).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        verify(textGraphics, times(11)).putString(anyInt(), anyInt(), anyString());
-    }*/
-
-   /* @Test
-    public void drawNumbersTest() {
-        lanternaGUI.drawNumbers(543);
-        verify(textGraphics).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
-        verify(textGraphics, times(33)).putString(anyInt(), anyInt(), anyString());
-    }*/
-
     @Test
     public void createGameScreenTest() throws URISyntaxException, IOException, FontFormatException {
         lanternaGUI.createGameScreen(100, 200);
-        assertEquals(lanternaGUI.getRows(), 200);
-        assertEquals(lanternaGUI.getColumns(), 100);
-        assertEquals(lanternaGUI.getScreen().getTerminalSize(), new TerminalSize(100, 200));
+        assertEquals(200, lanternaGUI.getRows());
+        assertEquals(100, lanternaGUI.getColumns());
+        assertEquals(new TerminalSize(100, 200), lanternaGUI.getScreen().getTerminalSize());
     }
 }
-*/
+

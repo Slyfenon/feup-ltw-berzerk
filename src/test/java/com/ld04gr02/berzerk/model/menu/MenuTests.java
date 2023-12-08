@@ -15,13 +15,13 @@ public class MenuTests extends Assertions {
     @Test
     public void selectsTest() {
         mainMenu.selectPrev();
-        assertEquals(mainMenu.getCurrentOption(), mainMenu.getOptions().size()-1);
+        assertEquals(mainMenu.getOptions().size()-1, mainMenu.getCurrentOption());
         mainMenu.selectNext();
-        assertEquals(mainMenu.getCurrentOption(), 0);
+        assertEquals(0, mainMenu.getCurrentOption());
     }
 
     @Test
     public void stringsTest() {
-        assertEquals(mainMenu.getSelected().convertString() ,mainMenu.getString(0));
+        assertEquals(mainMenu.getString(0), mainMenu.getSelected().convertString());
     }
 }
