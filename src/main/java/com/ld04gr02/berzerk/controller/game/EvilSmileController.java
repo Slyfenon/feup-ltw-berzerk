@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
-import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
@@ -11,12 +10,13 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static com.ld04gr02.berzerk.view.game.Sprites.*;
+import static com.ld04gr02.berzerk.view.game.Sprites.getEvilSmileHeight;
+import static com.ld04gr02.berzerk.view.game.Sprites.getEvilSmileWidth;
 import static java.lang.Math.abs;
 
 public class EvilSmileController extends GameController{
     private long lastAction;
-    private long timePause = 90000;
+    private long timePause = 1200;
 
 
 
