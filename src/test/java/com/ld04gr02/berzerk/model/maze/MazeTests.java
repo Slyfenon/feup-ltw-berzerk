@@ -23,16 +23,15 @@ public class MazeTests extends Assertions {
 
     @Test
     public void mazeTest() {
-        assertEquals(maze.getWidth(), 50);
-        assertEquals(maze.getHeight(), 75);
+        assertEquals(50, maze.getWidth());
+        assertEquals(75, maze.getHeight());
     }
 
     @Test
     public void elementsTest() {
         StickMan stickMan = new StickMan(25, 25, Direction.Up);
         maze.setStickMan(stickMan);
-        assertEquals(maze.getStickMan().getPosition(), stickMan.getPosition());
-        assertEquals(maze.getStickMan().getLives(), stickMan.getLives());
+        assertEquals(stickMan.getPosition(), maze.getStickMan().getPosition());
 
         ArrayList<Wall> walls = new ArrayList<>(Arrays.asList(
                 new Wall(10, 15, true),
@@ -44,7 +43,7 @@ public class MazeTests extends Assertions {
                 new Wall(20, 10, false)
         ));
         maze.setWalls(walls);
-        assertEquals(maze.getWalls().size(), walls.size());
+        assertEquals(walls.size(), maze.getWalls().size());
 
         ArrayList<Robot> robots = new ArrayList<>(Arrays.asList(
                 new Robot(15, 10, Direction.Up),
@@ -55,7 +54,7 @@ public class MazeTests extends Assertions {
                 new Robot(40, 10, Direction.Right)
         ));
         maze.setRobots(robots);
-        assertEquals(maze.getRobots().size(), robots.size());
+        assertEquals(robots.size(), maze.getRobots().size());
     }
 
     @Test
@@ -65,9 +64,14 @@ public class MazeTests extends Assertions {
                 new Wall(20, 50, true)
         ));
         maze.setWalls(walls);
+        ArrayList<Wall> gates = new ArrayList<>(Arrays.asList(
+                new Wall(20, 40, true),
+                new Wall(25, 60, true)
+        ));
+        maze.setGates(gates);
 
         assertTrue(maze.collideWall(new Position(5, 10), 10, 10));
-        assertFalse(maze.collideWall(new Position(50, 100), 10, 10));
+        assertFalse(maze.collideWall(new Position(50, 100), 100, 200));
     }
 
     @Test

@@ -21,26 +21,26 @@ public class MazeRendererTests extends Assertions {
 
     @Test
     public void sizeTest() {
-        assertEquals(maze.getWidth(), 33);
-        assertEquals(maze.getHeight(), 238);
+        assertEquals(32, maze.getWidth());
+        assertEquals(238, maze.getHeight());
     }
 
     @Test
     public void elementsTest() {
-        assertEquals(maze.getStickMan().getPosition().getX(), 16);
-        assertEquals(maze.getStickMan().getPosition().getY(), 12);
-        assertEquals(maze.getStickMan().getPosition(), new Position(16,12));
-        assertEquals(maze.getWalls().size(), 82);
-        assertEquals(maze.getRobots().size(), 3);
-        assertEquals(maze.getRobots().get(0).getPosition(), new Position(7,2));
+        assertEquals(10, maze.getStickMan().getPosition().getX());
+        assertEquals(111, maze.getStickMan().getPosition().getY());
+        assertEquals(new Position(10,111), maze.getStickMan().getPosition());
+        assertEquals(81, maze.getWalls().size());
+        assertEquals(3, maze.getRobots().size());
+        assertEquals(new Position(7,2), maze.getRobots().get(0).getPosition());
     }
 
     @Test
     public void emptyMazeTest() throws IOException {
         maze = mazeRenderer.createMaze("empty_maze_test.lvl");
-        assertNull(maze.getStickMan());
-        assertEquals(maze.getWalls().size(), 0);
-        assertEquals(maze.getRobots().size(), 0);
+        assertEquals(0, maze.getWalls().size());
+        assertEquals(0, maze.getGates().size());
+        assertEquals(0, maze.getRobots().size());
     }
 
 }

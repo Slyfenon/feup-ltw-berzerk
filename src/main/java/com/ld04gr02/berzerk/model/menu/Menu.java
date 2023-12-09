@@ -40,4 +40,8 @@ public abstract class Menu {
     public String getString(int i){
         return options.get(i).convertString();
     }
+
+    public int getCurrentOption() {
+        return currentOption;
+    }
 }

@@ -29,7 +29,7 @@ public class DisplayTests extends Assertions {
         StickMan stickMan = new StickMan(20, 50, Direction.Right);
         StickManViewer stickManViewer = new StickManViewer();
         stickManViewer.display(stickMan, guiMock);
-        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManRight(), false);
+        verify(guiMock).drawSprite(stickMan.getPosition(), Sprites.getStickManRight(), '#', "#00ff00");
     }
 
     @Test
@@ -39,10 +39,11 @@ public class DisplayTests extends Assertions {
         stickMan.changeMoving();
         StickManViewer stickManViewer = new StickManViewer();
         stickManViewer.display(stickMan, guiMock);
-        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingRight(), true);
+        verify(guiMock).drawSprite(stickMan.getPosition(), Sprites.getStickManMovingRight(), '#', "#0000ff");
         stickMan.setDirection(Direction.Left);
+        stickMan.setCollided(false);
         stickManViewer.display(stickMan, guiMock);
-        verify(guiMock).drawStickMan(stickMan.getPosition(), Sprites.getStickManMovingLeft(), true);
+        verify(guiMock).drawSprite(stickMan.getPosition(), Sprites.getStickManMovingLeft(), '#', "#00ff00");
     }
 
     @Test
@@ -58,6 +59,7 @@ public class DisplayTests extends Assertions {
         Robot robot = new Robot(100, 150, Direction.Right);
         RobotViewer robotViewer = new RobotViewer();
         robotViewer.display(robot, guiMock);
-        verify(guiMock).drawRobot(robot.getPosition());
+        verify(guiMock).drawSprite(robot.getPosition(), Sprites.getRobot(), '#', "#ff0000");
     }
 }
+
