@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MenuTests extends Assertions {
+public class MainMenuTests extends Assertions {
     private MainMenu mainMenu;
 
     @BeforeEach
@@ -14,6 +14,8 @@ public class MenuTests extends Assertions {
 
     @Test
     public void selectsTest() {
+        assertTrue(mainMenu.isSelected(0));
+        assertFalse(mainMenu.isSelected(1));
         mainMenu.selectPrev();
         assertEquals(mainMenu.getOptions().size()-1, mainMenu.getCurrentOption());
         mainMenu.selectNext();
