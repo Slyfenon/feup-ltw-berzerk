@@ -27,8 +27,6 @@ public interface GUI {
 
     void drawBlinkText(Position position, String text, String color);
 
-    public void drawInstructionsMenu(InstructionsMenu model);
-
     public KEY getPressedKey() throws IOException;
 
     public String getCharPressedKey() throws IOException;

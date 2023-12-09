@@ -498,14 +498,14 @@ public class Sprites {
     }
 
     public static String[] KEYBOARD= {
-            "       ____ ",
+            "       _____ ",
             "      || ^ ||",
             "      ||___||",
             "      |/___||",
-            " ____  ____  _____ ",
-            "||<  |||   ||| > ||",
+            " ____  _____ _____",
+            "|| < ||| v ||| > ||",
             "||___|||___|||___||",
-            "/____||/___||____||"
+            "|/___||/___||/___||"
     };
 
     public static String[] getKeyBoard() {
@@ -518,7 +518,7 @@ public class Sprites {
             "/_______________||"
     };
 
-    public static String[] getSPACE() {
+    public static String[] getSpace() {
         return SPACE;
     }
 
