@@ -13,16 +13,12 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
-import com.ld04gr02.berzerk.view.game.Sprites;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 
 public class LanternaGUI implements GUI {
     private Screen screen;
@@ -208,6 +204,7 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text, SGR.BLINK);
     }
 
+    @Override
     public void drawSprite(Position position, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));

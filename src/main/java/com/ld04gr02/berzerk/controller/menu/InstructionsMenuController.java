@@ -11,9 +11,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
-import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
-
 public class InstructionsMenuController extends Controller<InstructionsMenu> {
     public InstructionsMenuController(InstructionsMenu model) {
         super(model);
@@ -28,6 +25,8 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
                 game.setState(mainMenuState);
                 break;
             case ARROW_DOWN:
+                break;
+            default:
                 break;
         }
     }

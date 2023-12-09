@@ -67,6 +67,7 @@ public class BulletController extends GameController{
         return getModel().collideWall(positionBullet, width, height)
                 || getModel().collideStickMan(positionBullet, width, height)
                 || getModel().collideRobot(positionBullet, width, height)
-                || getModel().collideEvilSmile(positionBullet, width, height, false);
+                || getModel().collideEvilSmile(positionBullet, width, height, false)
+                || positionBullet.getX() > getModel().getWidth();
     }
 }

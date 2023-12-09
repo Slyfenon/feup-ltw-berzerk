@@ -5,7 +5,6 @@ import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.elements.Robot;
 import com.ld04gr02.berzerk.model.game.elements.Wall;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
-import com.ld04gr02.berzerk.view.game.info.InfoViewer;
 import com.ld04gr02.berzerk.view.game.info.LevelInfoViewer;
 import com.ld04gr02.berzerk.view.game.info.LivesInfoViewer;
 import com.ld04gr02.berzerk.view.game.info.ScoreInfoViewer;
