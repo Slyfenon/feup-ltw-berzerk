@@ -34,20 +34,14 @@ public class GameViewer extends Viewer<Maze> {
     protected void renderElements(GUI gui) {
         gui.drawFrame(getModel().getWidth(), getModel().getHeight());
 
-
         for(Bullet bullet: getModel().getBullets()) bulletViewer.display(bullet, gui);
 
-
         stickManViewer.display(getModel().getStickMan(), gui);
-
-
 
         for (Wall wall : getModel().getWalls()) wallViewer.display(wall, gui);
         for (Wall gate : getModel().getGates()) wallViewer.display(gate, gui);
 
-
         for (Robot robot : getModel().getRobots()) robotViewer.display(robot, gui);
-
 
         evilSmileViewer.display(getModel().getEvilSmile(), gui);
         scoreInfoViewer.display(gui);

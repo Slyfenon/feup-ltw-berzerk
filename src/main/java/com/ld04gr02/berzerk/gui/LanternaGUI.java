@@ -200,71 +200,17 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawMainMenu(MainMenu model){
-        TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getLogo();
-
-        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
-        int y = 5;
-        for (String s : sprite){
-            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length() / 2, y, s);
-            y++;
-        }
-
-        y = 15;
-        for(int i = 0; i < model.getOptions().size() ; i++) {
-            if(model.getOptions().get(i) == model.getSelected()) {
-                graphics.putString(MENU_SCREEN_WIDTH / 2 - (model.getString(i).length() + 4) / 2 , y, "> " + model.getString(i) + " <", SGR.BLINK);
-            }
-            else {
-                graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
-            }
-            y += 2;
-        }
+    public void drawText(Position position, String text, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), text);
     }
-
 
     @Override
-    public void drawGameOverMenu(GameOverMenu model){
-        TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getGameOver();
-
-        graphics.setForegroundColor(TextColor.Factory.fromString("#ff0000"));
-        int y = 5;
-        for (String s : sprite){
-            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length()/2 , y, s);
-            y++;
-        }
-
-        graphics.putString(MENU_SCREEN_WIDTH / 2 - 2,19, "Score:" + model.getStickManScore(), SGR.BLINK);
-        TextGraphics graphicsName = screen.newTextGraphics();
-        String name = String.valueOf(model.getName());
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 - 8 , 23, "Name: " + name);
-        graphicsName.putString(MENU_SCREEN_WIDTH / 2 + 14, MENU_SCREEN_HEIGHT - 1, "ESC -> Back to Menu", SGR.BORDERED);
-
-    }
-
-    public void drawPauseMenu(PauseMenu model){
-        TextGraphics graphics = screen.newTextGraphics();
-        String[] sprite = Sprites.getLogo();
-
-        graphics.setForegroundColor(TextColor.Factory.fromString("#00ff00"));
-        int y = 5;
-        for (String s : sprite){
-            graphics.putString(MENU_SCREEN_WIDTH / 2 - s.length() / 2, y, s);
-            y++;
-        }
-
-        y = 15;
-        for(int i = 0; i < model.getOptions().size() ; i++) {
-            if(model.getOptions().get(i) == model.getSelected()) {
-                graphics.putString(MENU_SCREEN_WIDTH / 2 - (model.getString(i).length() + 4) / 2 , y, "> " + model.getString(i) + " <", SGR.BLINK);
-            }
-            else {
-                graphics.putString(MENU_SCREEN_WIDTH / 2 - model.getString(i).length() / 2, y,  model.getString(i));
-            }
-            y += 2;
-        }
+    public void drawBlinkText(Position position, String text, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), text, SGR.BLINK);
     }
 
     @Override
