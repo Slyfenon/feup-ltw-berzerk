@@ -16,9 +16,8 @@ import static java.lang.Math.abs;
 
 public class EvilSmileController extends GameController{
     private long lastAction;
+
     private long timePause = 1200;
-
-
 
     public EvilSmileController(Maze maze) {
         super(maze);
