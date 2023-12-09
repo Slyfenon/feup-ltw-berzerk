@@ -49,7 +49,6 @@ public class Leaderboard {
     }
 
     public boolean addToLeaderboard(String name, int score) {
-        System.out.println(name);
         for (int i = 0; i < 10; i++) {
             if(score >= scores.get(i)) {
                 scores.add(i, score);
