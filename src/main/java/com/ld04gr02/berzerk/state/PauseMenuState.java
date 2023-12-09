@@ -6,7 +6,7 @@ import com.ld04gr02.berzerk.controller.menu.PauseMenuController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.view.game.Viewer;
-import com.ld04gr02.berzerk.view.menu.PauseMenuViewer;
+import com.ld04gr02.berzerk.view.menu.MenuViewer;
 
 import java.awt.*;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class PauseMenuState extends State<PauseMenu>{
 
     @Override
     public Viewer<PauseMenu> getViewer() {
-        return new PauseMenuViewer(getModel());
+        return new MenuViewer<>(getModel());
     }
 
     @Override

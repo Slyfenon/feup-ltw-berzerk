@@ -11,7 +11,6 @@ import com.ld04gr02.berzerk.view.game.info.LivesInfoViewer;
 import com.ld04gr02.berzerk.view.game.info.ScoreInfoViewer;
 
 public class GameViewer extends Viewer<Maze> {
-    private boolean isPaused = false;
     private final BulletViewer bulletViewer;
     private final StickManViewer stickManViewer;
     private final WallViewer wallViewer;

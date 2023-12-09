@@ -345,6 +345,7 @@ public class Sprites {
 
 
     };
+
     public static String[] getScore() {
         return SCORE;
     }
@@ -493,6 +494,7 @@ public class Sprites {
             },
 
     };
+
     public static String[] getNumber(int number) {
         return NUMBERS[number];
     }
@@ -511,6 +513,7 @@ public class Sprites {
     public static String[] getKeyBoard() {
         return KEYBOARD;
     }
+
     public static String[] SPACE = {
             " _______________",
             "||      _       ||",
@@ -538,8 +541,6 @@ public class Sprites {
     public static String[] getLEVEL(){
         return LEVEL;
     }
-
-
 }
 
 

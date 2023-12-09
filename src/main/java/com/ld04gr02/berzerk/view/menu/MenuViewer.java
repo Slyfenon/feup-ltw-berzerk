@@ -1,24 +1,23 @@
 package com.ld04gr02.berzerk.view.menu;
 
-import com.googlecode.lanterna.SGR;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
+import com.ld04gr02.berzerk.model.menu.Menu;
 import com.ld04gr02.berzerk.view.game.Sprites;
 import com.ld04gr02.berzerk.view.game.Viewer;
 
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 import static com.ld04gr02.berzerk.view.game.Sprites.getLogoLength;
 
-public class MainMenuViewer extends Viewer<MainMenu> {
+public class MenuViewer<T extends Menu> extends Viewer<T> {
 
-    public MainMenuViewer(MainMenu model) {
+    public MenuViewer(T model) {
         super(model);
     }
 
     @Override
     protected void renderElements(GUI gui) {
-
         Position pos = new Position(MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2, 5);
 
         for (String line : Sprites.getLogo()){

@@ -13,6 +13,8 @@ public class BulletViewer implements ElementViewer<Bullet>{
             case Left: case Right:
                 gui.drawSprite(bullet.getPosition(), Sprites.getHorizontalBullet(), '#', "#ffffff");
                 break;
+            default:
+                break;
         }
     }
 }
