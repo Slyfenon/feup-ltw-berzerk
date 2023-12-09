@@ -8,9 +8,12 @@ import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
+import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.MenuOptions;
 import com.ld04gr02.berzerk.state.GameState;
+import com.ld04gr02.berzerk.state.LeaderboardState;
+import com.ld04gr02.berzerk.state.MainMenuState;
 
 import java.awt.*;
 import java.io.IOException;
@@ -40,7 +43,7 @@ public class MainMenuController extends Controller<MainMenu> {
                 break;
             case ENTER: {
                 if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
-                if (getModel().getSelected() == MenuOptions.PLAY) {
+                else if (getModel().getSelected() == MenuOptions.PLAY) {
                     Soundboard.getInstance().getMenuSong().stopSound();
                     game.getGui().close();
                     game.setLevel(1);
@@ -50,6 +53,10 @@ public class MainMenuController extends Controller<MainMenu> {
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
                     Soundboard.getInstance().getClick().playSound(0);
+                }
+                else if(getModel().getSelected() == MenuOptions.LEADERBOARD) {
+                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard());
+                    game.setState(leaderboardstate);
                 }
                 Soundboard.getInstance().getClick().playSound(0);
                 break;
