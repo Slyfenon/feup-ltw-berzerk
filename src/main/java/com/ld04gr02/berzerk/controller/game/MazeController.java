@@ -47,8 +47,7 @@ public class MazeController extends GameController {
         if(StickMan.getLives() == 0){
             Soundboard.getInstance().getPlaySong().stopSound();
             game.getGui().close();
-            GameOverMenu gameOverMenu = new GameOverMenu();
-            GameOverState gameOverState= new GameOverState(gameOverMenu);
+            GameOverState gameOverState= new GameOverState(new GameOverMenu());
             game.setState(gameOverState);
             gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
             getModel().getStickMan().setLives(3);
@@ -57,7 +56,7 @@ public class MazeController extends GameController {
     }
 
 
-    public void nextLevel(Game game) throws IOException, URISyntaxException, FontFormatException {
+    public void nextLevel(Game game) throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
         String level = "maze" + game.getLevel() + ".lvl";
