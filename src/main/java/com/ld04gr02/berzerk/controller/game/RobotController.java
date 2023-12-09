@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
-import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
@@ -89,7 +88,7 @@ public class RobotController extends GameController {
         }
     }
 
-    private boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {
+    public boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {
         return (abs(stickManPosition.getX()-newPosition.getX()) < abs(stickManPosition.getX()-currentPosition.getX()) || abs(stickManPosition.getY()-newPosition.getY()) < abs(stickManPosition.getY()-currentPosition.getY()));
     }
 

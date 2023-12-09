@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import java.awt.*;
-import java.io.IOException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -24,7 +22,7 @@ public class StickManControllerTests extends Assertions {
     @BeforeEach
     public void setUp() throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
-        Maze maze = mazeRenderer.createMaze("maze_test.lvl");
+        Maze maze = mazeRenderer.createMaze("maze1.lvl");
         stickManController = new StickManController(maze);
         game = mock(Game.class);
     }
@@ -60,16 +58,16 @@ public class StickManControllerTests extends Assertions {
     @Test
     public void moveStickManSpaceTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
-        stickManController.update(game, SPACE, 0);
+        stickManController.update(game, SPACE, 4000);
         assertEquals(position, stickManController.getModel().getStickMan().getPosition());
+        assertEquals(1, stickManController.getModel().getBullets().size());
     }
 
     @Test
     public void moveStickManCollidedTest() throws IOException, URISyntaxException, FontFormatException {
-        Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.getModel().getStickMan().setCollided(true);
         stickManController.update(game, SPACE, 0);
-        assertEquals(new Position(10, 111), stickManController.getModel().getStickMan().getPosition());
+        assertEquals(new Position(10, 143), stickManController.getModel().getStickMan().getPosition());
     }
 }
 
