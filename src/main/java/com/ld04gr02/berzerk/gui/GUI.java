@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.gui;
 
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
+import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 
@@ -25,6 +26,8 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
     void drawBlinkText(Position position, String text, String color);
+
+    public void drawInstructionsMenu(InstructionsMenu model);
 
     public KEY getPressedKey() throws IOException;
 

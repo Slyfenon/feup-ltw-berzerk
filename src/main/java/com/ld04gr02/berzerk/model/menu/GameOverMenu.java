@@ -12,10 +12,6 @@ public class GameOverMenu {
         name = new StringBuilder();
     }
 
-    public String getStickManScore() {
-        return Integer.toString(StickMan.getScore());
-    }
-
     public StringBuilder getName() {
         return name;
     }

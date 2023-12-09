@@ -497,6 +497,31 @@ public class Sprites {
         return NUMBERS[number];
     }
 
+    public static String[] KEYBOARD= {
+            "       ____ ",
+            "      || ^ ||",
+            "      ||___||",
+            "      |/___||",
+            " ____  ____  _____ ",
+            "||<  |||   ||| > ||",
+            "||___|||___|||___||",
+            "/____||/___||____||"
+    };
+
+    public static String[] getKeyBoard() {
+        return KEYBOARD;
+    }
+    public static String[] SPACE = {
+            " _______________",
+            "||      _       ||",
+            "||______________||",
+            "/_______________||"
+    };
+
+    public static String[] getSPACE() {
+        return SPACE;
+    }
+
 
 }
 
