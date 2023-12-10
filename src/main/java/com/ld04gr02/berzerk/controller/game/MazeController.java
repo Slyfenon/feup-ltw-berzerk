@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
-import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
@@ -59,7 +58,7 @@ public class MazeController extends GameController {
     public void nextLevel(Game game) throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
-        String level = "maze" + game.getLevel() + ".lvl";
+        String level = "maze" + (game.getLevel() % 8 + 1) + ".lvl";
         Maze maze = mazeRenderer.createMaze(level);
         game.setState(new GameState(maze));
     }
