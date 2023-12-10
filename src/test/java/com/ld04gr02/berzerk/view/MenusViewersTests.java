@@ -49,7 +49,7 @@ public class MenusViewersTests extends Assertions {
         PauseMenu pauseMenu = new PauseMenu();
         MenuViewer pauseMenuViewer = new MenuViewer(pauseMenu);
         pauseMenuViewer.display(guiMock);
-        verify(guiMock, times(7)).drawText(any(), any(), anyString());
+        verify(guiMock, times(8)).drawText(any(), any(), anyString());
         verify(guiMock, times(1)).drawBlinkText(any(), any(), anyString());
     }
 

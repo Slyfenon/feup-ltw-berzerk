@@ -14,7 +14,7 @@ public class PauseMenuTests extends Assertions {
 
     @Test
     public void selectsTest() {
-        assertEquals(2, pauseMenu.getOptions().size());
+        assertEquals(3, pauseMenu.getOptions().size());
         assertEquals("Resume", pauseMenu.getSelected().convertString());
     }
 }
