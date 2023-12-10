@@ -50,10 +50,10 @@ public class PauseMenuController extends Controller<PauseMenu> {
                     }
                 }
                 else if (getModel().getSelected() == MenuOptions.RESTART) {
+                    game.getGui().close();
                     game.setLevel(1);
                     StickMan.setScore(0);
                     StickMan.setLives(3);
-                    game.getGui().close();
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
                     game.setState(new GameState(maze));
