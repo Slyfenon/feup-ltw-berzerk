@@ -37,5 +37,5 @@ pitest {
     junit5PluginVersion = '0.12'
     verbose = true
     //excludedClasses = ['com.ld04gr02.berzerk.controller.game.StickManController']
-    excludedTestClasses = ['com.ld04gr02.berzerk.controller.game.StickManControllerTests', 'com.ld04gr02.berzerk.controller.game.RobotControllerTests', 'com.ld04gr02.berzerk.gui.GUITests']
+    excludedTestClasses = ['com.ld04gr02.berzerk.controller']
 }

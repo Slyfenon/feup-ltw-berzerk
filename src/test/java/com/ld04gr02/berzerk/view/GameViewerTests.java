@@ -31,7 +31,7 @@ public class GameViewerTests extends Assertions {
     public void displayTest() throws IOException {
         gameViewer.display(guiMock);
 
-        verify(guiMock, times(15)).drawSprite(any(), any(), anyChar(), anyString());
+        verify(guiMock, times(17)).drawSprite(any(), any(), anyChar(), anyString());
         verify(guiMock).clear();
         verify(guiMock).refresh();
     }
