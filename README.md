@@ -25,16 +25,16 @@ Pode consultar mais informações [aqui](./docs/README.md).
 
 MainMenu
 
-![](images/MainMenu.png)
+![](docs/images/MainMenu.png)
 
 PauseMenu
 
-![](images/PauseMenu.png)
+![](docs/images/PauseMenu.png)
 
 Leaderboard
 
-![](images/LeaderBoard.png)
+![](docs/images/LeaderBoard.png)
 
 GamePlay
 
-![](images/gameplay.png)
+![](docs/images/gameplay.png)
