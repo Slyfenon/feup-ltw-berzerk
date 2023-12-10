@@ -52,13 +52,15 @@ public class Leaderboard {
     }
 
     public boolean addToLeaderboard(String name, int score) {
-        for (int i = 0; i < 10; i++) {
-            if(score >= scores.get(i)) {
-                scores.add(i, score);
-                names.add(i, name);
-                scores.remove(scores.size() - 1);
-                names.remove(names.size() - 1);
-                return true;
+        if(!name.isEmpty()) {
+            for (int i = 0; i < 10; i++) {
+                if (score >= scores.get(i)) {
+                    scores.add(i, score);
+                    names.add(i, name);
+                    scores.remove(scores.size() - 1);
+                    names.remove(names.size() - 1);
+                    return true;
+                }
             }
         }
         return false;
