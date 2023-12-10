@@ -6,6 +6,7 @@ import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import com.ld04gr02.berzerk.view.game.Sprites;
 import com.ld04gr02.berzerk.view.game.Viewer;
 
+import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
 import static com.ld04gr02.berzerk.view.game.Sprites.getLogoLength;
 
@@ -36,5 +37,7 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
             gui.drawText(pos, String.format("%04d", getModel().getScores().get(i)), "#ffffff");
             pos.setY(pos.getY() + 1);
         }
+        gui.drawText(new Position(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT-2), "Press ESC to go back", "#ffffff");
     }
+
 }

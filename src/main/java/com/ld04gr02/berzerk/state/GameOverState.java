@@ -39,7 +39,7 @@ public class GameOverState extends State<GameOverMenu> {
             this.controller.update(game, GUI.KEY.ENTER, time);
         }
         else if("Backspace".equals(str)){
-            if(!getModel().getName().isEmpty()) getModel().getName().deleteCharAt(getModel().getName().length()-1);
+            if(getModel().getName().length() > 0) getModel().getName().deleteCharAt(getModel().getName().length()-1);
             this.viewer.display(gui);
         }
         else {

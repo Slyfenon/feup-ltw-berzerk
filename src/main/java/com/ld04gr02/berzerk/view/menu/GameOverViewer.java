@@ -36,6 +36,6 @@ public class GameOverViewer extends Viewer<GameOverMenu> {
 
         pos.setX(MENU_SCREEN_WIDTH / 2 - 9);
         pos.setY(MENU_SCREEN_HEIGHT - 1);
-        gui.drawText(pos, "ESC -> Back to Menu", "#ffffff");
+        gui.drawText(new Position(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT-2), "Press ESC to go back", "#ffffff");
     }
 }
