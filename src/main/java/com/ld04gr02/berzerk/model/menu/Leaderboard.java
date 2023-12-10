@@ -53,7 +53,7 @@ public class Leaderboard {
 
     public boolean addToLeaderboard(String name, int score) {
         if(!name.isEmpty()) {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < names.size(); i++) {
                 if (score >= scores.get(i)) {
                     scores.add(i, score);
                     names.add(i, name);
