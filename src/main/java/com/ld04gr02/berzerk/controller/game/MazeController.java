@@ -58,7 +58,8 @@ public class MazeController extends GameController {
     public void nextLevel(Game game) throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
-        String level = "maze" + (game.getLevel() % 8 + 1) + ".lvl";
+        String level = "maze" + (((game.getLevel() - 1) % 8) + 1) + ".lvl";
+        System.out.println(game.getLevel());
         Maze maze = mazeRenderer.createMaze(level);
         game.setState(new GameState(maze));
     }
