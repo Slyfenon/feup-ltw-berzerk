@@ -1,6 +1,5 @@
 package com.ld04gr02.berzerk.gui;
 
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -12,9 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -134,13 +131,5 @@ public class GUITests extends Assertions {
     public void getPressedKeyDefaultTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.F1)).thenReturn(null);
         assertEquals(GUI.KEY.NONE, lanternaGUI.getPressedKey());
-    }
-
-    @Test
-    public void createGameScreenTest() throws URISyntaxException, IOException, FontFormatException {
-        lanternaGUI.createGameScreen(100, 200);
-        assertEquals(200, lanternaGUI.getRows());
-        assertEquals(100, lanternaGUI.getColumns());
-        assertEquals(new TerminalSize(100, 200), lanternaGUI.getScreen().getTerminalSize());
     }
 }

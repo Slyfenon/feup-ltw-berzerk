@@ -42,18 +42,6 @@ public class LanternaGUI implements GUI {
         this.screen = createScreen(terminal);
     }
 
-    public int getRows() {
-        return screen.getTerminalSize().getRows();
-    }
-
-    public int getColumns() {
-        return screen.getTerminalSize().getColumns();
-    }
-
-    public Screen getScreen() {
-        return screen;
-    }
-
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
