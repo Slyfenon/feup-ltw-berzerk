@@ -9,14 +9,9 @@ import java.net.URL;
 
 public class Sound {
     Clip clip;
-    FloatControl volumeControl;
 
     public Sound(String path) {
         this.clip =setFile(path);
-    }
-
-    public Clip getClip() {
-        return clip;
     }
 
     private Clip setFile(String path) {
@@ -33,6 +28,7 @@ public class Sound {
             throw new RuntimeException();
         }
     }
+
     public void playSound(float volume) {
         if(clip != null) {
             FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
@@ -54,7 +50,4 @@ public class Sound {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
 
     }
-
-
-
 }

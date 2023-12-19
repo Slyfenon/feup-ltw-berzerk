@@ -73,27 +73,6 @@ public class Sprites {
     public static String[] getStickManRight() {
         return STICKMAN_RIGHT;
     }
-    private static final String[] STICKMAN_LEFT = {
-            "   ##",
-            "   ##",
-            "",
-            "  ####",
-            " # ## #",
-            " # ## #",
-            " # ## #",
-            " # ## #",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ###",
-            "   #"
-    };
-    public static String[] getStickManLeft() {
-        return STICKMAN_LEFT;
-    }
 
     private static final String[] STICKMAN_SHOOTING_RIGHT = {
             "   ##",

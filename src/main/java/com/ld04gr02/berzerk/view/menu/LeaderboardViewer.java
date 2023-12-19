@@ -38,8 +38,8 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
             pos.setY(pos.getY() + 1);
         }
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 9);
-        pos.setY(MENU_SCREEN_HEIGHT - 1);
-        gui.drawText(new Position(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT-2), "Press ESC to go back", "#ffffff");
+        pos.setX(MENU_SCREEN_WIDTH/2 - 20/2);
+        pos.setY(MENU_SCREEN_HEIGHT - 2);
+        gui.drawText(pos, "Press ESC to go back", "#ffffff");
     }
 }
