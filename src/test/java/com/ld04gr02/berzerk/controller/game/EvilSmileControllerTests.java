@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import org.junit.jupiter.api.Assertions;
@@ -14,31 +15,29 @@ import java.net.URISyntaxException;
 import static com.ld04gr02.berzerk.gui.GUI.KEY.ARROW_RIGHT;
 import static org.mockito.Mockito.mock;
 
-public class RobotControllerTests extends Assertions {
-    private RobotController robotController;
+public class EvilSmileControllerTests extends Assertions {
+    private EvilSmileController evilSmileController;
     private Game game;
 
     @BeforeEach
     public void setUp() throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
         Maze maze = mazeRenderer.createMaze("maze_test2.lvl");
-        robotController = new RobotController(maze);
+        evilSmileController = new EvilSmileController(maze);
         game = mock(Game.class);
     }
 
     @Test
-    public void moveRobotTest() throws IOException, URISyntaxException, FontFormatException {
-        robotController.update(game, ARROW_RIGHT, 4000);
-        assertEquals(7, robotController.getModel().getRobots().size());
-        assertTrue(robotController.getModel().getRobots().get(4).isCollided());
-        assertTrue(robotController.getModel().getRobots().get(5).isCollided());
+    public void moveEvilSmileTest() throws IOException, URISyntaxException, FontFormatException {
+        evilSmileController.update(game, ARROW_RIGHT, 4000);
+        assertFalse(evilSmileController.getModel().getEvilSmile().isCollided());
     }
 
     @Test
     public void moveRobotCollidedTest() throws IOException, URISyntaxException, FontFormatException {
-        robotController.getModel().getRobots().get(0).setCollided(true);
-        assertEquals(7, robotController.getModel().getRobots().size());
-        robotController.update(game, ARROW_RIGHT, 4000);
-        assertEquals(6, robotController.getModel().getRobots().size());
+        evilSmileController.getModel().getEvilSmile().setCollided(true);
+        assertTrue(evilSmileController.getModel().getEvilSmile().isCollided());
+        evilSmileController.update(game, ARROW_RIGHT, 4000);
+        assertEquals(new Position(-20, 146), evilSmileController.getModel().getEvilSmile().getPosition());
     }
 }

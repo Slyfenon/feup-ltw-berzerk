@@ -23,7 +23,7 @@ public class RobotController extends GameController {
     public RobotController(Maze maze) {
         super(maze);
         this.lastAction = 0;
-        this.lastShot = System.currentTimeMillis();;
+        this.lastShot = 0;
     }
 
     @Override
