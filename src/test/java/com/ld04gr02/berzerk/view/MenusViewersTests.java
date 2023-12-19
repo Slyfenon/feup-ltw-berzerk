@@ -22,7 +22,7 @@ public class MenusViewersTests extends Assertions {
     @Test
     public void MainMenuViewerTest() throws IOException {
         MainMenu mainMenu = new MainMenu();
-        MenuViewer mainMenuViewer = new MenuViewer(mainMenu);
+        MenuViewer<MainMenu> mainMenuViewer = new MenuViewer<>(mainMenu);
         mainMenuViewer.display(guiMock);
         verify(guiMock, times(9)).drawText(any(), any(), anyString());
         verify(guiMock, times(1)).drawBlinkText(any(), any(), anyString());
@@ -47,7 +47,7 @@ public class MenusViewersTests extends Assertions {
     @Test
     public void PauseMenuViewerTest() throws IOException {
         PauseMenu pauseMenu = new PauseMenu();
-        MenuViewer pauseMenuViewer = new MenuViewer(pauseMenu);
+        MenuViewer<PauseMenu> pauseMenuViewer = new MenuViewer<>(pauseMenu);
         pauseMenuViewer.display(guiMock);
         verify(guiMock, times(8)).drawText(any(), any(), anyString());
         verify(guiMock, times(1)).drawBlinkText(any(), any(), anyString());
