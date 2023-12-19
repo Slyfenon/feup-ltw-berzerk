@@ -56,7 +56,7 @@ public class PauseMenuControllerTests extends Assertions {
     @Test
     public void quitPauseMenuTest() throws IOException, URISyntaxException, FontFormatException {
         pauseMenuController.update(game, ARROW_UP, 0);
-        assertEquals(1, pauseMenuController.getModel().getCurrentOption());
+        assertEquals(2, pauseMenuController.getModel().getCurrentOption());
         pauseMenuController.update(game, ENTER, 0);
         verify(game).setState(null);
     }
