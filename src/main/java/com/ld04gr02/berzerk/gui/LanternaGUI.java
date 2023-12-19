@@ -27,7 +27,9 @@ public class LanternaGUI implements GUI {
         this.screen = screen;
     }
 
-    public LanternaGUI() {}
+    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
+        createMenuScreen(width, height);
+    }
 
     @Override
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
@@ -40,18 +42,6 @@ public class LanternaGUI implements GUI {
     public void createMenuScreen(int width, int height) throws IOException {
         Terminal terminal = createTerminal(width, height, null);
         this.screen = createScreen(terminal);
-    }
-
-    public int getRows() {
-        return screen.getTerminalSize().getRows();
-    }
-
-    public int getColumns() {
-        return screen.getTerminalSize().getColumns();
-    }
-
-    public Screen getScreen() {
-        return screen;
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {

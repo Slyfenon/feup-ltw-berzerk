@@ -3,13 +3,12 @@ package com.ld04gr02.berzerk.view.game.info;
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.view.game.Sprites;
 
 public class LevelInfoViewer implements InfoViewer{
     @Override
     public void display(GUI gui) {
         gui.drawSprite(new Position(30,315), Sprites.getLEVEL(), '#', "#ffffff");
-        gui.drawSprite(new Position(80, 315), Sprites.getNumber(Game.getGame().getLevel()), '#', "#ffffff");
+        gui.drawSprite(new Position(80, 315), Sprites.getNumber(Game.getLevel()), '#', "#ffffff");
     }
 }

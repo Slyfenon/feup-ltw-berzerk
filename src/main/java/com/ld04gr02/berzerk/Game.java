@@ -13,14 +13,7 @@ import java.net.URISyntaxException;
 public class Game {
     private static Game game;
 
-    static {
-        try {
-            game = new Game();
-        } catch (IOException | URISyntaxException | FontFormatException e) {
-            System.err.println("Error starting the game:  " + e.getMessage());
-            throw new RuntimeException("Error starting the game", e);
-        }
-    }
+
 
     private final GUI gui;
     private State previousState;
@@ -29,7 +22,7 @@ public class Game {
     public static final int MENU_SCREEN_HEIGHT = 30;
     public static final int INFO_SECTIONS_HEIGHT = 30;
     public static final int GAME_SCREEN_WIDTH = 502;
-    public int level = 1;
+    static public int level = 1;
     public State getState() {
         return state;
     }
@@ -47,17 +40,22 @@ public class Game {
         return gui;
     }
 
-    private Game() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI();
+    public Game() throws IOException, URISyntaxException, FontFormatException {
+        this.gui = new LanternaGUI(MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
         this.state = new MainMenuState(new MainMenu());
-        state.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
+        //state.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
+    }
+
+    public Game(LanternaGUI gui) {
+        this.gui = gui;
+        this.state = new MainMenuState(new MainMenu());
     }
 
     public static Game getGame() {
         return game;
     }
 
-    public int getLevel() {
+    static public int getLevel() {
         return level;
     }
 
@@ -67,7 +65,7 @@ public class Game {
     public void levelUp() {level++;}
 
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
-        Game game = Game.getGame();
+        Game game = new Game();
         game.run();
     }
 

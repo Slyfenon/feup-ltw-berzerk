@@ -30,6 +30,14 @@ public class MazeController extends GameController {
         Soundboard.getInstance().getPlaySong().loopSound(-15.0f);
     }
 
+    public MazeController(Maze maze, StickManController stickManController, RobotController robotController, EvilSmileController evilSmileController, BulletController bulletController) {
+        super(maze);
+        this.stickManController = stickManController;
+        this.robotController = robotController;
+        this.evilSmileController = evilSmileController;
+        this.bulletController = bulletController;
+    }
+
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         if (getModel().getStickMan().getPosition().getX() > GAME_SCREEN_WIDTH) {
@@ -59,7 +67,6 @@ public class MazeController extends GameController {
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
         String level = "maze" + (((game.getLevel() - 1) % 8) + 1) + ".lvl";
-        System.out.println(game.getLevel());
         Maze maze = mazeRenderer.createMaze(level);
         game.setState(new GameState(maze));
     }

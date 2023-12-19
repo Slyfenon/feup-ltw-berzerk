@@ -27,7 +27,7 @@ public class GameOverControllerTests extends Assertions {
     }
 
     @Test
-    public void escPauseMenuTest() throws IOException, URISyntaxException, FontFormatException {
+    public void leaveTest() throws IOException, URISyntaxException, FontFormatException {
         gameOverController.update(game, ARROW_DOWN, 0);
         assertEquals(0, gameOverController.getModel().getCurrentOption());
         GUI gui = mock(GUI.class);
@@ -38,10 +38,21 @@ public class GameOverControllerTests extends Assertions {
     }
 
     @Test
-    public void enterPauseMenuTest() throws IOException, URISyntaxException, FontFormatException {
+    public void enterTest() throws IOException, URISyntaxException, FontFormatException {
         gameOverController.update(game, ARROW_DOWN, 0);
         assertEquals(0, gameOverController.getModel().getCurrentOption());
         gameOverController.update(game, ENTER, 0);
+        verify(game).setState(any());
+    }
+
+    @Test
+    public void charTest() throws IOException, URISyntaxException, FontFormatException {
+        gameOverController.getModel().getName().append("aaaaaaaaaa");
+
+        GUI guiMock = mock(GUI.class);
+        when(game.getGui()).thenReturn(guiMock);
+        gameOverController.update(game, CHAR, 0);
+        verify(guiMock).close();
         verify(game).setState(any());
     }
 }

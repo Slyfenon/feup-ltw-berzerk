@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.game;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static com.ld04gr02.berzerk.gui.GUI.KEY.ARROW_RIGHT;
+import static com.ld04gr02.berzerk.gui.GUI.KEY.*;
 import static org.mockito.Mockito.mock;
 
 public class RobotControllerTests extends Assertions {
@@ -27,12 +28,26 @@ public class RobotControllerTests extends Assertions {
     }
 
     @Test
-    public void moveRobotTest() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
-        Thread.sleep(2000);
-        robotController.update(game, ARROW_RIGHT, System.currentTimeMillis());
+    public void moveRobotTest() throws IOException, URISyntaxException, FontFormatException {
+        robotController.update(game, ARROW_RIGHT, 4000);
         assertEquals(7, robotController.getModel().getRobots().size());
-        Thread.sleep(500);
-        robotController.update(game, ARROW_RIGHT, System.currentTimeMillis());
-        assertEquals(5, robotController.getModel().getRobots().size());
+        assertTrue(robotController.getModel().getRobots().get(4).isCollided());
+        assertTrue(robotController.getModel().getRobots().get(5).isCollided());
+    }
+
+    @Test
+    public void moveRobotCollidedTest() throws IOException, URISyntaxException, FontFormatException {
+        robotController.getModel().getRobots().get(0).setCollided(true);
+        assertEquals(7, robotController.getModel().getRobots().size());
+        robotController.update(game, ARROW_UP, 4000);
+        assertEquals(6, robotController.getModel().getRobots().size());
+    }
+
+    @Test
+    public void collideStickManTest() throws IOException, URISyntaxException, FontFormatException {
+        robotController.getModel().getRobots().get(0).setPosition(new Position(10, 150));
+        robotController.update(game, ARROW_DOWN, 4000);
+        assertTrue(robotController.getModel().getRobots().get(0).isCollided());
+        assertTrue(robotController.getModel().getStickMan().isCollided());
     }
 }

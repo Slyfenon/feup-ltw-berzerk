@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-public class Leaderboard {
+public class Leaderboard extends Menu{
     private ArrayList<String> names;
     private ArrayList<Integer> scores;
 

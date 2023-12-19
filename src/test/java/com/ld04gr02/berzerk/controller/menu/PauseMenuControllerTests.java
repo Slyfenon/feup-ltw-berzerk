@@ -2,6 +2,7 @@ package com.ld04gr02.berzerk.controller.menu;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.state.GameState;
@@ -51,6 +52,25 @@ public class PauseMenuControllerTests extends Assertions {
         pauseMenuController.update(game, ENTER, 0);
         verify(game, times(2)).getGui();
         verify(game).setState(gameState);
+    }
+
+    @Test
+    public void restartPauseMenuTest() throws IOException, URISyntaxException, FontFormatException {
+        assertEquals(0, pauseMenuController.getModel().getCurrentOption());
+        GUI gui = mock(GUI.class);
+        Maze maze = mock(Maze.class);
+        when(game.getGui()).thenReturn(gui);
+        GameState gameState = mock(GameState.class);
+        when(gameState.getModel()).thenReturn(maze);
+        when(game.getPreviousState()).thenReturn(gameState);
+        when(game.getState()).thenReturn(gameState);
+        pauseMenuController.update(game, ARROW_DOWN, 0);
+        pauseMenuController.update(game, ENTER, 0);
+        verify(game, times(2)).getGui();
+        verify(game).setState(any());
+        assertEquals(0, StickMan.getScore());
+        assertEquals(3, StickMan.getLives());
+        assertEquals(1, Game.getLevel());
     }
 
     @Test
