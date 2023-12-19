@@ -43,9 +43,7 @@ public class GameOverController extends Controller<GameOverMenu> {
                 case ESC:
                     Soundboard.getInstance().getClick().playSound(0);
                     MainMenuState mainMenuState= new MainMenuState(new MainMenu());
-                    game.getGui().close();
                     game.setState(mainMenuState);
-                    mainMenuState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
                     break;
                 case ENTER:
                     LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard());

@@ -8,9 +8,11 @@ import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
+import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.MenuOptions;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
 import com.ld04gr02.berzerk.state.GameState;
+import com.ld04gr02.berzerk.state.MainMenuState;
 
 import java.awt.*;
 import java.io.IOException;
@@ -40,7 +42,12 @@ public class PauseMenuController extends Controller<PauseMenu> {
                 Soundboard.getInstance().getClick().playSound(0);
                 break;
             case ENTER : {
-                if (getModel().getSelected() == MenuOptions.QUIT) game.setState(null);
+                if (getModel().getSelected() == MenuOptions.QUIT) {
+                    Soundboard.getInstance().getPlaySong().stopSound();
+                    MainMenuState mainMenuState= new MainMenuState(new MainMenu());
+                    game.setState(mainMenuState);
+                    break;
+                }
                 else if (getModel().getSelected() == MenuOptions.RESUME) {
                     if(game.getPreviousState().getModel() instanceof Maze) {
                         game.getGui().close();
@@ -48,6 +55,7 @@ public class PauseMenuController extends Controller<PauseMenu> {
                         Maze maze = (Maze) game.getPreviousState().getModel();
                         game.getState().initScreen(game.getGui(), maze.getWidth() , maze.getHeight() + INFO_SECTIONS_HEIGHT);
                     }
+                    break;
                 }
                 else if (getModel().getSelected() == MenuOptions.RESTART) {
                     game.getGui().close();

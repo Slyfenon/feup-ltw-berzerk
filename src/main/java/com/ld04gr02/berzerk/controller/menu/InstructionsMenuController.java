@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.menu;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
@@ -20,8 +21,8 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         switch (key) {
             case ESC:
-                MainMenu mainMenu = new MainMenu();
-                MainMenuState mainMenuState = new MainMenuState(mainMenu);
+                Soundboard.getInstance().getClick().playSound(0);
+                MainMenuState mainMenuState = new MainMenuState(new MainMenu());
                 game.setState(mainMenuState);
                 break;
             default:

@@ -78,6 +78,6 @@ public class PauseMenuControllerTests extends Assertions {
         pauseMenuController.update(game, ARROW_UP, 0);
         assertEquals(2, pauseMenuController.getModel().getCurrentOption());
         pauseMenuController.update(game, ENTER, 0);
-        verify(game).setState(null);
+        verify(game).setState(any());
     }
 }

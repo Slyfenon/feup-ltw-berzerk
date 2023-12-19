@@ -33,7 +33,6 @@ public class GameOverControllerTests extends Assertions {
         GUI gui = mock(GUI.class);
         when(game.getGui()).thenReturn(gui);
         gameOverController.update(game, ESC, 0);
-        verify(game, times(2)).getGui();
         verify(game).setState(any());
     }
 
