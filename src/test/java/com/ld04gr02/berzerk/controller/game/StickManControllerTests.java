@@ -5,6 +5,7 @@ import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.Bullet;
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
@@ -36,30 +37,39 @@ public class StickManControllerTests extends Assertions {
 
     @Test
     public void moveStickManUpTest() throws IOException, URISyntaxException, FontFormatException {
-        Position position = stickManController.getModel().getStickMan().getPosition();
+        int initialY = stickManController.getModel().getStickMan().getPosition().getY();
         stickManController.update(game, ARROW_UP, 0);
-        assertEquals(position.getUp(), stickManController.getModel().getStickMan().getPosition());
+        assertEquals(initialY-5, stickManController.getModel().getStickMan().getPosition().getY());
+        assertEquals(Direction.Up, stickManController.getModel().getStickMan().getCurrentDirection());
+        assertTrue(stickManController.getModel().getStickMan().isMoving());
     }
 
     @Test
     public void moveStickManDownTest() throws IOException, URISyntaxException, FontFormatException {
-        Position position = stickManController.getModel().getStickMan().getPosition();
+        int initialY = stickManController.getModel().getStickMan().getPosition().getY();
         stickManController.update(game, ARROW_DOWN, 0);
-        assertEquals(position.getDown(), stickManController.getModel().getStickMan().getPosition());
+        assertEquals(initialY+5, stickManController.getModel().getStickMan().getPosition().getY());
+        assertEquals(Direction.Down, stickManController.getModel().getStickMan().getCurrentDirection());
+        assertTrue(stickManController.getModel().getStickMan().isMoving());
     }
 
     @Test
     public void moveStickManRightTest() throws IOException, URISyntaxException, FontFormatException {
-        Position position = stickManController.getModel().getStickMan().getPosition();
+        int initialX = stickManController.getModel().getStickMan().getPosition().getX();
         stickManController.update(game, ARROW_RIGHT, 0);
-        assertEquals(position.getRight(), stickManController.getModel().getStickMan().getPosition());
+        assertEquals(initialX+5, stickManController.getModel().getStickMan().getPosition().getX());
+        assertEquals(Direction.Right, stickManController.getModel().getStickMan().getCurrentDirection());
+        assertTrue(stickManController.getModel().getStickMan().isMoving());
+        assertFalse(stickManController.getModel().getStickMan().isCollided());
     }
 
     @Test
     public void moveStickManLeftTest() throws IOException, URISyntaxException, FontFormatException {
-        Position position = stickManController.getModel().getStickMan().getPosition();
+        int initialX = stickManController.getModel().getStickMan().getPosition().getX();
         stickManController.update(game, ARROW_LEFT, 0);
-        assertEquals(position.getLeft(), stickManController.getModel().getStickMan().getPosition());
+        assertEquals(initialX-5, stickManController.getModel().getStickMan().getPosition().getX());
+        assertEquals(Direction.Left, stickManController.getModel().getStickMan().getCurrentDirection());
+        assertTrue(stickManController.getModel().getStickMan().isMoving());
     }
 
     @Test
@@ -73,25 +83,41 @@ public class StickManControllerTests extends Assertions {
     @Test
     public void shootingTest() throws IOException, URISyntaxException, FontFormatException {
         Position position = stickManController.getModel().getStickMan().getPosition();
-        stickManController.update(game, SPACE, 500);
+        stickManController.update(game, SPACE, 351);
         assertEquals(1, stickManController.getModel().getBullets().size());
+        assertEquals(new Position(19, 151), stickManController.getModel().getBullets().get(0).getPosition());
+
         stickManController.getModel().getStickMan().setDirection(Direction.Down);
-        stickManController.update(game, SPACE, 1000);
+        stickManController.update(game, SPACE, 702);
         assertEquals(2, stickManController.getModel().getBullets().size());
+        assertEquals(new Position(14, 160), stickManController.getModel().getBullets().get(1).getPosition());
+
         stickManController.getModel().getStickMan().setDirection(Direction.Left);
-        stickManController.update(game, SPACE, 1500);
+        stickManController.update(game, SPACE, 1053);
         assertEquals(3, stickManController.getModel().getBullets().size());
+        assertEquals(new Position(6, 151), stickManController.getModel().getBullets().get(2).getPosition());
+
         stickManController.getModel().getStickMan().setDirection(Direction.Up);
-        stickManController.update(game, SPACE, 2000);
+        stickManController.update(game, SPACE, 1404);
         assertEquals(4, stickManController.getModel().getBullets().size());
+        assertEquals(new Position(14, 139), stickManController.getModel().getBullets().get(3).getPosition());
+
+        stickManController.getModel().getStickMan().setDirection(Direction.Up);
+        stickManController.update(game, SPACE, 1754);
+        assertEquals(4, stickManController.getModel().getBullets().size());
+
         assertEquals(position, stickManController.getModel().getStickMan().getPosition());
+        assertTrue(stickManController.getModel().getStickMan().isShooting());
     }
 
     @Test
     public void moveStickManCollidedTest() throws IOException, URISyntaxException, FontFormatException {
+        stickManController.update(game, ARROW_RIGHT, 1000);
         stickManController.getModel().getStickMan().setCollided(true);
-        stickManController.update(game, SPACE, 0);
+        stickManController.update(game, SPACE, 1000);
         assertEquals(new Position(10, 143), stickManController.getModel().getStickMan().getPosition());
+        assertEquals(2, StickMan.getLives());
+        assertFalse(stickManController.getModel().getStickMan().isCollided());
     }
 
     @Test
@@ -106,10 +132,13 @@ public class StickManControllerTests extends Assertions {
         stickManController.update(game, ESC, 0);
         verify(gui).close();
         verify(pauseMenuState).initScreen(any(), anyInt(), anyInt());
+        verify(game).setPreviousState(any());
+        verify(game).setState(any());
     }
 
     @Test
     public void stopTest() throws IOException, URISyntaxException, FontFormatException {
+        stickManController.getModel().getStickMan().setMoving(true);
         Position position = stickManController.getModel().getStickMan().getPosition();
         stickManController.update(game, CHAR, 0);
         assertEquals(position, stickManController.getModel().getStickMan().getPosition());

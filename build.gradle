@@ -35,7 +35,7 @@ test {
 
 pitest {
     junit5PluginVersion = '0.12'
-    verbose = true
+    //verbose = true
     excludedClasses = ['com.ld04gr02.berzerk.Game']
     //excludedTestClasses = ['com.ld04gr02.berzerk.view.GameViewerTests']
 }
