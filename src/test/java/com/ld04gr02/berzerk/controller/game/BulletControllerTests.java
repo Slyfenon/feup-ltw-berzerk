@@ -43,9 +43,21 @@ public class BulletControllerTests extends Assertions {
     }
 
     @Test
-    public void moveRobotTest() throws IOException, URISyntaxException, FontFormatException {
+    public void moveBulletTest() throws IOException, URISyntaxException, FontFormatException {
         assertEquals(8, bulletController.getModel().getBullets().size());
         bulletController.update(game, ARROW_RIGHT, System.currentTimeMillis());
         assertEquals(4, bulletController.getModel().getBullets().size());
+    }
+
+    @Test
+    public void collideStickManTest() throws IOException, URISyntaxException, FontFormatException {
+        bulletController.getModel().getBullets().clear();
+        ArrayList<Bullet> bullets = new ArrayList<>(Arrays.asList(
+                new Bullet(15, 150, Direction.Left)
+        ));
+        bulletController.getModel().setBullets(bullets);
+        assertEquals(1, bulletController.getModel().getBullets().size());
+        bulletController.update(game, ARROW_RIGHT, System.currentTimeMillis());
+        assertEquals(0, bulletController.getModel().getBullets().size());
     }
 }

@@ -4,6 +4,7 @@ import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.Direction;
 import com.ld04gr02.berzerk.model.Position;
+import com.ld04gr02.berzerk.model.game.elements.Bullet;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.model.menu.PauseMenu;
@@ -15,6 +16,8 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.ld04gr02.berzerk.gui.GUI.KEY.*;
 import static org.mockito.Mockito.*;
@@ -26,7 +29,7 @@ public class StickManControllerTests extends Assertions {
     @BeforeEach
     public void setUp() throws IOException {
         MazeRenderer mazeRenderer = new MazeRenderer();
-        Maze maze = mazeRenderer.createMaze("maze1.lvl");
+        Maze maze = mazeRenderer.createMaze("maze_test2.lvl");
         stickManController = new StickManController(maze);
         game = mock(Game.class);
     }
@@ -111,6 +114,32 @@ public class StickManControllerTests extends Assertions {
         stickManController.update(game, CHAR, 0);
         assertEquals(position, stickManController.getModel().getStickMan().getPosition());
         assertFalse(stickManController.getModel().getStickMan().isMoving());
+    }
+
+    @Test
+    public void collideEvilSmileTest() throws IOException, URISyntaxException, FontFormatException {
+        stickManController.getModel().getEvilSmile().setPosition(new Position(10, 143));
+        stickManController.update(game, ARROW_RIGHT, 0);
+        assertTrue(stickManController.getModel().getStickMan().isCollided());
+        assertTrue(stickManController.getModel().getEvilSmile().isCollided());
+    }
+
+    @Test
+    public void collideBulletTest() throws IOException, URISyntaxException, FontFormatException {
+        stickManController.getModel().getBullets().clear();
+        ArrayList<Bullet> bullets = new ArrayList<>(Arrays.asList(
+                new Bullet(15, 150, Direction.Left)
+        ));
+        stickManController.getModel().setBullets(bullets);
+        stickManController.update(game, ARROW_RIGHT, 0);
+        assertTrue(stickManController.getModel().getStickMan().isCollided());
+    }
+
+    @Test
+    public void collideGateTest() throws IOException, URISyntaxException, FontFormatException {
+        stickManController.getModel().getStickMan().setPosition(new Position(498, 148));
+        stickManController.update(game, ARROW_DOWN, 0);
+        assertTrue(stickManController.getModel().getStickMan().isCollided());
     }
 }
 
