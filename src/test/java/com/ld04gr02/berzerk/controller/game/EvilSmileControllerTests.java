@@ -34,10 +34,18 @@ public class EvilSmileControllerTests extends Assertions {
     }
 
     @Test
-    public void moveRobotCollidedTest() throws IOException, URISyntaxException, FontFormatException {
+    public void moveEvilSmileCollidedTest() throws IOException, URISyntaxException, FontFormatException {
         evilSmileController.getModel().getEvilSmile().setCollided(true);
         assertTrue(evilSmileController.getModel().getEvilSmile().isCollided());
         evilSmileController.update(game, ARROW_RIGHT, 4000);
-        assertEquals(new Position(-20, 146), evilSmileController.getModel().getEvilSmile().getPosition());
+        assertEquals(new Position(-20, 151), evilSmileController.getModel().getEvilSmile().getPosition());
+    }
+
+    @Test
+    public void collideStickManTest() throws IOException, URISyntaxException, FontFormatException {
+        evilSmileController.getModel().getEvilSmile().setPosition(new Position(10, 150));
+        evilSmileController.update(game, ARROW_RIGHT, 4000);
+        assertTrue(evilSmileController.getModel().getEvilSmile().isCollided());
+        assertTrue(evilSmileController.getModel().getStickMan().isCollided());
     }
 }

@@ -24,8 +24,6 @@ public class InstructionsMenuController extends Controller<InstructionsMenu> {
                 MainMenuState mainMenuState = new MainMenuState(mainMenu);
                 game.setState(mainMenuState);
                 break;
-            case ARROW_DOWN:
-                break;
             default:
                 break;
         }

@@ -30,6 +30,7 @@ public class EvilSmileController extends GameController{
             getModel().getEvilSmile().setCollided(false);
             getModel().getEvilSmile().setPosition(new Position(-20, getModel().getHeight() / 2));
             timePause = 1200;
+            return;
         }
         if (time - lastAction > timePause) {
             Position stickManPosition = getModel().getStickMan().getPosition();
