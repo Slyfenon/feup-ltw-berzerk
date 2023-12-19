@@ -1,5 +1,6 @@
 package com.ld04gr02.berzerk.gui;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -131,5 +132,68 @@ public class GUITests extends Assertions {
     public void getPressedKeyDefaultTest() throws IOException {
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.F1)).thenReturn(null);
         assertEquals(GUI.KEY.NONE, lanternaGUI.getPressedKey());
+    }
+
+    @Test
+    public void getCharPressedCharTest() throws IOException {
+        KeyStroke keyStroke = mock(KeyStroke.class);
+        when(keyStroke.getKeyType()).thenReturn(KeyType.Character);
+        when(keyStroke.getCharacter()).thenReturn('a');
+        when(screen.pollInput()).thenReturn(keyStroke).thenReturn(null);
+        assertEquals("a", lanternaGUI.getCharPressedKey());
+    }
+
+    @Test
+    public void getCharPressedEscTest() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Escape)).thenReturn(null);
+        assertEquals("Escape", lanternaGUI.getCharPressedKey());
+    }
+
+    @Test
+    public void getCharPressedEnterTest() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter)).thenReturn(null);
+        assertEquals("Enter", lanternaGUI.getCharPressedKey());
+    }
+
+    @Test
+    public void getCharPressedBackspaceTest() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Backspace)).thenReturn(null);
+        assertEquals("Backspace", lanternaGUI.getCharPressedKey());
+    }
+
+    @Test
+    public void getCharPressedNullTest() throws IOException {
+        when(screen.pollInput()).thenReturn(null);
+        assertEquals("", lanternaGUI.getCharPressedKey());
+    }
+
+    @Test
+    public void getCharPressedNull2Test() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.F1)).thenReturn(null);
+        assertEquals("", lanternaGUI.getCharPressedKey());
+    }
+
+    @Test
+    public void drawFrameTest() {
+        lanternaGUI.drawFrame(500, 300);
+
+        verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#ffc000"));
+        verify(textGraphics, times(598)).fillRectangle(any(), any(), anyChar());
+    }
+
+    @Test
+    public void drawTextTest() {
+        lanternaGUI.drawText(new Position(0, 0), "Hello", "#ffffff");
+
+        verify(textGraphics).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        verify(textGraphics).putString(0, 0, "Hello");
+    }
+
+    @Test
+    public void drawBlinkTextTest() {
+        lanternaGUI.drawBlinkText(new Position(0, 0), "Hello", "#ffffff");
+
+        verify(textGraphics).setForegroundColor(TextColor.Factory.fromString("#ffffff"));
+        verify(textGraphics).putString(0, 0, "Hello", SGR.BLINK);
     }
 }
