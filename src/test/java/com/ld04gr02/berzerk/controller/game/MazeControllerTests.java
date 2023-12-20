@@ -52,6 +52,7 @@ public class MazeControllerTests extends Assertions {
         mazeController.getModel().getStickMan().setPosition(new Position(600, 150));
         mazeController.update(game, ARROW_UP, 0);
         verify(game).levelUp();
+        verify(game).setState(any());
     }
 
     @Test
@@ -65,6 +66,16 @@ public class MazeControllerTests extends Assertions {
         when(game.getGui()).thenReturn(guiMock);
         mazeController.update(game, ARROW_UP, 0);
         verify(guiMock).close();
+        verify(game).setState(any());
+        verify(game, times(2)).getGui();
         assertEquals(3, StickMan.getLives());
+    }
+
+    @Test
+    public void gatesTest() throws IOException, URISyntaxException, FontFormatException {
+        assertEquals(15, mazeController.getModel().getGates().size());
+        mazeController.getModel().getRobots().clear();
+        mazeController.update(game, ARROW_UP, 0);
+        assertEquals(0, mazeController.getModel().getGates().size());
     }
 }

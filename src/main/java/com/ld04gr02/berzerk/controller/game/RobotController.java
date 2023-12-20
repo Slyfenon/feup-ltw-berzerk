@@ -61,7 +61,7 @@ public class RobotController extends GameController {
         }
     }
 
-    private Position getNextPosition(Robot robot, int side, Position stickManPosition) {
+    public Position getNextPosition(Robot robot, int side, Position stickManPosition) {
         Position newPosition;
         int difference;
         if (side == 0) {
@@ -79,7 +79,7 @@ public class RobotController extends GameController {
         return newPosition;
     }
 
-    private void moveRobot(Robot robot, Position position) {
+    public void moveRobot(Robot robot, Position position) {
         if (!getModel().collideWall(position, getRobotWidth(), getRobotHeight())) {
             robot.setPosition(position);
             if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight())) {

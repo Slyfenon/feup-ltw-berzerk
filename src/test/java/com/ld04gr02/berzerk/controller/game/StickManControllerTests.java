@@ -108,6 +108,9 @@ public class StickManControllerTests extends Assertions {
 
         assertEquals(position, stickManController.getModel().getStickMan().getPosition());
         assertTrue(stickManController.getModel().getStickMan().isShooting());
+
+        stickManController.getModel().getStickMan().setDirection(Direction.None);
+        assertNull(stickManController.getNewBulletPosition());
     }
 
     @Test

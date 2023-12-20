@@ -24,6 +24,14 @@ public class EvilSmileController extends GameController{
         this.lastAction = 0;
     }
 
+    public long getTimePause() {
+        return timePause;
+    }
+
+    public void setTimePause(long timePause) {
+        this.timePause = timePause;
+    }
+
     @Override
     public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {
         if (getModel().getEvilSmile().isCollided()) {
@@ -50,14 +58,14 @@ public class EvilSmileController extends GameController{
         }
     }
 
-    private void moveEvilSmile(EvilSmile evilSmile, Position position) {
+    public void moveEvilSmile(EvilSmile evilSmile, Position position) {
         evilSmile.setPosition(position);
         if (getModel().collideStickMan(position, getEvilSmileWidth(), getEvilSmileHeight())) {
             getModel().getStickMan().setCollided(true);
         }
     }
 
-    private boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {
+    public boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {
         return (abs(stickManPosition.getX()-newPosition.getX()) < abs(stickManPosition.getX()-currentPosition.getX()) || abs(stickManPosition.getY()-newPosition.getY()) < abs(stickManPosition.getY()-currentPosition.getY()));
     }
 }

@@ -49,7 +49,7 @@ public class BulletControllerTests extends Assertions {
     @Test
     public void moveBulletTest() throws IOException, URISyntaxException, FontFormatException {
         assertEquals(12, bulletController.getModel().getBullets().size());
-        bulletController.update(game, ARROW_RIGHT, System.currentTimeMillis());
+        bulletController.update(game, ARROW_RIGHT, 0);
         assertEquals(8, bulletController.getModel().getBullets().size());
     }
 
@@ -61,7 +61,7 @@ public class BulletControllerTests extends Assertions {
         ));
         bulletController.getModel().setBullets(bullets);
         assertEquals(1, bulletController.getModel().getBullets().size());
-        bulletController.update(game, ARROW_RIGHT, System.currentTimeMillis());
+        bulletController.update(game, ARROW_RIGHT, 0);
         assertEquals(0, bulletController.getModel().getBullets().size());
     }
 
@@ -76,7 +76,7 @@ public class BulletControllerTests extends Assertions {
         int X_Right = bulletRight.getPosition().getX();
         Bullet bulletDown = bulletController.getModel().getBullets().get(10);
         int Y_Down = bulletDown.getPosition().getY();
-        bulletController.update(game, ARROW_RIGHT, System.currentTimeMillis());
+        bulletController.update(game, ARROW_RIGHT, 0);
         assertEquals(8, bulletController.getModel().getBullets().size());
         assertEquals(Y_Up-10, bulletUp.getPosition().getY());
         assertEquals(X_Left-10, bulletLeft.getPosition().getX());
@@ -84,5 +84,18 @@ public class BulletControllerTests extends Assertions {
         assertEquals(X_Right+10, bulletRight.getPosition().getX());
     }
 
-
+    @Test
+    public void outOfScreenTest() throws IOException, URISyntaxException, FontFormatException {
+        bulletController.getModel().getGates().clear();
+        bulletController.getModel().getBullets().clear();
+        ArrayList<Bullet> bullets = new ArrayList<>(Arrays.asList(
+                new Bullet(492, 150, Direction.Right),
+                new Bullet(550, 155, Direction.Right),
+                new Bullet(600, 150, Direction.Right)
+        ));
+        bulletController.getModel().setBullets(bullets);
+        assertEquals(3, bulletController.getModel().getBullets().size());
+        bulletController.update(game, ARROW_RIGHT, 0);
+        assertEquals(1, bulletController.getModel().getBullets().size());
+    }
 }
