@@ -50,7 +50,6 @@ public class MainMenuController extends Controller<MainMenu> {
                     game.getGui().close();
                     game.setLevel(1);
                     StickMan.setScore(0);
-                    System.out.println(game.getLevel());
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
                     game.setState(new GameState(maze));

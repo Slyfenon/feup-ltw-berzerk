@@ -59,8 +59,8 @@ public class Game {
         return level;
     }
 
-    public void setLevel(int level){
-        this.level = level;
+    static public void setLevel(int level){
+        Game.level = level;
     }
     public void levelUp() {level++;}
 
