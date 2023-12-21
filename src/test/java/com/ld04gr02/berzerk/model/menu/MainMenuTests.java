@@ -20,6 +20,12 @@ public class MainMenuTests extends Assertions {
         assertEquals(mainMenu.getOptions().size()-1, mainMenu.getCurrentOption());
         mainMenu.selectNext();
         assertEquals(0, mainMenu.getCurrentOption());
+        mainMenu.selectNext();
+        mainMenu.selectNext();
+        mainMenu.selectNext();
+        assertEquals(3, mainMenu.getCurrentOption());
+        mainMenu.selectNext();
+        assertEquals(0, mainMenu.getCurrentOption());
     }
 
     @Test
