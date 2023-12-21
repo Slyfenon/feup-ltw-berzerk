@@ -12,8 +12,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_HEIGHT;
 import static com.ld04gr02.berzerk.Game.MENU_SCREEN_WIDTH;
@@ -71,9 +75,21 @@ public class GameOverControllerTests extends Assertions {
 
     @AfterEach
     public void reset() throws IOException, URISyntaxException, FontFormatException {
-        gameOverController.getModel().getName().setLength(0);
-        gameOverController.getModel().getName().append("Kirby");
-        StickMan.setScore(250);
-        gameOverController.update(game, ENTER, 0);
+        String rootPath = new File(System.getProperty("user.dir")).getPath();
+        String mapLocation = rootPath + "/src/main/resources/Leaderboard.brd";
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
+        bufferedWriter.write("Yoda,9000\n" +
+                "Rambo,7150\n" +
+                "JackSparrow,4500\n" +
+                "Sn4p3,3900\n" +
+                "Gandalf,3850\n" +
+                "LaraCroft,2400\n" +
+                "R2-D2,2000\n" +
+                "C-3PO,1800\n" +
+                "JohnDoe,1000\n" +
+                "Kirby,250\n");
+
+        bufferedWriter.close();
     }
 }
