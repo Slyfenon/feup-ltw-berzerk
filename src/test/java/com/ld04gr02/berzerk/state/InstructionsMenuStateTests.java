@@ -50,4 +50,10 @@ public class InstructionsMenuStateTests extends Assertions {
         verify(instructionsMenuController).update(game, GUI.KEY.ARROW_RIGHT, 0);
         verify(instructionsViewer).display(lanternaGUI);
     }
+
+    @Test
+    public void gettersTest() {
+        assertEquals(0, instructionsMenuState.getController().getModel().getOptions().size());
+        assertEquals(0, instructionsMenuState.getViewer().getModel().getOptions().size());
+    }
 }
