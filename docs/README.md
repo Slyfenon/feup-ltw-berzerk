@@ -54,22 +54,49 @@ Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilid
 - View: É responsável por mostrar toda a informação relevante que está guardada no Model, além disto também é responsável por receber os inputs do user e de os enviar para o Controller. A View é a única destas componentes que comunica com a GUI.
 - Controller: É responsável por alterar a informação guardada no Model consoante os inputs do utilizador e aquilo que estiver a acontecer no jogo.
 
-#### Singleton
+#### Singleton (Game Class)
 
 Singleton garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso para essa instância.
 
 - Problema: Sempre que o jogo inicia, é necessário criar uma instância da classe Game e não faz sentido que seja criada outra instância desta classe.
 - Pattern: Usamos o padrão de Singleton para limitar a criação de mais instâncias de Game; a única instância é criada assim que o jogo começa a correr.
 
+#### Singleton (Soundboard Class)
+
+- Problema: 
+- Pattern: 
+
 #### State
 
-- Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, o jogo tem funções muito diferentes se em vez de estar a correr o jogo em si, estiver no menu inicial ou nas instruções do jogo.
+- Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, permitir ao jogo ter funções muito diferentes consoante o seu estado aliando isso a uma troca entre estados bastante rápida.
 - Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
+  
+
+![](images/stateDiagram.png)
+State Diagram
+
+- Consequências: Possibilita a implementação de um novo estado de uma forma bastante mais fácil, sem ter de alterar qualquer dos estados já existentes.
 
 #### Game Loop
 
 - Problema: Como a maioria dos jogos, o nosso Berzerk é suposto ser um jogo fluido, isto é, é suposto o jogo estar sempre a correr sem bloquear à espera de algum tipo de input do jogador.
 - Pattern: Para o jogo correr desta forma decidimos usar o Game Loop Pattern, desta forma os inimigos e as balas atualizam as suas posições regularmente sem ser preciso o StickMan mexer-se.
+
+### ERROR-PRONE WARNINGS
+- No error-prone warnings.
+
+### CODE SMELLS
+
+- 
+
+### TEST COVERAGE
+
+
+
+
+### MUTATION TESTING (PITEST)
+
+
 
 
 ### SELF-EVALUATION
