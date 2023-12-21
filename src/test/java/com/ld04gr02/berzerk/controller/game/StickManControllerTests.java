@@ -33,6 +33,7 @@ public class StickManControllerTests extends Assertions {
         Maze maze = mazeRenderer.createMaze("maze_test2.lvl");
         stickManController = new StickManController(maze);
         game = mock(Game.class);
+        StickMan.setLives(3);
     }
 
     @Test
