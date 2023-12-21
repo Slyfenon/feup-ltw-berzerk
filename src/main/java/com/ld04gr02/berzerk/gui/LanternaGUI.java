@@ -31,6 +31,10 @@ public class LanternaGUI implements GUI {
         createMenuScreen(width, height);
     }
 
+    public Screen getScreen() {
+        return screen;
+    }
+
     @Override
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont(2);
