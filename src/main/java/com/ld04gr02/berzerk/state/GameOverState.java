@@ -43,10 +43,9 @@ public class GameOverState extends State<GameOverMenu> {
             this.viewer.display(gui);
         }
         else {
-            if(getModel().getName().length() <= 10) getModel().getName().append(str);
+            if(getModel().getName().length() < 10) getModel().getName().append(str);
             this.viewer.display(gui);
         }
-
     }
 
     @Override
