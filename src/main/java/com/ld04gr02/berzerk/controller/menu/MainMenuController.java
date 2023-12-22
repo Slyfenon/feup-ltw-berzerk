@@ -57,7 +57,7 @@ public class MainMenuController extends Controller<MainMenu> {
                     Soundboard.getInstance().getClick().playSound(0);
                 }
                 else if(getModel().getSelected() == MenuOptions.LEADERBOARD) {
-                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard());
+                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard("/src/main/resources/Leaderboard.brd"));
                     game.setState(leaderboardstate);
                 }
                 else if(getModel().getSelected() == MenuOptions.INSTRUCTIONS){

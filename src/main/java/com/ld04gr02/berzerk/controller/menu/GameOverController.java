@@ -40,7 +40,7 @@ public class GameOverController extends Controller<GameOverMenu> {
                     game.setState(mainMenuState);
                     break;
                 case ENTER:
-                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard());
+                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard("/src/main/resources/Leaderboard.brd"));
                     if(leaderboardstate.getModel().addToLeaderboard(getModel().getName().toString(), StickMan.getScore())) {
                         leaderboardstate.getModel().writeToFile("/src/main/resources/Leaderboard.brd");
                     }

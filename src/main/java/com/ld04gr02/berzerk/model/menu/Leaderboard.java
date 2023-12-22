@@ -9,10 +9,10 @@ public class Leaderboard extends Menu{
     private ArrayList<String> names;
     private ArrayList<Integer> scores;
 
-    public Leaderboard() throws IOException {
+    public Leaderboard(String filePath) throws IOException {
         names = new ArrayList<>();
         scores = new ArrayList<>();
-        readFromFile("/src/main/resources/Leaderboard.brd");
+        readFromFile(filePath);
     }
 
     public ArrayList<String> getNames() {
