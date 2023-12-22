@@ -25,7 +25,7 @@ public class LeaderboardStateTests extends Assertions {
 
     @BeforeEach
     public void setUp() throws IOException {
-        Leaderboard leaderboard = new Leaderboard();
+        Leaderboard leaderboard = new Leaderboard("/src/main/resources/LeaderboardTest.brd");
         leaderboardState = new LeaderboardState(leaderboard);
         lanternaGUI = mock(LanternaGUI.class);
 

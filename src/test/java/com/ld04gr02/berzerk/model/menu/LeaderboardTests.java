@@ -11,7 +11,7 @@ public class LeaderboardTests extends Assertions {
 
     @BeforeEach
     public void setUp() throws IOException {
-        leaderboard = new Leaderboard();
+        leaderboard = new Leaderboard("/src/main/resources/Leaderboard.brd");
     }
 
     @Test
