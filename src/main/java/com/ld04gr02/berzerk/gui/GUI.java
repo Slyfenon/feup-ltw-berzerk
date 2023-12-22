@@ -23,9 +23,15 @@ public interface GUI {
 
     public void drawSprite(Position position, String[] sprite, char symbol, String color);
 
+    public void drawSprite2(int posX, int posY, String[] sprite, char symbol, String color);
+
     void drawText(Position position, String text, String color);
 
+    public void drawText2(int x, int y, String text, String color);
+
     void drawBlinkText(Position position, String text, String color);
+
+    public void drawBlinkText2(int x, int y, String text, String color);
 
     public KEY getPressedKey() throws IOException;
 
