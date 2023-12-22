@@ -18,24 +18,25 @@ public class MenuViewer<T extends Menu> extends Viewer<T> {
 
     @Override
     protected void renderElements(GUI gui) {
-        Position pos = new Position(MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2, 5);
+        int x = MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2;
+        int y = 5;
 
         for (String line : Sprites.getLogo()){
-            gui.drawText(pos, line,"#00ff00");
-            pos.setY(pos.getY() + 1);
+            gui.drawText2(x, y, line,"#00ff00");
+            y += 1;
         }
 
-        pos.setY(15);
+        y = 15;
         for(int i = 0; i < getModel().getOptions().size() ; i++) {
             if(getModel().isSelected(i)) {
-                pos.setX(MENU_SCREEN_WIDTH / 2 - (getModel().getString(i).length() + 4) / 2);
-                gui.drawBlinkText(pos, "> " + getModel().getString(i) + " <", "#00ff00");
+                x = MENU_SCREEN_WIDTH / 2 - (getModel().getString(i).length() + 4) / 2;
+                gui.drawBlinkText2(x, y, "> " + getModel().getString(i) + " <", "#00ff00");
             }
             else {
-                pos.setX(MENU_SCREEN_WIDTH / 2 - getModel().getString(i).length() / 2);
-                gui.drawText(pos, getModel().getString(i), "#00ff00");
+                x = MENU_SCREEN_WIDTH / 2 - getModel().getString(i).length() / 2;
+                gui.drawText2(x, y, getModel().getString(i), "#00ff00");
             }
-            pos.setY(pos.getY() + 2);
+            y += 2;
         }
     }
 }

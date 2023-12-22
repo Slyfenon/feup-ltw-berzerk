@@ -20,22 +20,17 @@ public class GameOverViewer extends Viewer<GameOverMenu> {
 
     @Override
     protected void renderElements(GUI gui) {
-        Position pos = new Position(MENU_SCREEN_WIDTH / 2 - getGameOverLength() / 2, 5);
+        int x = MENU_SCREEN_WIDTH / 2 - getGameOverLength() / 2;
+        int y = 5;
         for (String line : Sprites.getGameOver()){
-            gui.drawText(pos, line, "#ff0000");
-            pos.setY(pos.getY() + 1);
+            gui.drawText2(x, y, line, "#ff0000");
+            y += 1;
         }
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 5);
-        pos.setY(19);
-        gui.drawBlinkText(pos, "Score:" + String.format("%04d", StickMan.getScore()), "#ffffff");
+        gui.drawBlinkText2(MENU_SCREEN_WIDTH / 2 - 5, 19, "Score:" + String.format("%04d", StickMan.getScore()), "#ffffff");
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 8);
-        pos.setY(23);
-        gui.drawText(pos, "Name: " + getModel().getName().toString(), "#ffffff");
+        gui.drawText2(MENU_SCREEN_WIDTH / 2 - 8, 23, "Name: " + getModel().getName().toString(), "#ffffff");
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 12);
-        pos.setY(MENU_SCREEN_HEIGHT - 1);
-        gui.drawText(new Position(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT-2), "Press ESC for Main Menu", "#ffffff");
+        gui.drawText2(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT - 2, "Press ESC for Main Menu", "#ffffff");
     }
 }
