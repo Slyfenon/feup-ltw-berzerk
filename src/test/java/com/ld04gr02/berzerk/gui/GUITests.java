@@ -33,11 +33,21 @@ public class GUITests extends Assertions {
     @Test
     public void drawStickManTest() {
         lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManRight(), '#', "#00ff00");
-        verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
-        verify(textGraphics, times(40)).fillRectangle(any(), any(), anyChar());
-
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManMovingLeft(), '#', "#00ff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManMovingRight(), '#', "#00ff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManShootingUp(), '#', "#00ff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManShootingDown(), '#', "#00ff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManShootingLeft(), '#', "#00ff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManShootingRight(), '#', "#00ff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getEvilSmile(), '#', "#ffff00");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getHorizontalBullet(), '#', "#ffffff");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getVerticalBullet(), '#', "#ffffff");
         lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManRight(), '#', "#0000ff");
-        verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
+        verify(textGraphics, times(7)).setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
+        verify(textGraphics, times(2)).setBackgroundColor(TextColor.Factory.fromString("#ffffff"));
+        verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
+        verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#ffff00"));
+        verify(textGraphics, times(399)).fillRectangle(any(), any(), anyChar());
     }
 
     @Test
