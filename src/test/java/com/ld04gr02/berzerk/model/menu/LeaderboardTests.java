@@ -25,12 +25,21 @@ public class LeaderboardTests extends Assertions {
     public void addToLeaderboardTest() {
         assertTrue(leaderboard.addToLeaderboard("John", 250));
         assertFalse(leaderboard.addToLeaderboard("John", 249));
+        leaderboard.addToLeaderboard("John", 9950);
+        assertEquals("John", leaderboard.getNames().get(0));
+        assertEquals(9950, leaderboard.getScores().get(0));
     }
 
     @Test
     public void exceptionWriteToFileTest() {
-        Exception exception = assertThrows(IOException.class, () -> leaderboard.writeToFile(""));
-        assertEquals("Error reading the file", exception.getMessage());
+        try {
+            leaderboard.writeToFile("");
+        } catch (IOException e) {
+            assertEquals("Error reading the file", e.getMessage());
+            return;
+        }
+
+        fail("No exception thrown for empty file path");
     }
 
     @Test

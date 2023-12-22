@@ -53,6 +53,9 @@ public class StickManTests extends Assertions {
         stickMan.increaseScore();
         assertEquals(500, StickMan.getScore());
         assertEquals(4, StickMan.getLives());
+        StickMan.setScore(9950);
+        stickMan.increaseScore();
+        assertEquals(9950, StickMan.getScore());
         StickMan.setScore(0);
         StickMan.setLives(3);
     }

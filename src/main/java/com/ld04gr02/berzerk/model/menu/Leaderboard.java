@@ -46,7 +46,7 @@ public class Leaderboard extends Menu{
             bufferedReader.close();
         }
         catch (IOException e) {
-            System.err.println("Error starting the game:  " + e.getMessage());
+            System.err.println("Error:  " + e.getMessage());
             throw new IOException("Error reading the file", e);
         }
     }
@@ -73,16 +73,15 @@ public class Leaderboard extends Menu{
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
 
-            // Writing names and scores to the file
             for (int i = 0; i < names.size(); i++) {
                 String line = names.get(i) + "," + scores.get(i);
                 bufferedWriter.write(line);
-                bufferedWriter.newLine(); // Add a new line for the next entry
+                bufferedWriter.newLine();
             }
 
-            bufferedWriter.close(); // Close the BufferedWriter when done
+            bufferedWriter.close();
         } catch (IOException e) {
-            System.err.println("Error starting the game:  " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
             throw new IOException("Error reading the file", e);
         }
     }

@@ -91,6 +91,17 @@ public class GameOverStateTests extends Assertions {
     }
 
     @Test
+    public void maxNameLengthTest() throws IOException, URISyntaxException, FontFormatException {
+        when(game.getGui()).thenReturn(lanternaGUI);
+        when(lanternaGUI.getCharPressedKey()).thenReturn("k");
+        gameOverState.getModel().getName().setLength(0);
+        gameOverState.getModel().getName().append("abcdefghij");
+        assertEquals("abcdefghij", gameOverState.getModel().getName().toString());
+        gameOverState.update(game, lanternaGUI, 0);
+        assertEquals("abcdefghij", gameOverState.getModel().getName().toString());
+    }
+
+    @Test
     public void gettersTest() {
         assertEquals(0, gameOverState.getController().getModel().getOptions().size());
         assertEquals(0, gameOverState.getViewer().getModel().getOptions().size());

@@ -8,7 +8,12 @@ import java.io.File;
 import java.net.URL;
 
 public class Sound {
-    Clip clip;
+    private Clip clip;
+
+    public Clip getClip() {
+        return clip;
+    }
+
     public Sound(String path) {
         this.clip =setFile(path);
     }
@@ -27,24 +32,23 @@ public class Sound {
         }
     }
     public void playSound(float volume) {
-        if(clip != null) {
+        if(getClip() != null) {
             FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             volumeControl.setValue(volume);
-            clip.setMicrosecondPosition(0);
-            clip.start();
+            getClip().setMicrosecondPosition(0);
+            getClip().start();
         }
     }
 
     public void stopSound(){
-        clip.stop();
+        getClip().stop();
     }
 
     public void loopSound(float volume){
-        clip.setMicrosecondPosition(0);
+        getClip().setMicrosecondPosition(0);
         FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         volumeControl.setValue(volume);
-        clip.start();
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-
+        getClip().start();
+        getClip().loop(Clip.LOOP_CONTINUOUSLY);
     }
 }

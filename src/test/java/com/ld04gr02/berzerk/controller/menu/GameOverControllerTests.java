@@ -62,14 +62,14 @@ public class GameOverControllerTests extends Assertions {
 
     @Test
     public void enterTest() throws IOException, URISyntaxException, FontFormatException {
-        Leaderboard leaderboard = new Leaderboard();
+        Leaderboard leaderboard = new Leaderboard("/src/main/resources/Leaderboard.brd");
         gameOverController.getModel().getName().append("Hello");
         StickMan.setScore(9950);
         gameOverController.update(game, ARROW_DOWN, 0);
         assertEquals(0, gameOverController.getModel().getCurrentOption());
         gameOverController.update(game, ENTER, 0);
         verify(game).setState(any());
-        Leaderboard leaderboard2 = new Leaderboard();
+        Leaderboard leaderboard2 = new Leaderboard("/src/main/resources/Leaderboard.brd");
         assertNotEquals(leaderboard.getNames(), leaderboard2.getNames());
     }
 

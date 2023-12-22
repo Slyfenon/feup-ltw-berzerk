@@ -43,11 +43,15 @@ public class GUITests extends Assertions {
         lanternaGUI.drawSprite(new Position(10, 10), Sprites.getHorizontalBullet(), '#', "#ffffff");
         lanternaGUI.drawSprite(new Position(10, 10), Sprites.getVerticalBullet(), '#', "#ffffff");
         lanternaGUI.drawSprite(new Position(10, 10), Sprites.getStickManRight(), '#', "#0000ff");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getHeart(), '#', "#ff0000");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getScore(), '#', "#ffffff");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getNumber(0), '#', "#ffffff");
+        lanternaGUI.drawSprite(new Position(10, 10), Sprites.getLEVEL(), '#', "#ffffff");
         verify(textGraphics, times(7)).setBackgroundColor(TextColor.Factory.fromString("#00ff00"));
-        verify(textGraphics, times(2)).setBackgroundColor(TextColor.Factory.fromString("#ffffff"));
+        verify(textGraphics, times(5)).setBackgroundColor(TextColor.Factory.fromString("#ffffff"));
         verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#0000ff"));
         verify(textGraphics).setBackgroundColor(TextColor.Factory.fromString("#ffff00"));
-        verify(textGraphics, times(399)).fillRectangle(any(), any(), anyChar());
+        verify(textGraphics, times(1420)).fillRectangle(any(), any(), anyChar());
     }
 
     @Test
