@@ -12,7 +12,7 @@ public class ScoreInfoViewer implements InfoViewer {
 
     @Override
     public void display(GUI gui) {
-        gui.drawSprite(new Position(135,315), Sprites.getScore(), '#', "#ffffff");
+        gui.drawSprite2(135,315, Sprites.getScore(), '#', "#ffffff");
 
         int[] scoreArray = new int[4];
         int score = StickMan.getScore();
@@ -22,10 +22,11 @@ public class ScoreInfoViewer implements InfoViewer {
             score /= 10;
         }
 
-        Position pos = new Position(215, 315);
+        int x = 215;
+        int y = 315;
         for(int number : scoreArray) {
-            gui.drawSprite(pos, Sprites.getNumber(number), '#', "#ffffff");
-            pos.setX(pos.getX() + 14);
+            gui.drawSprite2(x, y, Sprites.getNumber(number), '#', "#ffffff");
+            x += 14;
         }
     }
 }
