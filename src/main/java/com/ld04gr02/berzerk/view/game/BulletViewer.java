@@ -8,10 +8,10 @@ public class BulletViewer implements ElementViewer<Bullet>{
     public void display(Bullet bullet, GUI gui) {
         switch(bullet.getCurrentDirection()) {
             case Up: case Down:
-                gui.drawSprite(bullet.getPosition(), Sprites.getVerticalBullet(), '#', "#ffffff");
+                gui.drawSprite2(bullet.getPosition().getX(), bullet.getPosition().getY(), Sprites.getVerticalBullet(), '#', "#ffffff");
                 break;
             case Left: case Right:
-                gui.drawSprite(bullet.getPosition(), Sprites.getHorizontalBullet(), '#', "#ffffff");
+                gui.drawSprite2(bullet.getPosition().getX(), bullet.getPosition().getY(), Sprites.getHorizontalBullet(), '#', "#ffffff");
                 break;
             default:
                 break;
