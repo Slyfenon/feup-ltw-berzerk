@@ -12,9 +12,6 @@ import java.net.URISyntaxException;
 
 public class Game {
     private static Game game;
-
-
-
     private final GUI gui;
     private State previousState;
     private State state;
@@ -22,7 +19,7 @@ public class Game {
     public static final int MENU_SCREEN_HEIGHT = 30;
     public static final int INFO_SECTIONS_HEIGHT = 30;
     public static final int GAME_SCREEN_WIDTH = 502;
-    static public int level = 1;
+    static private int level = 1;
     public State getState() {
         return state;
     }
