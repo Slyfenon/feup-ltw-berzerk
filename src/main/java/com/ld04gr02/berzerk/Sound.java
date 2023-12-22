@@ -40,11 +40,12 @@ public class Sound {
     }
 
     public void loopSound(float volume){
-        clip.setMicrosecondPosition(0);
-        FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        volumeControl.setValue(volume);
-        clip.start();
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-
+        if(clip != null) {
+            clip.setMicrosecondPosition(0);
+            FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            volumeControl.setValue(volume);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        }
     }
 }
