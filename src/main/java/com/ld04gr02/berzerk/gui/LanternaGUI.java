@@ -54,6 +54,10 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
+    public Screen getScreen() {
+        return screen;
+    }
+
     private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
