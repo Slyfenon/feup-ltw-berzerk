@@ -49,4 +49,10 @@ public class LeaderboardStateTests extends Assertions {
         verify(leaderboardController).update(game, GUI.KEY.ARROW_RIGHT, 0);
         verify(leaderboardViewer).display(lanternaGUI);
     }
+
+    @Test
+    public void gettersTest() {
+        assertEquals(0, leaderboardState.getController().getModel().getOptions().size());
+        assertEquals(0, leaderboardState.getViewer().getModel().getOptions().size());
+    }
 }

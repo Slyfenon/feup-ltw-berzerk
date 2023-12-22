@@ -12,10 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 
@@ -28,12 +25,29 @@ import static org.mockito.Mockito.*;
 public class GameOverControllerTests extends Assertions {
     private GameOverController gameOverController;
     private Game game;
+    private String content;
 
     @BeforeEach
     public void setUp() throws IOException {
         GameOverMenu gameOverMenu = new GameOverMenu();
         gameOverController = new GameOverController(gameOverMenu);
         game = mock(Game.class);
+
+        String rootPath = new File(System.getProperty("user.dir")).getPath();
+        String mapLocation = rootPath + "/src/main/resources/Leaderboard.brd";
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(mapLocation, StandardCharsets.UTF_8));
+        StringBuilder stringBuilder = new StringBuilder();
+
+        String line = bufferedReader.readLine();
+
+        while (line != null) {
+            stringBuilder.append(line);
+            stringBuilder.append("\n");
+            line = bufferedReader.readLine();
+        }
+
+        content = stringBuilder.toString();
     }
 
     @Test
@@ -74,22 +88,12 @@ public class GameOverControllerTests extends Assertions {
     }
 
     @AfterEach
-    public void reset() throws IOException, URISyntaxException, FontFormatException {
+    public void reset() throws IOException {
         String rootPath = new File(System.getProperty("user.dir")).getPath();
         String mapLocation = rootPath + "/src/main/resources/Leaderboard.brd";
 
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
-        bufferedWriter.write("Yoda,9000\n" +
-                "Rambo,7150\n" +
-                "JackSparrow,4500\n" +
-                "Sn4p3,3900\n" +
-                "Gandalf,3850\n" +
-                "LaraCroft,2400\n" +
-                "R2-D2,2000\n" +
-                "C-3PO,1800\n" +
-                "JohnDoe,1000\n" +
-                "Kirby,250\n");
-
+        bufferedWriter.write(content);
         bufferedWriter.close();
     }
 }

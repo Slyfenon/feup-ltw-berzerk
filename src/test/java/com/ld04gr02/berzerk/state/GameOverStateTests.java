@@ -39,6 +39,12 @@ public class GameOverStateTests extends Assertions {
     }
 
     @Test
+    public void initScreenTest() throws IOException, URISyntaxException, FontFormatException {
+        gameOverState.initScreen(lanternaGUI, Game.MENU_SCREEN_WIDTH, Game.MENU_SCREEN_HEIGHT);
+        verify(lanternaGUI).createMenuScreen(Game.MENU_SCREEN_WIDTH, Game.MENU_SCREEN_HEIGHT);
+    }
+
+    @Test
     public void updateEscapeTest() throws IOException, URISyntaxException, FontFormatException {
         when(game.getGui()).thenReturn(lanternaGUI);
         when(lanternaGUI.getCharPressedKey()).thenReturn("Escape");
@@ -58,15 +64,35 @@ public class GameOverStateTests extends Assertions {
     public void updateBackspaceTest() throws IOException, URISyntaxException, FontFormatException {
         when(game.getGui()).thenReturn(lanternaGUI);
         when(lanternaGUI.getCharPressedKey()).thenReturn("Backspace");
+        gameOverState.getModel().getName().append("Hello");
         gameOverState.update(game, lanternaGUI, 0);
-        verify(gameOverViewer).display(lanternaGUI);
+        assertEquals("Hell", gameOverState.getModel().getName().toString());
+
+        gameOverState.getModel().getName().setLength(0);
+        gameOverState.update(game, lanternaGUI, 0);
+        assertEquals("", gameOverState.getModel().getName().toString());
+
+        verify(gameOverViewer, times(2)).display(lanternaGUI);
     }
 
     @Test
     public void updateCharTest() throws IOException, URISyntaxException, FontFormatException {
         when(game.getGui()).thenReturn(lanternaGUI);
-        when(lanternaGUI.getCharPressedKey()).thenReturn("Hello");
+        when(lanternaGUI.getCharPressedKey()).thenReturn("H");
         gameOverState.update(game, lanternaGUI, 0);
-        verify(gameOverViewer).display(lanternaGUI);
+        assertEquals("H", gameOverState.getModel().getName().toString());
+
+        gameOverState.getModel().getName().setLength(0);
+        gameOverState.getModel().getName().append("JackSparrow");
+        gameOverState.update(game, lanternaGUI, 0);
+        assertEquals("JackSparrow", gameOverState.getModel().getName().toString());
+
+        verify(gameOverViewer, times(2)).display(lanternaGUI);
+    }
+
+    @Test
+    public void gettersTest() {
+        assertEquals(0, gameOverState.getController().getModel().getOptions().size());
+        assertEquals(0, gameOverState.getViewer().getModel().getOptions().size());
     }
 }

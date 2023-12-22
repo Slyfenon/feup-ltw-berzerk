@@ -50,4 +50,10 @@ public class PauseMenuStateTests extends Assertions {
         verify(pauseMenuController).update(game, GUI.KEY.ARROW_RIGHT, 0);
         verify(pauseMenuViewer).display(lanternaGUI);
     }
+
+    @Test
+    public void gettersTest() {
+        assertEquals(3, pauseMenuState.getController().getModel().getOptions().size());
+        assertEquals(3, pauseMenuState.getViewer().getModel().getOptions().size());
+    }
 }

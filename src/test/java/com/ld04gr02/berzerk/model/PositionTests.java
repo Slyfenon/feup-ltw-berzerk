@@ -34,6 +34,7 @@ public class PositionTests extends Assertions {
     @Test
     public void hashTest() {
         assertEquals(new Position(20, 25).hashCode(), position.hashCode());
+        assertNotEquals(new Position(25, 25).hashCode(), position.hashCode());
     }
 
     @Test
@@ -54,5 +55,13 @@ public class PositionTests extends Assertions {
             assertNotEquals(position.getRandomNumber().getNumber(), -1);
             assertNotEquals(position.getRandomNumber().getNumber(), 4);
         }
+    }
+
+    @Test
+    public void equalsTest() {
+        assertEquals(new Position(20, 25), position);
+        assertNotEquals(new Position(50, 50), position);
+        String s = "Hello";
+        assertNotEquals(position, s);
     }
 }

@@ -44,4 +44,16 @@ public class MainMenuStateTests extends Assertions {
         verify(mainMenuController).update(game, GUI.KEY.ARROW_RIGHT, 0);
         verify(mainMenuViewer).display(lanternaGUI);
     }
+
+    @Test
+    public void initScreenTest() throws IOException, URISyntaxException, FontFormatException {
+        mainMenuState.initScreen(lanternaGUI, 10, 20);
+        verify(lanternaGUI).createMenuScreen(10, 20);
+    }
+
+    @Test
+    public void gettersTest() {
+        assertEquals(4, mainMenuState.getController().getModel().getOptions().size());
+        assertEquals(4 , mainMenuState.getViewer().getModel().getOptions().size());
+    }
 }

@@ -36,6 +36,7 @@ public class MazeControllerTests extends Assertions {
         evilSmileController = mock(EvilSmileController.class);
         mazeController = new MazeController(maze, stickManController, robotController, evilSmileController, bulletController);
         game = mock(Game.class);
+        StickMan.setLives(3);
     }
 
     @Test

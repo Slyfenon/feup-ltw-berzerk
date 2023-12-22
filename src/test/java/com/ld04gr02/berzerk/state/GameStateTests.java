@@ -4,6 +4,7 @@ import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.gui.LanternaGUI;
+import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
 import com.ld04gr02.berzerk.view.game.GameViewer;
@@ -51,5 +52,11 @@ public class GameStateTests extends Assertions {
         gameState.update(game, lanternaGUI, 0);
         verify(mazeController).update(game, GUI.KEY.ARROW_RIGHT, 0);
         verify(gameViewer).display(lanternaGUI);
+    }
+
+    @Test
+    public void gettersTest() {
+        assertEquals(new Position(10, 111), gameState.getController().getModel().getStickMan().getPosition());
+        assertEquals(new Position(10, 111), gameState.getViewer().getModel().getStickMan().getPosition());
     }
 }
