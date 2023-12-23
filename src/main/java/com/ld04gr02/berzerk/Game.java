@@ -9,9 +9,9 @@ import com.ld04gr02.berzerk.state.State;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
 
 public class Game {
-    private static Game game;
     private final GUI gui;
     private State previousState;
     private State state;
@@ -48,10 +48,6 @@ public class Game {
         this.state = new MainMenuState(new MainMenu());
     }
 
-    public static Game getGame() {
-        return game;
-    }
-
     static public int getLevel() {
         return level;
     }
@@ -61,12 +57,14 @@ public class Game {
     }
     public void levelUp() {level++;}
 
-    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
-        Game game = new Game();
-        game.run();
+    public static void main(String[] args) {
+        try {
+            Game game = new Game();
+            game.run();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
-
-
     private void run() throws IOException, URISyntaxException, FontFormatException {
         int FPS = 60;
         int frameTime = 1000 / FPS;

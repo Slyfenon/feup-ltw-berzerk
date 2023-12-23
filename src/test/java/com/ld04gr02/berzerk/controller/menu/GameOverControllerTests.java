@@ -58,6 +58,7 @@ public class GameOverControllerTests extends Assertions {
         when(game.getGui()).thenReturn(gui);
         gameOverController.update(game, ESC, 0);
         verify(game).setState(any());
+        assertEquals(0, StickMan.getScore());
     }
 
     @Test
@@ -68,6 +69,7 @@ public class GameOverControllerTests extends Assertions {
         assertEquals(0, gameOverController.getModel().getCurrentOption());
         gameOverController.update(game, ENTER, 0);
         verify(game).setState(any());
+        assertEquals(0, StickMan.getScore());
         Leaderboard leaderboard = new Leaderboard("/src/main/resources/Leaderboard.brd");
         Leaderboard leaderboard2 = new Leaderboard("/src/main/resources/LeaderboardTest.brd");
         assertNotEquals(leaderboard.getNames(), leaderboard2.getNames());

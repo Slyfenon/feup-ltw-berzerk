@@ -64,7 +64,6 @@ public class MainMenuController extends Controller<MainMenu> {
                     InstructionsMenu instructionsMenu = new InstructionsMenu();
                     game.setState(new InstructionsMenuState(instructionsMenu));
                 }
-                Soundboard.getInstance().getClick().playSound(0);
                 break;
             }
             default:

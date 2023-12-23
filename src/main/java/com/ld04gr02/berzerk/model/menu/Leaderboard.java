@@ -46,8 +46,7 @@ public class Leaderboard extends Menu{
             bufferedReader.close();
         }
         catch (IOException e) {
-            System.err.println("Error:  " + e.getMessage());
-            throw new IOException("Error reading the file", e);
+            System.err.println("Error: " + e.getMessage());
         }
     }
 
@@ -82,7 +81,6 @@ public class Leaderboard extends Menu{
             bufferedWriter.close();
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
-            throw new IOException("Error reading the file", e);
         }
     }
 }

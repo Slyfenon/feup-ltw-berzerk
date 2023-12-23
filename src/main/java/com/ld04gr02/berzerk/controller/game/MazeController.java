@@ -56,8 +56,8 @@ public class MazeController extends GameController {
             game.getGui().close();
             GameOverState gameOverState= new GameOverState(new GameOverMenu());
             game.setState(gameOverState);
-            gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
             getModel().getStickMan().setLives(3);
+            gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
             Soundboard.getInstance().getGameOverSound().playSound(-10.0f);
         }
     }

@@ -1,6 +1,7 @@
 package com.ld04gr02.berzerk.controller.menu;
 
 import com.ld04gr02.berzerk.Game;
+import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

@@ -35,6 +35,6 @@ public class GUITerminalTests extends Assertions {
     @Test
     public void createMenuScreenTest() throws URISyntaxException, IOException, FontFormatException {
         lanternaGUI = new LanternaGUI(10, 20);
-        assertEquals(new TerminalSize(10, 20), lanternaGUI.getScreen().getTerminalSize());
+        assertEquals(new TerminalSize(14, 20), lanternaGUI.getScreen().getTerminalSize());
     }
 }

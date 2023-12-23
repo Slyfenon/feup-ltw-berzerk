@@ -37,6 +37,7 @@ public class GameOverController extends Controller<GameOverMenu> {
                 case ESC:
                     Soundboard.getInstance().getClick().playSound(0);
                     MainMenuState mainMenuState= new MainMenuState(new MainMenu());
+                    StickMan.setScore(0);
                     game.setState(mainMenuState);
                     break;
                 case ENTER:
@@ -44,6 +45,7 @@ public class GameOverController extends Controller<GameOverMenu> {
                     if(leaderboardstate.getModel().addToLeaderboard(getModel().getName().toString(), StickMan.getScore())) {
                         leaderboardstate.getModel().writeToFile("/src/main/resources/Leaderboard.brd");
                     }
+                    StickMan.setScore(0);
                     game.setState(leaderboardstate);
                     break;
                 default:

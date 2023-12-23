@@ -32,8 +32,9 @@ public class Sound {
             gainControl.setValue(-25.0f);
             return musicClip;
         } catch (Exception e) {
-            throw new RuntimeException();
+            System.err.println("Error: opening " + path);
         }
+        return null;
     }
     public void playSound(float volume) {
         if(clip != null) {

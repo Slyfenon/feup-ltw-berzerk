@@ -11,7 +11,7 @@ public class LeaderboardTests extends Assertions {
 
     @BeforeEach
     public void setUp() throws IOException {
-        leaderboard = new Leaderboard("/src/main/resources/Leaderboard.brd");
+        leaderboard = new Leaderboard("/src/main/resources/LeaderboardTest.brd");
     }
 
     @Test
@@ -28,23 +28,5 @@ public class LeaderboardTests extends Assertions {
         leaderboard.addToLeaderboard("John", 9950);
         assertEquals("John", leaderboard.getNames().get(0));
         assertEquals(9950, leaderboard.getScores().get(0));
-    }
-
-    @Test
-    public void exceptionWriteToFileTest() {
-        try {
-            leaderboard.writeToFile("");
-        } catch (IOException e) {
-            assertEquals("Error reading the file", e.getMessage());
-            return;
-        }
-
-        fail("No exception thrown for empty file path");
-    }
-
-    @Test
-    public void exceptionReadFromFileTest() {
-        Exception exception = assertThrows(IOException.class, () -> leaderboard.readFromFile(""));
-        assertEquals("Error reading the file", exception.getMessage());
     }
 }
