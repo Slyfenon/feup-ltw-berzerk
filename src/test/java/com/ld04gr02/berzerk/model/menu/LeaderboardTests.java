@@ -7,9 +7,12 @@ import java.io.IOException;
 
 public class LeaderboardTests extends Assertions {
     private Leaderboard leaderboard;
+    private Leaderboard leaderboardCopy;
 
     @BeforeEach
     public void setUp() throws IOException {
+        leaderboardCopy = new Leaderboard("/src/main/resources/LeaderboardTest2.brd");
+        leaderboardCopy.writeToFile("/src/main/resources/LeaderboardTest.brd");
         leaderboard = new Leaderboard("/src/main/resources/LeaderboardTest.brd");
     }
 
