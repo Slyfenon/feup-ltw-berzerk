@@ -60,11 +60,15 @@ public class SoundTests {
             pauseMenuController.update(game, GUI.KEY.ARROW_UP, 0);
             pauseMenuController.update(game, GUI.KEY.ARROW_DOWN, 0);
             pauseMenuController.update(game, GUI.KEY.ENTER, 0);
+            PauseMenuController pauseMenuController2 = new PauseMenuController(new PauseMenu());
+            pauseMenuController2.update(game, GUI.KEY.ARROW_DOWN, 0);
+            pauseMenuController2.update(game, GUI.KEY.ENTER, 1);
         }
 
-        verify(sound, Mockito.times(2)).loopSound(-15.0f);
-        verify(sound, Mockito.times(5)).stopSound();
-        verify(sound, Mockito.times(5)).playSound(0);
+        verify(sound, Mockito.times(3)).loopSound(-15.0f);
+        verify(sound, Mockito.times(6)).stopSound();
+        verify(sound, Mockito.times(6)).playSound(0);
+        verify(gui, Mockito.times(2)).close();
     }
 
     @Test
@@ -138,21 +142,40 @@ public class SoundTests {
         Sound sound = new Sound("/src/main/resources/sounds/zipclick.wav");
         FloatControl floatControlMock = Mockito.mock(FloatControl.class);
         when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(floatControlMock);
-        doNothing().when(floatControlMock).setValue(0);
+        when(floatControlMock.getValue()).thenReturn(-15.0f);
 
-        FloatControl floatControl = (FloatControl) sound.getClip().getControl(FloatControl.Type.MASTER_GAIN);
         sound.setClip(clip);
-        sound.playSound(0);
-        sound.stopSound();
-        sound.loopSound(0);
+
+        sound.playSound(-15.0f);
+        FloatControl floatControl = (FloatControl) sound.getClip().getControl(FloatControl.Type.MASTER_GAIN);
         sound.stopSound();
 
         assertNotNull(sound);
-        assertEquals(-25.0f, floatControl.getValue());
-        Mockito.verify(clip, Mockito.times(2)).setMicrosecondPosition(0);
-        Mockito.verify(clip, Mockito.times(2)).start();
+        assertEquals(-15.0f, floatControl.getValue());
+        Mockito.verify(clip, Mockito.times(1)).setMicrosecondPosition(0L);
+        Mockito.verify(clip, Mockito.times(1)).start();
+        Mockito.verify(clip, Mockito.times(1)).stop();
+    }
+
+    @Test
+    void loopSoundTest() {
+        Sound sound = new Sound("/src/main/resources/sounds/zipclick.wav");
+        FloatControl floatControlMock = Mockito.mock(FloatControl.class);
+        when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(floatControlMock);
+        when(floatControlMock.getValue()).thenReturn(-15.0f);
+
+        sound.setClip(clip);
+
+        sound.loopSound(-15.0f);
+        FloatControl floatControl = (FloatControl) sound.getClip().getControl(FloatControl.Type.MASTER_GAIN);
+        sound.stopSound();
+
+        assertNotNull(sound);
+        assertEquals(-15.0f, floatControl.getValue());
+        Mockito.verify(clip, Mockito.times(1)).setMicrosecondPosition(0L);
+        Mockito.verify(clip, Mockito.times(1)).start();
         Mockito.verify(clip, Mockito.times(1)).loop(Clip.LOOP_CONTINUOUSLY);
-        Mockito.verify(clip, Mockito.times(2)).stop();
+        Mockito.verify(clip, Mockito.times(1)).stop();
     }
 
     @Test
@@ -165,4 +188,5 @@ public class SoundTests {
         System.setErr(originalErr);
         assertTrue(errorMessage.startsWith("Error: opening"));
     }
+
 }

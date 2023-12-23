@@ -28,8 +28,6 @@ public class Sound {
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
             Clip musicClip = AudioSystem.getClip();
             musicClip.open(audioInput);
-            FloatControl gainControl = (FloatControl) musicClip.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue(-25.0f);
             return musicClip;
         } catch (Exception e) {
             System.err.println("Error: opening " + path);

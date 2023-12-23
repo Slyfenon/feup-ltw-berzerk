@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class DisplayTests extends Assertions {
     private GUI guiMock;
@@ -121,11 +120,20 @@ public class DisplayTests extends Assertions {
     @Test
     public void levelInfoViewer() {
         LevelInfoViewer levelInfoViewer = new LevelInfoViewer();
+
+        Game.setLevel(1);
         levelInfoViewer.display(guiMock);
         assertNotNull(Sprites.getLEVEL());
-        verify(guiMock).drawSprite(30,315, Sprites.getLEVEL(), '#', "#ffffff");
-        assertNotNull(Sprites.getNumber(Game.getLevel()));
-        verify(guiMock).drawSprite(80, 315, Sprites.getNumber(Game.getLevel()), '#', "#ffffff");
+        verify(guiMock).drawSprite(80, 315, Sprites.getNumber(0), '#', "#ffffff");
+        verify(guiMock).drawSprite(94, 315, Sprites.getNumber(1), '#', "#ffffff");
+        Game.setLevel(99);
+        levelInfoViewer.display(guiMock);
+        Game.setLevel(100);
+        levelInfoViewer.display(guiMock);
+        verify(guiMock, times(2)).drawSprite(80, 315, Sprites.getNumber(9), '#', "#ffffff");
+        verify(guiMock, times(2)).drawSprite(94, 315, Sprites.getNumber(9), '#', "#ffffff");
+
+        verify(guiMock, times(3)).drawSprite(30,315, Sprites.getLEVEL(), '#', "#ffffff");
     }
 
     @Test

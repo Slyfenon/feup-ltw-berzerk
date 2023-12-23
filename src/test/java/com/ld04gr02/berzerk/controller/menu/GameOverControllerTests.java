@@ -56,6 +56,7 @@ public class GameOverControllerTests extends Assertions {
         assertEquals(0, gameOverController.getModel().getCurrentOption());
         GUI gui = mock(GUI.class);
         when(game.getGui()).thenReturn(gui);
+        StickMan.setScore(9950);
         gameOverController.update(game, ESC, 0);
         verify(game).setState(any());
         assertEquals(0, StickMan.getScore());
