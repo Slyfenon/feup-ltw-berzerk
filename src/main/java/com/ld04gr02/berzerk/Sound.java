@@ -14,8 +14,12 @@ public class Sound {
         return clip;
     }
 
+    public void setClip(Clip clip) {
+        this.clip = clip;
+    }
+
     public Sound(String path) {
-        this.clip =setFile(path);
+        this.clip = setFile(path);
     }
     private Clip setFile(String path) {
         try {
@@ -32,23 +36,28 @@ public class Sound {
         }
     }
     public void playSound(float volume) {
-        if(getClip() != null) {
-            FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            volumeControl.setValue(volume);
-            getClip().setMicrosecondPosition(0);
-            getClip().start();
+        if(clip != null) {
+            changeVolume(volume);
+            clip.setMicrosecondPosition(0);
+            clip.start();
         }
     }
 
     public void stopSound(){
-        getClip().stop();
+        clip.stop();
     }
 
     public void loopSound(float volume){
-        getClip().setMicrosecondPosition(0);
+        if(clip != null) {
+            clip.setMicrosecondPosition(0);
+            changeVolume(volume);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        }
+    }
+
+    public void changeVolume(float volume) {
         FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         volumeControl.setValue(volume);
-        getClip().start();
-        getClip().loop(Clip.LOOP_CONTINUOUSLY);
     }
 }
