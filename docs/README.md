@@ -20,10 +20,6 @@ This project was developed by *Gonçalo Nunes* (up202205538@up.pt), *Nuno Machad
 - **Game Over Screen**: the game continues until the player loses all their lives. When this happens, the game ends, and the player has the option to record the achieved score (which will be saved only if it qualifies to enter the leaderboard);
 - **Sound Effects**: 
 
-## PLANNED FEATURES
-- Different StickMan Power-Ups
-> **Note**: We integrated additional functionalities (which were not part of the original planning) into the game; however, we did not proceed to implement different StickMan Power-Ups.
-
 ## MOCKUPS
 
 MainMenu
@@ -76,6 +72,19 @@ Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilid
 - View: É responsável por mostrar toda a informação relevante que está guardada no Model, além disto também é responsável por receber os inputs do user e de os enviar para o Controller. A View é a única destas componentes que comunica com a GUI.
 - Controller: É responsável por alterar a informação guardada no Model consoante os inputs do utilizador e aquilo que estiver a acontecer no jogo.
 
+=======
+A implementação concreta pode ser encontrada aqui:
+- [Model](https://github.com/FEUP-LDTS-2023/project-l04gr02/tree/main/src/main/java/com/ld04gr02/berzerk/model)
+- [Controller](https://github.com/FEUP-LDTS-2023/project-l04gr02/tree/main/src/main/java/com/ld04gr02/berzerk/controller)
+- [View](https://github.com/FEUP-LDTS-2023/project-l04gr02/tree/9e535c984c979dfa7cf10b7be44f49e298b246de/src/main/java/com/ld04gr02/berzerk/view)
+
+#### Implementation:
+
+#### Consequences:
+
+- **Pros**: guarantees a single instance throughout the application, offering a global access point for that instance; allows a more efficient management of resources, avoiding redundant object creation; 
+- **Cons**: it is more difficult to test code;
+
 ### Singleton
 
 #### Problem in context:
@@ -85,17 +94,20 @@ Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilid
 #### The pattern:
 - Singleton restricts a class to have only one instance and offers global access to that instance.
 
-#### Implementation:
-
-#### Consequences:
-
-- **Pros**: guarantees a single instance throughout the application, offering a global access point for that instance; allows a more efficient management of resources, avoiding redundant object creation; 
-- **Cons**: it is more difficult to test code;
-
 #### State
+
 
 #### Problem in context:
 
+
+- Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, permitir ao jogo ter funções muito diferentes consoante o seu estado aliando isso a uma troca entre estados bastante rápida.
+- Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
+  
+
+![](images/stateDiagram.png)
+State Diagram
+
+- Consequências: Possibilita a implementação de um novo estado de uma forma bastante mais fácil, sem ter de alterar qualquer dos estados já existentes.
 
 #### The pattern:
 - Singleton restricts a class to have only one instance and offers global access to that instance.
@@ -109,6 +121,22 @@ Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilid
 - 
 - Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, o jogo tem funções muito diferentes se em vez de estar a correr o jogo em si, estiver no menu inicial ou nas instruções do jogo.
 - Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
+
+### ERROR-PRONE WARNINGS
+- No error-prone warnings.
+
+### CODE SMELLS
+
+- 
+
+### TEST COVERAGE
+
+
+
+
+### MUTATION TESTING (PITEST)
+
+
 
 
 ### SELF-EVALUATION
