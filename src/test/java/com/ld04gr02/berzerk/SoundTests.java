@@ -3,6 +3,7 @@ package com.ld04gr02.berzerk;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.controller.menu.*;
 import com.ld04gr02.berzerk.gui.GUI;
+
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
@@ -12,9 +13,7 @@ import com.ld04gr02.berzerk.state.MainMenuState;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
-import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.awt.FontFormatException;
@@ -138,7 +137,7 @@ public class SoundTests {
     }
 
     @Test
-    void clipTest() {
+    void clipTest() throws IOException {
         Sound sound = new Sound("/src/main/resources/sounds/zipclick.wav");
         FloatControl floatControlMock = Mockito.mock(FloatControl.class);
         when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(floatControlMock);
@@ -158,7 +157,7 @@ public class SoundTests {
     }
 
     @Test
-    void loopSoundTest() {
+    void loopSoundTest() throws IOException {
         Sound sound = new Sound("/src/main/resources/sounds/zipclick.wav");
         FloatControl floatControlMock = Mockito.mock(FloatControl.class);
         when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(floatControlMock);
@@ -179,7 +178,7 @@ public class SoundTests {
     }
 
     @Test
-    void invalidPath() {
+    void invalidPath() throws IOException {
         ByteArrayOutputStream errContent = new ByteArrayOutputStream();
         PrintStream originalErr = System.err;
         System.setErr(new PrintStream(errContent, true, StandardCharsets.UTF_8));
@@ -188,5 +187,4 @@ public class SoundTests {
         System.setErr(originalErr);
         assertTrue(errorMessage.startsWith("Error: opening"));
     }
-
 }

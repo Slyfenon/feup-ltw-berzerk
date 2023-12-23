@@ -40,10 +40,9 @@ public class Game {
     public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
         this.state = new MainMenuState(new MainMenu());
-        //state.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
     }
 
-    public Game(LanternaGUI gui) {
+    public Game(LanternaGUI gui) throws IOException {
         this.gui = gui;
         this.state = new MainMenuState(new MainMenu());
     }

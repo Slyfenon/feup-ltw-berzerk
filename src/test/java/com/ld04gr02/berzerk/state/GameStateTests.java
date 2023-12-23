@@ -55,7 +55,7 @@ public class GameStateTests extends Assertions {
     }
 
     @Test
-    public void gettersTest() {
+    public void gettersTest() throws IOException {
         assertEquals(new Position(10, 111), gameState.getController().getModel().getStickMan().getPosition());
         assertEquals(new Position(10, 111), gameState.getViewer().getModel().getStickMan().getPosition());
     }

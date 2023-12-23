@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameOverState extends State<GameOverMenu> {
-    public GameOverState(GameOverMenu model) {
+    public GameOverState(GameOverMenu model) throws IOException {
         super(model);
     }
 

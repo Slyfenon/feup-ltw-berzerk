@@ -21,7 +21,7 @@ public class MazeController extends GameController {
     private final RobotController robotController;
     private final EvilSmileController evilSmileController;
     private final BulletController bulletController;
-    public MazeController(Maze maze) {
+    public MazeController(Maze maze) throws IOException {
         super(maze);
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);

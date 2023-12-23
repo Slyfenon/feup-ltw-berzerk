@@ -2,7 +2,7 @@ package com.ld04gr02.berzerk.view.game.info;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.game.elements.StickMan;
+
 import com.ld04gr02.berzerk.view.game.Sprites;
 
 public class LevelInfoViewer implements InfoViewer{

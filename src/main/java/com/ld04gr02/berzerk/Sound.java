@@ -5,7 +5,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
-import java.net.URL;
+import java.io.IOException;
 
 public class Sound {
     private Clip clip;
@@ -18,10 +18,10 @@ public class Sound {
         this.clip = clip;
     }
 
-    public Sound(String path) {
+    public Sound(String path) throws IOException {
         this.clip = setFile(path);
     }
-    private Clip setFile(String path) {
+    private Clip setFile(String path) throws IOException {
         try {
             String rootPath = new File(System.getProperty("user.dir")).getPath();
             File musicFile = new File(rootPath + path);

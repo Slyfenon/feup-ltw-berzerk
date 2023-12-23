@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class PauseMenuState extends State<PauseMenu>{
-    public PauseMenuState(PauseMenu pauseMenu) {
+    public PauseMenuState(PauseMenu pauseMenu) throws IOException {
         super(pauseMenu);
     }
 

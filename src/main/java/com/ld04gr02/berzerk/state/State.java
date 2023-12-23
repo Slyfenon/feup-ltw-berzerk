@@ -14,7 +14,7 @@ public abstract class State<T> {
     protected Viewer<T> viewer;
     protected Controller<T> controller;
 
-    public State(T model) {
+    public State(T model) throws IOException {
         this.model = model;
         this.viewer = getViewer();
         this.controller = getController();
@@ -25,7 +25,7 @@ public abstract class State<T> {
     }
     public abstract Viewer<T> getViewer();
 
-    protected abstract Controller<T> getController();
+    protected abstract Controller<T> getController() throws IOException;
 
     public void setViewer(Viewer<T> viewer) {this.viewer = viewer;}
 

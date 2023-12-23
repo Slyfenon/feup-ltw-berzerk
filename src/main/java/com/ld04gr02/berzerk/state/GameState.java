@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.state;
 
 import com.ld04gr02.berzerk.Game;
-import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.gui.GUI;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameState extends State<Maze> {
-    public GameState(Maze maze) {
+    public GameState(Maze maze) throws IOException {
         super(maze);
     }
 
@@ -24,7 +23,7 @@ public class GameState extends State<Maze> {
     }
 
     @Override
-    protected Controller<Maze> getController() {
+    protected Controller<Maze> getController() throws IOException {
         return new MazeController(getModel());
     }
     @Override
