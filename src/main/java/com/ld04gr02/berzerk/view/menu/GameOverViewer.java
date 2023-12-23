@@ -28,12 +28,7 @@ public class GameOverViewer extends Viewer<GameOverMenu> {
 
         gui.drawText(MENU_SCREEN_WIDTH / 2 - 8, 23, "Name: " + getModel().getName().toString(), "#ffffff");
 
-<<<<<<< HEAD
-        pos.setX(MENU_SCREEN_WIDTH/2 - 20/2);
-        pos.setY(MENU_SCREEN_HEIGHT - 2);
-        gui.drawText(pos, "Press ESC for Main Menu", "#ffffff");
-=======
+
         gui.drawText(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT - 2, "Press ESC for Main Menu", "#ffffff");
->>>>>>> 698252fa20d84dc47c28ecc01c901076ce73eb0a
     }
 }

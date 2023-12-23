@@ -4,10 +4,7 @@ import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 
 public class StickManViewer implements ElementViewer<StickMan> {
-<<<<<<< HEAD
-=======
 
->>>>>>> 698252fa20d84dc47c28ecc01c901076ce73eb0a
     @Override
     public void display(StickMan stickMan, GUI gui) {
         String color = !stickMan.isCollided() ? "#00ff00" : "#0000ff";
