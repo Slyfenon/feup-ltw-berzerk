@@ -6,10 +6,7 @@ import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import com.ld04gr02.berzerk.state.MainMenuState;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.awt.*;
 import java.io.*;
@@ -26,6 +23,31 @@ public class GameOverControllerTests extends Assertions {
     private GameOverController gameOverController;
     private Game game;
     private String content;
+
+    @BeforeAll
+    static public void setUpAll() throws IOException {
+        String rootPath = new File(System.getProperty("user.dir")).getPath();
+        String mapLocation = rootPath + "/src/main/resources/Leaderboard.brd";
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(mapLocation, StandardCharsets.UTF_8));
+        StringBuilder stringBuilder = new StringBuilder();
+
+        String line = bufferedReader.readLine();
+
+        while (line != null) {
+            stringBuilder.append(line);
+            stringBuilder.append("\n");
+            line = bufferedReader.readLine();
+        }
+
+        String contentOriginal = stringBuilder.toString();
+
+        mapLocation = rootPath + "/src/main/resources/LeaderboardTest2.brd";
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
+        bufferedWriter.write(contentOriginal);
+        bufferedWriter.close();
+    }
 
     @BeforeEach
     public void setUp() throws IOException {
@@ -97,6 +119,31 @@ public class GameOverControllerTests extends Assertions {
 
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
         bufferedWriter.write(content);
+        bufferedWriter.close();
+    }
+
+    @AfterAll
+    static public void resetAll() throws IOException {
+        String rootPath = new File(System.getProperty("user.dir")).getPath();
+        String mapLocation = rootPath + "/src/main/resources/LeaderboardTest2.brd";
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(mapLocation, StandardCharsets.UTF_8));
+        StringBuilder stringBuilder = new StringBuilder();
+
+        String line = bufferedReader.readLine();
+
+        while (line != null) {
+            stringBuilder.append(line);
+            stringBuilder.append("\n");
+            line = bufferedReader.readLine();
+        }
+
+        String contentOriginal = stringBuilder.toString();
+
+        mapLocation = rootPath + "/src/main/resources/Leaderboard.brd";
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
+        bufferedWriter.write(contentOriginal);
         bufferedWriter.close();
     }
 }
