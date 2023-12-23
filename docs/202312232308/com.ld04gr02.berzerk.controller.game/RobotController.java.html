@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>RobotController.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.ld04gr02.berzerk.controller.game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.Game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.Soundboard;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.model.Direction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.model.Position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.model.game.elements.Bullet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.model.game.elements.Robot;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.model.game.maze.Maze;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.awt.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.URISyntaxException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.ld04gr02.berzerk.view.game.Sprites.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static java.lang.Math.abs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class RobotController extends GameController {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private long lastAction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private long lastShot;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public RobotController(Maze maze) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(maze);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.lastAction = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.lastShot = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Robot&#62; auxRobots = new ArrayList&#60;Robot&#62;(getModel().getRobots());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Robot robot : auxRobots) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_33'>1</a>
+<span>
+
+1. update : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (robot.isCollided()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                getModel().getRobots().remove(robot);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_35'>1</a>
+<span>
+
+1. update : removed call to com/ld04gr02/berzerk/model/game/elements/StickMan::increaseScore &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                getModel().getStickMan().increaseScore();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_36'>1</a>
+<span>
+
+1. update : removed call to com/ld04gr02/berzerk/Sound::playSound &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                Soundboard.getInstance().getShock().playSound(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_40'>3</a>
+<span>
+
+1. update : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. update : Replaced long subtraction with addition &rarr; KILLED<br/>
+
+3. update : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (time - lastAction &#62; 500) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Position stickManPosition = getModel().getStickMan().getPosition();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_42'>3</a>
+<span>
+
+1. update : Replaced long subtraction with addition &rarr; SURVIVED<br/>
+
+2. update : negated conditional &rarr; SURVIVED<br/>
+
+3. update : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            boolean canShoot = time - lastShot &#62; 1000;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            for(Robot robot: getModel().getRobots()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_45'/>
+45
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_45'>1</a>
+<span>
+
+1. update : Replaced double multiplication with division &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                int side =  (int) (Math.random() * 2);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                Position nextPosition = getNextPosition(robot, side, stickManPosition);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_47'>1</a>
+<span>
+
+1. update : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (closer(stickManPosition, robot.getPosition(), nextPosition)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_48'>1</a>
+<span>
+
+1. update : removed call to com/ld04gr02/berzerk/controller/game/RobotController::moveRobot &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    moveRobot(robot, nextPosition);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_49'>2</a>
+<span>
+
+1. update : negated conditional &rarr; SURVIVED<br/>
+
+2. update : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    if (canShoot &#38;&#38; hasView(robot)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        Position tempPosition = getNewBulletPosition(robot);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        getModel().getBullets().add(new Bullet(tempPosition.getX(), tempPosition.getY(), robot.getCurrentDirection()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_55'>1</a>
+<span>
+
+1. update : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (collideRobot(robot.getPosition())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_56'>1</a>
+<span>
+
+1. update : removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setCollided &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    robot.setCollided(true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.lastAction = time;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_60'>1</a>
+<span>
+
+1. update : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (canShoot) this.lastShot = time;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position getNextPosition(Robot robot, int side, Position stickManPosition) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        Position newPosition;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        int difference;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_67'>1</a>
+<span>
+
+1. getNextPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (side == 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_68'>3</a>
+<span>
+
+1. getNextPosition : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. getNextPosition : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. getNextPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            difference = stickManPosition.getX() - robot.getPosition().getX() &#62; 0 ? 1 : -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_69'>2</a>
+<span>
+
+1. getNextPosition : Replaced integer multiplication with division &rarr; KILLED<br/>
+
+2. getNextPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            newPosition = new Position(robot.getPosition().getX() + difference * 5, robot.getPosition().getY());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_70'>2</a>
+<span>
+
+1. getNextPosition : negated conditional &rarr; KILLED<br/>
+
+2. getNextPosition : removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (difference == 1) robot.setDirection(Direction.Right);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_71'>1</a>
+<span>
+
+1. getNextPosition : removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            else robot.setDirection(Direction.Left);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_74'/>
+74
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_74'>3</a>
+<span>
+
+1. getNextPosition : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. getNextPosition : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. getNextPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            difference = stickManPosition.getY() - robot.getPosition().getY() &#62; 0 ? 1 : -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_75'>2</a>
+<span>
+
+1. getNextPosition : Replaced integer multiplication with division &rarr; KILLED<br/>
+
+2. getNextPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            newPosition = new Position(robot.getPosition().getX(), robot.getPosition().getY() + difference * 5);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_76'>2</a>
+<span>
+
+1. getNextPosition : negated conditional &rarr; KILLED<br/>
+
+2. getNextPosition : removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (difference == 1) robot.setDirection(Direction.Down);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_77'>1</a>
+<span>
+
+1. getNextPosition : removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            else robot.setDirection(Direction.Up);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_79'>1</a>
+<span>
+
+1. getNextPosition : replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNextPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return newPosition;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void moveRobot(Robot robot, Position position) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_83'>1</a>
+<span>
+
+1. moveRobot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!getModel().collideWall(position, getRobotWidth(), getRobotHeight())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_84'>1</a>
+<span>
+
+1. moveRobot : removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            robot.setPosition(position);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_85'>1</a>
+<span>
+
+1. moveRobot : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (getModel().collideStickMan(position, getRobotWidth(), getRobotHeight())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_86'>1</a>
+<span>
+
+1. moveRobot : removed call to com/ld04gr02/berzerk/model/game/elements/StickMan::setCollided &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                getModel().getStickMan().setCollided(true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean closer(Position stickManPosition, Position currentPosition, Position newPosition) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_92'/>
+92
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_92'>9</a>
+<span>
+
+1. closer : changed conditional boundary &rarr; KILLED<br/>
+
+2. closer : changed conditional boundary &rarr; KILLED<br/>
+
+3. closer : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+4. closer : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+5. closer : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+6. closer : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+7. closer : negated conditional &rarr; KILLED<br/>
+
+8. closer : negated conditional &rarr; KILLED<br/>
+
+9. closer : replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::closer &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return (abs(stickManPosition.getX()-newPosition.getX()) &#60; abs(stickManPosition.getX()-currentPosition.getX()) || abs(stickManPosition.getY()-newPosition.getY()) &#60; abs(stickManPosition.getY()-currentPosition.getY()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private boolean collideRobot(Position positionRobot) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_96'>2</a>
+<span>
+
+1. collideRobot : negated conditional &rarr; KILLED<br/>
+
+2. collideRobot : replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::collideRobot &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return getModel().collideStickMan(positionRobot, getRobotWidth(), getRobotHeight())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_97'>1</a>
+<span>
+
+1. collideRobot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                || getModel().collideRobot(positionRobot, getRobotWidth(), getRobotHeight())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_98'>1</a>
+<span>
+
+1. collideRobot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                || getModel().collideEvilSmile(positionRobot, getRobotWidth(), getRobotHeight(), false)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_99'>1</a>
+<span>
+
+1. collideRobot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                || getModel().collideBullet(positionRobot, getRobotWidth(), getRobotHeight());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position getNewBulletPosition(Robot robot) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch(robot.getCurrentDirection()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case Up :</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_105'/>
+105
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_105'>5</a>
+<span>
+
+1. getNewBulletPosition : Replaced integer division with multiplication &rarr; KILLED<br/>
+
+2. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+3. getNewBulletPosition : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+4. getNewBulletPosition : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+5. getNewBulletPosition : replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new Position(robot.getPosition().getX() + getRobotWidth() / 2, robot.getPosition().getY() - getBulletLong() - 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case Down :</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_107'/>
+107
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_107'>5</a>
+<span>
+
+1. getNewBulletPosition : Replaced integer division with multiplication &rarr; KILLED<br/>
+
+2. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+3. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+4. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+5. getNewBulletPosition : replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new Position(robot.getPosition().getX() + getRobotWidth() / 2, robot.getPosition().getY() + getRobotHeight() + 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case Left :</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_109'/>
+109
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_109'>5</a>
+<span>
+
+1. getNewBulletPosition : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+2. getNewBulletPosition : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. getNewBulletPosition : Replaced integer division with multiplication &rarr; KILLED<br/>
+
+4. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+5. getNewBulletPosition : replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new Position(robot.getPosition().getX() - getBulletLong() - 1, robot.getPosition().getY() + getRobotHeight() / 2);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case Right :</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_111'/>
+111
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_111'>5</a>
+<span>
+
+1. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+3. getNewBulletPosition : Replaced integer division with multiplication &rarr; KILLED<br/>
+
+4. getNewBulletPosition : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+5. getNewBulletPosition : replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return new Position(robot.getPosition().getX() + getRobotWidth() + 1, robot.getPosition().getY() + getRobotHeight() / 2);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean hasView(Robot robot) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_118'/>
+118
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_118'>6</a>
+<span>
+
+1. hasView : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. hasView : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. hasView : negated conditional &rarr; KILLED<br/>
+
+4. hasView : negated conditional &rarr; KILLED<br/>
+
+5. hasView : negated conditional &rarr; KILLED<br/>
+
+6. hasView : replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::hasView &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (robot.getCurrentDirection() == Direction.Down || robot.getCurrentDirection() == Direction.Up) return abs(robot.getPosition().getX() - getModel().getStickMan().getPosition().getX()) &#60; getRobotWidth();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_119'/>
+119
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_119'>4</a>
+<span>
+
+1. hasView : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. hasView : replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::hasView &rarr; SURVIVED<br/>
+
+3. hasView : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+4. hasView : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        else return abs(robot.getPosition().getY() - getModel().getStickMan().getPosition().getY()) &#60; getStickManHeight();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@719bb60d_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotCollidedTest()]</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/StickMan::increaseScore &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_36'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>none</span></span> removed call to com/ld04gr02/berzerk/Sound::playSound &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_40'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()]</span></span> Replaced long subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:shootTest()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>update<br/><b>Killed by : </b>none</span></span> Replaced long subtraction with addition &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>update<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_45'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>none</span></span> Replaced double multiplication with division &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()]</span></span> removed call to com/ld04gr02/berzerk/controller/game/RobotController::moveRobot &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:shootTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>update<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:collideStickManTest()]</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setCollided &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:shootTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_68'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> Replaced integer multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_71'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>none</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_74'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> Replaced integer multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setDirection &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNextPosition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()]</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/Robot::setPosition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_85'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveRobot<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_86'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveRobot<br/><b>Killed by : </b>none</span></span> removed call to com/ld04gr02/berzerk/model/game/elements/StickMan::setCollided &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_92'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>closer<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()]</span></span> replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::closer &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collideRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>collideRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::collideRobot &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collideRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collideRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collideRobot<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_105'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_107'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_111'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getNewBulletPosition<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/controller/game/RobotController::getNewBulletPosition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_118'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::hasView &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@719bb60d_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@719bb60d_119'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hasView<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/ld04gr02/berzerk/controller/game/RobotController::hasView &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:collideStickManTest()] (17 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:gameOverSounds()] (27 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:gameSounds()] (22 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()] (16 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotCollidedTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()] (15 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()] (16 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest2()] (11 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:clipTest()] (20 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:newBulletTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:shootTest()] (12 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

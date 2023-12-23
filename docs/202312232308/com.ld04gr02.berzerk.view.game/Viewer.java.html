@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Viewer.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.ld04gr02.berzerk.view.game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class Viewer&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Viewer (T model) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public T getModel() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_15'>1</a>
+<span>
+
+1. getModel : replaced return value with null for com/ld04gr02/berzerk/view/game/Viewer::getModel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void display(GUI gui) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_19'>1</a>
+<span>
+
+1. display : removed call to com/ld04gr02/berzerk/gui/GUI::clear &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        gui.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_20'>1</a>
+<span>
+
+1. display : removed call to com/ld04gr02/berzerk/view/game/Viewer::renderElements &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        renderElements(gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_21'>1</a>
+<span>
+
+1. display : removed call to com/ld04gr02/berzerk/gui/GUI::refresh &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        gui.refresh();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected abstract void renderElements(GUI gui);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7b5c9412_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7b5c9412_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModel<br/><b>Killed by : </b>com.ld04gr02.berzerk.state.PauseMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.PauseMenuStateTests]/[method:gettersTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/view/game/Viewer::getModel &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7b5c9412_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>display<br/><b>Killed by : </b>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:LeaderboardViewerTest()]</span></span> removed call to com/ld04gr02/berzerk/gui/GUI::clear &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7b5c9412_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>display<br/><b>Killed by : </b>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:GameOverMenuViewerTest()]</span></span> removed call to com/ld04gr02/berzerk/view/game/Viewer::renderElements &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7b5c9412_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7b5c9412_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>display<br/><b>Killed by : </b>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:LeaderboardViewerTest()]</span></span> removed call to com/ld04gr02/berzerk/gui/GUI::refresh &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:MainMenuViewerTest()] (7 ms)</li><li>com.ld04gr02.berzerk.state.GameOverStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameOverStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.state.MainMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.MainMenuStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.state.PauseMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.PauseMenuStateTests]/[method:gettersTest()] (7 ms)</li><li>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:InstructionsMenuViewerTest()] (9 ms)</li><li>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:LeaderboardViewerTest()] (11 ms)</li><li>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:GameOverMenuViewerTest()] (8 ms)</li><li>com.ld04gr02.berzerk.state.LeaderboardStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.LeaderboardStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.state.GameStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameStateTests]/[method:gettersTest()] (13 ms)</li><li>com.ld04gr02.berzerk.view.GameViewerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.GameViewerTests]/[method:displayTest()] (13 ms)</li><li>com.ld04gr02.berzerk.view.MenusViewersTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.view.MenusViewersTests]/[method:PauseMenuViewerTest()] (7 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:clipTest()] (20 ms)</li><li>com.ld04gr02.berzerk.state.InstructionsMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.InstructionsMenuStateTests]/[method:gettersTest()] (9 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

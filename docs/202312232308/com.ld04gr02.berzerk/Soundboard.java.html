@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Soundboard.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.ld04gr02.berzerk;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Soundboard {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Sound shock;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Sound bullet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Sound click;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Sound menuSong;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Sound gameOverSound;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Sound playSong;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static Soundboard soundboard;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private Soundboard() throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        shock = new Sound(&#34;/src/main/resources/sounds/shock.wav&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        bullet = new Sound(&#34;/src/main/resources/sounds/bullet.wav&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        click = new Sound(&#34;/src/main/resources/sounds/zipclick.wav&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        menuSong = new Sound(&#34;/src/main/resources/sounds/menu.wav&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        gameOverSound = new Sound(&#34;/src/main/resources/sounds/GameOver.wav&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        playSong = new Sound(&#34;/src/main/resources/sounds/playsong.wav&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Soundboard getInstance() throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_25'>1</a>
+<span>
+
+1. getInstance : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (soundboard == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            soundboard= new Soundboard();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_28'>1</a>
+<span>
+
+1. getInstance : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getInstance &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return soundboard;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Sound getShock() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_32'>1</a>
+<span>
+
+1. getShock : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getShock &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return shock;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Sound getBullet() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_36'>1</a>
+<span>
+
+1. getBullet : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getBullet &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return bullet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Sound getClick() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_40'>1</a>
+<span>
+
+1. getClick : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getClick &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return click;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Sound getMenuSong() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_44'>1</a>
+<span>
+
+1. getMenuSong : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getMenuSong &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return menuSong;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Sound getGameOverSound() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_48'>1</a>
+<span>
+
+1. getGameOverSound : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getGameOverSound &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return gameOverSound;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Sound getPlaySong() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_52'>1</a>
+<span>
+
+1. getPlaySong : replaced return value with null for com/ld04gr02/berzerk/Soundboard::getPlaySong &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return playSong;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_25'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInstance<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInstance<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests]/[method:leaveMenuTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getInstance &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShock<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManCollidedTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getShock &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBullet<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManSpaceTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getBullet &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getClick<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests]/[method:leaveMenuTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getClick &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMenuSong<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests]/[method:leaveMenuTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getMenuSong &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGameOverSound<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:gameOverTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getGameOverSound &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6dbeaef8_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6dbeaef8_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPlaySong<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:quitPauseMenuTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/Soundboard::getPlaySong &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:shootingTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:leaderboardMainMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.state.MainMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.MainMenuStateTests]/[method:initScreenTest()] (8 ms)</li><li>com.ld04gr02.berzerk.state.GameStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameStateTests]/[method:updateTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:restartPauseMenuTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:nextLevelTest()] (15 ms)</li><li>com.ld04gr02.berzerk.state.MainMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.MainMenuStateTests]/[method:updateTest()] (7 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()] (12 ms)</li><li>com.ld04gr02.berzerk.state.GameStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameStateTests]/[method:initScreenTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:instructionsMainMenuTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest2()] (11 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:clipTest()] (20 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:shootTest()] (12 ms)</li><li>com.ld04gr02.berzerk.state.MainMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.MainMenuStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:updatePauseMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.menu.GameOverControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.GameOverControllerTests]/[method:leaveTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:updateMainMenuTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotCollidedTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests]/[method:leaveMenuTest()] (7 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:quitMainMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:quitPauseMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.state.GameStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameStateTests]/[method:gettersTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.menu.LeaderboardControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.LeaderboardControllerTests]/[method:leaveMenuTest()] (7 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManCollidedTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.menu.GameOverControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.GameOverControllerTests]/[method:charTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:playMainMenuTest()] (17 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManSpaceTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:gameOverTest()] (17 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

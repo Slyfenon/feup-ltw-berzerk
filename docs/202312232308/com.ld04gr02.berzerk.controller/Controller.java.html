@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Controller.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.ld04gr02.berzerk.controller;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.Game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ld04gr02.berzerk.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.awt.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.URISyntaxException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class Controller&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Controller(T model) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public T getModel() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_16'>1</a>
+<span>
+
+1. getModel : replaced return value with null for com/ld04gr02/berzerk/controller/Controller::getModel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract void update(Game game, GUI.KEY key, long time) throws IOException, URISyntaxException, FontFormatException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f3a8166_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f3a8166_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f3a8166_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModel<br/><b>Killed by : </b>com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests]/[method:updateTest()]</span></span> replaced return value with null for com/ld04gr02/berzerk/controller/Controller::getModel &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManDownTest()] (9 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:gameOverSounds()] (27 ms)</li><li>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:gatesTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:restartPauseMenuTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManLeftTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManUpTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.BulletControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.BulletControllerTests]/[method:outOfScreenTest()] (17 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:stopTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:moveEvilSmileTest()] (17 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:instructionsMainMenuTest()] (10 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:clipTest()] (20 ms)</li><li>com.ld04gr02.berzerk.state.InstructionsMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.InstructionsMenuStateTests]/[method:gettersTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:pauseTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:collideGateTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:shootTest()] (12 ms)</li><li>com.ld04gr02.berzerk.state.MainMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.MainMenuStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:timePauseTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:collideEvilSmileTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.game.BulletControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.BulletControllerTests]/[method:collideStickManTest()] (34 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:resumePauseMenuTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:getNextPositionTest()] (16 ms)</li><li>com.ld04gr02.berzerk.controller.menu.GameOverControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.GameOverControllerTests]/[method:leaveTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.menu.LeaderboardControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.LeaderboardControllerTests]/[method:updateTest()] (7 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotCollidedTest()] (12 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:menuSounds()] (46 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:quitPauseMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.state.LeaderboardStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.LeaderboardStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManRightTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:collideStickManTest()] (17 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:closerTest()] (19 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManSpaceTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:notMoveEvilSmileTest()] (15 ms)</li><li>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:gameOverTest()] (17 ms)</li><li>com.ld04gr02.berzerk.state.GameOverStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameOverStateTests]/[method:gettersTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:leaderboardMainMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:shootingTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:collideStickManTest()] (17 ms)</li><li>com.ld04gr02.berzerk.state.PauseMenuStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.PauseMenuStateTests]/[method:gettersTest()] (7 ms)</li><li>com.ld04gr02.berzerk.SoundTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.SoundTests]/[method:gameSounds()] (22 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:moveMethodTest()] (16 ms)</li><li>com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.InstructionsMenuControllerTests]/[method:updateTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.menu.GameOverControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.GameOverControllerTests]/[method:enterTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:nextLevelTest()] (15 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:moveRobotTest()] (12 ms)</li><li>com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.EvilSmileControllerTests]/[method:moveEvilSmileCollidedTest()] (18 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:collideBulletTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:sideTest2()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.BulletControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.BulletControllerTests]/[method:moveBulletTest()] (19 ms)</li><li>com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.PauseMenuControllerTests]/[method:updatePauseMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.controller.game.MazeControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.MazeControllerTests]/[method:updateTest()] (14 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:updateMainMenuTest()] (8 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:quitMainMenuTest()] (9 ms)</li><li>com.ld04gr02.berzerk.state.GameStateTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.state.GameStateTests]/[method:gettersTest()] (13 ms)</li><li>com.ld04gr02.berzerk.controller.menu.GameOverControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.GameOverControllerTests]/[method:charTest()] (10 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:hasViewTest()] (15 ms)</li><li>com.ld04gr02.berzerk.controller.game.StickManControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.StickManControllerTests]/[method:moveStickManCollidedTest()] (11 ms)</li><li>com.ld04gr02.berzerk.controller.game.BulletControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.BulletControllerTests]/[method:moveBulletsTest()] (22 ms)</li><li>com.ld04gr02.berzerk.controller.game.RobotControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.game.RobotControllerTests]/[method:closerTest()] (16 ms)</li><li>com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests.[engine:junit-jupiter]/[class:com.ld04gr02.berzerk.controller.menu.MainMenuControllerTests]/[method:playMainMenuTest()] (17 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

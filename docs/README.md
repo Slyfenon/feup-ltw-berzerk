@@ -51,7 +51,6 @@ Leaderboard
 <img width="400" alt="mvc" src=images/LeaderBoard.png>
 </div>
 
-
 GamePlay
 
 <div>
@@ -117,7 +116,7 @@ Game Over
 - MVC separates an application into three main components: Model (only represents the data), View (displays the model data and sends user actions to the controller), and Controller (provides model data to view and interprets user actions).
 
 <div>
-<img width="250" alt="mvc" src=images/mvc.png>
+<img width="400" alt="mvc" src=images/mvc.png>
 </div>
 
 #### Implementation:
@@ -130,15 +129,28 @@ Game Over
 #### Consequences:
 - Easier maintenance, and updates. Enhances code reusability and scalability.
 
-Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilidades separadas e para que o desenvolvimento futuro de mais features se torne mais simplificado (maior facilidade na manutenção e reutilização de código, flexibilidade e extensibilidade, desenvolvimento paralelo e realização de testes).
+#### State
 
+#### Problem in context:
 
-#### Implementation:
+- We want game class to exhibit different behaviors based on the game's state.
+
+#### The pattern
+- State pattern lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
+- Each state class encapsulates specific behaviors and functionalities that correspond to the respective game state.
+
+#### Implementation
+Class Diagram:
+![](images/state.png)
+
+State Diagram:
+<div>
+<img width="400" alt="mvc" src=images/stateDiagram.png>
+</div>
 
 #### Consequences:
-
-- **Pros**: guarantees a single instance throughout the application, offering a global access point for that instance; allows a more efficient management of resources, avoiding redundant object creation;
-- **Cons**: it is more difficult to test code;
+- Organize the code of the various states into individual classes;
+- Introduce new states in a much easier way, without having to change existing state classes or the context;
 
 ### Singleton
 
@@ -149,56 +161,69 @@ Decidimos usar este padrão de arquitetura de forma a mantermos as responsabilid
 #### The pattern:
 - Singleton restricts a class to have only one instance and offers global access to that instance.
 
-#### State
+#### Implementation:
+- The Soundboard class declares the static method getInstance that returns the same instance of its own class (calling the getInstance method should be the only way of getting the Singleton object)
 
-
-#### Problem in context:
-
-- Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, permitir ao jogo ter funções muito diferentes consoante o seu estado aliando isso a uma troca entre estados bastante rápida.
-- Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
-
-#### The pattern
-- State pattern lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
-
-#### Implementation
-State Diagram:
 <div>
-<img width="400" alt="mvc" src=images/stateDiagram.png>
+<img width="400" alt="mvc" src=images/singleton.png>
 </div>
 
-
-
-- Consequências: Possibilita a implementação de um novo estado de uma forma bastante mais fácil, sem ter de alterar qualquer dos estados já existentes.
-
-#### The pattern:
-- Singleton restricts a class to have only one instance and offers global access to that instance.
-
-#### Implementation:
-
 #### Consequences:
-
 - **Pros**: guarantees a single instance throughout the application, offering a global access point for that instance; allows a more efficient management of resources, avoiding redundant object creation;
 - **Cons**: it is more difficult to test code;
--
-- Problema: Pretendemos que a classe Game se comporte de maneira diferente consoante o estado do jogo, isto é, o jogo tem funções muito diferentes se em vez de estar a correr o jogo em si, estiver no menu inicial ou nas instruções do jogo.
-- Pattern: Decidimos usar o state pattern para resolver este problema visto que assim, através de um teste, conseguimos saber de que forma é que o jogo se deve comportar e poderemos encaminhá-lo para um estado que terá todas as funções necessárias ao seu bom funcionamento nesse momento.
+
+### DEVELOPMENT HIGHLIGHTS
+
+#### Fully remade Sound system
+
+Problem:
+The game was experiencing memory-related crashes after running for an extended period. The issue was identified to be related to the sound system ('javax.sound.sampled.LineUnavailableException' error).
+
+Solution:
+To limit the number of sound instances, we decided to redesign the sound system. We created a new class called Soundboard, which holds instances of all the sounds used in the game (e.g., bullet sound, collision sound, background music). The Soundboard class was implemented using the Singleton design pattern. This way, only one instance of Soundboard is created, and sounds are played through this single instance, eliminating memory issues associated with multiple sound instances.
+
+To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/3e2ba1a619297499e68ccf431295e38a07119770).
+
+#### The game is two times faster
+
+Problem:
+To create the illusion of the StickMan character walking, we were drawing the game map twice for each movement, resulting in a loss of performance as the game expanded.
+
+Solution:
+We adjusted the drawing functions so that only one drawing per cycle was needed, maintaining the illusion of StickMan movement.
+
+To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/33f164c79952fbddc0ae0603ece01d824737375d).
+
+#### Fixed bullet collision bug
+
+Problem: 
+For a game of this type to make sense, accurate collision detection is crucial. Previous collision implementations had issues.
+
+Solution:
+We addressed the last remaining collision issues, specifically focusing on bullet collisions with map walls. This ensures that all collisions in the game are tested and handled correctly, contributing to a more meaningful gameplay experience.
+
+To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/9297d06aadb9deb9277e44078c29971e501cace8).
+
+### Implemeted levels
+
+We implemented levels in the game.
+To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/ef94cb14838dc7b374cf2a88fa85e8305f63435b).
+
 
 ### ERROR-PRONE WARNINGS
 - No error-prone warnings.
 
 ### CODE SMELLS
 
--
+- Sprites class is a bit large due to the inclusion of multiple static arrays along with the necessity of implementing public static accessor methods for these arrays, in accordance with error-prone recommendations, resulting in increased code volume and complexity.
 
 ### TEST COVERAGE
-
-
-
+![](images/coverage.png)
 
 ### MUTATION TESTING (PITEST)
+![](images/pitest.png)
 
-
-
+To consult the report, click [here](202312232308/index.html).
 
 ### SELF-EVALUATION
 
