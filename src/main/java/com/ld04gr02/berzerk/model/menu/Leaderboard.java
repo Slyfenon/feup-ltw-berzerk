@@ -5,14 +5,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-public class Leaderboard {
+public class Leaderboard extends Menu{
     private ArrayList<String> names;
     private ArrayList<Integer> scores;
 
-    public Leaderboard() throws IOException {
+    public Leaderboard(String filePath) throws IOException {
         names = new ArrayList<>();
         scores = new ArrayList<>();
-        readFromFile("/src/main/resources/Leaderboard.brd");
+        readFromFile(filePath);
     }
 
     public ArrayList<String> getNames() {
@@ -46,8 +46,7 @@ public class Leaderboard {
             bufferedReader.close();
         }
         catch (IOException e) {
-            System.err.println("Error starting the game:  " + e.getMessage());
-            throw new IOException("Error reading the file", e);
+            System.err.println("Error: " + e.getMessage());
         }
     }
 
@@ -73,17 +72,15 @@ public class Leaderboard {
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(mapLocation, StandardCharsets.UTF_8));
 
-            // Writing names and scores to the file
             for (int i = 0; i < names.size(); i++) {
                 String line = names.get(i) + "," + scores.get(i);
                 bufferedWriter.write(line);
-                bufferedWriter.newLine(); // Add a new line for the next entry
+                bufferedWriter.newLine();
             }
 
-            bufferedWriter.close(); // Close the BufferedWriter when done
+            bufferedWriter.close();
         } catch (IOException e) {
-            System.err.println("Error starting the game:  " + e.getMessage());
-            throw new IOException("Error reading the file", e);
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }

@@ -27,7 +27,13 @@ public class LanternaGUI implements GUI {
         this.screen = screen;
     }
 
-    public LanternaGUI() {}
+    public Screen getScreen() {
+        return screen;
+    }
+
+    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
+        createMenuScreen(width, height);
+    }
 
     @Override
     public void createGameScreen(int width, int height) throws URISyntaxException, IOException, FontFormatException {
@@ -40,18 +46,6 @@ public class LanternaGUI implements GUI {
     public void createMenuScreen(int width, int height) throws IOException {
         Terminal terminal = createTerminal(width, height, null);
         this.screen = createScreen(terminal);
-    }
-
-    public int getRows() {
-        return screen.getTerminalSize().getRows();
-    }
-
-    public int getColumns() {
-        return screen.getTerminalSize().getColumns();
-    }
-
-    public Screen getScreen() {
-        return screen;
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -191,21 +185,21 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawText(Position position, String text, String color) {
+    public void drawText(int x, int y, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
+        tg.putString(x, y, text);
     }
 
     @Override
-    public void drawBlinkText(Position position, String text, String color) {
+    public void drawBlinkText(int x, int y, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text, SGR.BLINK);
+        tg.putString(x, y, text, SGR.BLINK);
     }
 
     @Override
-    public void drawSprite(Position position, String[] sprite, char symbol, String color) {
+    public void drawSprite(int posX, int posY, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));
 
@@ -213,11 +207,9 @@ public class LanternaGUI implements GUI {
         for (String s : sprite){
             for (int x = 0; x < s.length(); x++){
                 if (s.charAt(x) == symbol)
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
+                    graphics.fillRectangle(new TerminalPosition(posX + x, posY + y),  new TerminalSize(1, 1), ' ');
             }
-            y++;
+            y += 1;
         }
     }
 }
-
-

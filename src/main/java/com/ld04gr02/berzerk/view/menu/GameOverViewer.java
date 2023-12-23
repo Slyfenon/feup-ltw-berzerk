@@ -1,9 +1,6 @@
 package com.ld04gr02.berzerk.view.menu;
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.view.game.Sprites;
@@ -20,22 +17,23 @@ public class GameOverViewer extends Viewer<GameOverMenu> {
 
     @Override
     protected void renderElements(GUI gui) {
-        Position pos = new Position(MENU_SCREEN_WIDTH / 2 - getGameOverLength() / 2, 5);
+        int x = MENU_SCREEN_WIDTH / 2 - getGameOverLength() / 2;
+        int y = 5;
         for (String line : Sprites.getGameOver()){
-            gui.drawText(pos, line, "#ff0000");
-            pos.setY(pos.getY() + 1);
+            gui.drawText(x, y, line, "#ff0000");
+            y += 1;
         }
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 5);
-        pos.setY(19);
-        gui.drawBlinkText(pos, "Score:" + String.format("%04d", StickMan.getScore()), "#ffffff");
+        gui.drawBlinkText(MENU_SCREEN_WIDTH / 2 - 5, 19, "Score:" + String.format("%04d", StickMan.getScore()), "#ffffff");
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 8);
-        pos.setY(23);
-        gui.drawText(pos, "Name: " + getModel().getName().toString(), "#ffffff");
+        gui.drawText(MENU_SCREEN_WIDTH / 2 - 8, 23, "Name: " + getModel().getName().toString(), "#ffffff");
 
+<<<<<<< HEAD
         pos.setX(MENU_SCREEN_WIDTH/2 - 20/2);
         pos.setY(MENU_SCREEN_HEIGHT - 2);
         gui.drawText(pos, "Press ESC for Main Menu", "#ffffff");
+=======
+        gui.drawText(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT - 2, "Press ESC for Main Menu", "#ffffff");
+>>>>>>> 698252fa20d84dc47c28ecc01c901076ce73eb0a
     }
 }

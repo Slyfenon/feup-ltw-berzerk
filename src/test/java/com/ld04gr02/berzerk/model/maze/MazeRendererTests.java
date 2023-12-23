@@ -33,6 +33,7 @@ public class MazeRendererTests extends Assertions {
         assertEquals(81, maze.getWalls().size());
         assertEquals(3, maze.getRobots().size());
         assertEquals(new Position(7,2), maze.getRobots().get(0).getPosition());
+        assertEquals(new Position(-20,119), maze.getEvilSmile().getPosition());
     }
 
     @Test

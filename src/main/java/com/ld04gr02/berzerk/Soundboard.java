@@ -1,6 +1,6 @@
 package com.ld04gr02.berzerk;
 
-import javax.sound.sampled.Clip;
+import java.io.IOException;
 
 public class Soundboard {
     private final Sound shock;
@@ -12,7 +12,7 @@ public class Soundboard {
 
     private static Soundboard soundboard;
 
-    private Soundboard(){
+    private Soundboard() throws IOException {
         shock = new Sound("/src/main/resources/sounds/shock.wav");
         bullet = new Sound("/src/main/resources/sounds/bullet.wav");
         click = new Sound("/src/main/resources/sounds/zipclick.wav");
@@ -21,7 +21,7 @@ public class Soundboard {
         playSong = new Sound("/src/main/resources/sounds/playsong.wav");
     }
 
-    public static Soundboard getInstance() {
+    public static Soundboard getInstance() throws IOException {
         if (soundboard == null) {
             soundboard= new Soundboard();
         }

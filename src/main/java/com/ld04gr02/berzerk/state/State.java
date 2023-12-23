@@ -11,10 +11,10 @@ import java.net.URISyntaxException;
 
 public abstract class State<T> {
     protected final T model;
-    protected final Viewer<T> viewer;
-    protected final Controller<T> controller;
+    protected Viewer<T> viewer;
+    protected Controller<T> controller;
 
-    public State(T model) {
+    public State(T model) throws IOException {
         this.model = model;
         this.viewer = getViewer();
         this.controller = getController();
@@ -25,7 +25,11 @@ public abstract class State<T> {
     }
     public abstract Viewer<T> getViewer();
 
-    protected abstract Controller<T> getController();
+    protected abstract Controller<T> getController() throws IOException;
+
+    public void setViewer(Viewer<T> viewer) {this.viewer = viewer;}
+
+    public void setController(Controller<T> controller) { this.controller = controller;}
 
     public abstract void update(Game game, GUI gui, long time) throws IOException, URISyntaxException, FontFormatException;
 
