@@ -43,7 +43,7 @@ public class Game {
         //state.initScreen(gui, MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
     }
 
-    public Game(LanternaGUI gui) {
+    public Game(LanternaGUI gui) throws IOException {
         this.gui = gui;
         this.state = new MainMenuState(new MainMenu());
     }

@@ -52,7 +52,7 @@ public class MainMenuStateTests extends Assertions {
     }
 
     @Test
-    public void gettersTest() {
+    public void gettersTest() throws IOException {
         assertEquals(4, mainMenuState.getController().getModel().getOptions().size());
         assertEquals(4 , mainMenuState.getViewer().getModel().getOptions().size());
     }

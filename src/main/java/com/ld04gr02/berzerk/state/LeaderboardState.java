@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class LeaderboardState extends State<Leaderboard> {
-    public LeaderboardState(Leaderboard model) {
+    public LeaderboardState(Leaderboard model) throws IOException {
         super(model);
     }
 

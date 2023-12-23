@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameState extends State<Maze> {
-    public GameState(Maze maze) {
+    public GameState(Maze maze) throws IOException {
         super(maze);
     }
 
@@ -24,7 +24,7 @@ public class GameState extends State<Maze> {
     }
 
     @Override
-    protected Controller<Maze> getController() {
+    protected Controller<Maze> getController() throws IOException {
         return new MazeController(getModel());
     }
     @Override

@@ -3,6 +3,7 @@ package com.ld04gr02.berzerk;
 import com.ld04gr02.berzerk.controller.game.MazeController;
 import com.ld04gr02.berzerk.controller.menu.MainMenuController;
 import com.ld04gr02.berzerk.gui.GUI;
+import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.game.maze.Maze;
 import com.ld04gr02.berzerk.model.game.maze.MazeRenderer;
@@ -19,8 +20,7 @@ import java.awt.FontFormatException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class SoundTests {
@@ -77,7 +77,7 @@ public class SoundTests {
     }
 
     @Test
-    void clipTest() {
+    void clipTest() throws IOException {
         Sound sound = new Sound("/src/main/resources/sounds/zipclick.wav");
         FloatControl floatControlMock = Mockito.mock(FloatControl.class);
         when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(floatControlMock);
@@ -96,5 +96,11 @@ public class SoundTests {
         Mockito.verify(clip, Mockito.times(2)).start();
         Mockito.verify(clip, Mockito.times(1)).loop(Clip.LOOP_CONTINUOUSLY);
         Mockito.verify(clip, Mockito.times(2)).stop();
+    }
+
+    @Test
+    public void exceptionReadFromSoundTest() {
+        Exception exception = assertThrows(IOException.class, () -> sound = new Sound("/src/main/resources/sounds/nofile.wav"));
+        assertEquals("Error reading the file", exception.getMessage());
     }
 }

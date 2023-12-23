@@ -24,7 +24,7 @@ import static com.ld04gr02.berzerk.Game.*;
 public class MainMenuController extends Controller<MainMenu> {
 
 
-    public MainMenuController(MainMenu model) {
+    public MainMenuController(MainMenu model) throws IOException {
         super(model);
         Soundboard.getInstance().getMenuSong().loopSound(-15.0f);
     }

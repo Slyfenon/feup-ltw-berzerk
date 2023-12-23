@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class MainMenuState extends State<MainMenu> {
-    public MainMenuState(MainMenu mainMenu) {
+    public MainMenuState(MainMenu mainMenu) throws IOException {
         super(mainMenu);
     }
 
@@ -24,7 +24,7 @@ public class MainMenuState extends State<MainMenu> {
     }
 
     @Override
-    protected Controller<MainMenu> getController() {
+    protected Controller<MainMenu> getController() throws IOException {
         return new MainMenuController(getModel());
     }
 

@@ -3,7 +3,6 @@ package com.ld04gr02.berzerk.model.menu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
 public class LeaderboardTests extends Assertions {
