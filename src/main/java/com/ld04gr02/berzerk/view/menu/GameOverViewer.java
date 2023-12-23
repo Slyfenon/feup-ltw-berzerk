@@ -1,9 +1,6 @@
 package com.ld04gr02.berzerk.view.menu;
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.view.game.Sprites;

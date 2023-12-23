@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.view.menu;
 
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import com.ld04gr02.berzerk.view.game.Sprites;
 import com.ld04gr02.berzerk.view.game.Viewer;

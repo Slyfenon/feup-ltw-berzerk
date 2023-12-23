@@ -1,12 +1,9 @@
 package com.ld04gr02.berzerk.view.game.info;
 
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.view.game.Sprites;
 
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class ScoreInfoViewer implements InfoViewer {
 

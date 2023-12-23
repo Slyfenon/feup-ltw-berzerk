@@ -4,7 +4,6 @@ import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.controller.menu.LeaderboardController;
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.menu.GameOverMenu;
 import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import com.ld04gr02.berzerk.view.game.Viewer;
 import com.ld04gr02.berzerk.view.menu.LeaderboardViewer;

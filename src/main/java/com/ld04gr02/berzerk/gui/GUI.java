@@ -1,10 +1,6 @@
 package com.ld04gr02.berzerk.gui;
 
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.model.menu.GameOverMenu;
-import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
-import com.ld04gr02.berzerk.model.menu.MainMenu;
-import com.ld04gr02.berzerk.model.menu.PauseMenu;
 
 import java.awt.*;
 import java.io.IOException;

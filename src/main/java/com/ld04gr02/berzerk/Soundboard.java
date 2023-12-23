@@ -1,6 +1,5 @@
 package com.ld04gr02.berzerk;
 
-import javax.sound.sampled.Clip;
 import java.io.IOException;
 
 public class Soundboard {

@@ -6,7 +6,6 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 public class Sound {
     private Clip clip;

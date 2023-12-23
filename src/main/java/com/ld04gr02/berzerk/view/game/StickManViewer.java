@@ -1,12 +1,10 @@
 package com.ld04gr02.berzerk.view.game;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 
 public class StickManViewer implements ElementViewer<StickMan> {
 
-    TextGraphics textGraphics;
     @Override
     public void display(StickMan stickMan, GUI gui) {
         String color = !stickMan.isCollided() ? "#00ff00" : "#0000ff";
