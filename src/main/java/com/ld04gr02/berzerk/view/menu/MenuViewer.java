@@ -1,8 +1,6 @@
 package com.ld04gr02.berzerk.view.menu;
 
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.model.menu.MainMenu;
 import com.ld04gr02.berzerk.model.menu.Menu;
 import com.ld04gr02.berzerk.view.game.Sprites;
 import com.ld04gr02.berzerk.view.game.Viewer;
@@ -18,24 +16,25 @@ public class MenuViewer<T extends Menu> extends Viewer<T> {
 
     @Override
     protected void renderElements(GUI gui) {
-        Position pos = new Position(MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2, 5);
+        int x = MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2;
+        int y = 5;
 
         for (String line : Sprites.getLogo()){
-            gui.drawText(pos, line,"#00ff00");
-            pos.setY(pos.getY() + 1);
+            gui.drawText(x, y, line,"#00ff00");
+            y += 1;
         }
 
-        pos.setY(15);
+        y = 15;
         for(int i = 0; i < getModel().getOptions().size() ; i++) {
             if(getModel().isSelected(i)) {
-                pos.setX(MENU_SCREEN_WIDTH / 2 - (getModel().getString(i).length() + 4) / 2);
-                gui.drawBlinkText(pos, "> " + getModel().getString(i) + " <", "#00ff00");
+                x = MENU_SCREEN_WIDTH / 2 - (getModel().getString(i).length() + 4) / 2;
+                gui.drawBlinkText(x, y, "> " + getModel().getString(i) + " <", "#00ff00");
             }
             else {
-                pos.setX(MENU_SCREEN_WIDTH / 2 - getModel().getString(i).length() / 2);
-                gui.drawText(pos, getModel().getString(i), "#00ff00");
+                x = MENU_SCREEN_WIDTH / 2 - getModel().getString(i).length() / 2;
+                gui.drawText(x, y, getModel().getString(i), "#00ff00");
             }
-            pos.setY(pos.getY() + 2);
+            y += 2;
         }
     }
 }

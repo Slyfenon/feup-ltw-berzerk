@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.view.menu;
 
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.menu.Leaderboard;
 import com.ld04gr02.berzerk.view.game.Sprites;
 import com.ld04gr02.berzerk.view.game.Viewer;
@@ -18,28 +17,23 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
 
     @Override
     protected void renderElements(GUI gui) {
-        Position pos = new Position(MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2, 5);
+        int x = MENU_SCREEN_WIDTH / 2 - getLogoLength() / 2;
+        int y = 5;
 
         for (String line : Sprites.getLogo()){
-            gui.drawText(pos, line,"#00ff00");
-            pos.setY(pos.getY() + 1);
+            gui.drawText(x, y, line,"#00ff00");
+            y += 1;
         }
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 11/2);
-        pos.setY(15);
-        gui.drawText(pos, "Leaderboard", "#ffffff");
-        pos.setY(pos.getY() + 2);
+        gui.drawText(MENU_SCREEN_WIDTH / 2 - 11/2, 15, "Leaderboard", "#ffffff");
 
+        y = 17;
         for(int i = 0; i < getModel().getNames().size(); i++) {
-            pos.setX(20);
-            gui.drawText(pos, getModel().getNames().get(i), "#ffffff");
-            pos.setX(MENU_SCREEN_WIDTH - 24);
-            gui.drawText(pos, String.format("%04d", getModel().getScores().get(i)), "#ffffff");
-            pos.setY(pos.getY() + 1);
+            gui.drawText(20, y, getModel().getNames().get(i), "#ffffff");
+            gui.drawText(MENU_SCREEN_WIDTH - 24, y, String.format("%04d", getModel().getScores().get(i)), "#ffffff");
+            y += 1;
         }
 
-        pos.setX(MENU_SCREEN_WIDTH / 2 - 9);
-        pos.setY(MENU_SCREEN_HEIGHT - 1);
-        gui.drawText(new Position(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT-2), "Press ESC to go back", "#ffffff");
+        gui.drawText(MENU_SCREEN_WIDTH/2 - 20/2, MENU_SCREEN_HEIGHT - 2, "Press ESC to go back", "#ffffff");
     }
 }

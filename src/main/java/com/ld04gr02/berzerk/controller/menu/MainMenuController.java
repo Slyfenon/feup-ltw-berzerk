@@ -24,7 +24,7 @@ import static com.ld04gr02.berzerk.Game.*;
 public class MainMenuController extends Controller<MainMenu> {
 
 
-    public MainMenuController(MainMenu model) {
+    public MainMenuController(MainMenu model) throws IOException {
         super(model);
         Soundboard.getInstance().getMenuSong().loopSound(-15.0f);
     }
@@ -50,7 +50,6 @@ public class MainMenuController extends Controller<MainMenu> {
                     game.getGui().close();
                     game.setLevel(1);
                     StickMan.setScore(0);
-                    System.out.println(game.getLevel());
                     MazeRenderer mazeRenderer = new MazeRenderer();
                     Maze maze = mazeRenderer.createMaze("maze1.lvl");
                     game.setState(new GameState(maze));
@@ -58,14 +57,13 @@ public class MainMenuController extends Controller<MainMenu> {
                     Soundboard.getInstance().getClick().playSound(0);
                 }
                 else if(getModel().getSelected() == MenuOptions.LEADERBOARD) {
-                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard());
+                    LeaderboardState leaderboardstate = new LeaderboardState(new Leaderboard("/src/main/resources/Leaderboard.brd"));
                     game.setState(leaderboardstate);
                 }
                 else if(getModel().getSelected() == MenuOptions.INSTRUCTIONS){
                     InstructionsMenu instructionsMenu = new InstructionsMenu();
                     game.setState(new InstructionsMenuState(instructionsMenu));
                 }
-                Soundboard.getInstance().getClick().playSound(0);
                 break;
             }
             default:

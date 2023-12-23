@@ -6,6 +6,6 @@ import com.ld04gr02.berzerk.model.game.elements.EvilSmile;
 public class EvilSmileViewer implements ElementViewer<EvilSmile> {
     @Override
     public void display(EvilSmile evilSmile, GUI gui) {
-        gui.drawSprite(evilSmile.getPosition(), Sprites.getEvilSmile(), '#', "#ffff00");
+        gui.drawSprite(evilSmile.getPosition().getX(), evilSmile.getPosition().getY(), Sprites.getEvilSmile(), '#', "#ffff00");
     }
 }

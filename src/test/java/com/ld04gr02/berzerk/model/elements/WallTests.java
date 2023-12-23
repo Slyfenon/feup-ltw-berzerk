@@ -13,4 +13,12 @@ public class WallTests extends Assertions {
         assertEquals(30, wall.getPosition().getX());
         assertEquals(40, wall.getPosition().getY());
     }
+
+    @Test
+    public void isWallTest() {
+        Wall wall = new Wall(30, 40, true);
+        assertTrue(wall.isWall());
+        Wall gate = new Wall(40, 50, false);
+        assertFalse(gate.isWall());
+    }
 }

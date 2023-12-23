@@ -21,13 +21,21 @@ public class MazeController extends GameController {
     private final RobotController robotController;
     private final EvilSmileController evilSmileController;
     private final BulletController bulletController;
-    public MazeController(Maze maze) {
+    public MazeController(Maze maze) throws IOException {
         super(maze);
         this.stickManController = new StickManController(maze);
         this.robotController = new RobotController(maze);
         this.evilSmileController = new EvilSmileController(maze);
         this.bulletController = new BulletController(maze);
         Soundboard.getInstance().getPlaySong().loopSound(-15.0f);
+    }
+
+    public MazeController(Maze maze, StickManController stickManController, RobotController robotController, EvilSmileController evilSmileController, BulletController bulletController) {
+        super(maze);
+        this.stickManController = stickManController;
+        this.robotController = robotController;
+        this.evilSmileController = evilSmileController;
+        this.bulletController = bulletController;
     }
 
     @Override
@@ -48,8 +56,8 @@ public class MazeController extends GameController {
             game.getGui().close();
             GameOverState gameOverState= new GameOverState(new GameOverMenu());
             game.setState(gameOverState);
-            gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
             getModel().getStickMan().setLives(3);
+            gameOverState.initScreen(game.getGui(), MENU_SCREEN_WIDTH, MENU_SCREEN_HEIGHT);
             Soundboard.getInstance().getGameOverSound().playSound(-10.0f);
         }
     }
@@ -59,7 +67,6 @@ public class MazeController extends GameController {
         MazeRenderer mazeRenderer = new MazeRenderer();
         game.levelUp();
         String level = "maze" + (((game.getLevel() - 1) % 8) + 1) + ".lvl";
-        System.out.println(game.getLevel());
         Maze maze = mazeRenderer.createMaze(level);
         game.setState(new GameState(maze));
     }

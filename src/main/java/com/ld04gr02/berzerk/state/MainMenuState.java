@@ -2,7 +2,6 @@ package com.ld04gr02.berzerk.state;
 
 import com.ld04gr02.berzerk.Game;
 import com.ld04gr02.berzerk.controller.Controller;
-//import com.ld04gr02.berzerk.controller.MainMenuController;
 import com.ld04gr02.berzerk.controller.menu.MainMenuController;
 import com.ld04gr02.berzerk.gui.GUI;
 import com.ld04gr02.berzerk.model.menu.MainMenu;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class MainMenuState extends State<MainMenu> {
-    public MainMenuState(MainMenu mainMenu) {
+    public MainMenuState(MainMenu mainMenu) throws IOException {
         super(mainMenu);
     }
 
@@ -24,7 +23,7 @@ public class MainMenuState extends State<MainMenu> {
     }
 
     @Override
-    protected Controller<MainMenu> getController() {
+    protected Controller<MainMenu> getController() throws IOException {
         return new MainMenuController(getModel());
     }
 

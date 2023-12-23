@@ -1,7 +1,6 @@
 package com.ld04gr02.berzerk.controller.menu;
 
 import com.ld04gr02.berzerk.Game;
-import com.ld04gr02.berzerk.Sound;
 import com.ld04gr02.berzerk.Soundboard;
 import com.ld04gr02.berzerk.controller.Controller;
 import com.ld04gr02.berzerk.gui.GUI;
@@ -67,7 +66,6 @@ public class PauseMenuController extends Controller<PauseMenu> {
                     game.setState(new GameState(maze));
                     game.getState().initScreen(game.getGui(), maze.getWidth(), maze.getHeight() + INFO_SECTIONS_HEIGHT);
                 }
-                Soundboard.getInstance().getClick().playSound(0);
                 break;
             }
             default:

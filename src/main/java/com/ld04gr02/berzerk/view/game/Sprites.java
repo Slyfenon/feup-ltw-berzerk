@@ -73,27 +73,6 @@ public class Sprites {
     public static String[] getStickManRight() {
         return STICKMAN_RIGHT;
     }
-    private static final String[] STICKMAN_LEFT = {
-            "   ##",
-            "   ##",
-            "",
-            "  ####",
-            " # ## #",
-            " # ## #",
-            " # ## #",
-            " # ## #",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ##",
-            "   ###",
-            "   #"
-    };
-    public static String[] getStickManLeft() {
-        return STICKMAN_LEFT;
-    }
 
     private static final String[] STICKMAN_SHOOTING_RIGHT = {
             "   ##",
@@ -294,19 +273,6 @@ public class Sprites {
 
     public static int getGameOverLength() {
         return 36;
-    }
-
-    private static final String[] LEADERBOARD = {
-           "██╗     ███████╗ █████╗ ██████╗ ███████╗██████╗ ██████╗  ██████╗  █████╗ ██████╗ ██████╗ ",
-           "██║     ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██╔══██╗██╔══██╗",
-           "██║     █████╗  ███████║██║  ██║█████╗  ██████╔╝██████╔╝██║   ██║███████║██████╔╝██║  ██║",
-           "██║     ██╔══╝  ██╔══██║██║  ██║██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██║██╔══██╗██║  ██║",
-           "███████╗███████╗██║  ██║██████╔╝███████╗██║  ██║██████╔╝╚██████╔╝██║  ██║██║  ██║██████╔╝",
-           "╚══════╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ "
-    };
-
-    public static String[] getLEADERBOARD() {
-        return LEADERBOARD;
     }
 
     private static final String[] HEART = {
@@ -542,14 +508,3 @@ public class Sprites {
         return LEVEL;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameOverState extends State<GameOverMenu> {
-    public GameOverState(GameOverMenu model) {
+    public GameOverState(GameOverMenu model) throws IOException {
         super(model);
     }
 
@@ -43,10 +43,9 @@ public class GameOverState extends State<GameOverMenu> {
             this.viewer.display(gui);
         }
         else {
-            if(getModel().getName().length() <= 10) getModel().getName().append(str);
+            if(getModel().getName().length() < 10) getModel().getName().append(str);
             this.viewer.display(gui);
         }
-
     }
 
     @Override
