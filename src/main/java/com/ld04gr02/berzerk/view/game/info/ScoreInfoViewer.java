@@ -1,18 +1,14 @@
 package com.ld04gr02.berzerk.view.game.info;
 
 import com.ld04gr02.berzerk.gui.GUI;
-import com.ld04gr02.berzerk.model.Position;
 import com.ld04gr02.berzerk.model.game.elements.StickMan;
 import com.ld04gr02.berzerk.view.game.Sprites;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class ScoreInfoViewer implements InfoViewer {
 
     @Override
     public void display(GUI gui) {
-        gui.drawSprite2(135,315, Sprites.getScore(), '#', "#ffffff");
+        gui.drawSprite(135,315, Sprites.getScore(), '#', "#ffffff");
 
         int[] scoreArray = new int[4];
         int score = StickMan.getScore();
@@ -25,7 +21,7 @@ public class ScoreInfoViewer implements InfoViewer {
         int x = 215;
         int y = 315;
         for(int number : scoreArray) {
-            gui.drawSprite2(x, y, Sprites.getNumber(number), '#', "#ffffff");
+            gui.drawSprite(x, y, Sprites.getNumber(number), '#', "#ffffff");
             x += 14;
         }
     }

@@ -13,10 +13,10 @@ public class StickManViewer implements ElementViewer<StickMan> {
         if(stickMan.isMoving()) {
             switch (stickMan.getCurrentDirection()) {
                 case Left:
-                    gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManMovingLeft(), '#', color);
+                    gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManMovingLeft(), '#', color);
                     break;
                 case Up: case Down: case Right:
-                    gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManMovingRight(), '#', color);
+                    gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManMovingRight(), '#', color);
                     break;
                 case None:
                     break;
@@ -26,16 +26,16 @@ public class StickManViewer implements ElementViewer<StickMan> {
             stickMan.setShooting(false);
             switch(stickMan.getCurrentDirection()) {
                 case Up:
-                    gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingUp(), '#', color);
+                    gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingUp(), '#', color);
                     break;
                 case Down:
-                    gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingDown(), '#', color);
+                    gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingDown(), '#', color);
                     break;
                 case Left:
-                    gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingLeft(), '#', color);
+                    gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingLeft(), '#', color);
                     break;
                 case Right:
-                    gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingRight(), '#', color);
+                    gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManShootingRight(), '#', color);
                     break;
                 case None:
                     break;
@@ -43,7 +43,7 @@ public class StickManViewer implements ElementViewer<StickMan> {
         }
         else
         {
-            gui.drawSprite2(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManRight(), '#', color);
+            gui.drawSprite(stickMan.getPosition().getX(), stickMan.getPosition().getY(), Sprites.getStickManRight(), '#', color);
         }
     }
 }

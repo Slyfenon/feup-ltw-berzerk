@@ -185,52 +185,21 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawText(Position position, String text, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
-    }
-
-    @Override
-    public void drawText2(int x, int y, String text, String color) {
+    public void drawText(int x, int y, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y, text);
     }
 
     @Override
-    public void drawBlinkText(Position position, String text, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text, SGR.BLINK);
-    }
-
-    @Override
-    public void drawBlinkText2(int x, int y, String text, String color) {
+    public void drawBlinkText(int x, int y, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y, text, SGR.BLINK);
     }
 
-
-
     @Override
-    public void drawSprite(Position position, String[] sprite, char symbol, String color) {
-        TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString(color));
-
-        int y = 0;
-        for (String s : sprite){
-            for (int x = 0; x < s.length(); x++){
-                if (s.charAt(x) == symbol)
-                    graphics.fillRectangle(new TerminalPosition(position.getX() + x, position.getY() + y),  new TerminalSize(1, 1), ' ');
-            }
-            y += 1;
-        }
-    }
-
-    @Override
-    public void drawSprite2(int posX, int posY, String[] sprite, char symbol, String color) {
+    public void drawSprite(int posX, int posY, String[] sprite, char symbol, String color) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString(color));
 

@@ -1,10 +1,6 @@
 package com.ld04gr02.berzerk.gui;
 
 import com.ld04gr02.berzerk.model.Position;
-import com.ld04gr02.berzerk.model.menu.GameOverMenu;
-import com.ld04gr02.berzerk.model.menu.InstructionsMenu;
-import com.ld04gr02.berzerk.model.menu.MainMenu;
-import com.ld04gr02.berzerk.model.menu.PauseMenu;
 
 import java.awt.*;
 import java.io.IOException;
@@ -21,17 +17,11 @@ public interface GUI {
 
     public void drawWall(Position position, String color);
 
-    public void drawSprite(Position position, String[] sprite, char symbol, String color);
+    public void drawSprite(int posX, int posY, String[] sprite, char symbol, String color);
 
-    public void drawSprite2(int posX, int posY, String[] sprite, char symbol, String color);
+    public void drawText(int x, int y, String text, String color);
 
-    void drawText(Position position, String text, String color);
-
-    public void drawText2(int x, int y, String text, String color);
-
-    void drawBlinkText(Position position, String text, String color);
-
-    public void drawBlinkText2(int x, int y, String text, String color);
+    public void drawBlinkText(int x, int y, String text, String color);
 
     public KEY getPressedKey() throws IOException;
 
