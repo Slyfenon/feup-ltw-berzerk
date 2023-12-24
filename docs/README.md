@@ -205,7 +205,7 @@ We addressed the last remaining collision issues, specifically focusing on bulle
 
 To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/9297d06aadb9deb9277e44078c29971e501cace8).
 
-### Implemeted levels
+#### Implemeted levels
 
 We implemented levels in the game.
 To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/ef94cb14838dc7b374cf2a88fa85e8305f63435b).
