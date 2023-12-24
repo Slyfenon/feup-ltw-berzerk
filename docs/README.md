@@ -6,11 +6,12 @@ This project was developed by *Gonçalo Nunes* (up202205538@up.pt), *Nuno Machad
 
 ### HOW TO PLAY
 - The player controls a StickMan using the keyboard's arrow keys to move in four directions: right, left, up, and down.
--
+- Throughout the map, there are enemies that pursue StickMan, reducing his life if they make contact.
 - Therefore, it's crucial for the player to stay alert and keep a distance from the enemies.
-- To score points, the player must eliminate the robots by shooting bullets with the Space key.
+- To score points, the player must eliminate the robots by shooting bullets with the Space key. Note that robots also shoot at Stickman.
+- The Evil Smile is a special enemy. It is indestructible, doesn't collide with walls or bullets, and pursues the Stickman. Initially, its speed is low. However, its speed increases over time, urging the player to complete each level quickly to avoid being caught by the Evil Smile.
 - Once the last robot is destroyed, the gate (a yellow area on the far right of the map) opens, clearing the path to the next level.
-- The player starts with 3 lives and 0 points. Each destroyed robot adds 50 points to the player's score. The player earns an extra life for every 500 points scored during gameplay
+- The player starts with 3 lives and 0 points. Each destroyed robot adds 50 points to the player's score. The player earns an extra life for every 500 points scored during gameplay.
 
 > Quick reflexes, smart moves, and sharp shooting against a bunch of chasing enemies are key elements to survive and progress in Berzerk!
 
@@ -129,7 +130,7 @@ Game Over
 #### Consequences:
 - Easier maintenance, and updates. Enhances code reusability and scalability.
 
-#### State
+### State
 
 #### Problem in context:
 
