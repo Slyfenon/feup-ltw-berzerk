@@ -22,15 +22,20 @@ This project was developed by *Gonçalo Nunes* (up202205538@up.pt), *Nuno Machad
 - **Leaderboard**: displays top scores achieved by players;
 - **Game Instructions**: provides clear guidance on game rules and controls for players' understanding;
 - **Maze**: reading maze configurations from text files;
-- **Stickman**: Player controls a stickman that must survive by eliminating enemies and avoiding being hit by them, their shots, or the obstacles present in the scenario.
+- **Stickman**: Player controls a stickman that must survive by eliminating enemies and avoiding being hit by them, their shots, or the obstacles present in the scenario;
 - **StickMan Movement**: through player inputs;
 - **Enemies**: robots chase the StickMan (some shoot in the player's direction), EvilSmile is a indestructible enemy that pursues the player, increasing difficulty and encouraging constant movement.
-- **Shots and Collisions**: development of shooting and collision mechanics for the main character and enemies. Being hit by shots, colliding with enemies or being electrocuted by the electrified walls results in the loss of a life. If two robots collide, they kill each other. Evil Smile is immune to collisions, but kills robots and the player.
+- **Shots and Collisions**: development of shooting and collision mechanics for the main character and enemies. Being hit by shots, colliding with enemies or being electrocuted by the electrified walls results in the loss of a life. If two robots collide, they kill each other. Evil Smile is immune to collisions, but kills robots and the player;
 - **Scoring**: scoring system rewards the player for destroying enemies (max. score = 9950);
 - **Lives**: the player begins the game with 3 lives and can have a max. of 5 lives, the player earns an extra life for every 500 points scored during gameplay;
-- **Levels**: The gate of the maze opens after the player kills all the robots, and upon crossing the gate, the player advances to the next level (max. displayed level: 99, but the game continues beyond that point ).
+- **Levels**: The gate of the maze opens after the player kills all the robots, and upon crossing the gate, the player advances to the next level (max. displayed level: 99, but the game continues beyond that point );
 - **Game Over Screen**: the game continues until the player loses all their lives. When this happens, the game ends, and the player has the option to record the achieved score (which will be saved only if it qualifies to enter the leaderboard);
 - **Sound Effects**: distinct sounds for the menu, gameplay ambiance, shooting actions, and collision events.
+
+## PLANNED FEATURES
+- Different StickMan Power Ups;
+
+> We integrated additional functionalities into the game; however, we did not proceed to implement the StickMan Power-Ups.
 
 ## MOCKUPS
 
@@ -144,6 +149,15 @@ Game Over
 Class Diagram:
 ![](images/state.png)
 
+- These classes can be found in:
+  - [State](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/state/State.java)
+  - [GameOverState](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/state/GameState.java)
+  - [InstructionsMenuState](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/state/InstructionsMenuState.java)
+  - [LeaderboardState](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/state/LeaderboardState.java)
+  - [MainMenuState](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/state/MainMenuState.java)
+  - [PauseMenuState](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/state/PauseMenuState.java)
+
+
 State Diagram:
 <div>
 <img width="400" alt="mvc" src=images/stateDiagram.png>
@@ -168,6 +182,8 @@ State Diagram:
 <div>
 <img width="400" alt="mvc" src=images/singleton.png>
 </div>
+
+- The class Soundboard can be found [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/blob/main/src/main/java/com/ld04gr02/berzerk/Soundboard.java).
 
 #### Consequences:
 - **Pros**: guarantees a single instance throughout the application, offering a global access point for that instance; allows a more efficient management of resources, avoiding redundant object creation;
@@ -208,6 +224,7 @@ To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02
 #### Implemeted levels
 
 We implemented levels in the game.
+
 To see the commit click [here](https://github.com/FEUP-LDTS-2023/project-l04gr02/commit/ef94cb14838dc7b374cf2a88fa85e8305f63435b).
 
 
